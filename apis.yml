@@ -1,0 +1,114 @@
+aid: reactome
+name: Reactome
+description: >-
+  Reactome is a free, open-source, curated, and peer-reviewed biological pathway
+  database. It provides comprehensive pathway data covering human biology and
+  orthologous reactions for over 14 non-human species including mouse, rat,
+  yeast, and fruit fly. The platform exposes two primary REST APIs — the Content
+  Service for querying pathway data, molecular interactions, species comparisons,
+  and reaction network visualization, and the Analysis Service for pathway
+  enrichment analysis of gene and protein identifier lists. Both APIs are freely
+  accessible without authentication, fully documented with OpenAPI (Swagger), and
+  cross-referenced with major biological databases including NCBI, Ensembl,
+  UniProt, KEGG, ChEBI, PubMed, and Gene Ontology. Data is authored by expert
+  biologist researchers and maintained by Reactome editorial staff.
+type: Index
+position: Provider
+access: Public
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Biological Pathways
+  - Bioinformatics
+  - Life Sciences
+  - Pathway Analysis
+  - Gene Enrichment
+  - Molecular Interactions
+  - Systems Biology
+  - Open Science
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/reactome/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+apis:
+  - aid: reactome:content-service
+    name: Reactome Content Service API
+    description: >-
+      The Reactome Content Service provides programmatic access to all
+      knowledgebase content including pathways, reactions, physical entities,
+      complexes, and molecular interactions. It supports querying by
+      identifier, retrieving pathway hierarchies, exporting pathway diagrams
+      in multiple formats (PNG, JPG, SVG, PDF, SBML, SBGN), searching via
+      Solr full-text search, querying PSICQUIC interactor databases, and
+      mapping external identifiers to Reactome entities. The API covers human
+      biology as well as orthologous reactions for over 14 species. No
+      authentication is required and the API is free to use for research
+      purposes.
+    humanURL: https://reactome.org/dev/content-service
+    baseURL: https://reactome.org/ContentService
+    tags:
+      - Pathways
+      - Reactions
+      - Molecular Interactions
+      - Diagram Export
+      - Species Orthology
+      - Search
+      - Interactors
+    properties:
+      - type: Documentation
+        url: https://reactome.org/dev/content-service
+      - type: OpenAPI
+        url: https://reactome.org/ContentService/v2/api-docs
+      - type: SwaggerUI
+        url: https://reactome.org/ContentService/
+  - aid: reactome:analysis-service
+    name: Reactome Analysis Service API
+    description: >-
+      The Reactome Analysis Service enables pathway enrichment analysis for
+      lists of gene or protein identifiers. Users can submit identifier lists
+      via direct POST, file upload, or URL reference. The service
+      automatically detects overrepresentation analysis for identifier lists
+      or expression analysis for tab-separated values with numeric expression
+      data. Results include pathway hit data, p-values, false discovery rate
+      (FDR), and entity and reaction counts. Analysis results are assigned a
+      token valid for 7 days, allowing subsequent retrieval, filtering by
+      species, pagination, and PDF report generation without resubmitting
+      data. Species comparison against Homo sapiens is also supported.
+    humanURL: https://reactome.org/dev/analysis
+    baseURL: https://reactome.org/AnalysisService
+    tags:
+      - Pathway Enrichment
+      - Overrepresentation Analysis
+      - Expression Analysis
+      - Species Comparison
+      - Gene Lists
+      - Protein Identifiers
+    properties:
+      - type: Documentation
+        url: https://reactome.org/dev/analysis
+      - type: SwaggerUI
+        url: https://reactome.org/AnalysisService/
+common:
+  - type: Website
+    url: https://reactome.org/
+  - type: Documentation
+    url: https://reactome.org/documentation
+  - type: DeveloperPortal
+    url: https://reactome.org/dev
+  - type: DataModel
+    url: https://reactome.org/documentation/data-model
+  - type: FAQ
+    url: https://reactome.org/documentation/faq
+  - type: GitHub
+    url: https://github.com/reactome
+  - type: Blog
+    url: https://reactome.org/about/news
+  - type: License
+    url: https://reactome.org/license
+  - type: Contact
+    url: https://reactome.org/about/contact-us
+  - type: About
+    url: https://reactome.org/about
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

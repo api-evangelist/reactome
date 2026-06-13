@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/analysis-service/ExternalInteraction",
+  "title": "ExternalInteraction",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "interactsWith": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ExternalMainIdentifier"
+      }
+    }
+  }
+}

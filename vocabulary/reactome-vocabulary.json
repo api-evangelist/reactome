@@ -1,0 +1,2850 @@
+{
+  "title": "Reactome API Vocabulary",
+  "description": "Terms, concepts, and data model vocabulary extracted from Reactome Content Service and Analysis Service APIs",
+  "source": [
+    "https://reactome.org/ContentService/v3/api-docs",
+    "https://reactome.org/AnalysisService/v3/api-docs"
+  ],
+  "terms": {
+    "events": {
+      "description": "Reactome Data: Queries related to events",
+      "source": "content-service",
+      "type": "tag"
+    },
+    "entities": {
+      "description": "Reactome Data: PhysicalEntity queries",
+      "source": "content-service",
+      "type": "tag"
+    },
+    "mapping": {
+      "description": "Identifiers mapping methods",
+      "source": "analysis-service",
+      "type": "tag"
+    },
+    "species": {
+      "description": "Species comparison",
+      "source": "analysis-service",
+      "type": "tag"
+    },
+    "participants": {
+      "description": "Reactome Data: Queries related to participants",
+      "source": "content-service",
+      "type": "tag"
+    },
+    "schema": {
+      "description": "Reactome Data: Schema class queries",
+      "source": "content-service",
+      "type": "tag"
+    },
+    "discover": {
+      "description": "Reactome Data: Search engines discovery schema",
+      "source": "content-service",
+      "type": "tag"
+    },
+    "orthology": {
+      "description": "Reactome Data: Orthology related queries",
+      "source": "content-service",
+      "type": "tag"
+    },
+    "person": {
+      "description": "Reactome Data: Person queries",
+      "source": "content-service",
+      "type": "tag"
+    },
+    "interactors": {
+      "description": "Molecule interactors",
+      "source": "content-service",
+      "type": "tag"
+    },
+    "references": {
+      "description": "Reactome xRefs: ReferenceEntity queries",
+      "source": "content-service",
+      "type": "tag"
+    },
+    "pathways": {
+      "description": "Reactome Data: Pathway related queries",
+      "source": "content-service",
+      "type": "tag"
+    },
+    "query": {
+      "description": "Reactome Data: Common data retrieval",
+      "source": "content-service",
+      "type": "tag"
+    },
+    "diseases": {
+      "description": "Reactome Data: Disease related queries",
+      "source": "content-service",
+      "type": "tag"
+    },
+    "database": {
+      "description": "Database info queries",
+      "source": "analysis-service",
+      "type": "tag"
+    },
+    "exporter": {
+      "description": "Reactome Data: Format Exporter",
+      "source": "content-service",
+      "type": "tag"
+    },
+    "search": {
+      "description": "Reactome Search",
+      "source": "content-service",
+      "type": "tag"
+    },
+    "ComponentOf": {
+      "description": "Schema model for ComponentOf",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "ComponentOf.names": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "ComponentOf"
+    },
+    "ComponentOf.schemaClasses": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "ComponentOf"
+    },
+    "ComponentOf.species": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "ComponentOf"
+    },
+    "ComponentOf.stIds": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "ComponentOf"
+    },
+    "ComponentOf.type": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "ComponentOf"
+    },
+    "CrossReferenceResult": {
+      "description": "Schema model for CrossReferenceResult",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "CrossReferenceResult.crossReferences": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CrossReferenceResult"
+    },
+    "CrossReferenceResult.physicalEntities": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CrossReferenceResult"
+    },
+    "CrossReferenceResult.reference": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CrossReferenceResult"
+    },
+    "CustomInteraction": {
+      "description": "Schema model for CustomInteraction",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "CustomInteraction.databaseName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CustomInteraction"
+    },
+    "CustomInteraction.dbId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CustomInteraction"
+    },
+    "CustomInteraction.displayName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CustomInteraction"
+    },
+    "CustomInteraction.entitiesCount": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CustomInteraction"
+    },
+    "CustomInteraction.evidenceCount": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CustomInteraction"
+    },
+    "CustomInteraction.evidenceURL": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CustomInteraction"
+    },
+    "CustomInteraction.geneName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CustomInteraction"
+    },
+    "CustomInteraction.identifier": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CustomInteraction"
+    },
+    "CustomInteraction.score": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CustomInteraction"
+    },
+    "CustomInteraction.speciesName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CustomInteraction"
+    },
+    "CustomInteraction.url": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CustomInteraction"
+    },
+    "CustomInteraction.variantIdentifier": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CustomInteraction"
+    },
+    "CustomPsicquicResource": {
+      "description": "Schema model for CustomPsicquicResource",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "CustomPsicquicResource.summary": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "CustomPsicquicResource"
+    },
+    "DatabaseObject": {
+      "description": "Schema model for DatabaseObject",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "DatabaseObject.className": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "DatabaseObject"
+    },
+    "DatabaseObject.created": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "DatabaseObject"
+    },
+    "DatabaseObject.dbId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "DatabaseObject"
+    },
+    "DatabaseObject.displayName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "DatabaseObject"
+    },
+    "DatabaseObject.modified": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "DatabaseObject"
+    },
+    "DatabaseObject.schemaClass": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "DatabaseObject"
+    },
+    "DatabaseObject.stId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "DatabaseObject"
+    },
+    "DatabaseObject.stIdVersion": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "DatabaseObject"
+    },
+    "DiagramOccurrencesResult": {
+      "description": "Schema model for DiagramOccurrencesResult",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "DiagramOccurrencesResult.diagramEntity": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "DiagramOccurrencesResult"
+    },
+    "DiagramOccurrencesResult.inDiagram": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "DiagramOccurrencesResult"
+    },
+    "DiagramOccurrencesResult.interactsWith": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "DiagramOccurrencesResult"
+    },
+    "DiagramOccurrencesResult.occurrences": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "DiagramOccurrencesResult"
+    },
+    "DiagramResult": {
+      "description": "Schema model for DiagramResult",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "DiagramResult.entries": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "DiagramResult"
+    },
+    "DiagramResult.facets": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "DiagramResult"
+    },
+    "DiagramResult.found": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "DiagramResult"
+    },
+    "Entry": {
+      "description": "Schema model for Entry",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "Entry.authoredPathways": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.authoredReactions": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.compartmentAccession": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.compartmentNames": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.databaseName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.date": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.dbId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.deleted": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.disease": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.exactType": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.explanation": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.fireworksSpecies": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.hasEHLD": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.hasReferenceEntity": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.icon": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.iconCategories": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.iconCuratorName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.iconCuratorOrcidId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.iconCuratorUrl": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.iconDesignerName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.iconDesignerOrcidId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.iconDesignerUrl": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.iconEhlds": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.iconName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.iconPhysicalEntities": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.iconReferences": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.id": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.instanceTypeExplanation": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.isDisease": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.name": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.orcidId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.reason": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.referenceIdentifier": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.referenceName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.referenceURL": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.regulatedEntity": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.regulatedEntityId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.regulator": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.regulatorId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.replacementDbIds": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.replacementStIds": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.reviewedPathways": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.reviewedReactions": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.species": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.stId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.summation": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "Entry.type": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Entry"
+    },
+    "EventProjection": {
+      "description": "Schema model for EventProjection",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "EventProjection.category": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.dbId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.definition": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.diagramHeight": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.diagramWidth": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.displayName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.doi": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.hasDiagram": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.hasEHLD": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.inDisease": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.inferred": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.isCanonical": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.name": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.oldStId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.releaseDate": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.releaseStatus": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.schemaClass": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.speciesName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.stId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "EventProjection.stIdVersion": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "EventProjection"
+    },
+    "FacetContainer": {
+      "description": "Schema model for FacetContainer",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "FacetContainer.count": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FacetContainer"
+    },
+    "FacetContainer.name": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FacetContainer"
+    },
+    "FacetList": {
+      "description": "Schema model for FacetList",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "FacetList.available": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FacetList"
+    },
+    "FacetList.selected": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FacetList"
+    },
+    "FacetMapping": {
+      "description": "Schema model for FacetMapping",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "FacetMapping.compartmentFacet": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FacetMapping"
+    },
+    "FacetMapping.iconCategoriesFacet": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FacetMapping"
+    },
+    "FacetMapping.keywordFacet": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FacetMapping"
+    },
+    "FacetMapping.speciesFacet": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FacetMapping"
+    },
+    "FacetMapping.totalNumFount": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FacetMapping"
+    },
+    "FacetMapping.typeFacet": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FacetMapping"
+    },
+    "FireworksOccurrencesResult": {
+      "description": "Schema model for FireworksOccurrencesResult",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "FireworksOccurrencesResult.interactsWith": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FireworksOccurrencesResult"
+    },
+    "FireworksOccurrencesResult.llps": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FireworksOccurrencesResult"
+    },
+    "FireworksResult": {
+      "description": "Schema model for FireworksResult",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "FireworksResult.entries": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FireworksResult"
+    },
+    "FireworksResult.facets": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FireworksResult"
+    },
+    "FireworksResult.found": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FireworksResult"
+    },
+    "FireworksResult.targetResults": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "FireworksResult"
+    },
+    "GroupedResult": {
+      "description": "Schema model for GroupedResult",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "GroupedResult.numberOfGroups": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "GroupedResult"
+    },
+    "GroupedResult.numberOfMatches": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "GroupedResult"
+    },
+    "GroupedResult.results": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "GroupedResult"
+    },
+    "GroupedResult.rowCount": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "GroupedResult"
+    },
+    "GroupedResult.targetResults": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "GroupedResult"
+    },
+    "IconPhysicalEntity": {
+      "description": "Schema model for IconPhysicalEntity",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "IconPhysicalEntity.compartments": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "IconPhysicalEntity"
+    },
+    "IconPhysicalEntity.displayName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "IconPhysicalEntity"
+    },
+    "IconPhysicalEntity.name": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "IconPhysicalEntity"
+    },
+    "IconPhysicalEntity.stId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "IconPhysicalEntity"
+    },
+    "IconPhysicalEntity.type": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "IconPhysicalEntity"
+    },
+    "Interactor": {
+      "description": "List of Interactors that interacts with the given accession.",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "Interactor.acc": {
+      "description": "This is the interactor accession (or identifier).",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Interactor"
+    },
+    "Interactor.accURL": {
+      "description": "This represents the URL for given accession.",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Interactor"
+    },
+    "Interactor.alias": {
+      "description": "This is the Gene name of the given accession.",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Interactor"
+    },
+    "Interactor.evidences": {
+      "description": "This is the Interactions evidences.",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Interactor"
+    },
+    "Interactor.evidencesURL": {
+      "description": "This represents the URL for the given interactions identifiers.",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Interactor"
+    },
+    "Interactor.id": {
+      "description": "This is an auto increment counter which represents an unique number for the interaction.",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Interactor"
+    },
+    "Interactor.score": {
+      "description": "This represents the confidence value (score) of an interaction.",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Interactor"
+    },
+    "InteractorEntity": {
+      "description": "This is the list of entities which have been requested.",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "InteractorEntity.acc": {
+      "description": "This is the interactor accession (or identifier).",
+      "source": "content-service",
+      "type": "property",
+      "schema": "InteractorEntity"
+    },
+    "InteractorEntity.count": {
+      "description": "This is the number of interactions for the given accession.",
+      "source": "content-service",
+      "type": "property",
+      "schema": "InteractorEntity"
+    },
+    "InteractorEntity.interactors": {
+      "description": "List of Interactors that interacts with the given accession.",
+      "source": "content-service",
+      "type": "property",
+      "schema": "InteractorEntity"
+    },
+    "Interactors": {
+      "description": "Schema model for Interactors",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "Interactors.entities": {
+      "description": "This is the list of entities which have been requested.",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Interactors"
+    },
+    "Interactors.resource": {
+      "description": "This is the resource where interactors have been queried.",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Interactors"
+    },
+    "PageMapStringCollectionCrossReferenceResult": {
+      "description": "Schema model for PageMapStringCollectionCrossReferenceResult",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "PageMapStringCollectionCrossReferenceResult.content": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageMapStringCollectionCrossReferenceResult"
+    },
+    "PageMapStringCollectionCrossReferenceResult.empty": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageMapStringCollectionCrossReferenceResult"
+    },
+    "PageMapStringCollectionCrossReferenceResult.first": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageMapStringCollectionCrossReferenceResult"
+    },
+    "PageMapStringCollectionCrossReferenceResult.last": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageMapStringCollectionCrossReferenceResult"
+    },
+    "PageMapStringCollectionCrossReferenceResult.number": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageMapStringCollectionCrossReferenceResult"
+    },
+    "PageMapStringCollectionCrossReferenceResult.numberOfElements": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageMapStringCollectionCrossReferenceResult"
+    },
+    "PageMapStringCollectionCrossReferenceResult.pageable": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageMapStringCollectionCrossReferenceResult"
+    },
+    "PageMapStringCollectionCrossReferenceResult.size": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageMapStringCollectionCrossReferenceResult"
+    },
+    "PageMapStringCollectionCrossReferenceResult.sort": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageMapStringCollectionCrossReferenceResult"
+    },
+    "PageMapStringCollectionCrossReferenceResult.totalElements": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageMapStringCollectionCrossReferenceResult"
+    },
+    "PageMapStringCollectionCrossReferenceResult.totalPages": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageMapStringCollectionCrossReferenceResult"
+    },
+    "PageableObject": {
+      "description": "Schema model for PageableObject",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "PageableObject.offset": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageableObject"
+    },
+    "PageableObject.pageNumber": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageableObject"
+    },
+    "PageableObject.pageSize": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageableObject"
+    },
+    "PageableObject.paged": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageableObject"
+    },
+    "PageableObject.sort": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageableObject"
+    },
+    "PageableObject.unpaged": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PageableObject"
+    },
+    "Participant": {
+      "description": "Schema model for Participant",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "Participant.displayName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Participant"
+    },
+    "Participant.peDbId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Participant"
+    },
+    "Participant.refEntities": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Participant"
+    },
+    "Participant.schemaClass": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Participant"
+    },
+    "ParticipantRefEntities": {
+      "description": "Schema model for ParticipantRefEntities",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "ParticipantRefEntities.dbId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "ParticipantRefEntities"
+    },
+    "ParticipantRefEntities.displayName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "ParticipantRefEntities"
+    },
+    "ParticipantRefEntities.icon": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "ParticipantRefEntities"
+    },
+    "ParticipantRefEntities.identifier": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "ParticipantRefEntities"
+    },
+    "ParticipantRefEntities.schemaClass": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "ParticipantRefEntities"
+    },
+    "ParticipantRefEntities.stId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "ParticipantRefEntities"
+    },
+    "ParticipantRefEntities.url": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "ParticipantRefEntities"
+    },
+    "PathwayBrowserNode": {
+      "description": "Schema model for PathwayBrowserNode",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "PathwayBrowserNode.children": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PathwayBrowserNode"
+    },
+    "PathwayBrowserNode.diagram": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PathwayBrowserNode"
+    },
+    "PathwayBrowserNode.name": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PathwayBrowserNode"
+    },
+    "PathwayBrowserNode.species": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PathwayBrowserNode"
+    },
+    "PathwayBrowserNode.stId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PathwayBrowserNode"
+    },
+    "PathwayBrowserNode.type": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PathwayBrowserNode"
+    },
+    "PathwayBrowserNode.url": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PathwayBrowserNode"
+    },
+    "PsicquicResource": {
+      "description": "Schema model for PsicquicResource",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "PsicquicResource.active": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PsicquicResource"
+    },
+    "PsicquicResource.name": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PsicquicResource"
+    },
+    "PsicquicResource.restURL": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PsicquicResource"
+    },
+    "PsicquicResource.soapURL": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "PsicquicResource"
+    },
+    "Result": {
+      "description": "Schema model for Result",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "Result.entries": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Result"
+    },
+    "Result.entriesCount": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Result"
+    },
+    "Result.rowCount": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Result"
+    },
+    "Result.typeName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Result"
+    },
+    "SchemaCreator": {
+      "description": "Schema model for SchemaCreator",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "SchemaDataCatalog": {
+      "description": "Schema model for SchemaDataCatalog",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "SchemaDataCatalog.@type": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataCatalog"
+    },
+    "SchemaDataCatalog.name": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataCatalog"
+    },
+    "SchemaDataCatalog.url": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataCatalog"
+    },
+    "SchemaDataDownload": {
+      "description": "Schema model for SchemaDataDownload",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "SchemaDataDownload.@type": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataDownload"
+    },
+    "SchemaDataDownload.contentUrl": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataDownload"
+    },
+    "SchemaDataDownload.encodingFormat": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataDownload"
+    },
+    "SchemaDataDownload.fileFormat": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataDownload"
+    },
+    "SchemaDataSet": {
+      "description": "Schema model for SchemaDataSet",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "SchemaDataSet.@context": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataSet"
+    },
+    "SchemaDataSet.@type": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataSet"
+    },
+    "SchemaDataSet.citation": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataSet"
+    },
+    "SchemaDataSet.creator": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataSet"
+    },
+    "SchemaDataSet.description": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataSet"
+    },
+    "SchemaDataSet.distribution": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataSet"
+    },
+    "SchemaDataSet.includedInDataCatalog": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataSet"
+    },
+    "SchemaDataSet.keywords": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataSet"
+    },
+    "SchemaDataSet.license": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataSet"
+    },
+    "SchemaDataSet.name": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataSet"
+    },
+    "SchemaDataSet.sameAs": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataSet"
+    },
+    "SchemaDataSet.url": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataSet"
+    },
+    "SchemaDataSet.version": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaDataSet"
+    },
+    "SchemaNode": {
+      "description": "Schema model for SchemaNode",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "SchemaNode.children": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaNode"
+    },
+    "SchemaNode.className": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaNode"
+    },
+    "SchemaNode.count": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SchemaNode"
+    },
+    "ShortCrossReference": {
+      "description": "Schema model for ShortCrossReference",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "ShortCrossReference.databaseName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "ShortCrossReference"
+    },
+    "ShortCrossReference.identifier": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "ShortCrossReference"
+    },
+    "ShortCrossReference.url": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "ShortCrossReference"
+    },
+    "SimpleDatabaseObject": {
+      "description": "Schema model for SimpleDatabaseObject",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "SimpleDatabaseObject.dbId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleDatabaseObject"
+    },
+    "SimpleDatabaseObject.displayName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleDatabaseObject"
+    },
+    "SimpleDatabaseObject.labels": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleDatabaseObject"
+    },
+    "SimpleDatabaseObject.schemaClass": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleDatabaseObject"
+    },
+    "SimpleDatabaseObject.stId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleDatabaseObject"
+    },
+    "SimpleEventProjection": {
+      "description": "Schema model for SimpleEventProjection",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "SimpleEventProjection.authorDbId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleEventProjection"
+    },
+    "SimpleEventProjection.dateTime": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleEventProjection"
+    },
+    "SimpleEventProjection.dbId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleEventProjection"
+    },
+    "SimpleEventProjection.displayName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleEventProjection"
+    },
+    "SimpleEventProjection.doi": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleEventProjection"
+    },
+    "SimpleEventProjection.labels": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleEventProjection"
+    },
+    "SimpleEventProjection.schemaClass": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleEventProjection"
+    },
+    "SimpleEventProjection.speciesName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleEventProjection"
+    },
+    "SimpleEventProjection.stId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleEventProjection"
+    },
+    "SimpleReferenceObject": {
+      "description": "Schema model for SimpleReferenceObject",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "SimpleReferenceObject.databaseName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleReferenceObject"
+    },
+    "SimpleReferenceObject.dbId": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleReferenceObject"
+    },
+    "SimpleReferenceObject.identifier": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "SimpleReferenceObject"
+    },
+    "Sort": {
+      "description": "Schema model for Sort",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "Sort.empty": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Sort"
+    },
+    "Sort.sorted": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Sort"
+    },
+    "Sort.unsorted": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Sort"
+    },
+    "Summary": {
+      "description": "Schema model for Summary",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "Summary.fileName": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Summary"
+    },
+    "Summary.interactions": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Summary"
+    },
+    "Summary.interactors": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Summary"
+    },
+    "Summary.name": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Summary"
+    },
+    "Summary.token": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "Summary"
+    },
+    "TargetResult": {
+      "description": "Schema model for TargetResult",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "TargetResult.resource": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "TargetResult"
+    },
+    "TargetResult.target": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "TargetResult"
+    },
+    "TargetResult.term": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "TargetResult"
+    },
+    "TupleResult": {
+      "description": "Schema model for TupleResult",
+      "source": "content-service",
+      "type": "schema"
+    },
+    "TupleResult.summary": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "TupleResult"
+    },
+    "TupleResult.warningMessages": {
+      "description": "",
+      "source": "content-service",
+      "type": "property",
+      "schema": "TupleResult"
+    },
+    "identifier": {
+      "description": "Queries for only one identifier",
+      "source": "analysis-service",
+      "type": "tag"
+    },
+    "report": {
+      "description": "Retrieves report files in PDF format",
+      "source": "analysis-service",
+      "type": "tag"
+    },
+    "token": {
+      "description": "Previous queries filter",
+      "source": "analysis-service",
+      "type": "tag"
+    },
+    "download": {
+      "description": "Methods to download different views of a result",
+      "source": "analysis-service",
+      "type": "tag"
+    },
+    "import": {
+      "description": "Imports an external result",
+      "source": "analysis-service",
+      "type": "tag"
+    },
+    "identifiers": {
+      "description": "Queries for multiple identifiers",
+      "source": "analysis-service",
+      "type": "tag"
+    },
+    "AnalysisResult": {
+      "description": "Schema model for AnalysisResult",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "AnalysisResult.expression": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisResult"
+    },
+    "AnalysisResult.identifiersNotFound": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisResult"
+    },
+    "AnalysisResult.pathways": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisResult"
+    },
+    "AnalysisResult.pathwaysFound": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisResult"
+    },
+    "AnalysisResult.resourceSummary": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisResult"
+    },
+    "AnalysisResult.speciesSummary": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisResult"
+    },
+    "AnalysisResult.summary": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisResult"
+    },
+    "AnalysisResult.warnings": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisResult"
+    },
+    "AnalysisSummary": {
+      "description": "Schema model for AnalysisSummary",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "AnalysisSummary.fileName": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisSummary"
+    },
+    "AnalysisSummary.gsaMethod": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisSummary"
+    },
+    "AnalysisSummary.gsaToken": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisSummary"
+    },
+    "AnalysisSummary.includeDisease": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisSummary"
+    },
+    "AnalysisSummary.interactors": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisSummary"
+    },
+    "AnalysisSummary.projection": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisSummary"
+    },
+    "AnalysisSummary.sampleName": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisSummary"
+    },
+    "AnalysisSummary.species": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisSummary"
+    },
+    "AnalysisSummary.text": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisSummary"
+    },
+    "AnalysisSummary.token": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisSummary"
+    },
+    "AnalysisSummary.type": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "AnalysisSummary"
+    },
+    "Bin": {
+      "description": "Schema model for Bin",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "Bin.key": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "Bin"
+    },
+    "Bin.value": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "Bin"
+    },
+    "EntityStatistics": {
+      "description": "Schema model for EntityStatistics",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "EntityStatistics.curatedFound": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "EntityStatistics"
+    },
+    "EntityStatistics.curatedTotal": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "EntityStatistics"
+    },
+    "EntityStatistics.exp": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "EntityStatistics"
+    },
+    "EntityStatistics.fdr": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "EntityStatistics"
+    },
+    "EntityStatistics.found": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "EntityStatistics"
+    },
+    "EntityStatistics.getpValue": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "EntityStatistics"
+    },
+    "EntityStatistics.interactorsFound": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "EntityStatistics"
+    },
+    "EntityStatistics.interactorsTotal": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "EntityStatistics"
+    },
+    "EntityStatistics.ratio": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "EntityStatistics"
+    },
+    "EntityStatistics.resource": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "EntityStatistics"
+    },
+    "EntityStatistics.total": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "EntityStatistics"
+    },
+    "ExpressionSummary": {
+      "description": "Schema model for ExpressionSummary",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "ExpressionSummary.columnNames": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExpressionSummary"
+    },
+    "ExpressionSummary.max": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExpressionSummary"
+    },
+    "ExpressionSummary.min": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExpressionSummary"
+    },
+    "ExternalAnalysisReaction": {
+      "description": "Schema model for ExternalAnalysisReaction",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "ExternalAnalysisReaction.dbId": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisReaction"
+    },
+    "ExternalAnalysisReaction.resources": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisReaction"
+    },
+    "ExternalAnalysisReaction.stId": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisReaction"
+    },
+    "ExternalAnalysisResult": {
+      "description": "Schema model for ExternalAnalysisResult",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "ExternalAnalysisResult.expressionSummary": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisResult"
+    },
+    "ExternalAnalysisResult.notFound": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisResult"
+    },
+    "ExternalAnalysisResult.pathways": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisResult"
+    },
+    "ExternalAnalysisResult.summary": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisResult"
+    },
+    "ExternalAnalysisResult.warnings": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisResult"
+    },
+    "ExternalAnalysisSummary": {
+      "description": "Schema model for ExternalAnalysisSummary",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "ExternalAnalysisSummary.gsaMethod": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisSummary"
+    },
+    "ExternalAnalysisSummary.gsaToken": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisSummary"
+    },
+    "ExternalAnalysisSummary.includeDisease": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisSummary"
+    },
+    "ExternalAnalysisSummary.interactors": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisSummary"
+    },
+    "ExternalAnalysisSummary.projection": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisSummary"
+    },
+    "ExternalAnalysisSummary.sampleName": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisSummary"
+    },
+    "ExternalAnalysisSummary.server": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisSummary"
+    },
+    "ExternalAnalysisSummary.token": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisSummary"
+    },
+    "ExternalAnalysisSummary.type": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisSummary"
+    },
+    "ExternalAnalysisSummary.version": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalAnalysisSummary"
+    },
+    "ExternalExpressionSummary": {
+      "description": "Schema model for ExternalExpressionSummary",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "ExternalExpressionSummary.columnNames": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalExpressionSummary"
+    },
+    "ExternalExpressionSummary.max": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalExpressionSummary"
+    },
+    "ExternalExpressionSummary.min": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalExpressionSummary"
+    },
+    "ExternalIdentifier": {
+      "description": "Schema model for ExternalIdentifier",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "ExternalIdentifier.exp": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalIdentifier"
+    },
+    "ExternalIdentifier.id": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalIdentifier"
+    },
+    "ExternalIdentifier.mapsTo": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalIdentifier"
+    },
+    "ExternalInteraction": {
+      "description": "Schema model for ExternalInteraction",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "ExternalInteraction.id": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalInteraction"
+    },
+    "ExternalInteraction.interactsWith": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalInteraction"
+    },
+    "ExternalInteractor": {
+      "description": "Schema model for ExternalInteractor",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "ExternalInteractor.exp": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalInteractor"
+    },
+    "ExternalInteractor.id": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalInteractor"
+    },
+    "ExternalInteractor.mapsTo": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalInteractor"
+    },
+    "ExternalMainIdentifier": {
+      "description": "Schema model for ExternalMainIdentifier",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "ExternalMainIdentifier.id": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalMainIdentifier"
+    },
+    "ExternalMainIdentifier.resource": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalMainIdentifier"
+    },
+    "ExternalPathwayNodeData": {
+      "description": "Schema model for ExternalPathwayNodeData",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "ExternalPathwayNodeData.entities": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalPathwayNodeData"
+    },
+    "ExternalPathwayNodeData.interactors": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalPathwayNodeData"
+    },
+    "ExternalPathwayNodeData.reactions": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalPathwayNodeData"
+    },
+    "ExternalPathwayNodeData.statistics": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalPathwayNodeData"
+    },
+    "ExternalPathwayNodeSummary": {
+      "description": "Schema model for ExternalPathwayNodeSummary",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "ExternalPathwayNodeSummary.data": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalPathwayNodeSummary"
+    },
+    "ExternalPathwayNodeSummary.dbId": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalPathwayNodeSummary"
+    },
+    "ExternalPathwayNodeSummary.inDisease": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalPathwayNodeSummary"
+    },
+    "ExternalPathwayNodeSummary.llp": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalPathwayNodeSummary"
+    },
+    "ExternalPathwayNodeSummary.name": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalPathwayNodeSummary"
+    },
+    "ExternalPathwayNodeSummary.species": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalPathwayNodeSummary"
+    },
+    "ExternalPathwayNodeSummary.stId": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalPathwayNodeSummary"
+    },
+    "ExternalSpeciesNode": {
+      "description": "Schema model for ExternalSpeciesNode",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "ExternalSpeciesNode.name": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalSpeciesNode"
+    },
+    "ExternalSpeciesNode.speciesID": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalSpeciesNode"
+    },
+    "ExternalSpeciesNode.taxID": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalSpeciesNode"
+    },
+    "ExternalStatistics": {
+      "description": "Schema model for ExternalStatistics",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "ExternalStatistics.entitiesAndInteractorsCount": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalStatistics"
+    },
+    "ExternalStatistics.entitiesAndInteractorsFound": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalStatistics"
+    },
+    "ExternalStatistics.entitiesCount": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalStatistics"
+    },
+    "ExternalStatistics.entitiesFDR": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalStatistics"
+    },
+    "ExternalStatistics.entitiesFound": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalStatistics"
+    },
+    "ExternalStatistics.entitiesPValue": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalStatistics"
+    },
+    "ExternalStatistics.entitiesRatio": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalStatistics"
+    },
+    "ExternalStatistics.exp": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalStatistics"
+    },
+    "ExternalStatistics.interactorsCount": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalStatistics"
+    },
+    "ExternalStatistics.interactorsFound": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalStatistics"
+    },
+    "ExternalStatistics.interactorsRatio": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalStatistics"
+    },
+    "ExternalStatistics.reactionsCount": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalStatistics"
+    },
+    "ExternalStatistics.reactionsFound": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalStatistics"
+    },
+    "ExternalStatistics.reactionsRatio": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalStatistics"
+    },
+    "ExternalStatistics.resource": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ExternalStatistics"
+    },
+    "FoundElements": {
+      "description": "Schema model for FoundElements",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "FoundElements.entities": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundElements"
+    },
+    "FoundElements.expNames": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundElements"
+    },
+    "FoundElements.foundEntities": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundElements"
+    },
+    "FoundElements.foundInteractors": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundElements"
+    },
+    "FoundElements.interactors": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundElements"
+    },
+    "FoundElements.pathway": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundElements"
+    },
+    "FoundElements.resources": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundElements"
+    },
+    "FoundEntities": {
+      "description": "Schema model for FoundEntities",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "FoundEntities.expNames": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundEntities"
+    },
+    "FoundEntities.found": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundEntities"
+    },
+    "FoundEntities.identifiers": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundEntities"
+    },
+    "FoundEntities.resourceToMappedEntitiesCount": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundEntities"
+    },
+    "FoundEntities.resources": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundEntities"
+    },
+    "FoundEntities.totalEntitiesCount": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundEntities"
+    },
+    "FoundEntity": {
+      "description": "Schema model for FoundEntity",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "FoundEntity.exp": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundEntity"
+    },
+    "FoundEntity.id": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundEntity"
+    },
+    "FoundEntity.mapsTo": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundEntity"
+    },
+    "FoundInteractor": {
+      "description": "Schema model for FoundInteractor",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "FoundInteractor.exp": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundInteractor"
+    },
+    "FoundInteractor.id": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundInteractor"
+    },
+    "FoundInteractor.interactsWith": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundInteractor"
+    },
+    "FoundInteractor.mapsTo": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundInteractor"
+    },
+    "FoundInteractors": {
+      "description": "Schema model for FoundInteractors",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "FoundInteractors.expNames": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundInteractors"
+    },
+    "FoundInteractors.found": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundInteractors"
+    },
+    "FoundInteractors.identifiers": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundInteractors"
+    },
+    "FoundInteractors.resources": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "FoundInteractors"
+    },
+    "IdentifierMap": {
+      "description": "Schema model for IdentifierMap",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "IdentifierMap.ids": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "IdentifierMap"
+    },
+    "IdentifierMap.resource": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "IdentifierMap"
+    },
+    "IdentifierSummary": {
+      "description": "Schema model for IdentifierSummary",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "IdentifierSummary.exp": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "IdentifierSummary"
+    },
+    "IdentifierSummary.id": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "IdentifierSummary"
+    },
+    "MappedEntity": {
+      "description": "Schema model for MappedEntity",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "MappedEntity.identifier": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "MappedEntity"
+    },
+    "MappedEntity.mapsTo": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "MappedEntity"
+    },
+    "MappedIdentifier": {
+      "description": "Schema model for MappedIdentifier",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "MappedIdentifier.identifier": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "MappedIdentifier"
+    },
+    "MappedIdentifier.interactsWith": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "MappedIdentifier"
+    },
+    "MappedIdentifier.resource": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "MappedIdentifier"
+    },
+    "PathwayBase": {
+      "description": "Schema model for PathwayBase",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "PathwayBase.dbId": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "PathwayBase"
+    },
+    "PathwayBase.disease": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "PathwayBase"
+    },
+    "PathwayBase.entities": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "PathwayBase"
+    },
+    "PathwayBase.stId": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "PathwayBase"
+    },
+    "PathwaySummary": {
+      "description": "Schema model for PathwaySummary",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "PathwaySummary.dbId": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "PathwaySummary"
+    },
+    "PathwaySummary.entities": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "PathwaySummary"
+    },
+    "PathwaySummary.inDisease": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "PathwaySummary"
+    },
+    "PathwaySummary.llp": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "PathwaySummary"
+    },
+    "PathwaySummary.name": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "PathwaySummary"
+    },
+    "PathwaySummary.reactions": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "PathwaySummary"
+    },
+    "PathwaySummary.species": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "PathwaySummary"
+    },
+    "PathwaySummary.stId": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "PathwaySummary"
+    },
+    "ReactionStatistics": {
+      "description": "Schema model for ReactionStatistics",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "ReactionStatistics.found": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ReactionStatistics"
+    },
+    "ReactionStatistics.ratio": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ReactionStatistics"
+    },
+    "ReactionStatistics.resource": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ReactionStatistics"
+    },
+    "ReactionStatistics.total": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ReactionStatistics"
+    },
+    "ResourceSummary": {
+      "description": "Schema model for ResourceSummary",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "ResourceSummary.filtered": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ResourceSummary"
+    },
+    "ResourceSummary.pathways": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ResourceSummary"
+    },
+    "ResourceSummary.resource": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "ResourceSummary"
+    },
+    "SpeciesFilteredResult": {
+      "description": "Schema model for SpeciesFilteredResult",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "SpeciesFilteredResult.expressionSummary": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "SpeciesFilteredResult"
+    },
+    "SpeciesFilteredResult.pathways": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "SpeciesFilteredResult"
+    },
+    "SpeciesFilteredResult.type": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "SpeciesFilteredResult"
+    },
+    "SpeciesSummary": {
+      "description": "Schema model for SpeciesSummary",
+      "source": "analysis-service",
+      "type": "schema"
+    },
+    "SpeciesSummary.dbId": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "SpeciesSummary"
+    },
+    "SpeciesSummary.filtered": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "SpeciesSummary"
+    },
+    "SpeciesSummary.name": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "SpeciesSummary"
+    },
+    "SpeciesSummary.pathways": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "SpeciesSummary"
+    },
+    "SpeciesSummary.taxId": {
+      "description": "",
+      "source": "analysis-service",
+      "type": "property",
+      "schema": "SpeciesSummary"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/PageableObject",
+  "title": "PageableObject",
+  "type": "object",
+  "properties": {
+    "offset": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "pageNumber": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "pageSize": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "paged": {
+      "type": "boolean"
+    },
+    "sort": {
+      "$ref": "#/components/schemas/Sort"
+    },
+    "unpaged": {
+      "type": "boolean"
+    }
+  }
+}

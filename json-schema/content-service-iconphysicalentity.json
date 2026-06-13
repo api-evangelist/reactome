@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/IconPhysicalEntity",
+  "title": "IconPhysicalEntity",
+  "type": "object",
+  "properties": {
+    "compartments": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "stId": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

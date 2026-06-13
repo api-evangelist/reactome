@@ -1,0 +1,1074 @@
+[
+  {
+    "service": "content-service",
+    "method": "GET",
+    "path": "/data/complex/{id}/subunits",
+    "summary": "A list with the entities contained in a given complex",
+    "description": "Retrieves the list of subunits that constitute any given complex. In case the complex comprises other complexes, this method recursively traverses the content returning each contained PhysicalEntity. Contained complexes and entity sets can be excluded setting the 'excludeStructures' optional parameter to 'true'",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "excludeStructures",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      {
+        "name": "view",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "default": "flatten",
+          "enum": [
+            "flatten",
+            "nested",
+            "nested-aggregated"
+          ],
+          "example": null
+        }
+      },
+      {
+        "name": "includeRef",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false,
+          "example": null
+        }
+      }
+    ]
+  },
+  {
+    "service": "content-service",
+    "method": "GET",
+    "path": "/data/complexes/{resource}/{identifier}",
+    "summary": "A list of complexes containing the pair (identifier, resource)",
+    "description": "Retrieves the list of complexes that contain a given (identifier, resource). The method deconstructs the complexes into all its participants to do so.",
+    "parameters": [
+      {
+        "name": "resource",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "identifier",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "view",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "default": "flatten",
+          "enum": [
+            "flatten",
+            "nested",
+            "nested-aggregated"
+          ],
+          "example": null
+        }
+      },
+      {
+        "name": "includeRef",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false,
+          "example": null
+        }
+      }
+    ]
+  },
+  {
+    "service": "content-service",
+    "method": "GET",
+    "path": "/data/database/name",
+    "summary": "The name of current database",
+    "description": "",
+    "parameters": [
+      {
+        "name": "view",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "default": "flatten",
+          "enum": [
+            "flatten",
+            "nested",
+            "nested-aggregated"
+          ],
+          "example": null
+        }
+      },
+      {
+        "name": "includeRef",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false,
+          "example": null
+        }
+      }
+    ]
+  },
+  {
+    "service": "content-service",
+    "method": "GET",
+    "path": "/data/database/version",
+    "summary": "The version number of current database",
+    "description": "",
+    "parameters": [
+      {
+        "name": "view",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "default": "flatten",
+          "enum": [
+            "flatten",
+            "nested",
+            "nested-aggregated"
+          ],
+          "example": null
+        }
+      },
+      {
+        "name": "includeRef",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false,
+          "example": null
+        }
+      }
+    ]
+  },
+  {
+    "service": "content-service",
+    "method": "GET",
+    "path": "/data/discover/{identifier}",
+    "summary": "The schema.org for an Event in Reactome knowledgebase",
+    "description": "For each event (reaction or pathway) this method generates a json file representing the dataset object as defined by schema.org (http). This is mainly used by search engines in order to index the data",
+    "parameters": [
+      {
+        "name": "identifier",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "view",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "default": "flatten",
+          "enum": [
+            "flatten",
+            "nested",
+            "nested-aggregated"
+          ],
+          "example": null
+        }
+      },
+      {
+        "name": "includeRef",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false,
+          "example": null
+        }
+      }
+    ]
+  },
+  {
+    "service": "content-service",
+    "method": "GET",
+    "path": "/data/diseases",
+    "summary": "The list of disease objects",
+    "description": "It retrieves the list of diseases annotated in Reactome",
+    "parameters": [
+      {
+        "name": "view",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "default": "flatten",
+          "enum": [
+            "flatten",
+            "nested",
+            "nested-aggregated"
+          ],
+          "example": null
+        }
+      },
+      {
+        "name": "includeRef",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false,
+          "example": null
+        }
+      }
+    ]
+  },
+  {
+    "service": "content-service",
+    "method": "GET",
+    "path": "/data/diseases/doid",
+    "summary": "The list of diseases DOID",
+    "description": "It retrieves the list of disease DOIDs annotated in Reactome",
+    "parameters": [
+      {
+        "name": "view",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "default": "flatten",
+          "enum": [
+            "flatten",
+            "nested",
+            "nested-aggregated"
+          ],
+          "example": null
+        }
+      },
+      {
+        "name": "includeRef",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false,
+          "example": null
+        }
+      }
+    ]
+  },
+  {
+    "service": "content-service",
+    "method": "GET",
+    "path": "/data/entity/{id}/componentOf",
+    "summary": "A list of larger structures containing the entity",
+    "description": "Retrieves the list of structures (Complexes and Sets) that include the given entity as their component. It should be mentioned that the list includes only simplified entries (type, names, ids) and not full information about each item.",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "view",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "default": "flatten",
+          "enum": [
+            "flatten",
+            "nested",
+            "nested-aggregated"
+          ],
+          "example": null
+        }
+      },
+      {
+        "name": "includeRef",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false,
+          "example": null
+        }
+      }
+    ]
+  },
+  {
+    "service": "content-service",
+    "method": "GET",
+    "path": "/data/entity/{id}/in-depth",
+    "summary": "",
+    "description": "",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "maxDepth",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32",
+          "default": 1
+        }
+      },
+      {
+        "name": "attributes",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "default": "species,compartment"
+        }
+      },
+      {
+        "name": "view",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "default": "flatten",
+          "enum": [
+            "flatten",
+            "nested",
+            "nested-aggregated"
+          ],
+          "example": null
+        }
+      },
+      {
+        "name": "includeRef",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false,
+          "example": null
+        }
+      }
+    ]
+  },
+  {
+    "service": "content-service",
+    "method": "GET",
+    "path": "/data/entity/{id}/otherForms",
+    "summary": "All other forms of a PhysicalEntity",
+    "description": "Retrieves a list containing all other forms of the given PhysicalEntity. These other forms are PhysicalEntities that share the same ReferenceEntity identifier, e.g. PTEN H93R[R-HSA-2318524] and PTEN C124R[R-HSA-2317439] are two forms of PTEN.",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "view",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "default": "flatten",
+          "enum": [
+            "flatten",
+            "nested",
+            "nested-aggregated"
+          ],
+          "example": null
+        }
+      },
+      {
+        "name": "includeRef",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false,
+          "example": null
+        }
+      }
+    ]
+  },
+  {
+    "service": "analysis-service",
+    "method": "GET",
+    "path": "/database/name",
+    "summary": "The name of current database",
+    "description": "",
+    "parameters": []
+  },
+  {
+    "service": "analysis-service",
+    "method": "GET",
+    "path": "/database/version",
+    "summary": "The version number of current database",
+    "description": "",
+    "parameters": []
+  },
+  {
+    "service": "analysis-service",
+    "method": "GET",
+    "path": "/download/{token}/entities/found/{resource}/{filename}.csv",
+    "summary": "Downloads found identifiers for a given analysis and resource",
+    "description": "The identifiers are filtered by the selected resource. The filename is the one to be suggested in the download window.",
+    "parameters": [
+      {
+        "name": "token",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "resource",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "description": "the preferred resource",
+          "example": "TOTAL",
+          "enum": [
+            "TOTAL",
+            "UNIPROT",
+            "ENSEMBL",
+            "CHEBI",
+            "IUPHAR",
+            "MIRBASE",
+            "NCBI_PROTEIN",
+            "EMBL",
+            "COMPOUND",
+            "PUBCHEM_COMPOUND"
+          ]
+        }
+      },
+      {
+        "name": "filename",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  },
+  {
+    "service": "analysis-service",
+    "method": "GET",
+    "path": "/download/{token}/entities/notfound/{filename}.csv",
+    "summary": "Downloads a list of the not found identifiers",
+    "description": "Those identifiers from the user sample that are not present up to the current data version. The filename is the one to be suggested in the download window.",
+    "parameters": [
+      {
+        "name": "token",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "filename",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  },
+  {
+    "service": "analysis-service",
+    "method": "GET",
+    "path": "/download/{token}/pathways/{resource}/{filename}.csv",
+    "summary": "Downloads all hit pathways for a given analysis",
+    "description": "The results are filtered by the selected resource. The filename is the one to be suggested in the download window.",
+    "parameters": [
+      {
+        "name": "token",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "resource",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "description": "the preferred resource",
+          "example": "TOTAL",
+          "enum": [
+            "TOTAL",
+            "UNIPROT",
+            "ENSEMBL",
+            "CHEBI",
+            "IUPHAR",
+            "MIRBASE",
+            "NCBI",
+            "PROTEIN",
+            "EMBL",
+            "COMPOUND",
+            "PUBCHEM_COMPOUND"
+          ]
+        }
+      },
+      {
+        "name": "filename",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  },
+  {
+    "service": "analysis-service",
+    "method": "GET",
+    "path": "/download/{token}/result.json",
+    "summary": "Returns the complete result in json format",
+    "description": "The results are not filtered by any means. The json file contains the whole stored result based on chosen analysis options and submitted data.",
+    "parameters": [
+      {
+        "name": "token",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "importableOnly",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    ]
+  },
+  {
+    "service": "analysis-service",
+    "method": "GET",
+    "path": "/download/{token}/result.json.gz",
+    "summary": "Returns the complete result in json format (gzipped)",
+    "description": "The results are not filtered by any means. The json file contains the whole stored result based on chosen analysis options and submitted data.",
+    "parameters": [
+      {
+        "name": "token",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  },
+  {
+    "service": "analysis-service",
+    "method": "GET",
+    "path": "/identifier/{id}",
+    "summary": "Analyse the identifier over the different species in the database",
+    "description": "Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type)",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "interactors",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      {
+        "name": "species",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      {
+        "name": "sortBy",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "description": "how to sort the result",
+          "example": "ENTITIES_PVALUE",
+          "enum": [
+            "NAME",
+            "TOTAL_ENTITIES",
+            "TOTAL_INTERACTORS",
+            "TOTAL_REACTIONS",
+            "FOUND_ENTITIES",
+            "FOUND_INTERACTORS",
+            "FOUND_REACTIONS",
+            "ENTITIES_RATIO",
+            "ENTITIES_PVALUE",
+            "ENTITIES_FDR",
+            "REACTIONS_RATIO"
+          ]
+        }
+      },
+      {
+        "name": "order",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "description": "specifies the order",
+          "example": "ASC",
+          "enum": [
+            "ASC",
+            "DESC"
+          ]
+        }
+      },
+      {
+        "name": "resource",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "description": "the resource to sort",
+          "example": "TOTAL",
+          "enum": [
+            "TOTAL",
+            "UNIPROT",
+            "ENSEMBL",
+            "CHEBI",
+            "IUPHAR",
+            "MIRBASE",
+            "NCBI_PROTEIN",
+            "EMBL",
+            "COMPOUND",
+            "PUBCHEM_COMPOUND"
+          ]
+        }
+      },
+      {
+        "name": "pValue",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "number",
+          "format": "double",
+          "default": 1.0
+        }
+      },
+      {
+        "name": "includeDisease",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      {
+        "name": "min",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      {
+        "name": "max",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      {
+        "name": "importableOnly",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    ],
+    "response_schema": {
+      "$ref": "#/components/schemas/AnalysisResult"
+    }
+  },
+  {
+    "service": "analysis-service",
+    "method": "GET",
+    "path": "/identifier/{id}/projection",
+    "summary": "Analyse the identifier over the different species in the database and projects the result to Homo Sapiens",
+    "description": "The projection is calculated by the orthologous slot in the Reactome database. Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type)",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "interactors",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      {
+        "name": "species",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      {
+        "name": "sortBy",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "description": "how to sort the result",
+          "example": "ENTITIES_PVALUE",
+          "enum": [
+            "NAME",
+            "TOTAL_ENTITIES",
+            "TOTAL_INTERACTORS",
+            "TOTAL_REACTIONS",
+            "FOUND_ENTITIES",
+            "FOUND_INTERACTORS",
+            "FOUND_REACTIONS",
+            "ENTITIES_RATIO",
+            "ENTITIES_PVALUE",
+            "ENTITIES_FDR",
+            "REACTIONS_RATIO"
+          ]
+        }
+      },
+      {
+        "name": "order",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "description": "specifies the order",
+          "example": "ASC",
+          "enum": [
+            "ASC",
+            "DESC"
+          ]
+        }
+      },
+      {
+        "name": "resource",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "description": "resource to sort",
+          "example": "TOTAL",
+          "enum": [
+            "TOTAL",
+            "UNIPROT",
+            "ENSEMBL",
+            "CHEBI",
+            "IUPHAR",
+            "MIRBASE",
+            "NCBI_PROTEIN",
+            "EMBL",
+            "COMPOUND",
+            "PUBCHEM_COMPOUND"
+          ]
+        }
+      },
+      {
+        "name": "pValue",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "number",
+          "format": "double",
+          "default": 1.0
+        }
+      },
+      {
+        "name": "includeDisease",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      {
+        "name": "min",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      {
+        "name": "max",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      {
+        "name": "importableOnly",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    ],
+    "response_schema": {
+      "$ref": "#/components/schemas/AnalysisResult"
+    }
+  },
+  {
+    "service": "analysis-service",
+    "method": "POST",
+    "path": "/identifiers/",
+    "summary": "Analyse the post identifiers over the different species",
+    "description": "Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type). The token which includes analysis results are available for 7 days after your last execution, you have to re-generate it if you would like to keep using the token.",
+    "parameters": [
+      {
+        "name": "interactors",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      {
+        "name": "species",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      {
+        "name": "sortBy",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "description": "how to sort the result",
+          "example": " ENTITIES_PVALUE",
+          "enum": [
+            "NAME",
+            "TOTAL_ENTITIES",
+            "TOTAL_INTERACTORS",
+            "TOTAL_REACTIONS",
+            "FOUND_ENTITIES",
+            "FOUND_INTERACTORS",
+            "FOUND_REACTIONS",
+            "ENTITIES_RATIO",
+            "ENTITIES_PVALUE",
+            "ENTITIES_FDR",
+            "REACTIONS_RATIO"
+          ]
+        }
+      },
+      {
+        "name": "order",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "description": "specifies the order",
+          "example": "ASC",
+          "enum": [
+            "ASC",
+            "DESC"
+          ]
+        }
+      },
+      {
+        "name": "resource",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "description": "the resource to sort",
+          "example": "TOTAL",
+          "enum": [
+            "TOTAL",
+            "UNIPROT",
+            "ENSEMBL",
+            "CHEBI",
+            "IUPHAR",
+            "MIRBASE",
+            "NCBI_PROTEIN",
+            "EMBL",
+            "COMPOUND",
+            "PUBCHEM_COMPOUND"
+          ]
+        }
+      },
+      {
+        "name": "pValue",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "number",
+          "format": "double",
+          "default": 1.0
+        }
+      },
+      {
+        "name": "includeDisease",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      {
+        "name": "min",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      {
+        "name": "max",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      {
+        "name": "importableOnly",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    ]
+  }
+]

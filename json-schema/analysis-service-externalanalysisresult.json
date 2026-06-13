@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/analysis-service/ExternalAnalysisResult",
+  "title": "ExternalAnalysisResult",
+  "type": "object",
+  "properties": {
+    "expressionSummary": {
+      "$ref": "#/components/schemas/ExternalExpressionSummary"
+    },
+    "notFound": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ExternalIdentifier"
+      }
+    },
+    "pathways": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ExternalPathwayNodeSummary"
+      }
+    },
+    "summary": {
+      "$ref": "#/components/schemas/ExternalAnalysisSummary"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

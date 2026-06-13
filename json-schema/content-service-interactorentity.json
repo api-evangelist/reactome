@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/InteractorEntity",
+  "title": "InteractorEntity",
+  "type": "object",
+  "properties": {
+    "acc": {
+      "type": "string",
+      "description": "This is the interactor accession (or identifier)."
+    },
+    "count": {
+      "type": "integer",
+      "description": "This is the number of interactions for the given accession.",
+      "format": "int32"
+    },
+    "interactors": {
+      "type": "array",
+      "description": "List of Interactors that interacts with the given accession.",
+      "items": {
+        "$ref": "#/components/schemas/Interactor"
+      }
+    }
+  },
+  "description": "This is the list of entities which have been requested."
+}

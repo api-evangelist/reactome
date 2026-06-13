@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/SchemaNode",
+  "title": "SchemaNode",
+  "type": "object",
+  "properties": {
+    "children": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SchemaNode"
+      }
+    },
+    "className": {
+      "type": "string"
+    },
+    "count": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

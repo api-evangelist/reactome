@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/TargetResult",
+  "title": "TargetResult",
+  "type": "object",
+  "properties": {
+    "resource": {
+      "type": "string"
+    },
+    "target": {
+      "type": "boolean"
+    },
+    "term": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/Interactors",
+  "title": "Interactors",
+  "type": "object",
+  "properties": {
+    "entities": {
+      "type": "array",
+      "description": "This is the list of entities which have been requested.",
+      "items": {
+        "$ref": "#/components/schemas/InteractorEntity"
+      }
+    },
+    "resource": {
+      "type": "string",
+      "description": "This is the resource where interactors have been queried."
+    }
+  }
+}

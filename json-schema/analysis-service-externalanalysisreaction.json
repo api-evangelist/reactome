@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/analysis-service/ExternalAnalysisReaction",
+  "title": "ExternalAnalysisReaction",
+  "type": "object",
+  "properties": {
+    "dbId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stId": {
+      "type": "string"
+    }
+  }
+}

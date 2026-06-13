@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/SimpleReferenceObject",
+  "title": "SimpleReferenceObject",
+  "type": "object",
+  "properties": {
+    "databaseName": {
+      "type": "string"
+    },
+    "dbId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "identifier": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/DiagramResult",
+  "title": "DiagramResult",
+  "type": "object",
+  "properties": {
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Entry"
+      }
+    },
+    "facets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/FacetContainer"
+      }
+    },
+    "found": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

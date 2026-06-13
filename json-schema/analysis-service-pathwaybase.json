@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/analysis-service/PathwayBase",
+  "title": "PathwayBase",
+  "type": "object",
+  "properties": {
+    "dbId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "disease": {
+      "type": "boolean"
+    },
+    "entities": {
+      "$ref": "#/components/schemas/EntityStatistics"
+    },
+    "stId": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/DatabaseObject",
+  "title": "DatabaseObject",
+  "type": "object",
+  "properties": {
+    "className": {
+      "type": "string"
+    },
+    "created": {
+      "type": "object"
+    },
+    "dbId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "modified": {
+      "type": "object"
+    },
+    "schemaClass": {
+      "type": "string"
+    },
+    "stId": {
+      "type": "string"
+    },
+    "stIdVersion": {
+      "type": "string"
+    }
+  }
+}

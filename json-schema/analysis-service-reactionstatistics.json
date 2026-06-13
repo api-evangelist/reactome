@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/analysis-service/ReactionStatistics",
+  "title": "ReactionStatistics",
+  "type": "object",
+  "properties": {
+    "found": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "ratio": {
+      "type": "number",
+      "format": "double"
+    },
+    "resource": {
+      "type": "string"
+    },
+    "total": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

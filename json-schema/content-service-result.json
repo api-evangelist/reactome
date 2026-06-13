@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/Result",
+  "title": "Result",
+  "type": "object",
+  "properties": {
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Entry"
+      }
+    },
+    "entriesCount": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "rowCount": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "typeName": {
+      "type": "string"
+    }
+  }
+}

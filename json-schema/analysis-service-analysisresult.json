@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/analysis-service/AnalysisResult",
+  "title": "AnalysisResult",
+  "type": "object",
+  "properties": {
+    "expression": {
+      "$ref": "#/components/schemas/ExpressionSummary"
+    },
+    "identifiersNotFound": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "pathways": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PathwaySummary"
+      }
+    },
+    "pathwaysFound": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "resourceSummary": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ResourceSummary"
+      }
+    },
+    "speciesSummary": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SpeciesSummary"
+      }
+    },
+    "summary": {
+      "$ref": "#/components/schemas/AnalysisSummary"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

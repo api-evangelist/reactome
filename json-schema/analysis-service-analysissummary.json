@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/analysis-service/AnalysisSummary",
+  "title": "AnalysisSummary",
+  "type": "object",
+  "properties": {
+    "fileName": {
+      "type": "string"
+    },
+    "gsaMethod": {
+      "type": "string"
+    },
+    "gsaToken": {
+      "type": "string"
+    },
+    "includeDisease": {
+      "type": "boolean"
+    },
+    "interactors": {
+      "type": "boolean"
+    },
+    "projection": {
+      "type": "boolean"
+    },
+    "sampleName": {
+      "type": "string"
+    },
+    "species": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "text": {
+      "type": "boolean"
+    },
+    "token": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

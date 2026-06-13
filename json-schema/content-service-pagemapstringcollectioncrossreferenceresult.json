@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/PageMapStringCollectionCrossReferenceResult",
+  "title": "PageMapStringCollectionCrossReferenceResult",
+  "type": "object",
+  "properties": {
+    "content": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CrossReferenceResult"
+          }
+        }
+      }
+    },
+    "empty": {
+      "type": "boolean"
+    },
+    "first": {
+      "type": "boolean"
+    },
+    "last": {
+      "type": "boolean"
+    },
+    "number": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "numberOfElements": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "pageable": {
+      "$ref": "#/components/schemas/PageableObject"
+    },
+    "size": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "sort": {
+      "$ref": "#/components/schemas/Sort"
+    },
+    "totalElements": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "totalPages": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

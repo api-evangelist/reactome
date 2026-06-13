@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/PathwayBrowserNode",
+  "title": "PathwayBrowserNode",
+  "type": "object",
+  "properties": {
+    "children": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PathwayBrowserNode"
+      }
+    },
+    "diagram": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    },
+    "species": {
+      "type": "string"
+    },
+    "stId": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

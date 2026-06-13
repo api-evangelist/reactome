@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/analysis-service/ExternalAnalysisSummary",
+  "title": "ExternalAnalysisSummary",
+  "type": "object",
+  "properties": {
+    "gsaMethod": {
+      "type": "string"
+    },
+    "gsaToken": {
+      "type": "string"
+    },
+    "includeDisease": {
+      "type": "boolean"
+    },
+    "interactors": {
+      "type": "boolean"
+    },
+    "projection": {
+      "type": "boolean"
+    },
+    "sampleName": {
+      "type": "string"
+    },
+    "server": {
+      "type": "string"
+    },
+    "token": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "SPECIES_COMPARISON",
+        "OVERREPRESENTATION",
+        "EXPRESSION",
+        "GSA_REGULATION",
+        "GSA_STATISTICS",
+        "GSVA"
+      ]
+    },
+    "version": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

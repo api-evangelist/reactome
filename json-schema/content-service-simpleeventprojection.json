@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/SimpleEventProjection",
+  "title": "SimpleEventProjection",
+  "type": "object",
+  "properties": {
+    "authorDbId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "dateTime": {
+      "type": "string"
+    },
+    "dbId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "doi": {
+      "type": "string"
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "schemaClass": {
+      "type": "string"
+    },
+    "speciesName": {
+      "type": "string"
+    },
+    "stId": {
+      "type": "string"
+    }
+  }
+}

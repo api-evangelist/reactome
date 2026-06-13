@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/CustomPsicquicResource",
+  "title": "CustomPsicquicResource",
+  "type": "object",
+  "properties": {
+    "summary": {
+      "$ref": "#/components/schemas/Summary"
+    }
+  }
+}

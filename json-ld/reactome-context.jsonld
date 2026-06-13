@@ -1,0 +1,304 @@
+{
+  "@context": {
+    "@vocab": "https://reactome.org/schema/",
+    "reactome": "https://reactome.org/schema/",
+    "bioschemas": "https://bioschemas.org/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "stId": {
+      "@id": "reactome:stableId",
+      "@type": "xsd:string"
+    },
+    "dbId": {
+      "@id": "reactome:databaseId",
+      "@type": "xsd:integer"
+    },
+    "displayName": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "className": {
+      "@id": "reactome:className",
+      "@type": "xsd:string"
+    },
+    "speciesName": {
+      "@id": "reactome:speciesName",
+      "@type": "xsd:string"
+    },
+    "isInferred": {
+      "@id": "reactome:isInferred",
+      "@type": "xsd:boolean"
+    },
+    "isInDisease": {
+      "@id": "reactome:isInDisease",
+      "@type": "xsd:boolean"
+    },
+    "releaseDate": {
+      "@id": "schema:datePublished",
+      "@type": "xsd:string"
+    },
+    "Pathway": {
+      "@id": "bioschemas:Pathway"
+    },
+    "Reaction": {
+      "@id": "reactome:Reaction"
+    },
+    "PhysicalEntity": {
+      "@id": "reactome:PhysicalEntity"
+    },
+    "Complex": {
+      "@id": "reactome:Complex"
+    },
+    "Protein": {
+      "@id": "bioschemas:Protein"
+    },
+    "Gene": {
+      "@id": "bioschemas:Gene"
+    },
+    "AnalysisResult": {
+      "@id": "reactome:AnalysisResult"
+    },
+    "AnalysisSummary": {
+      "@id": "reactome:AnalysisSummary"
+    },
+    "token": {
+      "@id": "reactome:analysisToken",
+      "@type": "xsd:string"
+    },
+    "pValue": {
+      "@id": "reactome:pValue",
+      "@type": "xsd:double"
+    },
+    "fdr": {
+      "@id": "reactome:falseDiscoveryRate",
+      "@type": "xsd:double"
+    },
+    "found": {
+      "@id": "reactome:foundEntities"
+    },
+    "total": {
+      "@id": "reactome:totalEntities",
+      "@type": "xsd:integer"
+    },
+    "identifier": {
+      "@id": "schema:identifier"
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "ComponentOf": {
+      "@id": "reactome:ComponentOf"
+    },
+    "CrossReferenceResult": {
+      "@id": "reactome:CrossReferenceResult"
+    },
+    "CustomInteraction": {
+      "@id": "reactome:CustomInteraction"
+    },
+    "CustomPsicquicResource": {
+      "@id": "reactome:CustomPsicquicResource"
+    },
+    "DatabaseObject": {
+      "@id": "reactome:DatabaseObject"
+    },
+    "DiagramOccurrencesResult": {
+      "@id": "reactome:DiagramOccurrencesResult"
+    },
+    "DiagramResult": {
+      "@id": "reactome:DiagramResult"
+    },
+    "Entry": {
+      "@id": "reactome:Entry"
+    },
+    "EventProjection": {
+      "@id": "reactome:EventProjection"
+    },
+    "FacetContainer": {
+      "@id": "reactome:FacetContainer"
+    },
+    "FacetList": {
+      "@id": "reactome:FacetList"
+    },
+    "FacetMapping": {
+      "@id": "reactome:FacetMapping"
+    },
+    "FireworksOccurrencesResult": {
+      "@id": "reactome:FireworksOccurrencesResult"
+    },
+    "FireworksResult": {
+      "@id": "reactome:FireworksResult"
+    },
+    "GroupedResult": {
+      "@id": "reactome:GroupedResult"
+    },
+    "IconPhysicalEntity": {
+      "@id": "reactome:IconPhysicalEntity"
+    },
+    "Interactor": {
+      "@id": "reactome:Interactor"
+    },
+    "InteractorEntity": {
+      "@id": "reactome:InteractorEntity"
+    },
+    "Interactors": {
+      "@id": "reactome:Interactors"
+    },
+    "PageMapStringCollectionCrossReferenceResult": {
+      "@id": "reactome:PageMapStringCollectionCrossReferenceResult"
+    },
+    "PageableObject": {
+      "@id": "reactome:PageableObject"
+    },
+    "Participant": {
+      "@id": "reactome:Participant"
+    },
+    "ParticipantRefEntities": {
+      "@id": "reactome:ParticipantRefEntities"
+    },
+    "PathwayBrowserNode": {
+      "@id": "reactome:PathwayBrowserNode"
+    },
+    "PsicquicResource": {
+      "@id": "reactome:PsicquicResource"
+    },
+    "Result": {
+      "@id": "reactome:Result"
+    },
+    "SchemaCreator": {
+      "@id": "reactome:SchemaCreator"
+    },
+    "SchemaDataCatalog": {
+      "@id": "reactome:SchemaDataCatalog"
+    },
+    "SchemaDataDownload": {
+      "@id": "reactome:SchemaDataDownload"
+    },
+    "SchemaDataSet": {
+      "@id": "reactome:SchemaDataSet"
+    },
+    "SchemaNode": {
+      "@id": "reactome:SchemaNode"
+    },
+    "ShortCrossReference": {
+      "@id": "reactome:ShortCrossReference"
+    },
+    "SimpleDatabaseObject": {
+      "@id": "reactome:SimpleDatabaseObject"
+    },
+    "SimpleEventProjection": {
+      "@id": "reactome:SimpleEventProjection"
+    },
+    "SimpleReferenceObject": {
+      "@id": "reactome:SimpleReferenceObject"
+    },
+    "Sort": {
+      "@id": "reactome:Sort"
+    },
+    "Summary": {
+      "@id": "reactome:Summary"
+    },
+    "TargetResult": {
+      "@id": "reactome:TargetResult"
+    },
+    "TupleResult": {
+      "@id": "reactome:TupleResult"
+    },
+    "Bin": {
+      "@id": "reactome:Bin"
+    },
+    "EntityStatistics": {
+      "@id": "reactome:EntityStatistics"
+    },
+    "ExpressionSummary": {
+      "@id": "reactome:ExpressionSummary"
+    },
+    "ExternalAnalysisReaction": {
+      "@id": "reactome:ExternalAnalysisReaction"
+    },
+    "ExternalAnalysisResult": {
+      "@id": "reactome:ExternalAnalysisResult"
+    },
+    "ExternalAnalysisSummary": {
+      "@id": "reactome:ExternalAnalysisSummary"
+    },
+    "ExternalExpressionSummary": {
+      "@id": "reactome:ExternalExpressionSummary"
+    },
+    "ExternalIdentifier": {
+      "@id": "reactome:ExternalIdentifier"
+    },
+    "ExternalInteraction": {
+      "@id": "reactome:ExternalInteraction"
+    },
+    "ExternalInteractor": {
+      "@id": "reactome:ExternalInteractor"
+    },
+    "ExternalMainIdentifier": {
+      "@id": "reactome:ExternalMainIdentifier"
+    },
+    "ExternalPathwayNodeData": {
+      "@id": "reactome:ExternalPathwayNodeData"
+    },
+    "ExternalPathwayNodeSummary": {
+      "@id": "reactome:ExternalPathwayNodeSummary"
+    },
+    "ExternalSpeciesNode": {
+      "@id": "reactome:ExternalSpeciesNode"
+    },
+    "ExternalStatistics": {
+      "@id": "reactome:ExternalStatistics"
+    },
+    "FoundElements": {
+      "@id": "reactome:FoundElements"
+    },
+    "FoundEntities": {
+      "@id": "reactome:FoundEntities"
+    },
+    "FoundEntity": {
+      "@id": "reactome:FoundEntity"
+    },
+    "FoundInteractor": {
+      "@id": "reactome:FoundInteractor"
+    },
+    "FoundInteractors": {
+      "@id": "reactome:FoundInteractors"
+    },
+    "IdentifierMap": {
+      "@id": "reactome:IdentifierMap"
+    },
+    "IdentifierSummary": {
+      "@id": "reactome:IdentifierSummary"
+    },
+    "MappedEntity": {
+      "@id": "reactome:MappedEntity"
+    },
+    "MappedIdentifier": {
+      "@id": "reactome:MappedIdentifier"
+    },
+    "PathwayBase": {
+      "@id": "reactome:PathwayBase"
+    },
+    "PathwaySummary": {
+      "@id": "reactome:PathwaySummary"
+    },
+    "ReactionStatistics": {
+      "@id": "reactome:ReactionStatistics"
+    },
+    "ResourceSummary": {
+      "@id": "reactome:ResourceSummary"
+    },
+    "SpeciesFilteredResult": {
+      "@id": "reactome:SpeciesFilteredResult"
+    },
+    "SpeciesSummary": {
+      "@id": "reactome:SpeciesSummary"
+    }
+  }
+}

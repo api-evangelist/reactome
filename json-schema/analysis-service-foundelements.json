@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/analysis-service/FoundElements",
+  "title": "FoundElements",
+  "type": "object",
+  "properties": {
+    "entities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/FoundEntity"
+      }
+    },
+    "expNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "foundEntities": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "foundInteractors": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "interactors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/FoundInteractor"
+      }
+    },
+    "pathway": {
+      "type": "string"
+    },
+    "resources": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

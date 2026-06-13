@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/Interactor",
+  "title": "Interactor",
+  "type": "object",
+  "properties": {
+    "acc": {
+      "type": "string",
+      "description": "This is the interactor accession (or identifier)."
+    },
+    "accURL": {
+      "type": "string",
+      "description": "This represents the URL for given accession."
+    },
+    "alias": {
+      "type": "string",
+      "description": "This is the Gene name of the given accession."
+    },
+    "evidences": {
+      "type": "integer",
+      "description": "This is the Interactions evidences.",
+      "format": "int32"
+    },
+    "evidencesURL": {
+      "type": "string",
+      "description": "This represents the URL for the given interactions identifiers."
+    },
+    "id": {
+      "type": "integer",
+      "description": "This is an auto increment counter which represents an unique number for the interaction.",
+      "format": "int64"
+    },
+    "score": {
+      "type": "number",
+      "description": "This represents the confidence value (score) of an interaction.",
+      "format": "double"
+    }
+  },
+  "description": "List of Interactors that interacts with the given accession."
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/Summary",
+  "title": "Summary",
+  "type": "object",
+  "properties": {
+    "fileName": {
+      "type": "string"
+    },
+    "interactions": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "interactors": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "name": {
+      "type": "string"
+    },
+    "token": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/CustomInteraction",
+  "title": "CustomInteraction",
+  "type": "object",
+  "properties": {
+    "databaseName": {
+      "type": "string"
+    },
+    "dbId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "entitiesCount": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "evidenceCount": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "evidenceURL": {
+      "type": "string"
+    },
+    "geneName": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "score": {
+      "type": "number",
+      "format": "double"
+    },
+    "speciesName": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "variantIdentifier": {
+      "type": "string"
+    }
+  }
+}

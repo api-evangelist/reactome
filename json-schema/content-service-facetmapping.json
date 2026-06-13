@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/FacetMapping",
+  "title": "FacetMapping",
+  "type": "object",
+  "properties": {
+    "compartmentFacet": {
+      "$ref": "#/components/schemas/FacetList"
+    },
+    "iconCategoriesFacet": {
+      "$ref": "#/components/schemas/FacetList"
+    },
+    "keywordFacet": {
+      "$ref": "#/components/schemas/FacetList"
+    },
+    "speciesFacet": {
+      "$ref": "#/components/schemas/FacetList"
+    },
+    "totalNumFount": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "typeFacet": {
+      "$ref": "#/components/schemas/FacetList"
+    }
+  }
+}

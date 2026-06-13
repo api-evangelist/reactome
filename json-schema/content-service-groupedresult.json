@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/GroupedResult",
+  "title": "GroupedResult",
+  "type": "object",
+  "properties": {
+    "numberOfGroups": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "numberOfMatches": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Result"
+      }
+    },
+    "rowCount": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "targetResults": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TargetResult"
+      }
+    }
+  }
+}

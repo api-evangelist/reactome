@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/analysis-service/Bin",
+  "title": "Bin",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "value": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

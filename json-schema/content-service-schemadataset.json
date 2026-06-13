@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/SchemaDataSet",
+  "title": "SchemaDataSet",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string"
+    },
+    "@type": {
+      "type": "string"
+    },
+    "citation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "creator": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SchemaCreator"
+      }
+    },
+    "description": {
+      "type": "string"
+    },
+    "distribution": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SchemaDataDownload"
+      }
+    },
+    "includedInDataCatalog": {
+      "$ref": "#/components/schemas/SchemaDataCatalog"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "license": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "sameAs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "url": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

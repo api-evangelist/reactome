@@ -1,0 +1,182 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/Entry",
+  "title": "Entry",
+  "type": "object",
+  "properties": {
+    "authoredPathways": {
+      "type": "string"
+    },
+    "authoredReactions": {
+      "type": "string"
+    },
+    "compartmentAccession": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "compartmentNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "databaseName": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "dbId": {
+      "type": "string"
+    },
+    "deleted": {
+      "type": "boolean"
+    },
+    "disease": {
+      "type": "boolean"
+    },
+    "exactType": {
+      "type": "string"
+    },
+    "explanation": {
+      "type": "string"
+    },
+    "fireworksSpecies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hasEHLD": {
+      "type": "boolean"
+    },
+    "hasReferenceEntity": {
+      "type": "boolean"
+    },
+    "icon": {
+      "type": "boolean"
+    },
+    "iconCategories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "iconCuratorName": {
+      "type": "string"
+    },
+    "iconCuratorOrcidId": {
+      "type": "string"
+    },
+    "iconCuratorUrl": {
+      "type": "string"
+    },
+    "iconDesignerName": {
+      "type": "string"
+    },
+    "iconDesignerOrcidId": {
+      "type": "string"
+    },
+    "iconDesignerUrl": {
+      "type": "string"
+    },
+    "iconEhlds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "iconName": {
+      "type": "string"
+    },
+    "iconPhysicalEntities": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/IconPhysicalEntity"
+      }
+    },
+    "iconReferences": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "id": {
+      "type": "string"
+    },
+    "instanceTypeExplanation": {
+      "type": "string"
+    },
+    "isDisease": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    },
+    "orcidId": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "referenceIdentifier": {
+      "type": "string"
+    },
+    "referenceName": {
+      "type": "string"
+    },
+    "referenceURL": {
+      "type": "string"
+    },
+    "regulatedEntity": {
+      "type": "string"
+    },
+    "regulatedEntityId": {
+      "type": "string"
+    },
+    "regulator": {
+      "type": "string"
+    },
+    "regulatorId": {
+      "type": "string"
+    },
+    "replacementDbIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int64"
+      }
+    },
+    "replacementStIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reviewedPathways": {
+      "type": "string"
+    },
+    "reviewedReactions": {
+      "type": "string"
+    },
+    "species": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stId": {
+      "type": "string"
+    },
+    "summation": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

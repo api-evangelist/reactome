@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/analysis-service/FoundEntities",
+  "title": "FoundEntities",
+  "type": "object",
+  "properties": {
+    "expNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "found": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "identifiers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/FoundEntity"
+      }
+    },
+    "resourceToMappedEntitiesCount": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "resources": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "totalEntitiesCount": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

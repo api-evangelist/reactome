@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/Sort",
+  "title": "Sort",
+  "type": "object",
+  "properties": {
+    "empty": {
+      "type": "boolean"
+    },
+    "sorted": {
+      "type": "boolean"
+    },
+    "unsorted": {
+      "type": "boolean"
+    }
+  }
+}

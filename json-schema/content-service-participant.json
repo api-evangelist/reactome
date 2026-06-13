@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/Participant",
+  "title": "Participant",
+  "type": "object",
+  "properties": {
+    "displayName": {
+      "type": "string"
+    },
+    "peDbId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "refEntities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ParticipantRefEntities"
+      }
+    },
+    "schemaClass": {
+      "type": "string"
+    }
+  }
+}

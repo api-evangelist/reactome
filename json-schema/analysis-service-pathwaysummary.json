@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/analysis-service/PathwaySummary",
+  "title": "PathwaySummary",
+  "type": "object",
+  "properties": {
+    "dbId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "entities": {
+      "$ref": "#/components/schemas/EntityStatistics"
+    },
+    "inDisease": {
+      "type": "boolean"
+    },
+    "llp": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    },
+    "reactions": {
+      "$ref": "#/components/schemas/ReactionStatistics"
+    },
+    "species": {
+      "$ref": "#/components/schemas/SpeciesSummary"
+    },
+    "stId": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/analysis-service/ResourceSummary",
+  "title": "ResourceSummary",
+  "type": "object",
+  "properties": {
+    "filtered": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "pathways": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "resource": {
+      "type": "string"
+    }
+  }
+}

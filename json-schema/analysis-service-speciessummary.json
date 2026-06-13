@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/analysis-service/SpeciesSummary",
+  "title": "SpeciesSummary",
+  "type": "object",
+  "properties": {
+    "dbId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "filtered": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pathways": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "taxId": {
+      "type": "string"
+    }
+  }
+}

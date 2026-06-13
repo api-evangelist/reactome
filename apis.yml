@@ -58,7 +58,10 @@ apis:
       - type: Documentation
         url: https://reactome.org/dev/content-service
       - type: OpenAPI
-        url: https://reactome.org/ContentService/v2/api-docs
+        url: https://reactome.org/ContentService/v3/api-docs
+      - type: OpenAPI
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/reactome/refs/heads/main/openapi/content-service.json
       - type: SwaggerUI
         url: https://reactome.org/ContentService/
   - aid: reactome:analysis-service
@@ -86,6 +89,11 @@ apis:
     properties:
       - type: Documentation
         url: https://reactome.org/dev/analysis
+      - type: OpenAPI
+        url: https://reactome.org/AnalysisService/v3/api-docs
+      - type: OpenAPI
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/reactome/refs/heads/main/openapi/analysis-service.json
       - type: SwaggerUI
         url: https://reactome.org/AnalysisService/
 common:

@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/content-service/DiagramOccurrencesResult",
+  "title": "DiagramOccurrencesResult",
+  "type": "object",
+  "properties": {
+    "diagramEntity": {
+      "type": "string"
+    },
+    "inDiagram": {
+      "type": "boolean"
+    },
+    "interactsWith": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "occurrences": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

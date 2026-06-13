@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reactome.org/schemas/analysis-service/ExternalExpressionSummary",
+  "title": "ExternalExpressionSummary",
+  "type": "object",
+  "properties": {
+    "columnNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "max": {
+      "type": "number",
+      "format": "double"
+    },
+    "min": {
+      "type": "number",
+      "format": "double"
+    }
+  }
+}

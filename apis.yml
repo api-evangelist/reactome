@@ -97,6 +97,8 @@ apis:
       - type: SwaggerUI
         url: https://reactome.org/AnalysisService/
 common:
+  - type: DomainSecurity
+    url: security/reactome-domain-security.yml
   - type: Website
     url: https://reactome.org/
   - type: Documentation

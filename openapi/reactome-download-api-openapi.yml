@@ -1,0 +1,453 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database download API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: download
+  description: Methods to download different views of a result
+paths:
+  /download/{token}/entities/found/{resource}/{filename}.csv:
+    get:
+      tags:
+      - download
+      summary: Downloads found identifiers for a given analysis and resource
+      description: The identifiers are filtered by the selected resource. The filename is the one to be suggested in the download window.
+      operationId: downloadMappingResult
+      parameters:
+      - name: token
+        in: path
+        description: The token associated with the data to download
+        required: true
+        schema:
+          type: string
+      - name: resource
+        in: path
+        required: true
+        schema:
+          type: string
+          description: the preferred resource
+          example: TOTAL
+          enum:
+          - TOTAL
+          - UNIPROT
+          - ENSEMBL
+          - CHEBI
+          - IUPHAR
+          - MIRBASE
+          - NCBI_PROTEIN
+          - EMBL
+          - COMPOUND
+          - PUBCHEM_COMPOUND
+      - name: filename
+        in: path
+        description: the file name for the downloaded information
+        required: true
+        schema:
+          type: string
+        example: result
+      responses:
+        '404':
+          description: No result corresponding to the token was found
+          content:
+            text/csv:
+              schema:
+                type: string
+                format: binary
+        '410':
+          description: Result deleted due to a new data release
+          content:
+            text/csv:
+              schema:
+                type: string
+                format: binary
+  /download/{token}/entities/notfound/{filename}.csv:
+    get:
+      tags:
+      - download
+      summary: Downloads a list of the not found identifiers
+      description: Those identifiers from the user sample that are not present up to the current data version. The filename is the one to be suggested in the download window.
+      operationId: downloadNotFound
+      parameters:
+      - name: token
+        in: path
+        description: The token associated with the data to download
+        required: true
+        schema:
+          type: string
+      - name: filename
+        in: path
+        description: the file name for the downloaded information
+        required: true
+        schema:
+          type: string
+        example: result
+      responses:
+        '404':
+          description: No result corresponding to the token was found
+          content:
+            text/csv:
+              schema:
+                type: string
+                format: binary
+        '410':
+          description: Result deleted due to a new data release
+          content:
+            text/csv:
+              schema:
+                type: string
+                format: binary
+  /download/{token}/pathways/{resource}/{filename}.csv:
+    get:
+      tags:
+      - download
+      summary: Downloads all hit pathways for a given analysis
+      description: The results are filtered by the selected resource. The filename is the one to be suggested in the download window.
+      operationId: downloadResultCSV
+      parameters:
+      - name: token
+        in: path
+        description: The token associated with the data to download
+        required: true
+        schema:
+          type: string
+      - name: resource
+        in: path
+        required: true
+        schema:
+          type: string
+          description: the preferred resource
+          example: TOTAL
+          enum:
+          - TOTAL
+          - UNIPROT
+          - ENSEMBL
+          - CHEBI
+          - IUPHAR
+          - MIRBASE
+          - NCBI
+          - PROTEIN
+          - EMBL
+          - COMPOUND
+          - PUBCHEM_COMPOUND
+      - name: filename
+        in: path
+        description: the file name for the downloaded information
+        required: true
+        schema:
+          type: string
+        example: result
+      responses:
+        '404':
+          description: No result corresponding to the token was found
+          content:
+            text/csv:
+              schema:
+                type: string
+                format: binary
+        '410':
+          description: Result deleted due to a new data release
+          content:
+            text/csv:
+              schema:
+                type: string
+                format: binary
+  /download/{token}/result.json:
+    get:
+      tags:
+      - download
+      summary: Returns the complete result in json format
+      description: The results are not filtered by any means. The json file contains the whole stored result based on chosen analysis options and submitted data.
+      operationId: downloadResultJSON
+      parameters:
+      - name: token
+        in: path
+        description: The token associated with the data to query
+        required: true
+        schema:
+          type: string
+      - name: importableOnly
+        in: query
+        description: Only include resources which can be later imported
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      responses:
+        '404':
+          description: No result corresponding to the token was found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalAnalysisResult'
+        '410':
+          description: Result deleted due to a new data release
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalAnalysisResult'
+  /download/{token}/result.json.gz:
+    get:
+      tags:
+      - download
+      summary: Returns the complete result in json format (gzipped)
+      description: The results are not filtered by any means. The json file contains the whole stored result based on chosen analysis options and submitted data.
+      operationId: downloadResultGZIP
+      parameters:
+      - name: token
+        in: path
+        description: The token associated with the data to query
+        required: true
+        schema:
+          type: string
+      responses:
+        '404':
+          description: No result corresponding to the token was found
+          content:
+            application/gzip:
+              schema:
+                type: string
+                format: binary
+            application/x-gzip:
+              schema:
+                type: string
+                format: binary
+        '410':
+          description: Result deleted due to a new data release
+          content:
+            application/gzip:
+              schema:
+                type: string
+                format: binary
+            application/x-gzip:
+              schema:
+                type: string
+                format: binary
+components:
+  schemas:
+    ExternalStatistics:
+      type: object
+      properties:
+        entitiesAndInteractorsCount:
+          type: integer
+          format: int32
+        entitiesAndInteractorsFound:
+          type: integer
+          format: int32
+        entitiesCount:
+          type: integer
+          format: int32
+        entitiesFDR:
+          type: number
+          format: double
+        entitiesFound:
+          type: integer
+          format: int32
+        entitiesPValue:
+          type: number
+          format: double
+        entitiesRatio:
+          type: number
+          format: double
+        exp:
+          type: array
+          items:
+            type: number
+            format: double
+        interactorsCount:
+          type: integer
+          format: int32
+        interactorsFound:
+          type: integer
+          format: int32
+        interactorsRatio:
+          type: number
+          format: double
+        reactionsCount:
+          type: integer
+          format: int32
+        reactionsFound:
+          type: integer
+          format: int32
+        reactionsRatio:
+          type: number
+          format: double
+        resource:
+          type: string
+    ExternalAnalysisSummary:
+      type: object
+      properties:
+        gsaMethod:
+          type: string
+        gsaToken:
+          type: string
+        includeDisease:
+          type: boolean
+        interactors:
+          type: boolean
+        projection:
+          type: boolean
+        sampleName:
+          type: string
+        server:
+          type: string
+        token:
+          type: string
+        type:
+          type: string
+          enum:
+          - SPECIES_COMPARISON
+          - OVERREPRESENTATION
+          - EXPRESSION
+          - GSA_REGULATION
+          - GSA_STATISTICS
+          - GSVA
+        version:
+          type: integer
+          format: int32
+    ExternalPathwayNodeSummary:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ExternalPathwayNodeData'
+        dbId:
+          type: integer
+          format: int64
+        inDisease:
+          type: boolean
+        llp:
+          type: boolean
+        name:
+          type: string
+        species:
+          $ref: '#/components/schemas/ExternalSpeciesNode'
+        stId:
+          type: string
+    ExternalMainIdentifier:
+      type: object
+      properties:
+        id:
+          type: string
+        resource:
+          type: string
+    ExternalIdentifier:
+      type: object
+      properties:
+        exp:
+          type: array
+          items:
+            type: number
+            format: double
+        id:
+          type: string
+        mapsTo:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalMainIdentifier'
+    ExternalPathwayNodeData:
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalIdentifier'
+        interactors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalInteractor'
+        reactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalAnalysisReaction'
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalStatistics'
+    ExternalInteraction:
+      type: object
+      properties:
+        id:
+          type: string
+        interactsWith:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalMainIdentifier'
+    ExternalAnalysisResult:
+      type: object
+      properties:
+        expressionSummary:
+          $ref: '#/components/schemas/ExternalExpressionSummary'
+        notFound:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalIdentifier'
+        pathways:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalPathwayNodeSummary'
+        summary:
+          $ref: '#/components/schemas/ExternalAnalysisSummary'
+        warnings:
+          type: array
+          items:
+            type: string
+    ExternalExpressionSummary:
+      type: object
+      properties:
+        columnNames:
+          type: array
+          items:
+            type: string
+        max:
+          type: number
+          format: double
+        min:
+          type: number
+          format: double
+    ExternalAnalysisReaction:
+      type: object
+      properties:
+        dbId:
+          type: integer
+          format: int64
+        resources:
+          type: array
+          items:
+            type: string
+        stId:
+          type: string
+    ExternalInteractor:
+      type: object
+      properties:
+        exp:
+          type: array
+          items:
+            type: number
+            format: double
+        id:
+          type: string
+        mapsTo:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalInteraction'
+    ExternalSpeciesNode:
+      type: object
+      properties:
+        name:
+          type: string
+        speciesID:
+          type: integer
+          format: int64
+        taxID:
+          type: string

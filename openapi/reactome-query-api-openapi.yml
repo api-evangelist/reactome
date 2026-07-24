@@ -1,0 +1,356 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database query API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: query
+  description: 'Reactome Data: Common data retrieval'
+paths:
+  /data/query/enhanced/v2/{id}:
+    get:
+      tags:
+      - query
+      summary: More information on an entry in Reactome knowledgebase
+      description: Based on the given identifier, i.e. stable id or database id, this method queries for an entry in Reactome knowledgebase providing more information. In particular, the retrieved database object has all its properties and direct relationships (relationships of depth 1) filled, while it also includes any second level relationships regarding regulations and catalysts.
+      operationId: findEnhancedObjectById
+      parameters:
+      - name: id
+        in: path
+        description: DbId or StId of the requested database object
+        required: true
+        schema:
+          type: string
+        example: R-HSA-60140
+      - name: fetchIncomingRelationships
+        in: query
+        description: Whether incoming relationships should be fetched
+        required: false
+        schema:
+          type: boolean
+          default: true
+        example: true
+      - name: summariseReferenceEntity
+        in: query
+        description: Whether ReferenceEntity should be summarising its physical entities
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: includeDisease
+        in: query
+        description: Whether disease specific data should be fetched
+        required: false
+        schema:
+          type: boolean
+          default: true
+        example: true
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseObject'
+  /data/query/enhanced/{id}:
+    get:
+      tags:
+      - query
+      summary: More information on an entry in Reactome knowledgebase
+      description: Based on the given identifier, i.e. stable id or database id, this method queries for an entry in Reactome knowledgebase providing more information. In particular, the retrieved database object has all its properties and direct relationships (relationships of depth 1) filled, while it also includes any second level relationships regarding regulations and catalysts.
+      operationId: findOldEnhancedObjectById
+      parameters:
+      - name: id
+        in: path
+        description: DbId or StId of the requested database object
+        required: true
+        schema:
+          type: string
+        example: R-HSA-60140
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseObject'
+  /data/query/ids:
+    post:
+      tags:
+      - query
+      summary: A list of entries in Reactome knowledgebase
+      description: This method queries for a set of entries in Reactome knowledgebase based on the given list of identifiers. The provided list of identifiers can include stable ids, database ids or a mixture of both. It should be underlined that any duplicated ids are eliminated while only requests containing up to 20 ids are processed.
+      operationId: findByIds
+      parameters:
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      requestBody:
+        description: A comma separated list of identifiers
+        content:
+          text/plain:
+            schema:
+              type: string
+            example: R-HSA-1640170, R-HSA-109581, 199420
+        required: true
+      responses:
+        '404':
+          description: Identifier does not match with any in current data or invalid attribute name
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DatabaseObject'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DatabaseObject'
+  /data/query/ids/map:
+    post:
+      tags:
+      - query
+      summary: A list of entries with their mapping to the provided identifiers
+      description: This method queries for a set of entries in Reactome knowledgebase based on the given list of identifiers. The provided list of identifiers can include stable ids, database ids, old stable ids or a mixture of all. It should be underlined that any duplicated ids are eliminated while only requests containing up to 20 ids are processed.<br>This method is particularly useful for users that still rely on the previous version of stable identifiers to query this API. Please note that those are no longer part of the retrieved objects.
+      operationId: findByIdsMap
+      parameters:
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      requestBody:
+        description: A comma separated list of identifiers
+        content:
+          text/plain:
+            schema:
+              type: string
+            example: R-HSA-1640170, R-HSA-109581, 199420
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/DatabaseObject'
+  /data/query/{id}:
+    get:
+      tags:
+      - query
+      summary: An entry in Reactome knowledgebase
+      description: This method queries for an entry in Reactome knowledgebase based on the given identifier, i.e. stable id or database id. It is worth mentioning that the retrieved database object has all its properties and direct relationships (relationships of depth 1) filled.
+      operationId: findById
+      parameters:
+      - name: id
+        in: path
+        description: DbId or StId of the requested database object
+        required: true
+        schema:
+          type: string
+        example: R-HSA-1640170
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier does not match with any in current data (depth 1)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseObject'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseObject'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseObject'
+  /data/query/{id}/{attributeName}:
+    get:
+      tags:
+      - query
+      summary: A single property of an entry in Reactome knowledgebase
+      description: This method queries for a specific property of an entry in Reactome knowledgebase based on the given identifier, i.e. stable id or database id.
+      operationId: findById_1
+      parameters:
+      - name: id
+        in: path
+        description: DbId or StId of the requested database object
+        required: true
+        schema:
+          type: string
+        example: R-HSA-1640170
+      - name: attributeName
+        in: path
+        description: Attribute to be filtered
+        required: true
+        schema:
+          type: string
+        example: displayName
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier does not match with any in current data or invalid attribute name
+          content:
+            text/plain:
+              schema:
+                type: string
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+components:
+  schemas:
+    DatabaseObject:
+      type: object
+      properties:
+        className:
+          type: string
+        created:
+          type: object
+        dbId:
+          type: integer
+          format: int64
+        displayName:
+          type: string
+        modified:
+          type: object
+        schemaClass:
+          type: string
+        stId:
+          type: string
+        stIdVersion:
+          type: string

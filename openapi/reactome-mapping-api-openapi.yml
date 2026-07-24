@@ -1,0 +1,502 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database mapping API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: mapping
+  description: Identifiers mapping methods
+paths:
+  /mapping/:
+    post:
+      tags:
+      - mapping
+      description: Maps the post identifiers over the different species
+      operationId: getMapping
+      parameters:
+      - name: interactors
+        in: query
+        description: Include interactors
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: importableOnly
+        in: query
+        description: Only include resources which can be later imported
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      requestBody:
+        description: <b>input</b> Identifiers to be mapped (if expression values åre submitted these will be omitted in the result)
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        ' 400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+  /mapping/form:
+    post:
+      tags:
+      - mapping
+      description: Maps the identifiers in the file over the different species
+      operationId: getMappingPostFile
+      parameters:
+      - name: interactors
+        in: query
+        description: Include interactors
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: importableOnly
+        in: query
+        description: Only include resources which can be later imported
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: A file with the data to be mapped
+              required:
+              - file
+      responses:
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+        '413':
+          description: The file size is larger than the maximum configured size (50MB)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+        '415':
+          description: Unsupported Media Type (only 'text/plain')
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+  /mapping/form/projection:
+    post:
+      tags:
+      - mapping
+      summary: Maps the identifiers in the file over the different species and projects the result to Homo Sapiens
+      description: The projection is calculated by the orthologous slot in the Reactome database.
+      operationId: getMappingPostFileToHuman
+      parameters:
+      - name: interactors
+        in: query
+        description: Include interactors
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: importableOnly
+        in: query
+        description: Only include resources which can be later imported
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: A file with the data to be mapped
+              required:
+              - file
+      responses:
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+        '413':
+          description: The file size is larger than the maximum configured size (50MB)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+        '415':
+          description: Unsupported Media Type (only 'text/plain')
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+  /mapping/projection:
+    post:
+      tags:
+      - mapping
+      summary: Maps the post identifiers over the different species and projects the result to Homo Sapiens
+      description: The projection is calculated by the orthologous slot in the Reactome database.
+      operationId: getMappingToHuman
+      parameters:
+      - name: interactors
+        in: query
+        description: Include interactors
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: importableOnly
+        in: query
+        description: Only include resources which can be later imported
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      requestBody:
+        description: <b>input</b> Identifiers to be mapped (if expression values are submitted these will be omitted in the result)
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+  /mapping/url:
+    post:
+      tags:
+      - mapping
+      summary: Maps the identifiers contained in the provided url over the different species
+      operationId: getMappingPostURL
+      parameters:
+      - name: interactors
+        in: query
+        description: Include interactors
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: importableOnly
+        in: query
+        description: Only include resources which can be later imported
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      requestBody:
+        description: <b>url</b> A URL pointing to the data to be mapped
+        content:
+          text/plain:
+            schema:
+              type: string
+              description: A URL pointing to the data to be mapped
+        required: true
+      responses:
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+        '413':
+          description: The file size is larger than the maximum configured size (50MB)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+        '415':
+          description: Unsupported Media Type (only 'text/plain')
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+        '422':
+          description: The provided URL is not processable
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+  /mapping/url/projection:
+    post:
+      tags:
+      - mapping
+      summary: Maps the identifiers contained in the provided url over the different species and projects the result to Homo Sapiens
+      description: The projection is calculated by the orthologous slot in the Reactome database.
+      operationId: getMappingPostURLToHuman
+      parameters:
+      - name: interactors
+        in: query
+        description: Include interactors
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: importableOnly
+        in: query
+        description: Only include resources which can be later imported
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      requestBody:
+        description: <b>url</b> A URL pointing to the data to be analysed
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+        '413':
+          description: The file size is larger than the maximum configured size (50MB)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+        '415':
+          description: Unsupported Media Type (only 'text/plain')
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+        '422':
+          description: The provided URL is not processable
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappedEntity'
+  /data/mapping/{resource}/{identifier}/pathways:
+    get:
+      tags:
+      - mapping
+      summary: The lower level pathways where an identifier can be mapped to
+      description: Entities play different roles in reactions, and reactions are events that conform a pathway. This method retrieves the pathways for which an identifier plays a role within one or more of their events.
+      operationId: getPathways
+      parameters:
+      - name: resource
+        in: path
+        description: The <a href='/content/schema/objects/ReferenceDatabase'>resource</a> <b>name</b> for which the identifier is submitted
+        required: true
+        schema:
+          type: string
+        example: UniProt
+      - name: identifier
+        in: path
+        description: The identifier to be mapped
+        required: true
+        schema:
+          type: string
+        example: PTEN
+      - name: species
+        in: query
+        description: 'Species for which the result is filtered. Accepts <b>taxonomy id</b>, <b>species name</b> and <b>dbId</b>. Important: when identifier points to chemical, this becomes mandatory and if not provided, the default is ''Homo sapiens'''
+        required: false
+        schema:
+          type: string
+        example: 9606
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: No pathways found for the submitted identifier/resource
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /data/mapping/{resource}/{identifier}/reactions:
+    get:
+      tags:
+      - mapping
+      summary: The reactions where an identifier can be mapped to
+      description: Entities play different roles in reactions. This method retrieves the reactions for which an identifier plays a role .
+      operationId: getReactionsLikeEvent
+      parameters:
+      - name: resource
+        in: path
+        description: The <a href='/content/schema/objects/ReferenceDatabase'>resource</a> <b>name</b> for which the identifier is submitted
+        required: true
+        schema:
+          type: string
+        example: UniProt
+      - name: identifier
+        in: path
+        description: The identifier to be mapped
+        required: true
+        schema:
+          type: string
+        example: PTEN
+      - name: species
+        in: query
+        description: 'Species for which the result is filtered. Accepts <b>taxonomy id</b>, <b>species name</b> and <b>dbId</b>. Important: when identifier points to chemical, this becomes mandatory and if not provided, the default is ''Homo sapiens'''
+        required: false
+        schema:
+          type: string
+        example: 9606
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: No reactions found for the submitted identifier/resource
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+components:
+  schemas:
+    MappedIdentifier:
+      type: object
+      properties:
+        identifier:
+          type: string
+        interactsWith:
+          type: array
+          items:
+            $ref: '#/components/schemas/MappedIdentifier'
+        resource:
+          type: string
+    MappedEntity:
+      type: object
+      properties:
+        identifier:
+          type: string
+        mapsTo:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/MappedIdentifier'

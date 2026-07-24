@@ -1,0 +1,364 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database entities API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: entities
+  description: 'Reactome Data: PhysicalEntity queries'
+paths:
+  /data/complex/{id}/subunits:
+    get:
+      tags:
+      - entities
+      summary: A list with the entities contained in a given complex
+      description: Retrieves the list of subunits that constitute any given complex. In case the complex comprises other complexes, this method recursively traverses the content returning each contained PhysicalEntity. Contained complexes and entity sets can be excluded setting the 'excludeStructures' optional parameter to 'true'
+      operationId: getComplexSubunits
+      parameters:
+      - name: id
+        in: path
+        description: The complex for which subunits are requested
+        required: true
+        schema:
+          type: string
+        example: R-HSA-5674003
+      - name: excludeStructures
+        in: query
+        description: Specifies whether contained complexes and entity sets are excluded in the response
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier does not match with any in current data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /data/complexes/{resource}/{identifier}:
+    get:
+      tags:
+      - entities
+      summary: A list of complexes containing the pair (identifier, resource)
+      description: Retrieves the list of complexes that contain a given (identifier, resource). The method deconstructs the complexes into all its participants to do so.
+      operationId: getComplexesFor
+      parameters:
+      - name: resource
+        in: path
+        description: The resource of the identifier for complexes are requested
+        required: true
+        schema:
+          type: string
+        example: UniProt
+      - name: identifier
+        in: path
+        description: The identifier for which complexes are requested
+        required: true
+        schema:
+          type: string
+        example: P00533
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Pair (identifier, resource) does not match with any in current data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /data/entity/{id}/componentOf:
+    get:
+      tags:
+      - entities
+      summary: A list of larger structures containing the entity
+      description: Retrieves the list of structures (Complexes and Sets) that include the given entity as their component. It should be mentioned that the list includes only simplified entries (type, names, ids) and not full information about each item.
+      operationId: getComponentsOf
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        example: R-HSA-199420
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier does not match with any in current data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ComponentOf'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ComponentOf'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ComponentOf'
+  /data/entity/{id}/in-depth:
+    get:
+      tags:
+      - entities
+      operationId: getPhysicalEntityInDepth
+      parameters:
+      - name: id
+        in: path
+        description: The complex for which subunits are requested
+        required: true
+        schema:
+          type: string
+        example: R-HSA-5674003
+      - name: maxDepth
+        in: query
+        description: Specify the depth needed for the given entity. If negative, fetches everything. If not, fetches the specified amount of nesting
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: attributes
+        in: query
+        description: Specify the attributes to load for each level of the entity
+        required: false
+        schema:
+          type: string
+          default: species,compartment
+        example: species,compartment
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier does not match with any in current data
+          content:
+            application/json:
+              schema:
+                type: object
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+  /data/entity/{id}/otherForms:
+    get:
+      tags:
+      - entities
+      summary: All other forms of a PhysicalEntity
+      description: Retrieves a list containing all other forms of the given PhysicalEntity. These other forms are PhysicalEntities that share the same ReferenceEntity identifier, e.g. PTEN H93R[R-HSA-2318524] and PTEN C124R[R-HSA-2317439] are two forms of PTEN.
+      operationId: getOtherFormsOf
+      parameters:
+      - name: id
+        in: path
+        description: DbId or StId of a PhysicalEntity
+        required: true
+        schema:
+          type: string
+        example: R-HSA-199420
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier does not match with any in current data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+components:
+  schemas:
+    ComponentOf:
+      type: object
+      properties:
+        names:
+          type: array
+          items:
+            type: string
+        schemaClasses:
+          type: array
+          items:
+            type: string
+        species:
+          type: array
+          items:
+            type: string
+        stIds:
+          type: array
+          items:
+            type: string
+        type:
+          type: string

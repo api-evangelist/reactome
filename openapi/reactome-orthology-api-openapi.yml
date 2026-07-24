@@ -1,0 +1,171 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database orthology API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: orthology
+  description: 'Reactome Data: Orthology related queries'
+paths:
+  /data/orthologies/ids/species/{speciesId}:
+    post:
+      tags:
+      - orthology
+      summary: The orthologies of a given set of events or entities
+      description: Reactome uses the set of manually curated human reactions to computationally infer reactions in twenty evolutionarily divergent eukaryotic species for which high-quality whole-genome sequence data are available, and hence a comprehensive and high-quality set of protein predictions exists. Thus, this method retrieves the orthologies for any given set of events or entities in the specified species. <a href="/documentation/inferred-events/" target="_blank">Here</a> you can find more information about the computationally inferred events.
+      operationId: getOrthologies
+      parameters:
+      - name: speciesId
+        in: path
+        description: The species for which the orthology is requested
+        required: true
+        schema:
+          type: integer
+          format: int64
+        example: 49633
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      requestBody:
+        description: The <b>events</b> or <b>entities</b> for which the orthology is requested
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '404':
+          description: Species does not match with any in current data
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/DatabaseObject'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/DatabaseObject'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/DatabaseObject'
+  /data/orthology/{id}/species/{speciesId}:
+    get:
+      tags:
+      - orthology
+      summary: The orthology for a given event or entity
+      description: Reactome uses the set of manually curated human reactions to computationally infer reactions in twenty evolutionarily divergent eukaryotic species for which high-quality whole-genome sequence data are available, and hence a comprehensive and high-quality set of protein predictions exists. Thus, this method retrieves the orthology for any given event or entity in the specified species. <a href="//www.reactome.org/pages/documentation/electronically-inferred-events/" target="_blank">Here</a> you can find more information about the computationally inferred events.
+      operationId: getOrthology
+      parameters:
+      - name: id
+        in: path
+        description: The event for which the orthology is requested
+        required: true
+        schema:
+          type: string
+        example: R-HSA-6799198
+      - name: speciesId
+        in: path
+        description: The species for which the orthology is requested
+        required: true
+        schema:
+          type: integer
+          format: int64
+        example: 49633
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Species does not match with any in current data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseObject'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseObject'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseObject'
+components:
+  schemas:
+    DatabaseObject:
+      type: object
+      properties:
+        className:
+          type: string
+        created:
+          type: object
+        dbId:
+          type: integer
+          format: int64
+        displayName:
+          type: string
+        modified:
+          type: object
+        schemaClass:
+          type: string
+        stId:
+          type: string
+        stIdVersion:
+          type: string

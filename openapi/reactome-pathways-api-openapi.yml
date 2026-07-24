@@ -1,0 +1,414 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database pathways API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: pathways
+  description: 'Reactome Data: Pathway related queries'
+paths:
+  /data/pathway/{id}/containedEvents:
+    get:
+      tags:
+      - pathways
+      summary: All the events contained in the given event
+      description: Events are the building blocks used in Reactome to represent all biological processes, and they include pathways and reactions. Typically, an event can contain other events. For example, a pathway can contain smaller pathways and reactions. This method recursively retrieves all the events contained in any given event.
+      operationId: getContainedEvents
+      parameters:
+      - name: id
+        in: path
+        description: The event for which the contained events are requested
+        required: true
+        schema:
+          type: string
+        example: R-HSA-5673001
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: No contained events found in the given event
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /data/pathway/{id}/containedEvents/{attributeName}:
+    get:
+      tags:
+      - pathways
+      summary: A single property for each event contained in the given event
+      description: Events are the building blocks used in Reactome to represent all biological processes, and they include pathways and reactions. Typically, an event can contain other events. For example, a pathway can contain smaller pathways (subpathways) and reactions.<br> This method recursively retrieves a single attribute for each of the events contained in the given event.
+      operationId: getContainedEvents_1
+      parameters:
+      - name: id
+        in: path
+        description: The event for which the contained events are requested
+        required: true
+        schema:
+          type: string
+        example: R-HSA-5673001
+      - name: attributeName
+        in: path
+        description: Attribute to be filtered
+        required: true
+        schema:
+          type: string
+        example: stId
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: No contained events found in the given event or invalid attribute name
+          content:
+            text/plain:
+              schema:
+                type: string
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+  /data/pathways/low/diagram/entity/{id}:
+    get:
+      tags:
+      - pathways
+      summary: A list of lower level pathways with diagram containing a given entity or event
+      description: This method traverses the event hierarchy and retrieves the list of all lower level pathways that have a diagram and contain the given PhysicalEntity or Event.
+      operationId: getPathwaysWithDiagramFor
+      parameters:
+      - name: id
+        in: path
+        description: The entity that has to be present in the pathways
+        required: true
+        schema:
+          type: string
+        example: R-HSA-199420
+      - name: species
+        in: query
+        description: 'The species for which the pathways are requested. Taxonomy identifier (eg: 9606) or species name (eg: ''Homo sapiens'')'
+        required: false
+        schema:
+          type: string
+        example: 9606
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier is not present in any pathways with diagram
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /data/pathways/low/diagram/entity/{id}/allForms:
+    get:
+      tags:
+      - pathways
+      summary: A list of lower level pathways with diagram containing any form of a given entity
+      description: This method traverses the event hierarchy and retrieves the list of all lower level pathways that have a diagram and contain the given PhysicalEntity in any of its variant forms. These variant forms include for example different post-translationally modified versions of a single protein, or the same chemical in different compartments.
+      operationId: getPathwaysWithDiagramForAllFormsOf
+      parameters:
+      - name: id
+        in: path
+        description: The entity (in any of its forms) that has to be present in the pathways
+        required: true
+        schema:
+          type: string
+        example: R-HSA-199420
+      - name: species
+        in: query
+        description: 'The species for which the pathways are requested. Taxonomy identifier (eg: 9606) or species name (eg: ''Homo sapiens'')'
+        required: false
+        schema:
+          type: string
+        example: 9606
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier (in any of its forms) is not present in any pathways with diagram
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /data/pathways/low/entity/{id}:
+    get:
+      tags:
+      - pathways
+      summary: A list of lower level pathways containing a given entity or event
+      description: This method traverses the event hierarchy and retrieves the list of all lower level pathways that contain the given PhysicalEntity or Event.
+      operationId: getPathwaysFor
+      parameters:
+      - name: id
+        in: path
+        description: The entity that has to be present in the pathways
+        required: true
+        schema:
+          type: string
+        example: R-HSA-199420
+      - name: species
+        in: query
+        description: 'The species for which the pathways are requested. Taxonomy identifier (eg: 9606) or species name (eg: ''Homo sapiens'')'
+        required: false
+        schema:
+          type: string
+        example: 9606
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier is not present in any pathways
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /data/pathways/low/entity/{id}/allForms:
+    get:
+      tags:
+      - pathways
+      summary: A list of lower level pathways containing any form of a given entity
+      description: This method traverses the event hierarchy and retrieves the list of all lower level pathways that contain the given PhysicalEntity in any of its variant forms. These variant forms include for example different post-translationally modified versions of a single protein, or the same chemical in different compartments.
+      operationId: getPathwaysForAllFormsOf
+      parameters:
+      - name: id
+        in: path
+        description: The entity (in any of its forms) that has to be present in the pathways
+        required: true
+        schema:
+          type: string
+        example: R-HSA-199420
+      - name: species
+        in: query
+        description: 'The species for which the pathways are requested. Taxonomy identifier (eg: 9606) or species name (eg: ''Homo sapiens'')'
+        required: false
+        schema:
+          type: string
+        example: 9606
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier (in any of its forms) is not present in any pathways
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /data/pathways/top/{species}:
+    get:
+      tags:
+      - pathways
+      summary: All Reactome top level pathways
+      description: This method retrieves the list of top level pathways for the given species
+      operationId: getTopLevelPathways
+      parameters:
+      - name: species
+        in: path
+        description: 'Specifies the species by the taxonomy identifier (eg: 9606) or species name (eg: ''Homo+sapiens'')'
+        required: true
+        schema:
+          type: string
+        example: 9606
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: No TopLevelPathways were found for species
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object

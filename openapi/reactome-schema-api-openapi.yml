@@ -1,0 +1,428 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database schema API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: schema
+  description: 'Reactome Data: Schema class queries'
+paths:
+  /data/schema/model:
+    get:
+      tags:
+      - schema
+      summary: A list of Reactome data model
+      description: This method retrieves a full specification of all Reactome classes.
+      operationId: getSchemaModel
+      parameters:
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchemaNode'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchemaNode'
+  /data/schema/{className}:
+    get:
+      tags:
+      - schema
+      summary: A list of entries corresponding to a given schema class
+      description: This method retrieves the list of entries in Reactome that belong to the specified schema class. Please take into account that if species is specified to filter the results, schema class needs to be an instance of Event or PhysicalEntity. Additionally, paging is required, while a maximum of 25 entries can be returned per request.
+      operationId: getDatabaseObjectsForClassName
+      parameters:
+      - name: className
+        in: path
+        description: Schema class name
+        required: true
+        schema:
+          type: string
+        example: Pathway
+      - name: species
+        in: query
+        description: 'Allowed species filter: SpeciesName (eg: Homo sapiens) SpeciesTaxId (eg: 9606)'
+        required: false
+        schema:
+          type: string
+        example: 9606
+      - name: page
+        in: query
+        description: Page to be returned
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: offset
+        in: query
+        description: Number of rows returned. Maximum = 25
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 25
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Schema class does not match with any current data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DatabaseObject'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DatabaseObject'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DatabaseObject'
+  /data/schema/{className}/count:
+    get:
+      tags:
+      - schema
+      summary: Number of entries belonging to the specified schema class
+      description: This method counts the total number of entries in Reactome that belong to the specified schema class. Please take into account that if species is specified to filter the results, schema class needs to be an instance of Event or PhysicalEntity.
+      operationId: countEntries
+      parameters:
+      - name: className
+        in: path
+        description: Schema class name
+        required: true
+        schema:
+          type: string
+        example: Pathway
+      - name: species
+        in: query
+        description: 'Allowed species filter: SpeciesName (eg: Homo sapiens) SpeciesTaxId (eg: 9606)'
+        required: false
+        schema:
+          type: string
+        example: 9606
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Schema class does not match with any current data
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+  /data/schema/{className}/min:
+    get:
+      tags:
+      - schema
+      summary: A list of simplified entries corresponding to a given schema class
+      description: This method retrieves the list of simplified entries in Reactome that belong to the specified schema class. A simplified entry may be considered as a minimised version of the full database object that includes its database id, stable id, displayName and type. Please take into account that if species is specified to filter the results, schema class needs to be an instance of Event or PhysicalEntity. Also, paging is required, while a maximum of 20000 entries can be returned per request.
+      operationId: getSimpleDatabaseObjectByClassName
+      parameters:
+      - name: className
+        in: path
+        description: Schema class name
+        required: true
+        schema:
+          type: string
+        example: Pathway
+      - name: species
+        in: query
+        description: 'Allowed species filter: SpeciesName (eg: Homo sapiens) SpeciesTaxId (eg: 9606)'
+        required: false
+        schema:
+          type: string
+        example: 9606
+      - name: page
+        in: query
+        description: Page to be returned
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: offset
+        in: query
+        description: Number of rows returned. Maximum = 20000
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 20000
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Schema class does not match with any current data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleDatabaseObject'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleDatabaseObject'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleDatabaseObject'
+  /data/schema/{className}/reference:
+    get:
+      tags:
+      - schema
+      summary: A list of simplified reference objects corresponding to a given schema class
+      description: This method retrieves the list of simplified reference objects that belong to the specified schema class. A reference object includes its database id, external identifier, and external database name. Please take into account that schema class needs to be an instance of ReferenceEntity or ExternalOntology. Also, paging is required, while a maximum of 20000 entries can be returned per request.
+      operationId: getSimpleReferencesObjectsByClassName
+      parameters:
+      - name: className
+        in: path
+        description: Schema class name. Class needs to an instance of ReferenceEntity or ExternalOntology
+        required: true
+        schema:
+          type: string
+        example: ReferenceMolecule
+      - name: page
+        in: query
+        description: Page to be returned
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: offset
+        in: query
+        description: Number of rows returned. Maximum = 20000
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 20000
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Schema class does not match with any current data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleReferenceObject'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleReferenceObject'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleReferenceObject'
+components:
+  schemas:
+    SimpleReferenceObject:
+      type: object
+      properties:
+        databaseName:
+          type: string
+        dbId:
+          type: integer
+          format: int64
+        identifier:
+          type: string
+    DatabaseObject:
+      type: object
+      properties:
+        className:
+          type: string
+        created:
+          type: object
+        dbId:
+          type: integer
+          format: int64
+        displayName:
+          type: string
+        modified:
+          type: object
+        schemaClass:
+          type: string
+        stId:
+          type: string
+        stIdVersion:
+          type: string
+    SimpleDatabaseObject:
+      type: object
+      properties:
+        dbId:
+          type: integer
+          format: int64
+        displayName:
+          type: string
+        labels:
+          type: array
+          writeOnly: true
+          items:
+            type: string
+        schemaClass:
+          type: string
+        stId:
+          type: string
+    SchemaNode:
+      type: object
+      properties:
+        children:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/SchemaNode'
+        className:
+          type: string
+        count:
+          type: integer
+          format: int32

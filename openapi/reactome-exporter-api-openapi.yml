@@ -1,0 +1,654 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database exporter API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: exporter
+  description: 'Reactome Data: Format Exporter'
+paths:
+  /exporter/diagram/{identifier}.{ext}:
+    get:
+      tags:
+      - exporter
+      summary: Exports a given pathway diagram to the specified image format (png, jpg, jpeg, svg, gif)
+      description: This method accepts identifiers for <a href="/content/schema/Event" target="_blank">Event class</a> instances.<br/>When a diagrammed pathway is provided, the diagram is exported to the specified format.<br/>When a subpathway is provided, the diagram for the parent is exported and the events that are part of the subpathways are selected.<br/>When a reaction is provided, the diagram containing the reaction is exported and the reaction is selected.<br/><br/>Find out more about this method <a href="/dev/content-service/diagram-exporter" target="_blank">here</a>
+      operationId: diagramImage_1
+      parameters:
+      - name: identifier
+        in: path
+        description: Event identifier (it can be a pathway with diagram, a subpathway or a reaction)
+        required: true
+        schema:
+          type: string
+        example: R-HSA-177929
+      - name: ext
+        in: path
+        description: File extension (defines the image format)
+        required: true
+        schema:
+          type: string
+          enum:
+          - png
+          - jpg
+          - jpeg
+          - svg
+          - gif
+        example: png
+      - name: quality
+        in: query
+        description: Result image quality between [1 - 10]. It defines the quality of the final image (Default 5)
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 5
+        example: 5
+      - name: flg
+        in: query
+        description: Gene name, protein or chemical identifier or Reactome identifier used to flag elements in the diagram
+        required: false
+        schema:
+          type: string
+      - name: flgInteractors
+        in: query
+        description: Defines whether to take into account interactors for the flagging
+        required: false
+        schema:
+          type: boolean
+          default: true
+      - name: sel
+        in: query
+        description: Highlight element(s) selection in the diagram. CSV line.
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: title
+        in: query
+        description: Sets whether the name of the pathway is shown below
+        required: false
+        schema:
+          type: boolean
+          default: true
+        example: true
+      - name: margin
+        in: query
+        description: Defines the image margin between [0 - 20] (Default 15)
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 15
+        example: 15
+      - name: ehld
+        in: query
+        description: Defines whether textbook-like illustration are taken into account
+        required: false
+        schema:
+          type: boolean
+          default: true
+        example: true
+      - name: diagramProfile
+        in: query
+        description: Diagram Color Profile
+        required: false
+        schema:
+          type: string
+          enum:
+          - Modern
+          - Standard
+        example: Modern
+      - name: token
+        in: query
+        description: The <a href="/dev/analysis" target="_blank">analysis</a> token with the results to be overlaid on top of the given diagram
+        required: false
+        schema:
+          type: string
+      - name: resource
+        in: query
+        description: The <a href="/dev/analysis" target="_blank">analysis</a> resource for which the results will be overlaid on top of the given pathways overview
+        required: false
+        schema:
+          type: string
+          default: TOTAL
+      - name: analysisProfile
+        in: query
+        description: Analysis  Color Profile
+        required: false
+        schema:
+          type: string
+          enum:
+          - Standard
+          - Strosobar, Copper%20Plus
+        example: Standard
+      - name: expColumn
+        in: query
+        description: Expression column. When the token is associated to an expression analysis, this parameter allows specifying the expression column for the overlay
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '200':
+          description: OK
+          content:
+            image/gif: {}
+            image/jpeg: {}
+            image/jpg: {}
+            image/png: {}
+            image/svg+xml: {}
+        '404':
+          description: Stable Identifier does not match with any of the available diagrams.
+        '500':
+          description: Could not deserialize diagram file.
+  /exporter/document/event/{identifier}.pdf:
+    get:
+      tags:
+      - exporter
+      summary: Exports the content of a given event (pathway or reaction) to a PDF document
+      description: 'This method accepts identifiers for <a href="/content/schema/Event" target="_blank">Event class</a> instances.<br/>The generated document contains the details for the given event and, optionally, its children (see level parameter). These details include:<br/> - A diagram image<br/> - Summation<br/> - Literature references<br/> - Edit history<br/> - Other details: type, location, compartments, diseases<br/><br/>Documents can also be overlaid with <a href=''/dev/analysis'' target="_blank">pathway analysis results</a>'
+      operationId: eventPdf
+      parameters:
+      - name: identifier
+        in: path
+        description: Event identifier (it can be a pathway with diagram, a subpathway or a reaction)
+        required: true
+        schema:
+          type: string
+        example: R-HSA-177929
+      - name: level [0 - 1]
+        in: query
+        description: Number of levels to explore down in the pathways hierarchy [0 - 1]
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+        example: 1
+      - name: diagramProfile
+        in: query
+        description: Diagram Color Profile
+        required: false
+        schema:
+          type: string
+          enum:
+          - Modern
+          - Standard
+        example: Modern
+      - name: token
+        in: query
+        description: The <a href="/dev/analysis" target="_blank">analysis</a> token with the results to be overlaid on top of the given diagram
+        required: false
+        schema:
+          type: string
+      - name: resource
+        in: query
+        description: The <a href="/dev/analysis" target="_blank">analysis</a> resource for which the results will be overlaid on top of the given pathways overview
+        required: false
+        schema:
+          type: string
+          default: TOTAL
+      - name: importableOnly
+        in: query
+        description: Filters resources to only includes importable ones
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: expColumn
+        in: query
+        description: Expression column. When the token is associated to an expression analysis, this parameter allows specifying the expression column for the overlay
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: analysisProfile
+        in: query
+        description: Analysis  Color Profile
+        required: false
+        schema:
+          type: string
+          enum:
+          - Standard
+          - Strosobar
+          - Copper%20Plus
+        example: Standard
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '200':
+          description: OK
+          content:
+            application/pdf: {}
+        '404':
+          description: Stable Identifier does not match with any of the available diagrams.
+        '500':
+          description: Could not deserialize diagram file.
+        '503':
+          description: Service was unable to export to Power Point.
+  /exporter/event/{identifier}.sbgn:
+    get:
+      tags:
+      - exporter
+      summary: Exports a given pathway or reaction to SBGN
+      operationId: eventSBGN
+      parameters:
+      - name: identifier
+        in: path
+        description: DbId or StId of the requested pathway or reaction
+        required: true
+        schema:
+          type: string
+        example: R-HSA-5205682
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier not found
+        '422':
+          description: Identifier does not correspond to a pathway or reaction
+        '500':
+          description: Internal Server Error
+  /exporter/event/{identifier}.sbml:
+    get:
+      tags:
+      - exporter
+      summary: Exports a given pathway or reaction to SBML
+      operationId: eventSBML
+      parameters:
+      - name: identifier
+        in: path
+        description: DbId or StId of the requested pathway or reaction
+        required: true
+        schema:
+          type: string
+        example: R-HSA-68616
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier not found
+        '422':
+          description: Identifier does not correspond to a pathway or reaction
+        '500':
+          description: Internal Server Error
+  /exporter/fireworks/{species}.{ext}:
+    get:
+      tags:
+      - exporter
+      summary: Exports a given pathway overview to the specified image format (png, jpg, jpeg, svg, gif)
+      operationId: diagramImage
+      parameters:
+      - name: species
+        in: path
+        description: Species identifier (it can be the taxonomy id, species name or dbId)
+        required: true
+        schema:
+          type: string
+        example: 9606
+      - name: ext
+        in: path
+        description: File extension (defines the image format)
+        required: true
+        schema:
+          type: string
+          enum:
+          - png
+          - jpg
+          - jpeg
+          - svg
+          - gif
+        example: svg
+      - name: quality
+        in: query
+        description: Result image quality between [1 - 10]. It defines the quality of the final image (Default 5)
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 5
+        example: 5
+      - name: flg
+        in: query
+        description: Gene name, protein or chemical identifier or Reactome identifier used to flag elements in the diagram
+        required: false
+        schema:
+          type: string
+      - name: flgInteractors
+        in: query
+        description: Defines whether to take into account interactors for the flagging
+        required: false
+        schema:
+          type: boolean
+          default: true
+      - name: sel
+        in: query
+        description: Highlight element(s) selection in the diagram. CSV line.
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: title
+        in: query
+        description: Sets whether the name of the pathway is shown below
+        required: false
+        schema:
+          type: boolean
+          default: true
+        example: true
+      - name: margin
+        in: query
+        description: Defines the image margin between [0 - 20] (Default 15)
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 15
+        example: 15
+      - name: diagramProfile
+        in: query
+        description: Diagram Color Profile
+        required: false
+        schema:
+          type: string
+          enum:
+          - Copper
+          - Copper plus
+          - Barium Lithium
+          - Calcium Salts
+        example: Copper
+      - name: token
+        in: query
+        description: The <a href="/dev/analysis" target="_blank">analysis</a> token with the results to be overlaid on top of the given pathways overview
+        required: false
+        schema:
+          type: string
+      - name: resource
+        in: query
+        description: The <a href="/dev/analysis" target="_blank">analysis</a> resource for which the results will be overlaid on top of the given pathways overview
+        required: false
+        schema:
+          type: string
+          default: TOTAL
+      - name: expColumn
+        in: query
+        description: Expression column. When the token is associated to an expression analysis, this parameter allows specifying the expression column for the overlay
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: coverage
+        in: query
+        description: Set to 'true' to overlay analysis coverage values
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '200':
+          description: OK
+          content:
+            image/gif: {}
+            image/jpeg: {}
+            image/jpg: {}
+            image/png: {}
+            image/svg+xml: {}
+        '404':
+          description: Species does not match with any of the available.
+        '500':
+          description: Could not deserialize pathways overview file.
+  /exporter/reaction/{identifier}.{ext}:
+    get:
+      tags:
+      - exporter
+      summary: Exports a given reaction to the specified image format (png, jpg, jpeg, svg, gif)
+      description: This method accepts identifiers for <a href="/content/schema/ReactionLikeEvent" target="_blank">ReactionLikeEvent class</a> instances.
+      operationId: reactionImage
+      parameters:
+      - name: identifier
+        in: path
+        description: Reaction identifier
+        required: true
+        schema:
+          type: string
+        example: R-HSA-6787403
+      - name: ext
+        in: path
+        description: File extension (defines the image format)
+        required: true
+        schema:
+          type: string
+          enum:
+          - png
+          - jpg
+          - jpeg
+          - svg
+          - gif
+        example: png
+      - name: quality
+        in: query
+        description: Result image quality between [1 - 10]. It defines the quality of the final image (Default 5)
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 5
+        example: 5
+      - name: flg
+        in: query
+        description: Gene name, protein or chemical identifier or Reactome identifier used to flag elements in the diagram
+        required: false
+        schema:
+          type: string
+      - name: flgInteractors
+        in: query
+        description: Defines whether to take into account interactors for the flagging
+        required: false
+        schema:
+          type: boolean
+          default: true
+      - name: sel
+        in: query
+        description: Highlight element selection in the diagram.
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: title
+        in: query
+        description: Sets whether the name of the reaction is shown below
+        required: false
+        schema:
+          type: boolean
+          default: true
+        example: true
+      - name: margin
+        in: query
+        description: Defines the image margin between [0 - 20] (Default 15)
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 15
+        example: 15
+      - name: diagramProfile
+        in: query
+        description: Diagram Color Profile
+        required: false
+        schema:
+          type: string
+          enum:
+          - Modern
+          - Standard
+        example: Modern
+      - name: token
+        in: query
+        description: The <a href="/dev/analysis" target="_blank">analysis</a> token with the results to be overlaid on top of the given reaction
+        required: false
+        schema:
+          type: string
+      - name: analysisProfile
+        in: query
+        description: Analysis  Color Profile
+        required: false
+        schema:
+          type: string
+          enum:
+          - Standard
+          - Strosobar, Copper%20Plus
+        example: Standard
+      - name: resource
+        in: query
+        description: The <a href="/dev/analysis" target="_blank">analysis</a> resource for which the results will be overlaid on top of the given pathways overview
+        required: false
+        schema:
+          type: string
+          default: TOTAL
+      - name: expColumn
+        in: query
+        description: Expression column. When the token is associated to an expression analysis, this parameter allows specifying the expression column for the overlay
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '200':
+          description: OK
+          content:
+            image/gif: {}
+            image/jpeg: {}
+            image/jpg: {}
+            image/png: {}
+            image/svg+xml: {}
+        '404':
+          description: Stable Identifier does not match with any of the reactions.
+        '500':
+          description: Could not deserialize diagram file.

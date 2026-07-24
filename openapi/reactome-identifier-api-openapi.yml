@@ -1,0 +1,459 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database identifier API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: identifier
+  description: Queries for only one identifier
+paths:
+  /identifier/{id}:
+    get:
+      tags:
+      - identifier
+      summary: Analyse the identifier over the different species in the database
+      description: Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type)
+      operationId: getIdentifier
+      parameters:
+      - name: id
+        in: path
+        description: The identifier of the element to be retrieved
+        required: true
+        schema:
+          type: string
+      - name: interactors
+        in: query
+        description: Include interactors
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: species
+        in: query
+        description: list of species to filter the result (accepts taxonomy ids, species names and dbId)
+        required: false
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: pathways per page
+        required: false
+        schema:
+          type: integer
+          format: int32
+        example: 20
+      - name: page
+        in: query
+        description: page number
+        required: false
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: sortBy
+        in: query
+        required: false
+        schema:
+          type: string
+          description: how to sort the result
+          example: ENTITIES_PVALUE
+          enum:
+          - NAME
+          - TOTAL_ENTITIES
+          - TOTAL_INTERACTORS
+          - TOTAL_REACTIONS
+          - FOUND_ENTITIES
+          - FOUND_INTERACTORS
+          - FOUND_REACTIONS
+          - ENTITIES_RATIO
+          - ENTITIES_PVALUE
+          - ENTITIES_FDR
+          - REACTIONS_RATIO
+      - name: order
+        in: query
+        required: false
+        schema:
+          type: string
+          description: specifies the order
+          example: ASC
+          enum:
+          - ASC
+          - DESC
+      - name: resource
+        in: query
+        required: false
+        schema:
+          type: string
+          description: the resource to sort
+          example: TOTAL
+          enum:
+          - TOTAL
+          - UNIPROT
+          - ENSEMBL
+          - CHEBI
+          - IUPHAR
+          - MIRBASE
+          - NCBI_PROTEIN
+          - EMBL
+          - COMPOUND
+          - PUBCHEM_COMPOUND
+      - name: pValue
+        in: query
+        description: defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned
+        required: false
+        schema:
+          type: number
+          format: double
+          default: 1.0
+        example: 1
+      - name: includeDisease
+        in: query
+        description: set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)
+        required: false
+        schema:
+          type: boolean
+          default: true
+        example: true
+      - name: min
+        in: query
+        description: minimum number of contained entities per pathway (takes into account the resource)
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: max
+        in: query
+        description: maximum number of contained entities per pathway (takes into account the resource)
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: importableOnly
+        in: query
+        description: Filters resources to only includes importable ones
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisResult'
+  /identifier/{id}/projection:
+    get:
+      tags:
+      - identifier
+      summary: Analyse the identifier over the different species in the database and projects the result to Homo Sapiens
+      description: The projection is calculated by the orthologous slot in the Reactome database. Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type)
+      operationId: getIdentifierToHuman
+      parameters:
+      - name: id
+        in: path
+        description: The identifier of the element to be retrieved
+        required: true
+        schema:
+          type: string
+      - name: interactors
+        in: query
+        description: Include interactors
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: species
+        in: query
+        description: list of species to filter the result (accepts taxonomy ids, species names and dbId)
+        required: false
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: pathways per page
+        required: false
+        schema:
+          type: integer
+          format: int32
+        example: 20
+      - name: page
+        in: query
+        description: page number
+        required: false
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: sortBy
+        in: query
+        required: false
+        schema:
+          type: string
+          description: how to sort the result
+          example: ENTITIES_PVALUE
+          enum:
+          - NAME
+          - TOTAL_ENTITIES
+          - TOTAL_INTERACTORS
+          - TOTAL_REACTIONS
+          - FOUND_ENTITIES
+          - FOUND_INTERACTORS
+          - FOUND_REACTIONS
+          - ENTITIES_RATIO
+          - ENTITIES_PVALUE
+          - ENTITIES_FDR
+          - REACTIONS_RATIO
+      - name: order
+        in: query
+        required: false
+        schema:
+          type: string
+          description: specifies the order
+          example: ASC
+          enum:
+          - ASC
+          - DESC
+      - name: resource
+        in: query
+        required: false
+        schema:
+          type: string
+          description: resource to sort
+          example: TOTAL
+          enum:
+          - TOTAL
+          - UNIPROT
+          - ENSEMBL
+          - CHEBI
+          - IUPHAR
+          - MIRBASE
+          - NCBI_PROTEIN
+          - EMBL
+          - COMPOUND
+          - PUBCHEM_COMPOUND
+      - name: pValue
+        in: query
+        description: defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned
+        required: false
+        schema:
+          type: number
+          format: double
+          default: 1.0
+        example: 1
+      - name: includeDisease
+        in: query
+        description: set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)
+        required: false
+        schema:
+          type: boolean
+          default: true
+        example: true
+      - name: min
+        in: query
+        description: minimum number of contained entities per pathway (takes into account the resource)
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: max
+        in: query
+        description: maximum number of contained entities per pathway (takes into account the resource)
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: importableOnly
+        in: query
+        description: Filters resources to only includes importable ones
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisResult'
+components:
+  schemas:
+    AnalysisResult:
+      type: object
+      properties:
+        expression:
+          $ref: '#/components/schemas/ExpressionSummary'
+        identifiersNotFound:
+          type: integer
+          format: int32
+        pathways:
+          type: array
+          items:
+            $ref: '#/components/schemas/PathwaySummary'
+        pathwaysFound:
+          type: integer
+          format: int32
+        resourceSummary:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSummary'
+        speciesSummary:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpeciesSummary'
+        summary:
+          $ref: '#/components/schemas/AnalysisSummary'
+        warnings:
+          type: array
+          items:
+            type: string
+    PathwaySummary:
+      type: object
+      properties:
+        dbId:
+          type: integer
+          format: int64
+        entities:
+          $ref: '#/components/schemas/EntityStatistics'
+        inDisease:
+          type: boolean
+        llp:
+          type: boolean
+        name:
+          type: string
+        reactions:
+          $ref: '#/components/schemas/ReactionStatistics'
+        species:
+          $ref: '#/components/schemas/SpeciesSummary'
+        stId:
+          type: string
+    AnalysisSummary:
+      type: object
+      properties:
+        fileName:
+          type: string
+        gsaMethod:
+          type: string
+        gsaToken:
+          type: string
+        includeDisease:
+          type: boolean
+        interactors:
+          type: boolean
+        projection:
+          type: boolean
+        sampleName:
+          type: string
+        species:
+          type: integer
+          format: int64
+        text:
+          type: boolean
+        token:
+          type: string
+        type:
+          type: string
+    ResourceSummary:
+      type: object
+      properties:
+        filtered:
+          type: integer
+          format: int32
+        pathways:
+          type: integer
+          format: int32
+        resource:
+          type: string
+    SpeciesSummary:
+      type: object
+      properties:
+        dbId:
+          type: integer
+          format: int64
+        filtered:
+          type: integer
+          format: int32
+        name:
+          type: string
+        pathways:
+          type: integer
+          format: int32
+        taxId:
+          type: string
+    EntityStatistics:
+      type: object
+      properties:
+        curatedFound:
+          type: integer
+          format: int32
+        curatedTotal:
+          type: integer
+          format: int32
+        exp:
+          type: array
+          items:
+            type: number
+            format: double
+        fdr:
+          type: number
+          format: double
+        found:
+          type: integer
+          format: int32
+        getpValue:
+          type: number
+          format: double
+        interactorsFound:
+          type: integer
+          format: int32
+        interactorsTotal:
+          type: integer
+          format: int32
+        ratio:
+          type: number
+          format: double
+        resource:
+          type: string
+        total:
+          type: integer
+          format: int32
+    ReactionStatistics:
+      type: object
+      properties:
+        found:
+          type: integer
+          format: int32
+        ratio:
+          type: number
+          format: double
+        resource:
+          type: string
+        total:
+          type: integer
+          format: int32
+    ExpressionSummary:
+      type: object
+      properties:
+        columnNames:
+          type: array
+          items:
+            type: string
+        max:
+          type: number
+          format: double
+        min:
+          type: number
+          format: double

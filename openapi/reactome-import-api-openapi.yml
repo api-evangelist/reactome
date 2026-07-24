@@ -1,0 +1,160 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database import API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: import
+  description: Imports an external result
+paths:
+  /import/:
+    post:
+      tags:
+      - import
+      summary: Imports the posted json into the service
+      description: The accepted format is the same as provided by the method <a href='#/download/downloadResultJSONUsingGET'>/#/download/{token}/result.json</a>.
+      operationId: getPostText
+      requestBody:
+        description: <b>input</b> Identifiers to analyse followed by their expression (when applies)
+        content:
+          application/gzip:
+            schema:
+              type: string
+          application/json:
+            schema:
+              type: string
+          application/zip:
+            schema:
+              type: string
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '400':
+          description: Bad request. See more details in the response body
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisSummary'
+        '415':
+          description: Unsupported Media Type (only 'text/plain' or 'application/json')
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisSummary'
+  /import/form:
+    post:
+      tags:
+      - import
+      summary: Imports the posted json file into the service
+      description: 'The accepted format is the same as provided by the method <a href=''#/download/downloadResultJSONUsingGET''>/#/download/{token}/result.json</a>. Note: The submitted file can be gzipped.'
+      operationId: getPostFile
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: A file with the data to be analysed
+              required:
+              - file
+      responses:
+        '400':
+          description: Bad request. See more details in the response body
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisSummary'
+        '413':
+          description: The file size is larger than the maximum configured size (50MB)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisSummary'
+        '415':
+          description: Unsupported Media Type (only 'text/plain' or 'application/json')
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisSummary'
+  /import/url:
+    post:
+      tags:
+      - import
+      summary: Imports the json file provided by the posted url into the service
+      description: 'The accepted format is the same as provided by the method <a href=''#/download/downloadResultJSONUsingGET''>/#/download/{token}/result.json</a>. Note: The provided file can be gzipped.'
+      operationId: getPostURL
+      requestBody:
+        description: <b>url</b> A URL pointing to the data to be analysed
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '400':
+          description: Bad request. See more details in the response body
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisSummary'
+        '413':
+          description: The file size is larger than the maximum configured size (50MB)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisSummary'
+        '415':
+          description: Unsupported Media Type (only 'text/plain')
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisSummary'
+        '422':
+          description: The provided URL is not processable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisSummary'
+components:
+  schemas:
+    AnalysisSummary:
+      type: object
+      properties:
+        fileName:
+          type: string
+        gsaMethod:
+          type: string
+        gsaToken:
+          type: string
+        includeDisease:
+          type: boolean
+        interactors:
+          type: boolean
+        projection:
+          type: boolean
+        sampleName:
+          type: string
+        species:
+          type: integer
+          format: int64
+        text:
+          type: boolean
+        token:
+          type: string
+        type:
+          type: string

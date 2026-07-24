@@ -1,0 +1,136 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database discover API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: discover
+  description: 'Reactome Data: Search engines discovery schema'
+paths:
+  /data/discover/{identifier}:
+    get:
+      tags:
+      - discover
+      summary: The schema.org for an Event in Reactome knowledgebase
+      description: For each event (reaction or pathway) this method generates a json file representing the dataset object as defined by schema.org (http). This is mainly used by search engines in order to index the data
+      operationId: eventDiscovery
+      parameters:
+      - name: identifier
+        in: path
+        description: An event identifier
+        required: true
+        schema:
+          type: string
+        example: R-HSA-446203
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier does not match with any event
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchemaDataSet'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchemaDataSet'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchemaDataSet'
+components:
+  schemas:
+    SchemaDataCatalog:
+      type: object
+      properties:
+        '@type':
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+    SchemaCreator:
+      type: object
+    SchemaDataDownload:
+      type: object
+      properties:
+        '@type':
+          type: string
+        contentUrl:
+          type: string
+        encodingFormat:
+          type: string
+        fileFormat:
+          type: string
+    SchemaDataSet:
+      type: object
+      properties:
+        '@context':
+          type: string
+        '@type':
+          type: string
+        citation:
+          type: array
+          items:
+            type: string
+        creator:
+          type: array
+          items:
+            $ref: '#/components/schemas/SchemaCreator'
+        description:
+          type: string
+        distribution:
+          type: array
+          items:
+            $ref: '#/components/schemas/SchemaDataDownload'
+        includedInDataCatalog:
+          $ref: '#/components/schemas/SchemaDataCatalog'
+        keywords:
+          type: array
+          items:
+            type: string
+        license:
+          type: string
+        name:
+          type: string
+        sameAs:
+          type: array
+          items:
+            type: string
+        url:
+          type: string
+        version:
+          type: string

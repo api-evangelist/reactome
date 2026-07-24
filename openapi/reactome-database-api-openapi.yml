@@ -1,0 +1,137 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: database
+  description: Database info queries
+paths:
+  /database/name:
+    get:
+      tags:
+      - database
+      summary: The name of current database
+      operationId: getDBName
+      responses:
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            text/plain:
+              schema:
+                type: string
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+  /database/version:
+    get:
+      tags:
+      - database
+      summary: The version number of current database
+      operationId: getDBVersion
+      responses:
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            text/plain:
+              schema:
+                type: string
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+  /data/database/name:
+    get:
+      tags:
+      - database
+      summary: The name of current database
+      operationId: getDBName
+      parameters:
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            text/plain:
+              schema:
+                type: string
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+  /data/database/version:
+    get:
+      tags:
+      - database
+      summary: The version number of current database
+      operationId: getDBVersion
+      parameters:
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            text/plain:
+              schema:
+                type: string
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string

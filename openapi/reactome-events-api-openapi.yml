@@ -1,0 +1,319 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database events API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: events
+  description: 'Reactome Data: Queries related to events'
+paths:
+  /data/event/{id}/ancestors:
+    get:
+      tags:
+      - events
+      summary: The ancestors of a given event
+      description: The Reactome definition of events includes pathways and reactions. Although events are organised in a hierarchical structure, a single event can be in more than one location, i.e. a reaction can take part in different pathways while, in the same way, a sub-pathway can take part in many pathways. Therefore, this method retrieves a list of all possible paths from the requested event to the top level pathway(s).
+      operationId: getEventAncestors
+      parameters:
+      - name: id
+        in: path
+        description: The event for which the ancestors are requested
+        required: true
+        schema:
+          type: string
+        example: R-HSA-5673001
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier does not match with any in current data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/EventProjection'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/EventProjection'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/EventProjection'
+  /data/event/{id}/in-depth:
+    get:
+      tags:
+      - events
+      operationId: getEventInDepth
+      parameters:
+      - name: id
+        in: path
+        description: The complex for which subunits are requested
+        required: true
+        schema:
+          type: string
+        example: R-HSA-9612973
+      - name: maxDepth
+        in: query
+        description: Specify the depth needed for the given entity. If negative, fetches everything. If not, fetches the specified amount of nesting
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: attributes
+        in: query
+        description: Specify the attributes to load for each level of the entity
+        required: false
+        schema:
+          type: string
+          default: species,compartment
+        example: species,compartment
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier does not match with any in current data
+          content:
+            application/json:
+              schema:
+                type: object
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+  /data/eventsHierarchy/{species}:
+    get:
+      tags:
+      - events
+      summary: The full event hierarchy for a given species
+      description: Events (pathways and reactions) in Reactome are organised in a hierarchical structure for every species. By following all 'hasEvent' relationships, this method retrieves the full event hierarchy for any given species. The result is a list of tree structures, one for each TopLevelPathway. Every event in these trees is represented by a PathwayBrowserNode. The latter contains the stable identifier, the name, the species, the url, the type, and the diagram of the particular event.
+      operationId: getEventHierarchy
+      parameters:
+      - name: species
+        in: path
+        description: 'Allowed species filter: SpeciesName (eg: Homo sapiens) SpeciesTaxId (eg: 9606)'
+        required: true
+        schema:
+          type: string
+        example: 9606
+      - name: pathwaysOnly
+        in: query
+        description: Only get pathways
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: token
+        in: query
+        description: The <a href="/dev/analysis" target="_blank">analysis</a> token with the results to be overlaid on top of the given pathways overview
+        required: false
+        schema:
+          type: string
+      - name: resource
+        in: query
+        description: The <a href="/dev/analysis" target="_blank">analysis</a> resource for which the results will be overlaid on top of the given pathways overview
+        required: false
+        schema:
+          type: string
+          default: TOTAL
+      - name: interactors
+        in: query
+        description: Include interactors
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: importableOnly
+        in: query
+        description: Filters resources to only includes importable ones
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Species does not match with any in current data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PathwayBrowserNode'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PathwayBrowserNode'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PathwayBrowserNode'
+components:
+  schemas:
+    EventProjection:
+      type: object
+      properties:
+        category:
+          type: string
+        dbId:
+          type: integer
+          format: int64
+        definition:
+          type: string
+        diagramHeight:
+          type: integer
+          format: int32
+        diagramWidth:
+          type: integer
+          format: int32
+        displayName:
+          type: string
+        doi:
+          type: string
+        hasDiagram:
+          type: boolean
+        hasEHLD:
+          type: boolean
+        inDisease:
+          type: boolean
+        inferred:
+          type: boolean
+        isCanonical:
+          type: string
+        name:
+          type: array
+          items:
+            type: string
+        oldStId:
+          type: string
+        releaseDate:
+          type: string
+        releaseStatus:
+          type: string
+        schemaClass:
+          type: string
+        speciesName:
+          type: string
+        stId:
+          type: string
+        stIdVersion:
+          type: string
+    PathwayBrowserNode:
+      type: object
+      properties:
+        children:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/PathwayBrowserNode'
+        diagram:
+          type: boolean
+        name:
+          type: string
+        species:
+          type: string
+        stId:
+          type: string
+        type:
+          type: string
+        url:
+          type: string

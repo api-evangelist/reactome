@@ -1,0 +1,119 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database report API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: report
+  description: Retrieves report files in PDF format
+paths:
+  /report/{token}/{species}/{filename}.pdf:
+    get:
+      tags:
+      - report
+      summary: Downloads a report for a given pathway analysis result
+      description: This method provides a report for a given pathway analysis result in a PDF document. This document contains data about the analysis itself followed by the pathways overview and the most significant pathways overlaid with the analysis result. Users can download and store this information in a convenient format to be checked in the future when the 'token' is not longer available.
+      operationId: generatePdfReport
+      parameters:
+      - name: token
+        in: path
+        description: The token associated with the data to query
+        required: true
+        schema:
+          type: string
+      - name: species
+        in: path
+        description: The species for which results will be reported
+        required: true
+        schema:
+          type: string
+        example: Homo sapiens
+      - name: filename
+        in: path
+        description: The name of the file to be downloaded
+        required: true
+        schema:
+          type: string
+        example: report
+      - name: number
+        in: query
+        description: Number of pathways reported (max 50)
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 25
+        example: 25
+      - name: resource
+        in: query
+        required: false
+        schema:
+          type: string
+          description: the resource to sort
+          example: TOTAL
+          enum:
+          - TOTAL
+          - UNIPROT
+          - ENSEMBL
+          - CHEBI
+          - IUPHAR
+          - MIRBASE
+          - NCBI_PROTEIN
+          - EMBL
+          - COMPOUND
+          - PUBCHEM_COMPOUND
+      - name: importableOnly
+        in: query
+        description: Filters resources to only includes importable ones
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: diagramProfile
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Diagram Color Profile
+          example: Modern
+          enum:
+          - Modern
+          - Standard
+      - name: analysisProfile
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Analysis  Color Profile
+          example: Standard
+          enum:
+          - Standard
+          - Strosobar
+          - Copper Plus
+      - name: fireworksProfile
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Diagram Color Profile
+          example: Barium Lithium
+          enum:
+          - Cooper
+          - Cooper Plus
+          - Barium Lithium
+          - Calcium Salts
+      responses:
+        '404':
+          description: No result corresponding to the token was found
+        '410':
+          description: Result deleted due to a new data release

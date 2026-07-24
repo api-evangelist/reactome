@@ -1,0 +1,379 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database person API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: person
+  description: 'Reactome Data: Person queries'
+paths:
+  /data/people/name/{name}:
+    get:
+      tags:
+      - person
+      summary: A list of people with first or last name partly matching a given string
+      description: Retrieves a list of people in Reactome with either their first or last name partly matching the given string.
+      operationId: queryPersonByName
+      parameters:
+      - name: name
+        in: path
+        description: Person's first or last name
+        required: true
+        schema:
+          type: string
+        example: Steve Jupe
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Given name does not partly match with any in current data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /data/people/name/{name}/exact:
+    get:
+      tags:
+      - person
+      summary: A list of people with first AND last name exactly matching a given string
+      description: Retrieves a list of people in Reactome with their first AND last name matching exactly the given string.
+      operationId: findPersonByName
+      parameters:
+      - name: name
+        in: path
+        description: Person's first and last name
+        required: true
+        schema:
+          type: string
+        example: Steve Jupe
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Given name does not exactly match with any in current data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /data/person/{id}:
+    get:
+      tags:
+      - person
+      summary: A person by his/her identifier
+      description: Retrieves a person in Reactome by his/her OrcidId or DbId.
+      operationId: findPerson
+      parameters:
+      - name: id
+        in: path
+        description: 'Person identifier: Can be OrcidId or DbId'
+        required: true
+        schema:
+          type: string
+        example: 0000-0001-5807-0069
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: OrcidId or DbId does not match with any in current data
+          content:
+            application/json:
+              schema:
+                type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+  /data/person/{id}/authoredPathways:
+    get:
+      tags:
+      - person
+      summary: A list of pathways authored by a given person
+      description: Retrieves a list of pathways authored by a given person. OrcidId, DbId or Email can be used to specify the person.
+      operationId: getAuthoredPathways
+      parameters:
+      - name: id
+        in: path
+        description: 'Person identifier: Can be OrcidId or DbId'
+        required: true
+        schema:
+          type: string
+        example: 0000-0001-5807-0069
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: OrcidId or DbId does not retrieve any pathway
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleEventProjection'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleEventProjection'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleEventProjection'
+  /data/person/{id}/publications:
+    get:
+      tags:
+      - person
+      summary: A list of publications authored by a given person
+      description: Retrieves a list of publications authored by a given person. OrcidId, DbId or Email can be used to specify the person.
+      operationId: getPublicationsOfPerson
+      parameters:
+      - name: id
+        in: path
+        description: 'Person identifier: Can be OrcidId or DbId'
+        required: true
+        schema:
+          type: string
+        example: 0000-0001-5807-0069
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: OrcidId or DbId does not match with any publication
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /data/person/{id}/{attributeName}:
+    get:
+      tags:
+      - person
+      summary: A person's property by his/her identifier
+      description: Retrieves a specific person's property by his/her OrcidId or DbId.
+      operationId: findPerson_1
+      parameters:
+      - name: id
+        in: path
+        description: 'Person identifier: Can be OrcidId or DbId'
+        required: true
+        schema:
+          type: string
+        example: 0000-0001-5807-0069
+      - name: attributeName
+        in: path
+        description: Attribute to be filtered
+        required: true
+        schema:
+          type: string
+        example: displayName
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: OrcidId or DbId does not match with any in current data or invalid attribute name
+          content:
+            text/plain:
+              schema:
+                type: string
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            text/plain:
+              schema:
+                type: string
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+components:
+  schemas:
+    SimpleEventProjection:
+      type: object
+      properties:
+        authorDbId:
+          type: integer
+          format: int64
+        dateTime:
+          type: string
+        dbId:
+          type: integer
+          format: int64
+        displayName:
+          type: string
+        doi:
+          type: string
+        labels:
+          type: array
+          items:
+            type: string
+        schemaClass:
+          type: string
+        speciesName:
+          type: string
+        stId:
+          type: string

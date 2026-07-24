@@ -1,0 +1,309 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database references API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: references
+  description: 'Reactome xRefs: ReferenceEntity queries'
+paths:
+  /references/mapping/xrefs:
+    post:
+      tags:
+      - references
+      summary: All cross references and physical entities associated with a list of given identifiers
+      description: Retrieves a paginated list containing cross references and physical entities associated with the matching reference entities identifiers
+      operationId: getCrossReferencesForList
+      parameters:
+      - name: dbFilter
+        in: query
+        description: Database filter to apply to results
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page to process, starting from 0
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: pageSize
+        in: query
+        description: Page size to process, an element being one of the submitted identifiers
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      requestBody:
+        description: A comma separated list of identifiers
+        content:
+          text/plain:
+            schema:
+              type: string
+            example: P36897, Q5S007
+        required: true
+      responses:
+        '404':
+          description: Identifier does not match with any reference entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageMapStringCollectionCrossReferenceResult'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageMapStringCollectionCrossReferenceResult'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageMapStringCollectionCrossReferenceResult'
+  /references/mapping/{identifier}:
+    get:
+      tags:
+      - references
+      summary: All ReferenceEntities for a given identifier
+      description: Retrieves a list containing all the reference entities for a given identifier.
+      operationId: getReferenceEntitiesFor
+      parameters:
+      - name: identifier
+        in: path
+        description: Identifier for a given entity
+        required: true
+        schema:
+          type: string
+        example: 15377
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier does not match with any reference entity
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /references/mapping/{identifier}/xrefs:
+    get:
+      tags:
+      - references
+      summary: All cross references and physical entities associated with a given identifier
+      description: Retrieves a list containing cross references and physical entities associated with the matching reference entities identifier
+      operationId: getCrossReferencesFor
+      parameters:
+      - name: identifier
+        in: path
+        description: Identifier for a given entity
+        required: true
+        schema:
+          type: string
+        example: P36897
+      - name: dbFilter
+        in: query
+        description: Database filter to apply to results
+        required: false
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier does not match with any reference entity
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CrossReferenceResult'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CrossReferenceResult'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CrossReferenceResult'
+components:
+  schemas:
+    ShortCrossReference:
+      type: object
+      properties:
+        databaseName:
+          type: string
+        identifier:
+          type: string
+        url:
+          type: string
+    PageMapStringCollectionCrossReferenceResult:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: '#/components/schemas/CrossReferenceResult'
+        empty:
+          type: boolean
+        first:
+          type: boolean
+        last:
+          type: boolean
+        number:
+          type: integer
+          format: int32
+        numberOfElements:
+          type: integer
+          format: int32
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        size:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/Sort'
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+    Sort:
+      type: object
+      properties:
+        empty:
+          type: boolean
+        sorted:
+          type: boolean
+        unsorted:
+          type: boolean
+    CrossReferenceResult:
+      type: object
+      properties:
+        crossReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShortCrossReference'
+        physicalEntities:
+          type: array
+          items:
+            type: string
+        reference:
+          type: string
+    PageableObject:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int64
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        paged:
+          type: boolean
+        sort:
+          $ref: '#/components/schemas/Sort'
+        unpaged:
+          type: boolean

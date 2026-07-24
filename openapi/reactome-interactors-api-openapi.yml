@@ -1,0 +1,1142 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database interactors API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: interactors
+  description: Molecule interactors
+paths:
+  /interactors/psicquic/molecule/{resource}/{acc}/details:
+    get:
+      tags:
+      - interactors
+      summary: Retrieve clustered interaction, sorted by score, of a given accession by resource.
+      operationId: getProteinDetailsByResource
+      parameters:
+      - name: resource
+        in: path
+        description: PSICQUIC Resource
+        required: true
+        schema:
+          type: string
+        example: MINT
+      - name: acc
+        in: path
+        description: Single Accession
+        required: true
+        schema:
+          type: string
+        example: Q13501
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+  /interactors/psicquic/molecule/{resource}/{acc}/summary:
+    get:
+      tags:
+      - interactors
+      summary: Retrieve a summary of a given accession by resource
+      operationId: getProteinSummaryByResource
+      parameters:
+      - name: resource
+        in: path
+        description: PSICQUIC Resource
+        required: true
+        schema:
+          type: string
+        example: MINT
+      - name: acc
+        in: path
+        description: Single Accession
+        required: true
+        schema:
+          type: string
+        example: Q13501
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+  /interactors/psicquic/molecules/{resource}/details:
+    post:
+      tags:
+      - interactors
+      summary: Retrieve clustered interaction, sorted by score, of a given accession(s) by resource.
+      operationId: getProteinsDetailsByResource
+      parameters:
+      - name: resource
+        in: path
+        description: PSICQUIC Resource
+        required: true
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      requestBody:
+        description: <b>Accessions</b>
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+  /interactors/psicquic/molecules/{resource}/summary:
+    post:
+      tags:
+      - interactors
+      summary: Retrieve a summary of a given accession list by resource.
+      operationId: getProteinsSummaryByResource
+      parameters:
+      - name: resource
+        in: path
+        description: PSICQUIC Resource
+        required: true
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      requestBody:
+        description: <b>Accessions</b>
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+  /interactors/psicquic/resources:
+    get:
+      tags:
+      - interactors
+      summary: Retrieve a list of all Psicquic Registries services
+      operationId: getResources
+      parameters:
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PsicquicResource'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PsicquicResource'
+  /interactors/static/molecule/enhanced/{acc}/details:
+    get:
+      tags:
+      - interactors
+      summary: Retrieve a custom interaction information of a given accession in Reactome knowledgebase for UI to use, including Reactome entity number
+      operationId: getCustomInteractionsByAcc
+      parameters:
+      - name: acc
+        in: path
+        description: Interactor accession (or identifier)
+        required: true
+        schema:
+          type: string
+        example: Q13501
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Could not find the Interactor Resource
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomInteraction'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomInteraction'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomInteraction'
+  /interactors/static/molecule/{acc}/details:
+    get:
+      tags:
+      - interactors
+      summary: Retrieve a detailed interaction information of a given accession
+      operationId: getProteinDetailsByAcc
+      parameters:
+      - name: acc
+        in: path
+        description: Interactor accession (or identifier)
+        required: true
+        schema:
+          type: string
+        example: Q13501
+      - name: page
+        in: query
+        description: For paginating the results
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: -1
+      - name: pageSize
+        in: query
+        description: Number of results to be retrieved
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: -1
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Could not find the Interactor Resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+  /interactors/static/molecule/{acc}/pathways:
+    get:
+      tags:
+      - interactors
+      summary: Retrieve a list of lower level pathways where the interacting molecules can be found
+      operationId: getLowerLevelPathways
+      parameters:
+      - name: acc
+        in: path
+        description: Accession
+        required: true
+        schema:
+          type: string
+        example: Q9BXM7-1
+      - name: species
+        in: query
+        description: The species name for which the pathways are requested  (e.g. 'Homo sapiens')
+        required: false
+        schema:
+          type: string
+        example: Homo sapiens
+      - name: onlyDiagrammed
+        in: query
+        description: Specifies whether the pathways has to have an associated diagram or not
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Could not find the Interactor Resource
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /interactors/static/molecule/{acc}/summary:
+    get:
+      tags:
+      - interactors
+      summary: Retrieve a summary of a given accession
+      operationId: getProteinSummaryByAcc
+      parameters:
+      - name: acc
+        in: path
+        description: Accession
+        required: true
+        schema:
+          type: string
+        example: Q13501
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Could not find the Interactor Resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+  /interactors/static/molecules/details:
+    post:
+      tags:
+      - interactors
+      summary: Retrieve a detailed interaction information of a given accession
+      operationId: getProteinsDetailsByAccs
+      parameters:
+      - name: page
+        in: query
+        description: For paginating the results
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: -1
+      - name: pageSize
+        in: query
+        description: Number of results to be retrieved
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: -1
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      requestBody:
+        description: <b>Interactors</b> Interactor accessions (or identifiers)
+        content:
+          text/plain:
+            schema:
+              type: string
+              description: Interactor accessions (or identifiers)
+            example: O95631, P60484
+        required: true
+      responses:
+        '404':
+          description: Could not find the Interactor Resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+  /interactors/static/molecules/summary:
+    post:
+      tags:
+      - interactors
+      summary: Retrieve a summary of a given accession list
+      operationId: getProteinsSummaryByAccs
+      parameters:
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      requestBody:
+        description: <b>Interactors</b> Interactor accessions (or identifiers)
+        content:
+          text/plain:
+            schema:
+              type: string
+            example: O95631, P60484
+        required: true
+      responses:
+        '404':
+          description: Could not find the Interactor Resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+  /interactors/token/{token}:
+    post:
+      tags:
+      - interactors
+      summary: Retrieve custom interactions associated with a token
+      operationId: getInteractors
+      parameters:
+      - name: token
+        in: path
+        description: A token associated with a data submission
+        required: true
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      requestBody:
+        description: <b>Interactors</b> Interactors accessions
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '404':
+          description: Could not find the given token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interactors'
+  /interactors/upload/psicquic/url:
+    post:
+      tags:
+      - interactors
+      summary: Registry custom PSICQUIC resource
+      operationId: registryPsicquicURL
+      parameters:
+      - name: name
+        in: query
+        description: Name which identifies the custom psicquic
+        required: true
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      requestBody:
+        description: <b>url</b> A URL pointing to the Custom PSICQUIC Resource
+        content:
+          text/plain:
+            schema:
+              type: string
+            example: https://reactome.org/download/current/interactors/reactome.homo_sapiens.interactions.psi-mitab.txt
+        required: true
+      responses:
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomPsicquicResource'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomPsicquicResource'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomPsicquicResource'
+  /interactors/upload/tuple/content:
+    post:
+      tags:
+      - interactors
+      summary: Paste file content and get a summary associated with a token
+      operationId: postFileContent
+      parameters:
+      - name: name
+        in: query
+        description: Name which identifies the sample
+        required: true
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      requestBody:
+        description: <b>File Content</b>Paste custom interactors file content
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+        '413':
+          description: Payload too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+        '415':
+          description: Unsupported Media Type ('text/plain' or 'text/csv')
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+  /interactors/upload/tuple/form:
+    post:
+      tags:
+      - interactors
+      summary: Parse file and retrieve a summary associated with a token
+      operationId: postFile
+      parameters:
+      - name: name
+        in: query
+        description: Name which identifies the sample
+        required: true
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: Upload your custom interactor file
+              required:
+              - file
+      responses:
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+        '413':
+          description: Payload too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+        '415':
+          description: Unsupported Media Type ('text/plain' or 'text/csv')
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+  /interactors/upload/tuple/url:
+    post:
+      tags:
+      - interactors
+      summary: Send file via URL and get a summary associated with a token
+      operationId: postUrl
+      parameters:
+      - name: name
+        in: query
+        description: Name which identifies the sample
+        required: true
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      requestBody:
+        description: <b>url</b> A URL pointing to the Interactors file
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+        '415':
+          description: Unsupported Media Type ('text/plain' or 'text/csv')
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+        '431':
+          description: Request Header Fields Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TupleResult'
+components:
+  schemas:
+    Interactor:
+      type: object
+      properties:
+        acc:
+          type: string
+          description: This is the interactor accession (or identifier).
+        accURL:
+          type: string
+          description: This represents the URL for given accession.
+        alias:
+          type: string
+          description: This is the Gene name of the given accession.
+        evidences:
+          type: integer
+          description: This is the Interactions evidences.
+          format: int32
+        evidencesURL:
+          type: string
+          description: This represents the URL for the given interactions identifiers.
+        id:
+          type: integer
+          description: This is an auto increment counter which represents an unique number for the interaction.
+          format: int64
+        score:
+          type: number
+          description: This represents the confidence value (score) of an interaction.
+          format: double
+      description: List of Interactors that interacts with the given accession.
+    CustomPsicquicResource:
+      type: object
+      properties:
+        summary:
+          $ref: '#/components/schemas/Summary'
+    Summary:
+      type: object
+      properties:
+        fileName:
+          type: string
+        interactions:
+          type: integer
+          format: int32
+        interactors:
+          type: integer
+          format: int32
+        name:
+          type: string
+        token:
+          type: string
+    CustomInteraction:
+      type: object
+      properties:
+        databaseName:
+          type: string
+        dbId:
+          type: integer
+          format: int64
+        displayName:
+          type: string
+        entitiesCount:
+          type: integer
+          format: int64
+        evidenceCount:
+          type: integer
+          format: int64
+        evidenceURL:
+          type: string
+        geneName:
+          type: array
+          items:
+            type: string
+        identifier:
+          type: string
+        score:
+          type: number
+          format: double
+        speciesName:
+          type: string
+        url:
+          type: string
+        variantIdentifier:
+          type: string
+    PsicquicResource:
+      type: object
+      properties:
+        active:
+          type: boolean
+        name:
+          type: string
+        restURL:
+          type: string
+        soapURL:
+          type: string
+    Interactors:
+      type: object
+      properties:
+        entities:
+          type: array
+          description: This is the list of entities which have been requested.
+          items:
+            $ref: '#/components/schemas/InteractorEntity'
+        resource:
+          type: string
+          description: This is the resource where interactors have been queried.
+    InteractorEntity:
+      type: object
+      properties:
+        acc:
+          type: string
+          description: This is the interactor accession (or identifier).
+        count:
+          type: integer
+          description: This is the number of interactions for the given accession.
+          format: int32
+        interactors:
+          type: array
+          description: List of Interactors that interacts with the given accession.
+          items:
+            $ref: '#/components/schemas/Interactor'
+      description: This is the list of entities which have been requested.
+    TupleResult:
+      type: object
+      properties:
+        summary:
+          $ref: '#/components/schemas/Summary'
+        warningMessages:
+          type: array
+          items:
+            type: string

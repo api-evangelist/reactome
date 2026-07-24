@@ -1,0 +1,233 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database participants API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: participants
+  description: 'Reactome Data: Queries related to participants'
+paths:
+  /data/participants/{id}:
+    get:
+      tags:
+      - participants
+      summary: A list of participants for a given event
+      description: Participants contains a PhysicalEntity (dbId, displayName) and a collection of ReferenceEntities (dbId, name, identifier, url)
+      operationId: getParticipants
+      parameters:
+      - name: id
+        in: path
+        description: DbId or StId of an Event
+        required: true
+        schema:
+          type: string
+        example: 5205685
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier does not match with any in current data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Participant'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Participant'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Participant'
+  /data/participants/{id}/participatingPhysicalEntities:
+    get:
+      tags:
+      - participants
+      summary: A list of participating PhysicalEntities for a given event
+      description: This method retrieves all the PhysicalEntities that take part in a given event. It is worth mentioning that because a pathway can contain smaller pathways (subpathways), the method also recursively retrieves the PhysicalEntities from every constituent pathway.
+      operationId: getParticipatingPhysicalEntities
+      parameters:
+      - name: id
+        in: path
+        description: The event for which the participating PhysicalEntities are requested
+        required: true
+        schema:
+          type: string
+        example: R-HSA-5205685
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier does not match with any in current data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /data/participants/{id}/referenceEntities:
+    get:
+      tags:
+      - participants
+      summary: A list of participating ReferenceEntities for a given event
+      description: PhysicalEntity instances that represent, e.g., the same chemical in different compartments, or different post-translationally modified forms of a single protein, share numerous invariant features such as names, molecular structure and links to external databases like UniProt or ChEBI.<br>To enable storage of this shared information in a single place, and to create an explicit link among all the variant forms of what can also be seen as a single chemical entity, Reactome creates instances of the separate ReferenceEntity class. A ReferenceEntity instance captures the invariant features of a molecule.<br>This method retrieves the ReferenceEntities of all PhysicalEntities that take part in a given event. It is worth mentioning that because a pathway can contain smaller pathways (subpathways), this method also recursively retrieves the ReferenceEntities for all PhysicalEntities in every constituent pathway.
+      operationId: getParticipatingReferenceEntities
+      parameters:
+      - name: id
+        in: path
+        description: The event for which the participating ReferenceEntities are requested
+        required: true
+        schema:
+          type: string
+        example: 5205685
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Identifier does not match with any in current data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+components:
+  schemas:
+    Participant:
+      type: object
+      properties:
+        displayName:
+          type: string
+        peDbId:
+          type: integer
+          format: int64
+        refEntities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParticipantRefEntities'
+        schemaClass:
+          type: string
+    ParticipantRefEntities:
+      type: object
+      properties:
+        dbId:
+          type: integer
+          format: int64
+        displayName:
+          type: string
+        icon:
+          type: string
+        identifier:
+          type: string
+        schemaClass:
+          type: string
+        stId:
+          type: string
+        url:
+          type: string

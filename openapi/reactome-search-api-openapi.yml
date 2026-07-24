@@ -1,0 +1,1288 @@
+openapi: 3.0.1
+info:
+  title: Pathway Analysis Service database search API
+  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  termsOfService: /license
+  contact:
+    name: Reactome
+    url: https://reactome.org
+    email: help@reactome.org
+  license:
+    name: Creative Commons Attribution 3.0 Unsupported License
+    url: https://creativecommons.org/licenses/by/3.0/legalcode
+  version: '2.0'
+servers:
+- url: /AnalysisService
+tags:
+- name: search
+  description: Reactome Search
+paths:
+  /search/diagram/{diagram}:
+    get:
+      tags:
+      - search
+      summary: Performs a Solr query (diagram widget scoped) for a given QueryObject
+      operationId: getDiagramResult
+      parameters:
+      - name: diagram
+        in: path
+        required: true
+        schema:
+          type: string
+        example: R-HSA-8848021
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: string
+        example: MAD
+      - name: types
+        in: query
+        description: Types to filter
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: start
+        in: query
+        description: Start row
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rows
+        in: query
+        description: Number of rows to include
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: scope
+        in: query
+        description: Scope of the query. Can be either REFERENCE_ENTITY to group Physical Entities having a reference entity (Proteins, Genes, etc.) into a single ReferenceEntity, and keep those which don't (Complexes, Sets, etc.) as Physical Entity. PHYSICAL_ENTITY to remove the grouping by reference entity. BOTH to include both types
+        required: false
+        schema:
+          type: string
+          default: PHYSICAL_ENTITY
+          enum:
+          - REFERENCE_ENTITY
+          - PHYSICAL_ENTITY
+          - BOTH
+      - name: includeInteractors
+        in: query
+        description: Whether the result should consider interactors as part of a diagram
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiagramResult'
+  /search/diagram/{diagram}/occurrences/{instance}:
+    get:
+      tags:
+      - search
+      summary: Performs a Solr query (diagram widget scoped) for a given QueryObject
+      operationId: getDiagramOccurrences
+      parameters:
+      - name: diagram
+        in: path
+        required: true
+        schema:
+          type: string
+        example: R-HSA-68886
+      - name: instance
+        in: path
+        required: true
+        schema:
+          type: string
+        example: R-HSA-141433
+      - name: types
+        in: query
+        description: Types to filter
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: includeInteractors
+        in: query
+        description: Whether the result should consider interactors as part of a diagram
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiagramOccurrencesResult'
+  /search/diagram/{pathwayId}/flag:
+    get:
+      tags:
+      - search
+      summary: A list of diagram entities plus pathways from the provided list containing the specified identifier
+      description: This method traverses the content and checks not only for the main identifier but also for all the cross-references to find the flag targets
+      operationId: getEntitiesInDiagramForIdentifier
+      parameters:
+      - name: pathwayId
+        in: path
+        description: The pathway to find items to flag
+        required: true
+        schema:
+          type: string
+        example: R-HSA-446203
+      - name: query
+        in: query
+        description: The identifier for the elements to be flagged
+        required: true
+        schema:
+          type: string
+        example: CTSA
+      - name: includeInteractors
+        in: query
+        description: Whether the result should consider interactors as part of a diagram
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiagramOccurrencesResult'
+  /search/facet:
+    get:
+      tags:
+      - search
+      summary: A list of facets corresponding to the whole Reactome search data
+      description: This method retrieves faceting information on the whole Reactome search data.
+      operationId: facet
+      parameters:
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FacetMapping'
+        '500':
+          description: Internal Error in SolR
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FacetMapping'
+  /search/facet_query:
+    get:
+      tags:
+      - search
+      summary: A list of facets corresponding to a specific query
+      description: This method retrieves faceting information on a specific query
+      operationId: facet_type
+      parameters:
+      - name: query
+        in: query
+        description: Search term
+        required: true
+        schema:
+          type: string
+        example: TP53
+      - name: species
+        in: query
+        description: Species name
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: types
+        in: query
+        description: Types to filter
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: compartments
+        in: query
+        description: Compartments to filter
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: keywords
+        in: query
+        description: Keywords
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: scope
+        in: query
+        description: Scope of the query. Can be either REFERENCE_ENTITY to group Physical Entities having a reference entity (Proteins, Genes, etc.) into a single ReferenceEntity, and keep those which don't (Complexes, Sets, etc.) as Physical Entity. PHYSICAL_ENTITY to remove the grouping by reference entity. BOTH to include both types
+        required: false
+        schema:
+          type: string
+          default: PHYSICAL_ENTITY
+          enum:
+          - REFERENCE_ENTITY
+          - PHYSICAL_ENTITY
+          - BOTH
+      - name: Force filters
+        in: query
+        description: Force filters<br>In case where applied filters yield to no results, filters are removed by default to grant results as much as possible. Set <b>Force filters</b> to true to avoid this behaviour
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FacetMapping'
+        '500':
+          description: Internal Error in SolR
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FacetMapping'
+  /search/fireworks:
+    get:
+      tags:
+      - search
+      summary: Performs a Solr query (fireworks widget scoped) for a given QueryObject
+      operationId: getFireworksResult
+      parameters:
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: string
+        example: BRAF
+      - name: species
+        in: query
+        description: Species name
+        required: false
+        schema:
+          type: string
+          default: Homo sapiens
+        example: Homo sapiens
+      - name: types
+        in: query
+        description: Types to filter
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: start
+        in: query
+        description: Start row
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: scope
+        in: query
+        description: Scope of the query. Can be either REFERENCE_ENTITY to group Physical Entities having a reference entity (Proteins, Genes, etc.) into a single ReferenceEntity, and keep those which don't (Complexes, Sets, etc.) as Physical Entity. PHYSICAL_ENTITY to remove the grouping by reference entity. BOTH to include both types
+        required: false
+        schema:
+          type: string
+          default: PHYSICAL_ENTITY
+          enum:
+          - REFERENCE_ENTITY
+          - PHYSICAL_ENTITY
+          - BOTH
+      - name: includeInteractors
+        in: query
+        description: Whether the result should consider interactors as part of a diagram
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: rows
+        in: query
+        description: Number of rows to include
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FireworksResult'
+  /search/fireworks/flag:
+    get:
+      tags:
+      - search
+      summary: Performs a Solr query (fireworks widget scoped) for a given QueryObject
+      operationId: fireworksFlagging
+      parameters:
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: string
+        example: KNTC1
+      - name: species
+        in: query
+        required: false
+        schema:
+          type: string
+          default: Homo sapiens
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FireworksOccurrencesResult'
+  /search/pathways/of/{dbId}:
+    get:
+      tags:
+      - search
+      summary: Find the different pathways containing a specific entity determined by its dbId. Can customise the output using fields
+      operationId: getContainingPathwaysOf
+      parameters:
+      - name: dbId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+        example: 227785
+      - name: includeInteractors
+        in: query
+        description: Whether the result should consider interactors as part of a diagram
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: directlyInDiagram
+        in: query
+        description: Whether the result should exclude higher level diagrams containing pathways, themselves containing the targeted entity
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: species
+        in: query
+        description: Species name to filter results for
+        required: false
+        schema:
+          type: string
+        example: Homo sapiens
+      - name: fields
+        in: query
+        description: Fields to include in the response. If empty, retrieves all field available (not recommended)
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - DB_ID
+            - ST_ID
+            - PHYSICAL_ENTITIES_DB_ID
+            - NAME
+            - SPECIES
+            - SPECIES_FACET
+            - TYPES
+            - KEYWORDS
+            - COMPARTMENT_FACET
+            - ICON_CATEGORIES_FACET
+            - SUMMATION
+            - INFERRED_SUMMATION
+            - REFERENCE_URL
+            - REFERENCE_NAME
+            - REFERENCE_IDENTIFIERS
+            - IS_DISEASE
+            - TYPE
+            - IS_REFERENCE_SUMMARY
+            - HAS_REFERENCE_ENTITY
+            - HAS_EHLD
+            - EXACT_TYPE
+            - DATABASE_NAME
+            - REGULATOR
+            - REGULATOR_ID
+            - REGULATED_ENTITY
+            - REGULATED_ENTITY_ID
+            - COMPARTMENT_NAME
+            - COMPARTMENT_ACCESSION
+            - FIREWORKS_SPECIES
+            - OCCURRENCES
+            - OCCURRENCES_INTERACTOR
+            - DIAGRAMS
+            - DIAGRAMS_INTERACTOR
+            - LLPS
+            - AUTHORED_PATHWAYS
+            - AUTHORED_REACTIONS
+            - REVIEWED_PATHWAYS
+            - REVIEWED_REACTIONS
+            - ORCIDID
+            - TARGET_IDENTIFIER
+            - TARGET_ACCESSIONS
+            - TARGET_GENENAMES
+            - TARGET_SYNONYMS
+            - TARGET_RESOURCE
+            - ICON_NAME
+            - ICON_CATEGORIES
+            - ICON_CURATOR_NAME
+            - ICON_CURATOR_ORCIDID
+            - ICON_CURATOR_URL
+            - ICON_DESIGNER_NAME
+            - ICON_DESIGNER_URL
+            - ICON_DESIGNER_ORCIDID
+            - ICON_REFERENCES
+            - ICON_PHYSICAL_ENTITIES
+            - ICON_EHLDS
+            - DELETED
+            - DELETED_REASON
+            - DELETED_EXPLANATION
+            - DELETED_DATE
+            - DELETED_REPLACEMENT_DB_IDS
+            - DELETED_REPLACEMENT_ST_IDS
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Entry'
+  /search/query:
+    get:
+      tags:
+      - search
+      summary: Queries Solr against the Reactome knowledgebase
+      description: This method performs a Solr query on the Reactome knowledgebase. Results can be provided in a paginated format.
+      operationId: getSearchResult
+      parameters:
+      - name: query
+        in: query
+        description: Search term
+        required: true
+        schema:
+          type: string
+        example: Biological oxidations
+      - name: species
+        in: query
+        description: Species name
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: types
+        in: query
+        description: Types to filter
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: compartments
+        in: query
+        description: Compartments to filter
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: keywords
+        in: query
+        description: Keywords
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: cluster
+        in: query
+        description: Cluster results
+        required: false
+        schema:
+          type: boolean
+          default: true
+        example: true
+      - name: parserType
+        in: query
+        description: Query parser to use
+        required: false
+        schema:
+          type: string
+          default: STD
+          enum:
+          - DISMAX
+          - EDISMAX
+          - STD
+        example: STD
+      - name: Start row
+        in: query
+        description: Start row
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+        example: 0
+      - name: rows
+        in: query
+        description: Number of rows to include
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+        example: 10
+      - name: scope
+        in: query
+        description: Scope of the query. Can be either REFERENCE_ENTITY to group Physical Entities having a reference entity (Proteins, Genes, etc.) into a single ReferenceEntity, and keep those which don't (Complexes, Sets, etc.) as Physical Entity. PHYSICAL_ENTITY to remove the grouping by reference entity. BOTH to include both types
+        required: false
+        schema:
+          type: string
+          default: PHYSICAL_ENTITY
+          enum:
+          - REFERENCE_ENTITY
+          - PHYSICAL_ENTITY
+          - BOTH
+      - name: Force filters
+        in: query
+        description: Force filters<br>In case where applied filters yield to no results, filters are removed by default to grant results as much as possible. Set <b>Force filters</b> to true to avoid this behaviour
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '404':
+          description: Entry not found. Targets inform if the term is our scope of annotation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupedResult'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupedResult'
+        '500':
+          description: Internal Error in SolR
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupedResult'
+  /search/query/paginated:
+    get:
+      tags:
+      - search
+      summary: Queries Solr against the Reactome knowledgebase
+      description: This method performs a Solr query on the Reactome knowledgebase. Results are in a paginated format, pages count starting from 1.
+      operationId: getResult
+      parameters:
+      - name: query
+        in: query
+        description: Search term
+        required: true
+        schema:
+          type: string
+        example: Biological oxidations
+      - name: page
+        in: query
+        description: Page, should be strictly positive
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: rowCount
+        in: query
+        description: Rows per page
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 10
+      - name: species
+        in: query
+        description: Species name
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: types
+        in: query
+        description: Types to filter
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: compartments
+        in: query
+        description: Compartments to filter
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: keywords
+        in: query
+        description: Keywords
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: cluster
+        in: query
+        description: Cluster results
+        required: false
+        schema:
+          type: boolean
+          default: true
+        example: true
+      - name: scope
+        in: query
+        description: Scope of the query. Can be either REFERENCE_ENTITY to group Physical Entities having a reference entity (Proteins, Genes, etc.) into a single ReferenceEntity, and keep those which don't (Complexes, Sets, etc.) as Physical Entity. PHYSICAL_ENTITY to remove the grouping by reference entity. BOTH to include both types
+        required: false
+        schema:
+          type: string
+          default: PHYSICAL_ENTITY
+          enum:
+          - REFERENCE_ENTITY
+          - PHYSICAL_ENTITY
+          - BOTH
+      - name: parserType
+        in: query
+        description: Query parser to use
+        required: false
+        schema:
+          type: string
+          default: STD
+          enum:
+          - DISMAX
+          - EDISMAX
+          - STD
+        example: STD
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '400':
+          description: One or more parameter is illegal
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupedResult'
+        '404':
+          description: Entry not found. Targets inform if the term is our scope of annotation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupedResult'
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupedResult'
+        '500':
+          description: Internal Error in SolR
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupedResult'
+  /search/spellcheck:
+    get:
+      tags:
+      - search
+      summary: Spell-check suggestions for a given query
+      description: This method retrieves a list of spell-check suggestions for a given search term.
+      operationId: spellcheckerSuggestions
+      parameters:
+      - name: query
+        in: query
+        description: Search term
+        required: true
+        schema:
+          type: string
+        example: repoduction
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '500':
+          description: Internal Error in SolR
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /search/suggest:
+    get:
+      tags:
+      - search
+      summary: Auto-suggestions for a given query
+      description: This method retrieves a list of suggestions for a given search term.
+      operationId: suggesterSuggestions
+      parameters:
+      - name: query
+        in: query
+        description: Search term
+        required: true
+        schema:
+          type: string
+        example: platele
+      - name: view
+        in: query
+        description: Global parameter - Customise the view to be more concise and/or aggregate relationships
+        required: false
+        schema:
+          type: string
+          default: flatten
+          enum:
+          - flatten
+          - nested
+          - nested-aggregated
+          example: null
+      - name: includeRef
+        in: query
+        description: Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}
+        required: false
+        schema:
+          type: boolean
+          default: false
+          example: null
+      responses:
+        '406':
+          description: Not acceptable according to the accept headers sent in the request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '500':
+          description: Internal Error in SolR
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+components:
+  schemas:
+    DiagramResult:
+      type: object
+      properties:
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entry'
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetContainer'
+        found:
+          type: integer
+          format: int64
+    FacetList:
+      type: object
+      properties:
+        available:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetContainer'
+        selected:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetContainer'
+    GroupedResult:
+      type: object
+      properties:
+        numberOfGroups:
+          type: integer
+          format: int32
+        numberOfMatches:
+          type: integer
+          format: int32
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Result'
+        rowCount:
+          type: integer
+          format: int32
+        targetResults:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/TargetResult'
+    TargetResult:
+      type: object
+      properties:
+        resource:
+          type: string
+        target:
+          type: boolean
+        term:
+          type: string
+    FacetContainer:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+        name:
+          type: string
+    FireworksOccurrencesResult:
+      type: object
+      properties:
+        interactsWith:
+          type: array
+          items:
+            type: string
+        llps:
+          type: array
+          items:
+            type: string
+    DiagramOccurrencesResult:
+      type: object
+      properties:
+        diagramEntity:
+          type: string
+        inDiagram:
+          type: boolean
+        interactsWith:
+          type: array
+          items:
+            type: string
+        occurrences:
+          type: array
+          items:
+            type: string
+    Result:
+      type: object
+      properties:
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entry'
+        entriesCount:
+          type: integer
+          format: int64
+        rowCount:
+          type: integer
+          format: int32
+        typeName:
+          type: string
+    Entry:
+      type: object
+      properties:
+        authoredPathways:
+          type: string
+        authoredReactions:
+          type: string
+        compartmentAccession:
+          type: array
+          items:
+            type: string
+        compartmentNames:
+          type: array
+          items:
+            type: string
+        databaseName:
+          type: string
+        date:
+          type: string
+          format: date-time
+        dbId:
+          type: string
+        deleted:
+          type: boolean
+        disease:
+          type: boolean
+        exactType:
+          type: string
+        explanation:
+          type: string
+        fireworksSpecies:
+          type: array
+          items:
+            type: string
+        hasEHLD:
+          type: boolean
+        hasReferenceEntity:
+          type: boolean
+        icon:
+          type: boolean
+        iconCategories:
+          type: array
+          items:
+            type: string
+        iconCuratorName:
+          type: string
+        iconCuratorOrcidId:
+          type: string
+        iconCuratorUrl:
+          type: string
+        iconDesignerName:
+          type: string
+        iconDesignerOrcidId:
+          type: string
+        iconDesignerUrl:
+          type: string
+        iconEhlds:
+          type: array
+          items:
+            type: string
+        iconName:
+          type: string
+        iconPhysicalEntities:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/IconPhysicalEntity'
+        iconReferences:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        instanceTypeExplanation:
+          type: string
+        isDisease:
+          type: boolean
+        name:
+          type: string
+        orcidId:
+          type: string
+        reason:
+          type: string
+        referenceIdentifier:
+          type: string
+        referenceName:
+          type: string
+        referenceURL:
+          type: string
+        regulatedEntity:
+          type: string
+        regulatedEntityId:
+          type: string
+        regulator:
+          type: string
+        regulatorId:
+          type: string
+        replacementDbIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        replacementStIds:
+          type: array
+          items:
+            type: string
+        reviewedPathways:
+          type: string
+        reviewedReactions:
+          type: string
+        species:
+          type: array
+          items:
+            type: string
+        stId:
+          type: string
+        summation:
+          type: string
+        type:
+          type: string
+    FireworksResult:
+      type: object
+      properties:
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entry'
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetContainer'
+        found:
+          type: integer
+          format: int64
+        targetResults:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/TargetResult'
+    IconPhysicalEntity:
+      type: object
+      properties:
+        compartments:
+          type: string
+        displayName:
+          type: string
+        name:
+          type: string
+        stId:
+          type: string
+        type:
+          type: string
+    FacetMapping:
+      type: object
+      properties:
+        compartmentFacet:
+          $ref: '#/components/schemas/FacetList'
+        iconCategoriesFacet:
+          $ref: '#/components/schemas/FacetList'
+        keywordFacet:
+          $ref: '#/components/schemas/FacetList'
+        speciesFacet:
+          $ref: '#/components/schemas/FacetList'
+        totalNumFount:
+          type: integer
+          format: int64
+        typeFacet:
+          $ref: '#/components/schemas/FacetList'

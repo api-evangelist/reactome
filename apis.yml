@@ -13,9 +13,20 @@ description: >-
   UniProt, KEGG, ChEBI, PubMed, and Gene Ontology. Data is authored by expert
   biologist researchers and maintained by Reactome editorial staff.
 type: Index
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
 position: Provider
 access: Public
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/reactome.png
 tags:
   - Biological Pathways
   - Bioinformatics
@@ -31,71 +42,420 @@ created: '2026-06-13'
 modified: '2026-06-13'
 specificationVersion: '0.19'
 apis:
-  - aid: reactome:content-service
-    name: Reactome Content Service API
-    description: >-
-      The Reactome Content Service provides programmatic access to all
-      knowledgebase content including pathways, reactions, physical entities,
-      complexes, and molecular interactions. It supports querying by
-      identifier, retrieving pathway hierarchies, exporting pathway diagrams
-      in multiple formats (PNG, JPG, SVG, PDF, SBML, SBGN), searching via
-      Solr full-text search, querying PSICQUIC interactor databases, and
-      mapping external identifiers to Reactome entities. The API covers human
-      biology as well as orthologous reactions for over 14 species. No
-      authentication is required and the API is free to use for research
-      purposes.
-    humanURL: https://reactome.org/dev/content-service
-    baseURL: https://reactome.org/ContentService
-    tags:
-      - Pathways
-      - Reactions
-      - Molecular Interactions
-      - Diagram Export
-      - Species Orthology
-      - Search
-      - Interactors
-    properties:
-      - type: Documentation
-        url: https://reactome.org/dev/content-service
-      - type: OpenAPI
-        url: https://reactome.org/ContentService/v3/api-docs
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/reactome/refs/heads/main/openapi/content-service.json
-      - type: SwaggerUI
-        url: https://reactome.org/ContentService/
-  - aid: reactome:analysis-service
-    name: Reactome Analysis Service API
-    description: >-
-      The Reactome Analysis Service enables pathway enrichment analysis for
-      lists of gene or protein identifiers. Users can submit identifier lists
-      via direct POST, file upload, or URL reference. The service
-      automatically detects overrepresentation analysis for identifier lists
-      or expression analysis for tab-separated values with numeric expression
-      data. Results include pathway hit data, p-values, false discovery rate
-      (FDR), and entity and reaction counts. Analysis results are assigned a
-      token valid for 7 days, allowing subsequent retrieval, filtering by
-      species, pagination, and PDF report generation without resubmitting
-      data. Species comparison against Homo sapiens is also supported.
-    humanURL: https://reactome.org/dev/analysis
-    baseURL: https://reactome.org/AnalysisService
-    tags:
-      - Pathway Enrichment
-      - Overrepresentation Analysis
-      - Expression Analysis
-      - Species Comparison
-      - Gene Lists
-      - Protein Identifiers
-    properties:
-      - type: Documentation
-        url: https://reactome.org/dev/analysis
-      - type: OpenAPI
-        url: https://reactome.org/AnalysisService/v3/api-docs
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/reactome/refs/heads/main/openapi/analysis-service.json
-      - type: SwaggerUI
-        url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-database-api
+  name: Reactome database API
+  description: Database info queries
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - database
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-database-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-discover-api
+  name: Reactome discover API
+  description: 'Reactome Data: Search engines discovery schema'
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - discover
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-discover-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-diseases-api
+  name: Reactome diseases API
+  description: 'Reactome Data: Disease related queries'
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - diseases
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-diseases-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-download-api
+  name: Reactome download API
+  description: Methods to download different views of a result
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - download
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-download-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-entities-api
+  name: Reactome entities API
+  description: 'Reactome Data: PhysicalEntity queries'
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - entities
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-entities-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-events-api
+  name: Reactome events API
+  description: 'Reactome Data: Queries related to events'
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - events
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-events-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-exporter-api
+  name: Reactome exporter API
+  description: 'Reactome Data: Format Exporter'
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - exporter
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-exporter-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-identifier-api
+  name: Reactome identifier API
+  description: Queries for only one identifier
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - identifier
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-identifier-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-identifiers-api
+  name: Reactome identifiers API
+  description: Queries for multiple identifiers
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - identifiers
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-identifiers-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-import-api
+  name: Reactome import API
+  description: Imports an external result
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - import
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-import-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-interactors-api
+  name: Reactome interactors API
+  description: Molecule interactors
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - interactors
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-interactors-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-mapping-api
+  name: Reactome mapping API
+  description: Identifiers mapping methods
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - mapping
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-mapping-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-orthology-api
+  name: Reactome orthology API
+  description: 'Reactome Data: Orthology related queries'
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - orthology
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-orthology-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-participants-api
+  name: Reactome participants API
+  description: 'Reactome Data: Queries related to participants'
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - participants
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-participants-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-pathways-api
+  name: Reactome pathways API
+  description: 'Reactome Data: Pathway related queries'
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - pathways
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-pathways-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-person-api
+  name: Reactome person API
+  description: 'Reactome Data: Person queries'
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - person
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-person-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-query-api
+  name: Reactome query API
+  description: 'Reactome Data: Common data retrieval'
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - query
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-query-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-references-api
+  name: Reactome references API
+  description: 'Reactome xRefs: ReferenceEntity queries'
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - references
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-references-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-report-api
+  name: Reactome report API
+  description: Retrieves report files in PDF format
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - report
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-report-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-schema-api
+  name: Reactome schema API
+  description: 'Reactome Data: Schema class queries'
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - schema
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-schema-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-search-api
+  name: Reactome search API
+  description: Reactome Search
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - search
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-search-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-species-api
+  name: Reactome species API
+  description: Species comparison
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - species
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-species-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
+- aid: reactome:reactome-token-api
+  name: Reactome token API
+  description: Previous queries filter
+  humanURL: https://reactome.org/dev/content-service
+  baseURL: https://reactome.org/ContentService
+  tags:
+  - token
+  properties:
+  - type: OpenAPI
+    url: openapi/reactome-token-api-openapi.yml
+  - type: Documentation
+    url: https://reactome.org/dev/content-service
+  - type: SwaggerUI
+    url: https://reactome.org/ContentService/
+  - type: Documentation
+    url: https://reactome.org/dev/analysis
+  - type: SwaggerUI
+    url: https://reactome.org/AnalysisService/
 common:
   - type: AgenticAccess
     url: agentic-access/reactome-agentic-access.yml

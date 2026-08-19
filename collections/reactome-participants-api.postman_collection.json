@@ -1,0 +1,700 @@
+{
+  "item": [
+    {
+      "id": "450b92a1-e9b9-4097-beb0-f8398933f98b",
+      "name": "participants",
+      "description": {
+        "content": "Reactome Data: Queries related to participants",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b0fc750e-204e-471a-887c-f9f9b181ad11",
+          "name": "A list of participants for a given event",
+          "request": {
+            "name": "A list of participants for a given event",
+            "description": {
+              "content": "Participants contains a PhysicalEntity (dbId, displayName) and a collection of ReferenceEntities (dbId, name, identifier, url)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "participants",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) DbId or StId of an Event"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b88e6c73-3d69-49ee-9318-d6173e57c80e",
+              "name": "Identifier does not match with any in current data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "participants",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) DbId or StId of an Event"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"displayName\": \"string\",\n    \"peDbId\": 8373,\n    \"refEntities\": [\n      {\n        \"dbId\": 2230,\n        \"displayName\": \"string\",\n        \"icon\": \"string\",\n        \"identifier\": \"string\",\n        \"schemaClass\": \"string\",\n        \"stId\": \"string\",\n        \"url\": \"string\"\n      },\n      {\n        \"dbId\": 8340,\n        \"displayName\": \"string\",\n        \"icon\": \"string\",\n        \"identifier\": \"string\",\n        \"schemaClass\": \"string\",\n        \"stId\": \"string\",\n        \"url\": \"string\"\n      }\n    ],\n    \"schemaClass\": \"string\"\n  },\n  {\n    \"displayName\": \"string\",\n    \"peDbId\": 4718,\n    \"refEntities\": [\n      {\n        \"dbId\": 404,\n        \"displayName\": \"string\",\n        \"icon\": \"string\",\n        \"identifier\": \"string\",\n        \"schemaClass\": \"string\",\n        \"stId\": \"string\",\n        \"url\": \"string\"\n      },\n      {\n        \"dbId\": 3234,\n        \"displayName\": \"string\",\n        \"icon\": \"string\",\n        \"identifier\": \"string\",\n        \"schemaClass\": \"string\",\n        \"stId\": \"string\",\n        \"url\": \"string\"\n      }\n    ],\n    \"schemaClass\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f4b5a9c-82ed-4146-b6ec-20644433056e",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "participants",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) DbId or StId of an Event"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"displayName\": \"string\",\n    \"peDbId\": 6712,\n    \"refEntities\": [\n      {\n        \"dbId\": 8523,\n        \"displayName\": \"string\",\n        \"icon\": \"string\",\n        \"identifier\": \"string\",\n        \"schemaClass\": \"string\",\n        \"stId\": \"string\",\n        \"url\": \"string\"\n      },\n      {\n        \"dbId\": 6749,\n        \"displayName\": \"string\",\n        \"icon\": \"string\",\n        \"identifier\": \"string\",\n        \"schemaClass\": \"string\",\n        \"stId\": \"string\",\n        \"url\": \"string\"\n      }\n    ],\n    \"schemaClass\": \"string\"\n  },\n  {\n    \"displayName\": \"string\",\n    \"peDbId\": 98,\n    \"refEntities\": [\n      {\n        \"dbId\": 7082,\n        \"displayName\": \"string\",\n        \"icon\": \"string\",\n        \"identifier\": \"string\",\n        \"schemaClass\": \"string\",\n        \"stId\": \"string\",\n        \"url\": \"string\"\n      },\n      {\n        \"dbId\": 1934,\n        \"displayName\": \"string\",\n        \"icon\": \"string\",\n        \"identifier\": \"string\",\n        \"schemaClass\": \"string\",\n        \"stId\": \"string\",\n        \"url\": \"string\"\n      }\n    ],\n    \"schemaClass\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1202accf-3bb1-44f7-a643-3887b842768d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "participants",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) DbId or StId of an Event"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"displayName\": \"string\",\n    \"peDbId\": 6712,\n    \"refEntities\": [\n      {\n        \"dbId\": 8523,\n        \"displayName\": \"string\",\n        \"icon\": \"string\",\n        \"identifier\": \"string\",\n        \"schemaClass\": \"string\",\n        \"stId\": \"string\",\n        \"url\": \"string\"\n      },\n      {\n        \"dbId\": 6749,\n        \"displayName\": \"string\",\n        \"icon\": \"string\",\n        \"identifier\": \"string\",\n        \"schemaClass\": \"string\",\n        \"stId\": \"string\",\n        \"url\": \"string\"\n      }\n    ],\n    \"schemaClass\": \"string\"\n  },\n  {\n    \"displayName\": \"string\",\n    \"peDbId\": 98,\n    \"refEntities\": [\n      {\n        \"dbId\": 7082,\n        \"displayName\": \"string\",\n        \"icon\": \"string\",\n        \"identifier\": \"string\",\n        \"schemaClass\": \"string\",\n        \"stId\": \"string\",\n        \"url\": \"string\"\n      },\n      {\n        \"dbId\": 1934,\n        \"displayName\": \"string\",\n        \"icon\": \"string\",\n        \"identifier\": \"string\",\n        \"schemaClass\": \"string\",\n        \"stId\": \"string\",\n        \"url\": \"string\"\n      }\n    ],\n    \"schemaClass\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1bd12274-14df-4bbe-bb9b-f8f28694e0a1",
+          "name": "A list of participating PhysicalEntities for a given event",
+          "request": {
+            "name": "A list of participating PhysicalEntities for a given event",
+            "description": {
+              "content": "This method retrieves all the PhysicalEntities that take part in a given event. It is worth mentioning that because a pathway can contain smaller pathways (subpathways), the method also recursively retrieves the PhysicalEntities from every constituent pathway.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "participants",
+                ":id",
+                "participatingPhysicalEntities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The event for which the participating PhysicalEntities are requested"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1ad1ca0-88d8-44b4-8a78-8d7e44b08e44",
+              "name": "Identifier does not match with any in current data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "participants",
+                    ":id",
+                    "participatingPhysicalEntities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The event for which the participating PhysicalEntities are requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62b23208-f323-4c41-b816-06109d6982e2",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "participants",
+                    ":id",
+                    "participatingPhysicalEntities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The event for which the participating PhysicalEntities are requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5a91e48-8348-43c6-82db-149042891c79",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "participants",
+                    ":id",
+                    "participatingPhysicalEntities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The event for which the participating PhysicalEntities are requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee2314f0-ab39-4f1f-a634-c2e234099a21",
+          "name": "A list of participating ReferenceEntities for a given event",
+          "request": {
+            "name": "A list of participating ReferenceEntities for a given event",
+            "description": {
+              "content": "PhysicalEntity instances that represent, e.g., the same chemical in different compartments, or different post-translationally modified forms of a single protein, share numerous invariant features such as names, molecular structure and links to external databases like UniProt or ChEBI.<br>To enable storage of this shared information in a single place, and to create an explicit link among all the variant forms of what can also be seen as a single chemical entity, Reactome creates instances of the separate ReferenceEntity class. A ReferenceEntity instance captures the invariant features of a molecule.<br>This method retrieves the ReferenceEntities of all PhysicalEntities that take part in a given event. It is worth mentioning that because a pathway can contain smaller pathways (subpathways), this method also recursively retrieves the ReferenceEntities for all PhysicalEntities in every constituent pathway.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "participants",
+                ":id",
+                "referenceEntities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The event for which the participating ReferenceEntities are requested"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9775c98f-3fd0-45be-8e46-cdcb915ec640",
+              "name": "Identifier does not match with any in current data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "participants",
+                    ":id",
+                    "referenceEntities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The event for which the participating ReferenceEntities are requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0d12362-fcf5-4d45-9c37-98b1b7b13b0a",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "participants",
+                    ":id",
+                    "referenceEntities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The event for which the participating ReferenceEntities are requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16437bbe-676a-4b40-9ef6-d289bb20c9ce",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "participants",
+                    ":id",
+                    "referenceEntities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The event for which the participating ReferenceEntities are requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ab754fbf-0a75-4ffd-8101-661f3f73a3a2",
+    "name": "Pathway Analysis Service database participants API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database download API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "download",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Downloads found identifiers for a given analysis and resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/download/:token/entities/found/:resource/:filename.csv",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to download"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filename",
+                "value": "result",
+                "type": "path",
+                "description": "the file name for the downloaded information"
+              }
+            ]
+          },
+          "docs": "The identifiers are filtered by the selected resource. The filename is the one to be suggested in the download window."
+        },
+        {
+          "info": {
+            "name": "Downloads a list of the not found identifiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/download/:token/entities/notfound/:filename.csv",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to download"
+              },
+              {
+                "name": "filename",
+                "value": "result",
+                "type": "path",
+                "description": "the file name for the downloaded information"
+              }
+            ]
+          },
+          "docs": "Those identifiers from the user sample that are not present up to the current data version. The filename is the one to be suggested in the download window."
+        },
+        {
+          "info": {
+            "name": "Downloads all hit pathways for a given analysis",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/download/:token/pathways/:resource/:filename.csv",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to download"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filename",
+                "value": "result",
+                "type": "path",
+                "description": "the file name for the downloaded information"
+              }
+            ]
+          },
+          "docs": "The results are filtered by the selected resource. The filename is the one to be suggested in the download window."
+        },
+        {
+          "info": {
+            "name": "Returns the complete result in json format",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/download/:token/result.json",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              },
+              {
+                "name": "importableOnly",
+                "value": "false",
+                "type": "query",
+                "description": "Only include resources which can be later imported"
+              }
+            ]
+          },
+          "docs": "The results are not filtered by any means. The json file contains the whole stored result based on chosen analysis options and submitted data."
+        },
+        {
+          "info": {
+            "name": "Returns the complete result in json format (gzipped)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/download/:token/result.json.gz",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              }
+            ]
+          },
+          "docs": "The results are not filtered by any means. The json file contains the whole stored result based on chosen analysis options and submitted data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

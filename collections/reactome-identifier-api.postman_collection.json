@@ -1,0 +1,448 @@
+{
+  "item": [
+    {
+      "id": "283a0dab-6ea7-4407-8098-9766015de12e",
+      "name": "identifier",
+      "description": {
+        "content": "Queries for only one identifier",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "39579fb9-3674-403c-b948-3210ed271dca",
+          "name": "Analyse the identifier over the different species in the database",
+          "request": {
+            "name": "Analyse the identifier over the different species in the database",
+            "description": {
+              "content": "Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identifier",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interactors",
+                  "value": "false",
+                  "description": "Include interactors"
+                },
+                {
+                  "disabled": false,
+                  "key": "species",
+                  "value": "<string>",
+                  "description": "list of species to filter the result (accepts taxonomy ids, species names and dbId)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "pathways per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pValue",
+                  "value": "1",
+                  "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDisease",
+                  "value": "true",
+                  "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+                },
+                {
+                  "disabled": false,
+                  "key": "min",
+                  "value": "<integer>",
+                  "description": "minimum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "maximum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The identifier of the element to be retrieved"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f814c0f-ed56-4bf5-8ed1-68f90527298b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifier",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The identifier of the element to be retrieved"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 9548.986640059884,\n    \"min\": 3261.173914968103\n  },\n  \"identifiersNotFound\": 1330,\n  \"pathways\": [\n    {\n      \"dbId\": 5032,\n      \"entities\": {\n        \"curatedFound\": 7574,\n        \"curatedTotal\": 5444,\n        \"exp\": [\n          3250.3428600177044,\n          2315.567128718202\n        ],\n        \"fdr\": 7050.933001400203,\n        \"found\": 5202,\n        \"getpValue\": 7438.579080062396,\n        \"interactorsFound\": 9540,\n        \"interactorsTotal\": 4089,\n        \"ratio\": 8690.836601982079,\n        \"resource\": \"string\",\n        \"total\": 3920\n      },\n      \"inDisease\": false,\n      \"llp\": false,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 9527,\n        \"ratio\": 5289.220680589836,\n        \"resource\": \"string\",\n        \"total\": 3010\n      },\n      \"species\": {\n        \"dbId\": 43,\n        \"filtered\": 4270,\n        \"name\": \"string\",\n        \"pathways\": 6562,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 7532,\n      \"entities\": {\n        \"curatedFound\": 5054,\n        \"curatedTotal\": 808,\n        \"exp\": [\n          9157.652837202513,\n          2123.6274933753384\n        ],\n        \"fdr\": 9840.179449362171,\n        \"found\": 7031,\n        \"getpValue\": 7050.257451473696,\n        \"interactorsFound\": 8684,\n        \"interactorsTotal\": 7570,\n        \"ratio\": 6648.199633867509,\n        \"resource\": \"string\",\n        \"total\": 4883\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 503,\n        \"ratio\": 3391.1302998473993,\n        \"resource\": \"string\",\n        \"total\": 4855\n      },\n      \"species\": {\n        \"dbId\": 8255,\n        \"filtered\": 4371,\n        \"name\": \"string\",\n        \"pathways\": 7133,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2124,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 5156,\n      \"pathways\": 5813,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1411,\n      \"pathways\": 8198,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 4872,\n      \"filtered\": 7174,\n      \"name\": \"string\",\n      \"pathways\": 9944,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 4957,\n      \"filtered\": 5348,\n      \"name\": \"string\",\n      \"pathways\": 4672,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": false,\n    \"projection\": true,\n    \"sampleName\": \"string\",\n    \"species\": 5229,\n    \"text\": true,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f541a83d-f665-401f-aa2b-ae47e209ff7c",
+          "name": "Analyse the identifier over the different species in the database and projects the result to Homo Sapiens",
+          "request": {
+            "name": "Analyse the identifier over the different species in the database and projects the result to Homo Sapiens",
+            "description": {
+              "content": "The projection is calculated by the orthologous slot in the Reactome database. Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identifier",
+                ":id",
+                "projection"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interactors",
+                  "value": "false",
+                  "description": "Include interactors"
+                },
+                {
+                  "disabled": false,
+                  "key": "species",
+                  "value": "<string>",
+                  "description": "list of species to filter the result (accepts taxonomy ids, species names and dbId)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "pathways per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pValue",
+                  "value": "1",
+                  "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDisease",
+                  "value": "true",
+                  "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+                },
+                {
+                  "disabled": false,
+                  "key": "min",
+                  "value": "<integer>",
+                  "description": "minimum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "maximum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The identifier of the element to be retrieved"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3063b58-1694-40a1-955b-dfc9376644a3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifier",
+                    ":id",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The identifier of the element to be retrieved"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 3826.109998148123,\n    \"min\": 2845.8292456406907\n  },\n  \"identifiersNotFound\": 1549,\n  \"pathways\": [\n    {\n      \"dbId\": 5272,\n      \"entities\": {\n        \"curatedFound\": 9843,\n        \"curatedTotal\": 7147,\n        \"exp\": [\n          7733.200394973307,\n          5996.84833866201\n        ],\n        \"fdr\": 8617.816132775004,\n        \"found\": 1727,\n        \"getpValue\": 9377.115703187483,\n        \"interactorsFound\": 6361,\n        \"interactorsTotal\": 5573,\n        \"ratio\": 1204.2135561873868,\n        \"resource\": \"string\",\n        \"total\": 9781\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 8227,\n        \"ratio\": 7343.214343824366,\n        \"resource\": \"string\",\n        \"total\": 142\n      },\n      \"species\": {\n        \"dbId\": 4353,\n        \"filtered\": 351,\n        \"name\": \"string\",\n        \"pathways\": 6415,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 5,\n      \"entities\": {\n        \"curatedFound\": 9739,\n        \"curatedTotal\": 783,\n        \"exp\": [\n          6491.834973012046,\n          664.6682235598289\n        ],\n        \"fdr\": 3097.4218177523007,\n        \"found\": 4588,\n        \"getpValue\": 9198.910849093625,\n        \"interactorsFound\": 9450,\n        \"interactorsTotal\": 9123,\n        \"ratio\": 4925.690993963261,\n        \"resource\": \"string\",\n        \"total\": 9332\n      },\n      \"inDisease\": false,\n      \"llp\": false,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 6461,\n        \"ratio\": 9775.740815984875,\n        \"resource\": \"string\",\n        \"total\": 4703\n      },\n      \"species\": {\n        \"dbId\": 7527,\n        \"filtered\": 7688,\n        \"name\": \"string\",\n        \"pathways\": 418,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 3832,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 6847,\n      \"pathways\": 8134,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1418,\n      \"pathways\": 6820,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 8859,\n      \"filtered\": 7971,\n      \"name\": \"string\",\n      \"pathways\": 661,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 6643,\n      \"filtered\": 8975,\n      \"name\": \"string\",\n      \"pathways\": 6340,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": true,\n    \"interactors\": false,\n    \"projection\": true,\n    \"sampleName\": \"string\",\n    \"species\": 3208,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "da8f72fd-c1cb-4d35-a16d-9838ab77e0d3",
+    "name": "Pathway Analysis Service database identifier API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

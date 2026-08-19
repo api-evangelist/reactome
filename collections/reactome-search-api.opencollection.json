@@ -1,0 +1,658 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database search API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Performs a Solr query (diagram widget scoped) for a given QueryObject",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/search/diagram/:diagram",
+            "params": [
+              {
+                "name": "diagram",
+                "value": "R-HSA-8848021",
+                "type": "path"
+              },
+              {
+                "name": "query",
+                "value": "MAD",
+                "type": "query"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "Types to filter"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Start row"
+              },
+              {
+                "name": "rows",
+                "value": "",
+                "type": "query",
+                "description": "Number of rows to include"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Scope of the query. Can be either REFERENCE_ENTITY to group Physical Entities having a reference entity (Proteins, Genes, etc.) into a single ReferenceEntity, and keep those which don't (Complexes, Sets, etc.) as Physical Entity. PHYSICAL_ENTITY to remove the grouping by reference entity. BOTH to include both types"
+              },
+              {
+                "name": "includeInteractors",
+                "value": "",
+                "type": "query",
+                "description": "Whether the result should consider interactors as part of a diagram"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Performs a Solr query (diagram widget scoped) for a given QueryObject"
+        },
+        {
+          "info": {
+            "name": "Performs a Solr query (diagram widget scoped) for a given QueryObject",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/search/diagram/:diagram/occurrences/:instance",
+            "params": [
+              {
+                "name": "diagram",
+                "value": "R-HSA-68886",
+                "type": "path"
+              },
+              {
+                "name": "instance",
+                "value": "R-HSA-141433",
+                "type": "path"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "Types to filter"
+              },
+              {
+                "name": "includeInteractors",
+                "value": "",
+                "type": "query",
+                "description": "Whether the result should consider interactors as part of a diagram"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Performs a Solr query (diagram widget scoped) for a given QueryObject"
+        },
+        {
+          "info": {
+            "name": "A list of diagram entities plus pathways from the provided list containing the specified identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/search/diagram/:pathwayId/flag",
+            "params": [
+              {
+                "name": "pathwayId",
+                "value": "R-HSA-446203",
+                "type": "path",
+                "description": "The pathway to find items to flag"
+              },
+              {
+                "name": "query",
+                "value": "CTSA",
+                "type": "query",
+                "description": "The identifier for the elements to be flagged"
+              },
+              {
+                "name": "includeInteractors",
+                "value": "",
+                "type": "query",
+                "description": "Whether the result should consider interactors as part of a diagram"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method traverses the content and checks not only for the main identifier but also for all the cross-references to find the flag targets"
+        },
+        {
+          "info": {
+            "name": "A list of facets corresponding to the whole Reactome search data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/search/facet",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method retrieves faceting information on the whole Reactome search data."
+        },
+        {
+          "info": {
+            "name": "A list of facets corresponding to a specific query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/search/facet_query",
+            "params": [
+              {
+                "name": "query",
+                "value": "TP53",
+                "type": "query",
+                "description": "Search term"
+              },
+              {
+                "name": "species",
+                "value": "",
+                "type": "query",
+                "description": "Species name"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "Types to filter"
+              },
+              {
+                "name": "compartments",
+                "value": "",
+                "type": "query",
+                "description": "Compartments to filter"
+              },
+              {
+                "name": "keywords",
+                "value": "",
+                "type": "query",
+                "description": "Keywords"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Scope of the query. Can be either REFERENCE_ENTITY to group Physical Entities having a reference entity (Proteins, Genes, etc.) into a single ReferenceEntity, and keep those which don't (Complexes, Sets, etc.) as Physical Entity. PHYSICAL_ENTITY to remove the grouping by reference entity. BOTH to include both types"
+              },
+              {
+                "name": "Force filters",
+                "value": "",
+                "type": "query",
+                "description": "Force filters<br>In case where applied filters yield to no results, filters are removed by default to grant results as much as possible. Set <b>Force filters</b> to true to avoid this behaviour"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method retrieves faceting information on a specific query"
+        },
+        {
+          "info": {
+            "name": "Performs a Solr query (fireworks widget scoped) for a given QueryObject",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/search/fireworks",
+            "params": [
+              {
+                "name": "query",
+                "value": "BRAF",
+                "type": "query"
+              },
+              {
+                "name": "species",
+                "value": "Homo sapiens",
+                "type": "query",
+                "description": "Species name"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "Types to filter"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Start row"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Scope of the query. Can be either REFERENCE_ENTITY to group Physical Entities having a reference entity (Proteins, Genes, etc.) into a single ReferenceEntity, and keep those which don't (Complexes, Sets, etc.) as Physical Entity. PHYSICAL_ENTITY to remove the grouping by reference entity. BOTH to include both types"
+              },
+              {
+                "name": "includeInteractors",
+                "value": "",
+                "type": "query",
+                "description": "Whether the result should consider interactors as part of a diagram"
+              },
+              {
+                "name": "rows",
+                "value": "",
+                "type": "query",
+                "description": "Number of rows to include"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Performs a Solr query (fireworks widget scoped) for a given QueryObject"
+        },
+        {
+          "info": {
+            "name": "Performs a Solr query (fireworks widget scoped) for a given QueryObject",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/search/fireworks/flag",
+            "params": [
+              {
+                "name": "query",
+                "value": "KNTC1",
+                "type": "query"
+              },
+              {
+                "name": "species",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Performs a Solr query (fireworks widget scoped) for a given QueryObject"
+        },
+        {
+          "info": {
+            "name": "Find the different pathways containing a specific entity determined by its dbId. Can customise the output using fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/search/pathways/of/:dbId",
+            "params": [
+              {
+                "name": "dbId",
+                "value": "227785",
+                "type": "path"
+              },
+              {
+                "name": "includeInteractors",
+                "value": "",
+                "type": "query",
+                "description": "Whether the result should consider interactors as part of a diagram"
+              },
+              {
+                "name": "directlyInDiagram",
+                "value": "",
+                "type": "query",
+                "description": "Whether the result should exclude higher level diagrams containing pathways, themselves containing the targeted entity"
+              },
+              {
+                "name": "species",
+                "value": "Homo sapiens",
+                "type": "query",
+                "description": "Species name to filter results for"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields to include in the response. If empty, retrieves all field available (not recommended)"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Find the different pathways containing a specific entity determined by its dbId. Can customise the output using fields"
+        },
+        {
+          "info": {
+            "name": "Queries Solr against the Reactome knowledgebase",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/search/query",
+            "params": [
+              {
+                "name": "query",
+                "value": "Biological oxidations",
+                "type": "query",
+                "description": "Search term"
+              },
+              {
+                "name": "species",
+                "value": "",
+                "type": "query",
+                "description": "Species name"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "Types to filter"
+              },
+              {
+                "name": "compartments",
+                "value": "",
+                "type": "query",
+                "description": "Compartments to filter"
+              },
+              {
+                "name": "keywords",
+                "value": "",
+                "type": "query",
+                "description": "Keywords"
+              },
+              {
+                "name": "cluster",
+                "value": "true",
+                "type": "query",
+                "description": "Cluster results"
+              },
+              {
+                "name": "parserType",
+                "value": "STD",
+                "type": "query",
+                "description": "Query parser to use"
+              },
+              {
+                "name": "Start row",
+                "value": "0",
+                "type": "query",
+                "description": "Start row"
+              },
+              {
+                "name": "rows",
+                "value": "10",
+                "type": "query",
+                "description": "Number of rows to include"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Scope of the query. Can be either REFERENCE_ENTITY to group Physical Entities having a reference entity (Proteins, Genes, etc.) into a single ReferenceEntity, and keep those which don't (Complexes, Sets, etc.) as Physical Entity. PHYSICAL_ENTITY to remove the grouping by reference entity. BOTH to include both types"
+              },
+              {
+                "name": "Force filters",
+                "value": "",
+                "type": "query",
+                "description": "Force filters<br>In case where applied filters yield to no results, filters are removed by default to grant results as much as possible. Set <b>Force filters</b> to true to avoid this behaviour"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method performs a Solr query on the Reactome knowledgebase. Results can be provided in a paginated format."
+        },
+        {
+          "info": {
+            "name": "Queries Solr against the Reactome knowledgebase",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/search/query/paginated",
+            "params": [
+              {
+                "name": "query",
+                "value": "Biological oxidations",
+                "type": "query",
+                "description": "Search term"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page, should be strictly positive"
+              },
+              {
+                "name": "rowCount",
+                "value": "10",
+                "type": "query",
+                "description": "Rows per page"
+              },
+              {
+                "name": "species",
+                "value": "",
+                "type": "query",
+                "description": "Species name"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "Types to filter"
+              },
+              {
+                "name": "compartments",
+                "value": "",
+                "type": "query",
+                "description": "Compartments to filter"
+              },
+              {
+                "name": "keywords",
+                "value": "",
+                "type": "query",
+                "description": "Keywords"
+              },
+              {
+                "name": "cluster",
+                "value": "true",
+                "type": "query",
+                "description": "Cluster results"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Scope of the query. Can be either REFERENCE_ENTITY to group Physical Entities having a reference entity (Proteins, Genes, etc.) into a single ReferenceEntity, and keep those which don't (Complexes, Sets, etc.) as Physical Entity. PHYSICAL_ENTITY to remove the grouping by reference entity. BOTH to include both types"
+              },
+              {
+                "name": "parserType",
+                "value": "STD",
+                "type": "query",
+                "description": "Query parser to use"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method performs a Solr query on the Reactome knowledgebase. Results are in a paginated format, pages count starting from 1."
+        },
+        {
+          "info": {
+            "name": "Spell-check suggestions for a given query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/search/spellcheck",
+            "params": [
+              {
+                "name": "query",
+                "value": "repoduction",
+                "type": "query",
+                "description": "Search term"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method retrieves a list of spell-check suggestions for a given search term."
+        },
+        {
+          "info": {
+            "name": "Auto-suggestions for a given query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/search/suggest",
+            "params": [
+              {
+                "name": "query",
+                "value": "platele",
+                "type": "query",
+                "description": "Search term"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method retrieves a list of suggestions for a given search term."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

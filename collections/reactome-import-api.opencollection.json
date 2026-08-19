@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database import API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "import",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Imports the posted json into the service",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/import/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The accepted format is the same as provided by the method <a href='#/download/downloadResultJSONUsingGET'>/#/download/{token}/result.json</a>."
+        },
+        {
+          "info": {
+            "name": "Imports the posted json file into the service",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/import/form",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "The accepted format is the same as provided by the method <a href='#/download/downloadResultJSONUsingGET'>/#/download/{token}/result.json</a>. Note: The submitted file can be gzipped."
+        },
+        {
+          "info": {
+            "name": "Imports the json file provided by the posted url into the service",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/import/url"
+          },
+          "docs": "The accepted format is the same as provided by the method <a href='#/download/downloadResultJSONUsingGET'>/#/download/{token}/result.json</a>. Note: The provided file can be gzipped."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

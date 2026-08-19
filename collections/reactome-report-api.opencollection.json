@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database report API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "report",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Downloads a report for a given pathway analysis result",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/report/:token/:species/:filename.pdf",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              },
+              {
+                "name": "species",
+                "value": "Homo sapiens",
+                "type": "path",
+                "description": "The species for which results will be reported"
+              },
+              {
+                "name": "filename",
+                "value": "report",
+                "type": "path",
+                "description": "The name of the file to be downloaded"
+              },
+              {
+                "name": "number",
+                "value": "25",
+                "type": "query",
+                "description": "Number of pathways reported (max 50)"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "importableOnly",
+                "value": "",
+                "type": "query",
+                "description": "Filters resources to only includes importable ones"
+              },
+              {
+                "name": "diagramProfile",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "analysisProfile",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fireworksProfile",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This method provides a report for a given pathway analysis result in a PDF document. This document contains data about the analysis itself followed by the pathways overview and the most significant pathways overlaid with the analysis result. Users can download and store this information in a convenient format to be checked in the future when the 'token' is not longer available."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

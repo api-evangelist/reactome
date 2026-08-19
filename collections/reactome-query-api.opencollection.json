@@ -1,0 +1,216 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database query API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "More information on an entry in Reactome knowledgebase",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/query/enhanced/v2/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-60140",
+                "type": "path",
+                "description": "DbId or StId of the requested database object"
+              },
+              {
+                "name": "fetchIncomingRelationships",
+                "value": "true",
+                "type": "query",
+                "description": "Whether incoming relationships should be fetched"
+              },
+              {
+                "name": "summariseReferenceEntity",
+                "value": "false",
+                "type": "query",
+                "description": "Whether ReferenceEntity should be summarising its physical entities"
+              },
+              {
+                "name": "includeDisease",
+                "value": "true",
+                "type": "query",
+                "description": "Whether disease specific data should be fetched"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Based on the given identifier, i.e. stable id or database id, this method queries for an entry in Reactome knowledgebase providing more information. In particular, the retrieved database object has all its properties and direct relationships (relationships of depth 1) filled, while it also includes any second level relationships regarding regulations and catalysts."
+        },
+        {
+          "info": {
+            "name": "More information on an entry in Reactome knowledgebase",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/query/enhanced/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-60140",
+                "type": "path",
+                "description": "DbId or StId of the requested database object"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Based on the given identifier, i.e. stable id or database id, this method queries for an entry in Reactome knowledgebase providing more information. In particular, the retrieved database object has all its properties and direct relationships (relationships of depth 1) filled, while it also includes any second level relationships regarding regulations and catalysts."
+        },
+        {
+          "info": {
+            "name": "A list of entries in Reactome knowledgebase",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/data/query/ids",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method queries for a set of entries in Reactome knowledgebase based on the given list of identifiers. The provided list of identifiers can include stable ids, database ids or a mixture of both. It should be underlined that any duplicated ids are eliminated while only requests containing up to 20 ids are processed."
+        },
+        {
+          "info": {
+            "name": "A list of entries with their mapping to the provided identifiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/data/query/ids/map",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method queries for a set of entries in Reactome knowledgebase based on the given list of identifiers. The provided list of identifiers can include stable ids, database ids, old stable ids or a mixture of all. It should be underlined that any duplicated ids are eliminated while only requests containing up to 20 ids are processed.<br>This method is particularly useful for users that still rely on the previous version of stable identifiers to query this API. Please note that those are no longe"
+        },
+        {
+          "info": {
+            "name": "An entry in Reactome knowledgebase",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/query/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-1640170",
+                "type": "path",
+                "description": "DbId or StId of the requested database object"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method queries for an entry in Reactome knowledgebase based on the given identifier, i.e. stable id or database id. It is worth mentioning that the retrieved database object has all its properties and direct relationships (relationships of depth 1) filled."
+        },
+        {
+          "info": {
+            "name": "A single property of an entry in Reactome knowledgebase",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/query/:id/:attributeName",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-1640170",
+                "type": "path",
+                "description": "DbId or StId of the requested database object"
+              },
+              {
+                "name": "attributeName",
+                "value": "displayName",
+                "type": "path",
+                "description": "Attribute to be filtered"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method queries for a specific property of an entry in Reactome knowledgebase based on the given identifier, i.e. stable id or database id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

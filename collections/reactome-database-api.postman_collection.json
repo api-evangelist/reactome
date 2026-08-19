@@ -1,0 +1,520 @@
+{
+  "item": [
+    {
+      "id": "66c05782-50f8-4e1f-8e72-c93988f1dfeb",
+      "name": "database",
+      "description": {
+        "content": "Database info queries",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "69cba207-3cfc-45d3-a71e-b54e11ed85e1",
+          "name": "The name of current database",
+          "request": {
+            "name": "The name of current database",
+            "description": {},
+            "url": {
+              "path": [
+                "database",
+                "name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f665cc38-a21b-4f34-aa6a-2f589e37377d",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "database",
+                    "name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d94ebdcf-9e8e-4ba5-8d75-4400a8ada122",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "database",
+                    "name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3729091d-e9f8-4f99-9615-f859297d51ac",
+          "name": "The version number of current database",
+          "request": {
+            "name": "The version number of current database",
+            "description": {},
+            "url": {
+              "path": [
+                "database",
+                "version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2dc91a39-dd93-4740-a3d2-2811f3e9a05c",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "database",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "16a76334-af1a-4d32-ab54-ac0425d7df98",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "database",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "699c73c2-6680-4093-88b1-7054cbe3514f",
+          "name": "The name of current database",
+          "request": {
+            "name": "The name of current database",
+            "description": {},
+            "url": {
+              "path": [
+                "data",
+                "database",
+                "name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed8eb1b9-0239-464b-8d82-b57c9b69aec2",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "database",
+                    "name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bbb9edda-cfe5-4118-aad8-d5db58543688",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "database",
+                    "name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0f750dc-56a8-4cc9-8c67-cb18cd5d5eb9",
+          "name": "The version number of current database",
+          "request": {
+            "name": "The version number of current database",
+            "description": {},
+            "url": {
+              "path": [
+                "data",
+                "database",
+                "version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5695e3c5-bdd3-445f-be0f-cc6096cea778",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "database",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1ec50376-06d7-4f35-af62-642ff98c65c9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "database",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "71700152-58e4-47c2-83b6-4d28ba41ff6f",
+    "name": "Pathway Analysis Service database API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

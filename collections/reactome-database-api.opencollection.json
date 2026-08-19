@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "database",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "The name of current database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/database/name"
+          },
+          "docs": "The name of current database"
+        },
+        {
+          "info": {
+            "name": "The version number of current database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/database/version"
+          },
+          "docs": "The version number of current database"
+        },
+        {
+          "info": {
+            "name": "The name of current database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/database/name",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "The name of current database"
+        },
+        {
+          "info": {
+            "name": "The version number of current database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/database/version",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "The version number of current database"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

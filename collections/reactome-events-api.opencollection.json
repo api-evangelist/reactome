@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database events API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "The ancestors of a given event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/event/:id/ancestors",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-5673001",
+                "type": "path",
+                "description": "The event for which the ancestors are requested"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "The Reactome definition of events includes pathways and reactions. Although events are organised in a hierarchical structure, a single event can be in more than one location, i.e. a reaction can take part in different pathways while, in the same way, a sub-pathway can take part in many pathways. Therefore, this method retrieves a list of all possible paths from the requested event to the top level pathway(s)."
+        },
+        {
+          "info": {
+            "name": "getEventInDepth",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/event/:id/in-depth",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-9612973",
+                "type": "path",
+                "description": "The complex for which subunits are requested"
+              },
+              {
+                "name": "maxDepth",
+                "value": "",
+                "type": "query",
+                "description": "Specify the depth needed for the given entity. If negative, fetches everything. If not, fetches the specified amount of nesting"
+              },
+              {
+                "name": "attributes",
+                "value": "species,compartment",
+                "type": "query",
+                "description": "Specify the attributes to load for each level of the entity"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "The full event hierarchy for a given species",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/eventsHierarchy/:species",
+            "params": [
+              {
+                "name": "species",
+                "value": "9606",
+                "type": "path",
+                "description": "Allowed species filter: SpeciesName (eg: Homo sapiens) SpeciesTaxId (eg: 9606)"
+              },
+              {
+                "name": "pathwaysOnly",
+                "value": "false",
+                "type": "query",
+                "description": "Only get pathways"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> token with the results to be overlaid on top of the given pathways overview"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query",
+                "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> resource for which the results will be overlaid on top of the given pathways overview"
+              },
+              {
+                "name": "interactors",
+                "value": "false",
+                "type": "query",
+                "description": "Include interactors"
+              },
+              {
+                "name": "importableOnly",
+                "value": "",
+                "type": "query",
+                "description": "Filters resources to only includes importable ones"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Events (pathways and reactions) in Reactome are organised in a hierarchical structure for every species. By following all 'hasEvent' relationships, this method retrieves the full event hierarchy for any given species. The result is a list of tree structures, one for each TopLevelPathway. Every event in these trees is represented by a PathwayBrowserNode. The latter contains the stable identifier, the name, the species, the url, the type, and the diagram of the particular event."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

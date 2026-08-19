@@ -1,0 +1,2821 @@
+{
+  "item": [
+    {
+      "id": "81399423-9c21-4b90-baba-7e8c4f3f83da",
+      "name": "token",
+      "description": {
+        "content": "Previous queries filter",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "03777fb0-6362-453e-9e94-2704d1bb9da8",
+          "name": "Returns the result associated with the token",
+          "request": {
+            "name": "Returns the result associated with the token",
+            "description": {
+              "content": "Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "token",
+                ":token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "species",
+                  "value": "<string>",
+                  "description": "list of species to filter the result (accepts taxonomy ids, species names and dbId)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "pathways per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pValue",
+                  "value": "1",
+                  "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDisease",
+                  "value": "<boolean>",
+                  "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+                },
+                {
+                  "disabled": false,
+                  "key": "min",
+                  "value": "<integer>",
+                  "description": "minimum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "maximum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1554c09f-2e70-4491-a048-9b6304c35980",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 9850.788116298148,\n    \"min\": 3689.830618996601\n  },\n  \"identifiersNotFound\": 5816,\n  \"pathways\": [\n    {\n      \"dbId\": 504,\n      \"entities\": {\n        \"curatedFound\": 5629,\n        \"curatedTotal\": 605,\n        \"exp\": [\n          2186.5358564318194,\n          7451.565840869062\n        ],\n        \"fdr\": 675.5624312896335,\n        \"found\": 3226,\n        \"getpValue\": 1841.0585532148727,\n        \"interactorsFound\": 6076,\n        \"interactorsTotal\": 7422,\n        \"ratio\": 7733.316082155888,\n        \"resource\": \"string\",\n        \"total\": 4763\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 2175,\n        \"ratio\": 130.62062847236544,\n        \"resource\": \"string\",\n        \"total\": 7318\n      },\n      \"species\": {\n        \"dbId\": 9913,\n        \"filtered\": 6134,\n        \"name\": \"string\",\n        \"pathways\": 6838,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 4194,\n      \"entities\": {\n        \"curatedFound\": 3312,\n        \"curatedTotal\": 991,\n        \"exp\": [\n          7086.2206962976525,\n          8982.299757647554\n        ],\n        \"fdr\": 1517.730790234082,\n        \"found\": 9350,\n        \"getpValue\": 6917.655636257397,\n        \"interactorsFound\": 4772,\n        \"interactorsTotal\": 2106,\n        \"ratio\": 4118.677356073692,\n        \"resource\": \"string\",\n        \"total\": 8550\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 4164,\n        \"ratio\": 2599.0939270812905,\n        \"resource\": \"string\",\n        \"total\": 4633\n      },\n      \"species\": {\n        \"dbId\": 189,\n        \"filtered\": 2592,\n        \"name\": \"string\",\n        \"pathways\": 5604,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 3235,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 2600,\n      \"pathways\": 958,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 330,\n      \"pathways\": 2527,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 8073,\n      \"filtered\": 6890,\n      \"name\": \"string\",\n      \"pathways\": 198,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 5193,\n      \"filtered\": 7271,\n      \"name\": \"string\",\n      \"pathways\": 9315,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": true,\n    \"sampleName\": \"string\",\n    \"species\": 2027,\n    \"text\": true,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89735e59-f88d-4c21-8213-2e16cbb5817e",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 1311.238900270969,\n    \"min\": 4601.655658459785\n  },\n  \"identifiersNotFound\": 5518,\n  \"pathways\": [\n    {\n      \"dbId\": 7606,\n      \"entities\": {\n        \"curatedFound\": 1089,\n        \"curatedTotal\": 8235,\n        \"exp\": [\n          4578.88417699173,\n          5951.133411208893\n        ],\n        \"fdr\": 9185.07898415666,\n        \"found\": 9696,\n        \"getpValue\": 8398.546292816007,\n        \"interactorsFound\": 7440,\n        \"interactorsTotal\": 7370,\n        \"ratio\": 4409.504677113744,\n        \"resource\": \"string\",\n        \"total\": 1731\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 4204,\n        \"ratio\": 4669.387715075163,\n        \"resource\": \"string\",\n        \"total\": 6530\n      },\n      \"species\": {\n        \"dbId\": 4278,\n        \"filtered\": 3245,\n        \"name\": \"string\",\n        \"pathways\": 6548,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 7367,\n      \"entities\": {\n        \"curatedFound\": 6869,\n        \"curatedTotal\": 64,\n        \"exp\": [\n          4014.0285964900436,\n          3350.247161467148\n        ],\n        \"fdr\": 3338.2353740954118,\n        \"found\": 8050,\n        \"getpValue\": 7215.714136709717,\n        \"interactorsFound\": 5778,\n        \"interactorsTotal\": 4178,\n        \"ratio\": 8448.890165638386,\n        \"resource\": \"string\",\n        \"total\": 298\n      },\n      \"inDisease\": true,\n      \"llp\": false,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 4812,\n        \"ratio\": 2096.3644179826347,\n        \"resource\": \"string\",\n        \"total\": 8053\n      },\n      \"species\": {\n        \"dbId\": 6336,\n        \"filtered\": 1516,\n        \"name\": \"string\",\n        \"pathways\": 4830,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 9801,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8357,\n      \"pathways\": 8352,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 8519,\n      \"pathways\": 4861,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 2782,\n      \"filtered\": 1711,\n      \"name\": \"string\",\n      \"pathways\": 3423,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 6578,\n      \"filtered\": 6186,\n      \"name\": \"string\",\n      \"pathways\": 7848,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": true,\n    \"sampleName\": \"string\",\n    \"species\": 8942,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "755f55ec-2d6f-472c-817d-16e726f90bc1",
+          "name": "Returns the result for the pathway ids sent by post (when they are present in the original result)",
+          "request": {
+            "name": "Returns the result for the pathway ids sent by post (when they are present in the original result)",
+            "description": {
+              "content": "For a given list of pathway identifiers it will retrieve a list containing those that are present in the result (with the results for the indicated molecule type)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "token",
+                ":token",
+                "filter",
+                "pathways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pValue",
+                  "value": "1",
+                  "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "species",
+                  "value": "<string>",
+                  "description": "list of species to filter the result (accepts taxonomy ids, species names and dbId)"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDisease",
+                  "value": "<boolean>",
+                  "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+                },
+                {
+                  "disabled": false,
+                  "key": "min",
+                  "value": "<integer>",
+                  "description": "minimum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "maximum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "be344dd1-5ea4-48c5-a683-b3acfcec0bef",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "filter",
+                    "pathways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"dbId\": 4366,\n    \"entities\": {\n      \"curatedFound\": 8209,\n      \"curatedTotal\": 3516,\n      \"exp\": [\n        5546.726101473649,\n        2381.718547004539\n      ],\n      \"fdr\": 3822.82442603698,\n      \"found\": 4739,\n      \"getpValue\": 2828.334970655643,\n      \"interactorsFound\": 9699,\n      \"interactorsTotal\": 1514,\n      \"ratio\": 2595.2341988598105,\n      \"resource\": \"string\",\n      \"total\": 9835\n    },\n    \"inDisease\": false,\n    \"llp\": true,\n    \"name\": \"string\",\n    \"reactions\": {\n      \"found\": 395,\n      \"ratio\": 932.3991408173315,\n      \"resource\": \"string\",\n      \"total\": 2392\n    },\n    \"species\": {\n      \"dbId\": 192,\n      \"filtered\": 2348,\n      \"name\": \"string\",\n      \"pathways\": 2778,\n      \"taxId\": \"string\"\n    },\n    \"stId\": \"string\"\n  },\n  {\n    \"dbId\": 6894,\n    \"entities\": {\n      \"curatedFound\": 9820,\n      \"curatedTotal\": 1744,\n      \"exp\": [\n        3762.696737544595,\n        3081.449792121719\n      ],\n      \"fdr\": 3645.110594681963,\n      \"found\": 5899,\n      \"getpValue\": 1818.5178227113008,\n      \"interactorsFound\": 4441,\n      \"interactorsTotal\": 1506,\n      \"ratio\": 1670.5765368404236,\n      \"resource\": \"string\",\n      \"total\": 7284\n    },\n    \"inDisease\": true,\n    \"llp\": false,\n    \"name\": \"string\",\n    \"reactions\": {\n      \"found\": 6007,\n      \"ratio\": 309.4110231532843,\n      \"resource\": \"string\",\n      \"total\": 6233\n    },\n    \"species\": {\n      \"dbId\": 3861,\n      \"filtered\": 7994,\n      \"name\": \"string\",\n      \"pathways\": 3525,\n      \"taxId\": \"string\"\n    },\n    \"stId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87984497-7400-4b52-9257-b99bfb99da8a",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "filter",
+                    "pathways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"dbId\": 4366,\n    \"entities\": {\n      \"curatedFound\": 8209,\n      \"curatedTotal\": 3516,\n      \"exp\": [\n        5546.726101473649,\n        2381.718547004539\n      ],\n      \"fdr\": 3822.82442603698,\n      \"found\": 4739,\n      \"getpValue\": 2828.334970655643,\n      \"interactorsFound\": 9699,\n      \"interactorsTotal\": 1514,\n      \"ratio\": 2595.2341988598105,\n      \"resource\": \"string\",\n      \"total\": 9835\n    },\n    \"inDisease\": false,\n    \"llp\": true,\n    \"name\": \"string\",\n    \"reactions\": {\n      \"found\": 395,\n      \"ratio\": 932.3991408173315,\n      \"resource\": \"string\",\n      \"total\": 2392\n    },\n    \"species\": {\n      \"dbId\": 192,\n      \"filtered\": 2348,\n      \"name\": \"string\",\n      \"pathways\": 2778,\n      \"taxId\": \"string\"\n    },\n    \"stId\": \"string\"\n  },\n  {\n    \"dbId\": 6894,\n    \"entities\": {\n      \"curatedFound\": 9820,\n      \"curatedTotal\": 1744,\n      \"exp\": [\n        3762.696737544595,\n        3081.449792121719\n      ],\n      \"fdr\": 3645.110594681963,\n      \"found\": 5899,\n      \"getpValue\": 1818.5178227113008,\n      \"interactorsFound\": 4441,\n      \"interactorsTotal\": 1506,\n      \"ratio\": 1670.5765368404236,\n      \"resource\": \"string\",\n      \"total\": 7284\n    },\n    \"inDisease\": true,\n    \"llp\": false,\n    \"name\": \"string\",\n    \"reactions\": {\n      \"found\": 6007,\n      \"ratio\": 309.4110231532843,\n      \"resource\": \"string\",\n      \"total\": 6233\n    },\n    \"species\": {\n      \"dbId\": 3861,\n      \"filtered\": 7994,\n      \"name\": \"string\",\n      \"pathways\": 3525,\n      \"taxId\": \"string\"\n    },\n    \"stId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd3d86ab-467b-461a-9e19-f4696f06d4fe",
+          "name": "Filters the result by species",
+          "request": {
+            "name": "Filters the result by species",
+            "description": {},
+            "url": {
+              "path": [
+                "token",
+                ":token",
+                "filter",
+                "species",
+                ":species"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "species",
+                  "description": "(Required) The species to filter the result (accepts the taxonomy id, species names and dbId)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "14019585-9324-4be6-8af5-aadc0658de4f",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "filter",
+                    "species",
+                    ":species"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "species",
+                      "description": "(Required) The species to filter the result (accepts the taxonomy id, species names and dbId)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expressionSummary\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 142.3587770380197,\n    \"min\": 7279.131906306135\n  },\n  \"pathways\": [\n    {\n      \"dbId\": 8454,\n      \"disease\": false,\n      \"entities\": {\n        \"curatedFound\": 1202,\n        \"curatedTotal\": 279,\n        \"exp\": [\n          5406.204091592997,\n          1700.8389723359141\n        ],\n        \"fdr\": 6061.9361910468415,\n        \"found\": 774,\n        \"getpValue\": 6953.693720693273,\n        \"interactorsFound\": 8123,\n        \"interactorsTotal\": 3675,\n        \"ratio\": 6610.698747641365,\n        \"resource\": \"string\",\n        \"total\": 8828\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 9624,\n      \"disease\": true,\n      \"entities\": {\n        \"curatedFound\": 6769,\n        \"curatedTotal\": 8272,\n        \"exp\": [\n          4471.223438395141,\n          9844.325847388911\n        ],\n        \"fdr\": 3533.9766866638743,\n        \"found\": 2154,\n        \"getpValue\": 9302.519155885462,\n        \"interactorsFound\": 2074,\n        \"interactorsTotal\": 3938,\n        \"ratio\": 8952.483140724644,\n        \"resource\": \"string\",\n        \"total\": 6646\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "489d7b48-50d6-4731-a396-01a127a5021e",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "filter",
+                    "species",
+                    ":species"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "species",
+                      "description": "(Required) The species to filter the result (accepts the taxonomy id, species names and dbId)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expressionSummary\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 8727.313902696922,\n    \"min\": 356.882654704469\n  },\n  \"pathways\": [\n    {\n      \"dbId\": 9966,\n      \"disease\": false,\n      \"entities\": {\n        \"curatedFound\": 9597,\n        \"curatedTotal\": 4533,\n        \"exp\": [\n          5877.606648772758,\n          3490.4748710164945\n        ],\n        \"fdr\": 9906.785407028588,\n        \"found\": 5815,\n        \"getpValue\": 5230.244996277889,\n        \"interactorsFound\": 2599,\n        \"interactorsTotal\": 4283,\n        \"ratio\": 2078.148927613381,\n        \"resource\": \"string\",\n        \"total\": 2349\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 3272,\n      \"disease\": true,\n      \"entities\": {\n        \"curatedFound\": 4276,\n        \"curatedTotal\": 9513,\n        \"exp\": [\n          7255.227146950289,\n          8082.130492872979\n        ],\n        \"fdr\": 5343.207539300425,\n        \"found\": 872,\n        \"getpValue\": 6566.066407797313,\n        \"interactorsFound\": 9574,\n        \"interactorsTotal\": 2210,\n        \"ratio\": 4574.598841683557,\n        \"resource\": \"string\",\n        \"total\": 568\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24224e66-1d2c-4214-953e-fe09f875d9bd",
+          "name": "Returns a summary of the contained identifiers and interactors for each requested pathway and a given token",
+          "request": {
+            "name": "Returns a summary of the contained identifiers and interactors for each requested pathway and a given token",
+            "description": {
+              "content": "The identifiers submitted by the user that have a match in Reactome database. It also retrieves the mapping to the main identifiers for those that have been found.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "token",
+                ":token",
+                "found",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "fe063602-32a7-4cbd-8bc0-5116b7d41220",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "found",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"entities\": [\n      {\n        \"exp\": [\n          794.9615634864482,\n          2369.5440673693893\n        ],\n        \"id\": \"string\",\n        \"mapsTo\": [\n          {\n            \"ids\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resource\": \"string\"\n          }\n        ]\n      },\n      {\n        \"exp\": [\n          5535.748371653881,\n          3736.902072779105\n        ],\n        \"id\": \"string\",\n        \"mapsTo\": [\n          {\n            \"ids\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resource\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"expNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"foundEntities\": 2644,\n    \"foundInteractors\": 8297,\n    \"interactors\": [\n      {\n        \"exp\": [\n          1955.5420537422442,\n          1061.656916713094\n        ],\n        \"id\": \"string\",\n        \"interactsWith\": {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        },\n        \"mapsTo\": [\n          \"string\"\n        ]\n      },\n      {\n        \"exp\": [\n          1641.342183999378,\n          8403.18088006535\n        ],\n        \"id\": \"string\",\n        \"interactsWith\": {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        },\n        \"mapsTo\": [\n          \"string\"\n        ]\n      }\n    ],\n    \"pathway\": \"string\",\n    \"resources\": [\n      \"string\"\n    ]\n  },\n  {\n    \"entities\": [\n      {\n        \"exp\": [\n          2412.0467644802256,\n          9831.484284380302\n        ],\n        \"id\": \"string\",\n        \"mapsTo\": [\n          {\n            \"ids\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resource\": \"string\"\n          }\n        ]\n      },\n      {\n        \"exp\": [\n          6800.433601354986,\n          8801.850067996565\n        ],\n        \"id\": \"string\",\n        \"mapsTo\": [\n          {\n            \"ids\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resource\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"expNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"foundEntities\": 2871,\n    \"foundInteractors\": 5671,\n    \"interactors\": [\n      {\n        \"exp\": [\n          5437.608534152904,\n          9942.236073317072\n        ],\n        \"id\": \"string\",\n        \"interactsWith\": {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        },\n        \"mapsTo\": [\n          \"string\"\n        ]\n      },\n      {\n        \"exp\": [\n          1830.9119607122982,\n          2430.841301393041\n        ],\n        \"id\": \"string\",\n        \"interactsWith\": {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        },\n        \"mapsTo\": [\n          \"string\"\n        ]\n      }\n    ],\n    \"pathway\": \"string\",\n    \"resources\": [\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fefb5a44-ed9c-42c3-9e49-a4a59a0a55b5",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "found",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"entities\": [\n      {\n        \"exp\": [\n          6622.834063582684,\n          3501.703460118455\n        ],\n        \"id\": \"string\",\n        \"mapsTo\": [\n          {\n            \"ids\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resource\": \"string\"\n          }\n        ]\n      },\n      {\n        \"exp\": [\n          526.0351614694969,\n          8227.489654749357\n        ],\n        \"id\": \"string\",\n        \"mapsTo\": [\n          {\n            \"ids\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resource\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"expNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"foundEntities\": 8876,\n    \"foundInteractors\": 1592,\n    \"interactors\": [\n      {\n        \"exp\": [\n          7185.399575953434,\n          6490.447355760268\n        ],\n        \"id\": \"string\",\n        \"interactsWith\": {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        },\n        \"mapsTo\": [\n          \"string\"\n        ]\n      },\n      {\n        \"exp\": [\n          5571.310587767123,\n          6949.429247955412\n        ],\n        \"id\": \"string\",\n        \"interactsWith\": {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        },\n        \"mapsTo\": [\n          \"string\"\n        ]\n      }\n    ],\n    \"pathway\": \"string\",\n    \"resources\": [\n      \"string\"\n    ]\n  },\n  {\n    \"entities\": [\n      {\n        \"exp\": [\n          6473.216491459918,\n          8378.665962016308\n        ],\n        \"id\": \"string\",\n        \"mapsTo\": [\n          {\n            \"ids\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resource\": \"string\"\n          }\n        ]\n      },\n      {\n        \"exp\": [\n          9892.826008742708,\n          2309.9465818278677\n        ],\n        \"id\": \"string\",\n        \"mapsTo\": [\n          {\n            \"ids\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resource\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"expNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"foundEntities\": 5463,\n    \"foundInteractors\": 7992,\n    \"interactors\": [\n      {\n        \"exp\": [\n          6276.993711932859,\n          5535.009660924313\n        ],\n        \"id\": \"string\",\n        \"interactsWith\": {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        },\n        \"mapsTo\": [\n          \"string\"\n        ]\n      },\n      {\n        \"exp\": [\n          8476.336963248792,\n          1116.7842710158582\n        ],\n        \"id\": \"string\",\n        \"interactsWith\": {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        },\n        \"mapsTo\": [\n          \"string\"\n        ]\n      }\n    ],\n    \"pathway\": \"string\",\n    \"resources\": [\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58c9c40e-b25e-43e2-993b-a1f438facff4",
+          "name": "Returns a summary of the contained identifiers and interactors for a given pathway and token",
+          "request": {
+            "name": "Returns a summary of the contained identifiers and interactors for a given pathway and token",
+            "description": {
+              "content": "The identifiers submitted by the user that have a match in Reactome database. It also retrieves the mapping to the main identifiers for those that have been found.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "token",
+                ":token",
+                "found",
+                "all",
+                ":pathway"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pathway",
+                  "description": "(Required) The identifier of the pathway of interest"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0da0be3-c64c-41d6-ac84-99603201c229",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "found",
+                    "all",
+                    ":pathway"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathway",
+                      "description": "(Required) The identifier of the pathway of interest"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"exp\": [\n        5910.053965178034,\n        2037.039401795322\n      ],\n      \"id\": \"string\",\n      \"mapsTo\": [\n        {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        }\n      ]\n    },\n    {\n      \"exp\": [\n        9347.975507606847,\n        9629.999067229777\n      ],\n      \"id\": \"string\",\n      \"mapsTo\": [\n        {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"expNames\": [\n    \"string\",\n    \"string\"\n  ],\n  \"foundEntities\": 5560,\n  \"foundInteractors\": 2550,\n  \"interactors\": [\n    {\n      \"exp\": [\n        423.77190599373284,\n        5847.213740056726\n      ],\n      \"id\": \"string\",\n      \"interactsWith\": {\n        \"ids\": [\n          \"string\"\n        ],\n        \"resource\": \"string\"\n      },\n      \"mapsTo\": [\n        \"string\"\n      ]\n    },\n    {\n      \"exp\": [\n        3411.691711414605,\n        7386.350341353276\n      ],\n      \"id\": \"string\",\n      \"interactsWith\": {\n        \"ids\": [\n          \"string\"\n        ],\n        \"resource\": \"string\"\n      },\n      \"mapsTo\": [\n        \"string\"\n      ]\n    }\n  ],\n  \"pathway\": \"string\",\n  \"resources\": [\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6aee5904-ba51-4ec1-aa69-8b926e4460f4",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "found",
+                    "all",
+                    ":pathway"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathway",
+                      "description": "(Required) The identifier of the pathway of interest"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"exp\": [\n        5910.053965178034,\n        2037.039401795322\n      ],\n      \"id\": \"string\",\n      \"mapsTo\": [\n        {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        }\n      ]\n    },\n    {\n      \"exp\": [\n        9347.975507606847,\n        9629.999067229777\n      ],\n      \"id\": \"string\",\n      \"mapsTo\": [\n        {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"expNames\": [\n    \"string\",\n    \"string\"\n  ],\n  \"foundEntities\": 5560,\n  \"foundInteractors\": 2550,\n  \"interactors\": [\n    {\n      \"exp\": [\n        423.77190599373284,\n        5847.213740056726\n      ],\n      \"id\": \"string\",\n      \"interactsWith\": {\n        \"ids\": [\n          \"string\"\n        ],\n        \"resource\": \"string\"\n      },\n      \"mapsTo\": [\n        \"string\"\n      ]\n    },\n    {\n      \"exp\": [\n        3411.691711414605,\n        7386.350341353276\n      ],\n      \"id\": \"string\",\n      \"interactsWith\": {\n        \"ids\": [\n          \"string\"\n        ],\n        \"resource\": \"string\"\n      },\n      \"mapsTo\": [\n        \"string\"\n      ]\n    }\n  ],\n  \"pathway\": \"string\",\n  \"resources\": [\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1901f62-0f83-44b6-8311-fcf8d0ea5dd7",
+          "name": "Returns a summary of the found curated identifiers for a given pathway and token",
+          "request": {
+            "name": "Returns a summary of the found curated identifiers for a given pathway and token",
+            "description": {
+              "content": "The identifiers submitted by the user that have a match in Reactome database. It also retrieves the mapping to the main identifiers for those that have been found.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "token",
+                ":token",
+                "found",
+                "entities",
+                ":pathway"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "identifiers per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pathway",
+                  "description": "(Required) The identifier of the pathway of interest"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1165507c-6513-4b67-84c6-284194a4870e",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "found",
+                    "entities",
+                    ":pathway"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathway",
+                      "description": "(Required) The identifier of the pathway of interest"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expNames\": [\n    \"string\",\n    \"string\"\n  ],\n  \"found\": 5305,\n  \"identifiers\": [\n    {\n      \"exp\": [\n        1650.1654888404871,\n        3565.7341534756447\n      ],\n      \"id\": \"string\",\n      \"mapsTo\": [\n        {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        }\n      ]\n    },\n    {\n      \"exp\": [\n        2264.629025819044,\n        3218.6649891012476\n      ],\n      \"id\": \"string\",\n      \"mapsTo\": [\n        {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"resourceToMappedEntitiesCount\": {\n    \"key_0\": 3179\n  },\n  \"resources\": [\n    \"string\"\n  ],\n  \"totalEntitiesCount\": 6892\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe2f776d-4222-44e3-ac32-32434ebe66fe",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "found",
+                    "entities",
+                    ":pathway"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathway",
+                      "description": "(Required) The identifier of the pathway of interest"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expNames\": [\n    \"string\",\n    \"string\"\n  ],\n  \"found\": 1826,\n  \"identifiers\": [\n    {\n      \"exp\": [\n        7674.565366717509,\n        5332.733233426483\n      ],\n      \"id\": \"string\",\n      \"mapsTo\": [\n        {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        }\n      ]\n    },\n    {\n      \"exp\": [\n        5063.526061220294,\n        2790.067885799291\n      ],\n      \"id\": \"string\",\n      \"mapsTo\": [\n        {\n          \"ids\": [\n            \"string\"\n          ],\n          \"resource\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"resourceToMappedEntitiesCount\": {\n    \"key_0\": 201,\n    \"key_1\": 6629\n  },\n  \"resources\": [\n    \"string\"\n  ],\n  \"totalEntitiesCount\": 7327\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91741754-36c7-493a-afe8-9476b90f5f5a",
+          "name": "Returns a summary of the found interactors for a given pathway and token",
+          "request": {
+            "name": "Returns a summary of the found interactors for a given pathway and token",
+            "description": {
+              "content": "The identifiers submitted by the user that have a match with an interactor in Reactome database. It also retrieves the mapping to the main identifiers (the one interacting with) for those that have been found.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "token",
+                ":token",
+                "found",
+                "interactors",
+                ":pathway"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "identifiers per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pathway",
+                  "description": "(Required) The identifier of the pathway of interest"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "58f84713-d119-4c32-9249-0923469aee71",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "found",
+                    "interactors",
+                    ":pathway"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathway",
+                      "description": "(Required) The identifier of the pathway of interest"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expNames\": [\n    \"string\",\n    \"string\"\n  ],\n  \"found\": 3358,\n  \"identifiers\": [\n    {\n      \"exp\": [\n        2706.393590339853,\n        5127.295600129605\n      ],\n      \"id\": \"string\",\n      \"interactsWith\": {\n        \"ids\": [\n          \"string\"\n        ],\n        \"resource\": \"string\"\n      },\n      \"mapsTo\": [\n        \"string\"\n      ]\n    },\n    {\n      \"exp\": [\n        5732.00592179426,\n        3391.0071222601023\n      ],\n      \"id\": \"string\",\n      \"interactsWith\": {\n        \"ids\": [\n          \"string\"\n        ],\n        \"resource\": \"string\"\n      },\n      \"mapsTo\": [\n        \"string\"\n      ]\n    }\n  ],\n  \"resources\": [\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0fb1371c-02c6-4ef4-b58e-968d11e92ce5",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "found",
+                    "interactors",
+                    ":pathway"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathway",
+                      "description": "(Required) The identifier of the pathway of interest"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expNames\": [\n    \"string\",\n    \"string\"\n  ],\n  \"found\": 38,\n  \"identifiers\": [\n    {\n      \"exp\": [\n        894.6424123901653,\n        2924.0379903419102\n      ],\n      \"id\": \"string\",\n      \"interactsWith\": {\n        \"ids\": [\n          \"string\"\n        ],\n        \"resource\": \"string\"\n      },\n      \"mapsTo\": [\n        \"string\"\n      ]\n    },\n    {\n      \"exp\": [\n        9930.88341379783,\n        3362.187728630236\n      ],\n      \"id\": \"string\",\n      \"interactsWith\": {\n        \"ids\": [\n          \"string\"\n        ],\n        \"resource\": \"string\"\n      },\n      \"mapsTo\": [\n        \"string\"\n      ]\n    }\n  ],\n  \"resources\": [\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6aaccf24-160b-44da-9afd-8b9805982d36",
+          "name": "Returns a list of the identifiers not found for a given token",
+          "request": {
+            "name": "Returns a list of the identifiers not found for a given token",
+            "description": {
+              "content": "Those identifiers that have not been found in the Reactome database",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "token",
+                ":token",
+                "notFound"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "identifiers per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "page number"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4e2db9f-3882-4e43-9b1d-1e26e0adffc1",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "notFound"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "40"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"exp\": [\n      4626.577107461166,\n      8983.630938818293\n    ],\n    \"id\": \"string\"\n  },\n  {\n    \"exp\": [\n      9341.042670080898,\n      9245.518519450237\n    ],\n    \"id\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8b95576-695a-4b01-91a1-328e797ae10a",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "notFound"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "40"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"exp\": [\n      1458.8156249302176,\n      304.4340739831497\n    ],\n    \"id\": \"string\"\n  },\n  {\n    \"exp\": [\n      2135.005934440306,\n      2225.910194467202\n    ],\n    \"id\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "054e0dc6-1839-477f-8256-466b07a3754f",
+          "name": "Returns the page where the corresponding pathway is taking into account the passed parameters",
+          "request": {
+            "name": "Returns the page where the corresponding pathway is taking into account the passed parameters",
+            "description": {
+              "content": "Useful when implementing UI with tables showing the results in a page way and the user needs to know in which page a certain pathway is present for a given set of sorting and filtering options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "token",
+                ":token",
+                "page",
+                ":pathway"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "pathways per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pValue",
+                  "value": "1",
+                  "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDisease",
+                  "value": "<boolean>",
+                  "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+                },
+                {
+                  "disabled": false,
+                  "key": "min",
+                  "value": "<integer>",
+                  "description": "minimum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "maximum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pathway",
+                  "description": "(Required) The database identifier of the pathway of interest"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a045127-128b-4e4f-b66d-2933c56a08b1",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "page",
+                    ":pathway"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathway",
+                      "description": "(Required) The database identifier of the pathway of interest"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "3098",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1804c83-86ae-4d1f-bb64-16040382e0d5",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "page",
+                    ":pathway"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathway",
+                      "description": "(Required) The database identifier of the pathway of interest"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "3098",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74ab0de5-19d7-4d16-bb30-8bcf570dbd31",
+          "name": "Returns a list of binned hit pathway sizes associated with the token",
+          "request": {
+            "name": "Returns a list of binned hit pathway sizes associated with the token",
+            "description": {
+              "content": "Each bin has a key that determines the range by multiplying it by the binSize: [key x binSize - key+1 x binSize). For example, for a binSize of 100 and the range for the bin with key equals 8 is [800 - 900)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "token",
+                ":token",
+                "pathways",
+                "binned"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "binSize",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "species",
+                  "value": "<string>",
+                  "description": "list of species to filter the result (accepts taxonomy ids, species names and dbId)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pValue",
+                  "value": "1",
+                  "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDisease",
+                  "value": "<boolean>",
+                  "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "260d57ba-7841-4449-8beb-8709274416b7",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "pathways",
+                    "binned"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "binSize",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key\": 7212,\n    \"value\": 787\n  },\n  {\n    \"key\": 9619,\n    \"value\": 9134\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0239b61-a08a-43ee-b905-18cde6b0094d",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "pathways",
+                    "binned"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "binSize",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key\": 7212,\n    \"value\": 787\n  },\n  {\n    \"key\": 9619,\n    \"value\": 9134\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f82d302-bdcc-435c-925b-6c9aa0cfefce",
+          "name": "Returns the reaction ids of the pathway ids sent by post that are present in the original result",
+          "request": {
+            "name": "Returns the reaction ids of the pathway ids sent by post that are present in the original result",
+            "description": {
+              "content": "It filters the submitted list and retrieves back only those that at least one of the participating molecules has been hit with the user submitted data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "token",
+                ":token",
+                "reactions",
+                "pathways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pValue",
+                  "value": "1",
+                  "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDisease",
+                  "value": "<boolean>",
+                  "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+                },
+                {
+                  "disabled": false,
+                  "key": "min",
+                  "value": "<integer>",
+                  "description": "minimum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "maximum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "e3a82b0e-9956-48f9-af52-78fbc40d5056",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "reactions",
+                    "pathways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  5153,\n  9231\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1f91b0c-502e-4de9-804a-9e6cca98d7b5",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "reactions",
+                    "pathways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  5153,\n  9231\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62e72df9-be74-4753-9ac0-c103a2a94223",
+          "name": "Returns the reaction ids of the provided pathway id that are present in the original result",
+          "request": {
+            "name": "Returns the reaction ids of the provided pathway id that are present in the original result",
+            "description": {
+              "content": "For a given pathway it returns the identifiers (dbId) of the reactions in the pathway that have been hit with the sample taking into account their participating molecules.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "token",
+                ":token",
+                "reactions",
+                ":pathway"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pValue",
+                  "value": "1",
+                  "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDisease",
+                  "value": "<boolean>",
+                  "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+                },
+                {
+                  "disabled": false,
+                  "key": "min",
+                  "value": "<integer>",
+                  "description": "minimum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "maximum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pathway",
+                  "description": "(Required) The database identifier of the pathway of interest"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8487f31d-9c95-4429-90bc-d38827d2e7ac",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "reactions",
+                    ":pathway"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathway",
+                      "description": "(Required) The database identifier of the pathway of interest"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  5153,\n  9231\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "022cebe0-07ea-437d-9b63-fae4e6297fef",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "reactions",
+                    ":pathway"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathway",
+                      "description": "(Required) The database identifier of the pathway of interest"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  5153,\n  9231\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae80b5e0-6fb4-4027-bffe-135b3f85a914",
+          "name": "Returns the resources summary associated with the token",
+          "request": {
+            "name": "Returns the resources summary associated with the token",
+            "description": {
+              "content": "A summary of the molecules type associated to the submitted data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "token",
+                ":token",
+                "resources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aea0b0b3-5298-481d-a17d-0c3a342bd00d",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "resources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"filtered\": 3669,\n    \"pathways\": 1664,\n    \"resource\": \"string\"\n  },\n  {\n    \"filtered\": 5838,\n    \"pathways\": 3560,\n    \"resource\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62bd37af-880f-4bcd-960b-c6ec9c520ac0",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token",
+                    ":token",
+                    "resources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"filtered\": 3669,\n    \"pathways\": 1664,\n    \"resource\": \"string\"\n  },\n  {\n    \"filtered\": 5838,\n    \"pathways\": 3560,\n    \"resource\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "70fc087f-cc2b-4b30-bda9-93fce60d3c5b",
+    "name": "Pathway Analysis Service database token API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

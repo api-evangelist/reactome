@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database diseases API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "diseases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "The list of disease objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/diseases",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "It retrieves the list of diseases annotated in Reactome"
+        },
+        {
+          "info": {
+            "name": "The list of diseases DOID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/diseases/doid",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "It retrieves the list of disease DOIDs annotated in Reactome"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,265 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database pathways API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "pathways",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All the events contained in the given event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/pathway/:id/containedEvents",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-5673001",
+                "type": "path",
+                "description": "The event for which the contained events are requested"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Events are the building blocks used in Reactome to represent all biological processes, and they include pathways and reactions. Typically, an event can contain other events. For example, a pathway can contain smaller pathways and reactions. This method recursively retrieves all the events contained in any given event."
+        },
+        {
+          "info": {
+            "name": "A single property for each event contained in the given event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/pathway/:id/containedEvents/:attributeName",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-5673001",
+                "type": "path",
+                "description": "The event for which the contained events are requested"
+              },
+              {
+                "name": "attributeName",
+                "value": "stId",
+                "type": "path",
+                "description": "Attribute to be filtered"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Events are the building blocks used in Reactome to represent all biological processes, and they include pathways and reactions. Typically, an event can contain other events. For example, a pathway can contain smaller pathways (subpathways) and reactions.<br> This method recursively retrieves a single attribute for each of the events contained in the given event."
+        },
+        {
+          "info": {
+            "name": "A list of lower level pathways with diagram containing a given entity or event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/pathways/low/diagram/entity/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-199420",
+                "type": "path",
+                "description": "The entity that has to be present in the pathways"
+              },
+              {
+                "name": "species",
+                "value": "9606",
+                "type": "query",
+                "description": "The species for which the pathways are requested. Taxonomy identifier (eg: 9606) or species name (eg: 'Homo sapiens')"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method traverses the event hierarchy and retrieves the list of all lower level pathways that have a diagram and contain the given PhysicalEntity or Event."
+        },
+        {
+          "info": {
+            "name": "A list of lower level pathways with diagram containing any form of a given entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/pathways/low/diagram/entity/:id/allForms",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-199420",
+                "type": "path",
+                "description": "The entity (in any of its forms) that has to be present in the pathways"
+              },
+              {
+                "name": "species",
+                "value": "9606",
+                "type": "query",
+                "description": "The species for which the pathways are requested. Taxonomy identifier (eg: 9606) or species name (eg: 'Homo sapiens')"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method traverses the event hierarchy and retrieves the list of all lower level pathways that have a diagram and contain the given PhysicalEntity in any of its variant forms. These variant forms include for example different post-translationally modified versions of a single protein, or the same chemical in different compartments."
+        },
+        {
+          "info": {
+            "name": "A list of lower level pathways containing a given entity or event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/pathways/low/entity/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-199420",
+                "type": "path",
+                "description": "The entity that has to be present in the pathways"
+              },
+              {
+                "name": "species",
+                "value": "9606",
+                "type": "query",
+                "description": "The species for which the pathways are requested. Taxonomy identifier (eg: 9606) or species name (eg: 'Homo sapiens')"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method traverses the event hierarchy and retrieves the list of all lower level pathways that contain the given PhysicalEntity or Event."
+        },
+        {
+          "info": {
+            "name": "A list of lower level pathways containing any form of a given entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/pathways/low/entity/:id/allForms",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-199420",
+                "type": "path",
+                "description": "The entity (in any of its forms) that has to be present in the pathways"
+              },
+              {
+                "name": "species",
+                "value": "9606",
+                "type": "query",
+                "description": "The species for which the pathways are requested. Taxonomy identifier (eg: 9606) or species name (eg: 'Homo sapiens')"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method traverses the event hierarchy and retrieves the list of all lower level pathways that contain the given PhysicalEntity in any of its variant forms. These variant forms include for example different post-translationally modified versions of a single protein, or the same chemical in different compartments."
+        },
+        {
+          "info": {
+            "name": "All Reactome top level pathways",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/pathways/top/:species",
+            "params": [
+              {
+                "name": "species",
+                "value": "9606",
+                "type": "path",
+                "description": "Specifies the species by the taxonomy identifier (eg: 9606) or species name (eg: 'Homo+sapiens')"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method retrieves the list of top level pathways for the given species"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

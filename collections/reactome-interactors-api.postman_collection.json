@@ -1,0 +1,4029 @@
+{
+  "item": [
+    {
+      "id": "ff29d20d-ef3d-4172-a103-9b390f6d0389",
+      "name": "interactors",
+      "description": {
+        "content": "Molecule interactors",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "921e5640-ed24-44d1-930e-dd1bcc7c148d",
+          "name": "Retrieve clustered interaction, sorted by score, of a given accession by resource.",
+          "request": {
+            "name": "Retrieve clustered interaction, sorted by score, of a given accession by resource.",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "psicquic",
+                "molecule",
+                ":resource",
+                ":acc",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource",
+                  "description": "(Required) PSICQUIC Resource"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "acc",
+                  "description": "(Required) Single Accession"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d6ddc96-4df2-474f-8444-defca836ebea",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "psicquic",
+                    "molecule",
+                    ":resource",
+                    ":acc",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) PSICQUIC Resource"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Single Accession"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8251,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7843,\n          \"evidencesURL\": \"string\",\n          \"id\": 2824,\n          \"score\": 5765.8476216954405\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 2547,\n          \"evidencesURL\": \"string\",\n          \"id\": 260,\n          \"score\": 3436.2564119482454\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 9922,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7306,\n          \"evidencesURL\": \"string\",\n          \"id\": 7408,\n          \"score\": 7850.500156273438\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 9093,\n          \"evidencesURL\": \"string\",\n          \"id\": 9460,\n          \"score\": 1518.0572046247587\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3b5879a-cf1b-400e-9621-19c288d7c522",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "psicquic",
+                    "molecule",
+                    ":resource",
+                    ":acc",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) PSICQUIC Resource"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Single Accession"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9f1a160-01dc-4203-b146-2981fab3e783",
+          "name": "Retrieve a summary of a given accession by resource",
+          "request": {
+            "name": "Retrieve a summary of a given accession by resource",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "psicquic",
+                "molecule",
+                ":resource",
+                ":acc",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource",
+                  "description": "(Required) PSICQUIC Resource"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "acc",
+                  "description": "(Required) Single Accession"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "132c3f7e-b085-4e30-b106-b69dedf7f76d",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "psicquic",
+                    "molecule",
+                    ":resource",
+                    ":acc",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) PSICQUIC Resource"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Single Accession"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21daaf03-6beb-480d-b9ef-6f19ff7d35be",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "psicquic",
+                    "molecule",
+                    ":resource",
+                    ":acc",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) PSICQUIC Resource"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Single Accession"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44c349b9-9132-4f0b-94f0-ae22f5d9e446",
+          "name": "Retrieve clustered interaction, sorted by score, of a given accession(s) by resource.",
+          "request": {
+            "name": "Retrieve clustered interaction, sorted by score, of a given accession(s) by resource.",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "psicquic",
+                "molecules",
+                ":resource",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource",
+                  "description": "(Required) PSICQUIC Resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "820ba8db-82ab-4a87-b4a3-a4a3126d2303",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "psicquic",
+                    "molecules",
+                    ":resource",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) PSICQUIC Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa543ccd-3d6b-401e-a342-c0ae64667776",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "psicquic",
+                    "molecules",
+                    ":resource",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) PSICQUIC Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78590096-ec03-4322-9f45-8dd40de72fa0",
+          "name": "Retrieve a summary of a given accession list by resource.",
+          "request": {
+            "name": "Retrieve a summary of a given accession list by resource.",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "psicquic",
+                "molecules",
+                ":resource",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource",
+                  "description": "(Required) PSICQUIC Resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "9aa9362f-4106-4859-896d-df02509f3591",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "psicquic",
+                    "molecules",
+                    ":resource",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) PSICQUIC Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51a29dff-9c4c-4e10-870d-240336607d0b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "psicquic",
+                    "molecules",
+                    ":resource",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) PSICQUIC Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4365a12-2eae-49f6-98b4-9d4770f44e00",
+          "name": "Retrieve a list of all Psicquic Registries services",
+          "request": {
+            "name": "Retrieve a list of all Psicquic Registries services",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "psicquic",
+                "resources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4af0f60b-41f1-423d-b304-c44e4910d4f1",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "psicquic",
+                    "resources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"active\": false,\n    \"name\": \"string\",\n    \"restURL\": \"string\",\n    \"soapURL\": \"string\"\n  },\n  {\n    \"active\": false,\n    \"name\": \"string\",\n    \"restURL\": \"string\",\n    \"soapURL\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8977d75a-dad3-4f3f-9d87-c2ca41d1323c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "psicquic",
+                    "resources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"active\": false,\n    \"name\": \"string\",\n    \"restURL\": \"string\",\n    \"soapURL\": \"string\"\n  },\n  {\n    \"active\": false,\n    \"name\": \"string\",\n    \"restURL\": \"string\",\n    \"soapURL\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96bb4ca1-16f9-47b3-bef3-56623f98bd81",
+          "name": "Retrieve a custom interaction information of a given accession in Reactome knowledgebase for UI to use, including Reactome entity number",
+          "request": {
+            "name": "Retrieve a custom interaction information of a given accession in Reactome knowledgebase for UI to use, including Reactome entity number",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "static",
+                "molecule",
+                "enhanced",
+                ":acc",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "acc",
+                  "description": "(Required) Interactor accession (or identifier)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f60fdb74-2d1f-4fed-ab6f-33394f717d1e",
+              "name": "Could not find the Interactor Resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecule",
+                    "enhanced",
+                    ":acc",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Interactor accession (or identifier)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"databaseName\": \"string\",\n    \"dbId\": 9261,\n    \"displayName\": \"string\",\n    \"entitiesCount\": 3414,\n    \"evidenceCount\": 461,\n    \"evidenceURL\": \"string\",\n    \"geneName\": [\n      \"string\",\n      \"string\"\n    ],\n    \"identifier\": \"string\",\n    \"score\": 4130.1736390719725,\n    \"speciesName\": \"string\",\n    \"url\": \"string\",\n    \"variantIdentifier\": \"string\"\n  },\n  {\n    \"databaseName\": \"string\",\n    \"dbId\": 7275,\n    \"displayName\": \"string\",\n    \"entitiesCount\": 4432,\n    \"evidenceCount\": 9343,\n    \"evidenceURL\": \"string\",\n    \"geneName\": [\n      \"string\",\n      \"string\"\n    ],\n    \"identifier\": \"string\",\n    \"score\": 7279.243595335631,\n    \"speciesName\": \"string\",\n    \"url\": \"string\",\n    \"variantIdentifier\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9913091e-dddd-4f7e-b0f6-5c3c5bbcf918",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecule",
+                    "enhanced",
+                    ":acc",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Interactor accession (or identifier)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"databaseName\": \"string\",\n    \"dbId\": 5557,\n    \"displayName\": \"string\",\n    \"entitiesCount\": 3206,\n    \"evidenceCount\": 8805,\n    \"evidenceURL\": \"string\",\n    \"geneName\": [\n      \"string\",\n      \"string\"\n    ],\n    \"identifier\": \"string\",\n    \"score\": 3023.4889829927315,\n    \"speciesName\": \"string\",\n    \"url\": \"string\",\n    \"variantIdentifier\": \"string\"\n  },\n  {\n    \"databaseName\": \"string\",\n    \"dbId\": 5866,\n    \"displayName\": \"string\",\n    \"entitiesCount\": 7634,\n    \"evidenceCount\": 8468,\n    \"evidenceURL\": \"string\",\n    \"geneName\": [\n      \"string\",\n      \"string\"\n    ],\n    \"identifier\": \"string\",\n    \"score\": 3285.2102518836778,\n    \"speciesName\": \"string\",\n    \"url\": \"string\",\n    \"variantIdentifier\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36a5f705-2a9e-43b1-ba77-997bde370852",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecule",
+                    "enhanced",
+                    ":acc",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Interactor accession (or identifier)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"databaseName\": \"string\",\n    \"dbId\": 5557,\n    \"displayName\": \"string\",\n    \"entitiesCount\": 3206,\n    \"evidenceCount\": 8805,\n    \"evidenceURL\": \"string\",\n    \"geneName\": [\n      \"string\",\n      \"string\"\n    ],\n    \"identifier\": \"string\",\n    \"score\": 3023.4889829927315,\n    \"speciesName\": \"string\",\n    \"url\": \"string\",\n    \"variantIdentifier\": \"string\"\n  },\n  {\n    \"databaseName\": \"string\",\n    \"dbId\": 5866,\n    \"displayName\": \"string\",\n    \"entitiesCount\": 7634,\n    \"evidenceCount\": 8468,\n    \"evidenceURL\": \"string\",\n    \"geneName\": [\n      \"string\",\n      \"string\"\n    ],\n    \"identifier\": \"string\",\n    \"score\": 3285.2102518836778,\n    \"speciesName\": \"string\",\n    \"url\": \"string\",\n    \"variantIdentifier\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8285c4b9-5738-4a8b-a307-063008bd3346",
+          "name": "Retrieve a detailed interaction information of a given accession",
+          "request": {
+            "name": "Retrieve a detailed interaction information of a given accession",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "static",
+                "molecule",
+                ":acc",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "-1",
+                  "description": "For paginating the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "-1",
+                  "description": "Number of results to be retrieved"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "acc",
+                  "description": "(Required) Interactor accession (or identifier)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "813044ba-de4d-4272-933d-aa4823f10711",
+              "name": "Could not find the Interactor Resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecule",
+                    ":acc",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Interactor accession (or identifier)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a2aef6d-4edc-49da-b0c9-2f0fb6c57d1b",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecule",
+                    ":acc",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Interactor accession (or identifier)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b617876-d51b-4e9a-b4c7-e225587aca9a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecule",
+                    ":acc",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Interactor accession (or identifier)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2721ef18-60c7-4184-9def-10da0058977c",
+          "name": "Retrieve a list of lower level pathways where the interacting molecules can be found",
+          "request": {
+            "name": "Retrieve a list of lower level pathways where the interacting molecules can be found",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "static",
+                "molecule",
+                ":acc",
+                "pathways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "species",
+                  "value": "<string>",
+                  "description": "The species name for which the pathways are requested  (e.g. 'Homo sapiens')"
+                },
+                {
+                  "disabled": false,
+                  "key": "onlyDiagrammed",
+                  "value": "false",
+                  "description": "Specifies whether the pathways has to have an associated diagram or not"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "acc",
+                  "description": "(Required) Accession"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "509de0b6-f98e-4e46-bb0c-aa7926d454ed",
+              "name": "Could not find the Interactor Resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecule",
+                    ":acc",
+                    "pathways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "Homo sapiens"
+                    },
+                    {
+                      "key": "onlyDiagrammed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Accession"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c7fc119-a1e4-4338-a21e-65ef17b392a1",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecule",
+                    ":acc",
+                    "pathways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "Homo sapiens"
+                    },
+                    {
+                      "key": "onlyDiagrammed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Accession"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95581b34-a295-46d3-aa22-b8de81e32d80",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecule",
+                    ":acc",
+                    "pathways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "Homo sapiens"
+                    },
+                    {
+                      "key": "onlyDiagrammed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Accession"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ff8a04d-78f8-4ecf-8dfe-5919737aacb1",
+          "name": "Retrieve a summary of a given accession",
+          "request": {
+            "name": "Retrieve a summary of a given accession",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "static",
+                "molecule",
+                ":acc",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "acc",
+                  "description": "(Required) Accession"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a6c2c79-7949-4e65-9eea-09a25ab4e4d0",
+              "name": "Could not find the Interactor Resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecule",
+                    ":acc",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Accession"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92ff0dfe-f823-4559-8c59-f0743351ce8f",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecule",
+                    ":acc",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Accession"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e8054a6-e110-4685-a921-877d2efeea7a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecule",
+                    ":acc",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "acc",
+                      "description": "(Required) Accession"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73d6d2ec-fcff-4e9f-961e-c429958665cb",
+          "name": "Retrieve a detailed interaction information of a given accession",
+          "request": {
+            "name": "Retrieve a detailed interaction information of a given accession",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "static",
+                "molecules",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "-1",
+                  "description": "For paginating the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "-1",
+                  "description": "Number of results to be retrieved"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "339a3377-f839-48ba-ada7-0d1c2f454ba9",
+              "name": "Could not find the Interactor Resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecules",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "O95631, P60484"
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79269f7e-5a57-4a91-8595-7dc8c78744b9",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecules",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "O95631, P60484"
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00026f77-ce47-4d04-8776-74a46b68e681",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecules",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "O95631, P60484"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d07ba3d2-acd5-4e13-b66d-076152f4d95c",
+          "name": "Retrieve a summary of a given accession list",
+          "request": {
+            "name": "Retrieve a summary of a given accession list",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "static",
+                "molecules",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "fb2b32b0-9a1d-4e17-bf14-572102a78d03",
+              "name": "Could not find the Interactor Resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecules",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "O95631, P60484"
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d43f8c49-0968-4169-9e3a-f08b443e4e2c",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecules",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "O95631, P60484"
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3203ee6-38ed-49bd-8228-1bd9f4fdab05",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "static",
+                    "molecules",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "O95631, P60484"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d91d3e1-19bf-4111-9b61-607663935719",
+          "name": "Retrieve custom interactions associated with a token",
+          "request": {
+            "name": "Retrieve custom interactions associated with a token",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "token",
+                ":token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) A token associated with a data submission"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "d75b52fd-2af4-4b0f-9cdd-1007e7785a32",
+              "name": "Could not find the given token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "token",
+                    ":token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) A token associated with a data submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f318163-eb54-4402-b6fd-93e2dea5bb14",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "token",
+                    ":token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) A token associated with a data submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eecf0df6-4e80-4fcd-b097-218bffa285c2",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "token",
+                    ":token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) A token associated with a data submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entities\": [\n    {\n      \"acc\": \"string\",\n      \"count\": 8376,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 7755,\n          \"evidencesURL\": \"string\",\n          \"id\": 8910,\n          \"score\": 4968.4728836387685\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 6036,\n          \"evidencesURL\": \"string\",\n          \"id\": 5342,\n          \"score\": 6714.291994627983\n        }\n      ]\n    },\n    {\n      \"acc\": \"string\",\n      \"count\": 8705,\n      \"interactors\": [\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4364,\n          \"evidencesURL\": \"string\",\n          \"id\": 8209,\n          \"score\": 5995.206314310545\n        },\n        {\n          \"acc\": \"string\",\n          \"accURL\": \"string\",\n          \"alias\": \"string\",\n          \"evidences\": 4428,\n          \"evidencesURL\": \"string\",\n          \"id\": 9908,\n          \"score\": 1495.3346360195562\n        }\n      ]\n    }\n  ],\n  \"resource\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10de2d3f-1e18-4972-a468-2958cd6a86ee",
+          "name": "Registry custom PSICQUIC resource",
+          "request": {
+            "name": "Registry custom PSICQUIC resource",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "upload",
+                "psicquic",
+                "url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) Name which identifies the custom psicquic"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "bfdac80c-8e58-4fbc-be16-cb28cda98190",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "psicquic",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "https://reactome.org/download/current/interactors/reactome.homo_sapiens.interactions.psi-mitab.txt"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 2141,\n    \"interactors\": 1100,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2487e2f-adbf-4248-8dac-5ffdb730ea10",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "psicquic",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "https://reactome.org/download/current/interactors/reactome.homo_sapiens.interactions.psi-mitab.txt"
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 2141,\n    \"interactors\": 1100,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15f0c34f-a0b4-4276-b257-cbacc1c71935",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "psicquic",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "https://reactome.org/download/current/interactors/reactome.homo_sapiens.interactions.psi-mitab.txt"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 2141,\n    \"interactors\": 1100,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25ecc0d6-fed9-467a-a260-88def62eae77",
+          "name": "Paste file content and get a summary associated with a token",
+          "request": {
+            "name": "Paste file content and get a summary associated with a token",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "upload",
+                "tuple",
+                "content"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) Name which identifies the sample"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "920c0725-b81a-468a-8d13-ed4eaa9bdc2e",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "content"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 5955,\n    \"interactors\": 257,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3a29d06a-7dca-4a90-9fff-eac4219c9a97",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "content"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9dff0bce-d365-4f70-8303-4fc120704e6f",
+              "name": "Payload too Large",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "content"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b6da392-a78c-42ee-b39d-786fbf68fde3",
+              "name": "Unsupported Media Type ('text/plain' or 'text/csv')",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "content"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9311016b-f397-4563-8af7-1c950877bca6",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "content"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a220206-fc68-44f8-8b39-cad415dec254",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "content"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ca2493b-8fde-416b-8e19-ba31371dbd0c",
+          "name": "Parse file and retrieve a summary associated with a token",
+          "request": {
+            "name": "Parse file and retrieve a summary associated with a token",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "upload",
+                "tuple",
+                "form"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) Name which identifies the sample"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) Upload your custom interactor file"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "21c8eab7-f443-42af-b4ee-aca47b303d87",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) Upload your custom interactor file",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a830b79-2922-4c73-8479-2686f6619096",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) Upload your custom interactor file",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4acb7911-cbfc-4934-b69b-49c485e298b6",
+              "name": "Payload too Large",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) Upload your custom interactor file",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d023b0c-b00f-45da-8aa3-7f4c64f8c142",
+              "name": "Unsupported Media Type ('text/plain' or 'text/csv')",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) Upload your custom interactor file",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f896755b-447a-4307-817f-cf141857ab6d",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) Upload your custom interactor file",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25f2b69f-6b5b-4ba3-8836-15a7b4553520",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) Upload your custom interactor file",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65cdff51-7bfb-4c7c-88e3-a433044fa6c8",
+          "name": "Send file via URL and get a summary associated with a token",
+          "request": {
+            "name": "Send file via URL and get a summary associated with a token",
+            "description": {},
+            "url": {
+              "path": [
+                "interactors",
+                "upload",
+                "tuple",
+                "url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) Name which identifies the sample"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "fd8d1bdc-6b3a-4953-bf52-abdd9bb5ac81",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4b35215-723f-47a4-8cba-f065b76085ba",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0969218c-3aff-4775-a7ea-5ab57751cb8b",
+              "name": "Unsupported Media Type ('text/plain' or 'text/csv')",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7ddc379-4c25-4107-88fb-1ca3b81e8108",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee0bf76f-b06c-4dfc-b26a-436413232cf6",
+              "name": "Request Header Fields Too Large",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Request Header Fields Too Large",
+              "code": 431,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ebb341a5-2cdf-4af8-badd-860162090b9e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interactors",
+                    "upload",
+                    "tuple",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"interactions\": 1755,\n    \"interactors\": 9053,\n    \"name\": \"string\",\n    \"token\": \"string\"\n  },\n  \"warningMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1b6baefc-c39c-4500-a149-64c5d6f80277",
+    "name": "Pathway Analysis Service database interactors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

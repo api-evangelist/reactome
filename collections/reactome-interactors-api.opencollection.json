@@ -1,0 +1,554 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database interactors API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "interactors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve clustered interaction, sorted by score, of a given accession by resource.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/interactors/psicquic/molecule/:resource/:acc/details",
+            "params": [
+              {
+                "name": "resource",
+                "value": "MINT",
+                "type": "path",
+                "description": "PSICQUIC Resource"
+              },
+              {
+                "name": "acc",
+                "value": "Q13501",
+                "type": "path",
+                "description": "Single Accession"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieve clustered interaction, sorted by score, of a given accession by resource."
+        },
+        {
+          "info": {
+            "name": "Retrieve a summary of a given accession by resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/interactors/psicquic/molecule/:resource/:acc/summary",
+            "params": [
+              {
+                "name": "resource",
+                "value": "MINT",
+                "type": "path",
+                "description": "PSICQUIC Resource"
+              },
+              {
+                "name": "acc",
+                "value": "Q13501",
+                "type": "path",
+                "description": "Single Accession"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieve a summary of a given accession by resource"
+        },
+        {
+          "info": {
+            "name": "Retrieve clustered interaction, sorted by score, of a given accession(s) by resource.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/interactors/psicquic/molecules/:resource/details",
+            "params": [
+              {
+                "name": "resource",
+                "value": "",
+                "type": "path",
+                "description": "PSICQUIC Resource"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieve clustered interaction, sorted by score, of a given accession(s) by resource."
+        },
+        {
+          "info": {
+            "name": "Retrieve a summary of a given accession list by resource.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/interactors/psicquic/molecules/:resource/summary",
+            "params": [
+              {
+                "name": "resource",
+                "value": "",
+                "type": "path",
+                "description": "PSICQUIC Resource"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieve a summary of a given accession list by resource."
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of all Psicquic Registries services",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/interactors/psicquic/resources",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of all Psicquic Registries services"
+        },
+        {
+          "info": {
+            "name": "Retrieve a custom interaction information of a given accession in Reactome knowledgebase for UI to use, including Reactome entity number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/interactors/static/molecule/enhanced/:acc/details",
+            "params": [
+              {
+                "name": "acc",
+                "value": "Q13501",
+                "type": "path",
+                "description": "Interactor accession (or identifier)"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieve a custom interaction information of a given accession in Reactome knowledgebase for UI to use, including Reactome entity number"
+        },
+        {
+          "info": {
+            "name": "Retrieve a detailed interaction information of a given accession",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/interactors/static/molecule/:acc/details",
+            "params": [
+              {
+                "name": "acc",
+                "value": "Q13501",
+                "type": "path",
+                "description": "Interactor accession (or identifier)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "For paginating the results"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to be retrieved"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieve a detailed interaction information of a given accession"
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of lower level pathways where the interacting molecules can be found",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/interactors/static/molecule/:acc/pathways",
+            "params": [
+              {
+                "name": "acc",
+                "value": "Q9BXM7-1",
+                "type": "path",
+                "description": "Accession"
+              },
+              {
+                "name": "species",
+                "value": "Homo sapiens",
+                "type": "query",
+                "description": "The species name for which the pathways are requested  (e.g. 'Homo sapiens')"
+              },
+              {
+                "name": "onlyDiagrammed",
+                "value": "false",
+                "type": "query",
+                "description": "Specifies whether the pathways has to have an associated diagram or not"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of lower level pathways where the interacting molecules can be found"
+        },
+        {
+          "info": {
+            "name": "Retrieve a summary of a given accession",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/interactors/static/molecule/:acc/summary",
+            "params": [
+              {
+                "name": "acc",
+                "value": "Q13501",
+                "type": "path",
+                "description": "Accession"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieve a summary of a given accession"
+        },
+        {
+          "info": {
+            "name": "Retrieve a detailed interaction information of a given accession",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/interactors/static/molecules/details",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "For paginating the results"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to be retrieved"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieve a detailed interaction information of a given accession"
+        },
+        {
+          "info": {
+            "name": "Retrieve a summary of a given accession list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/interactors/static/molecules/summary",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieve a summary of a given accession list"
+        },
+        {
+          "info": {
+            "name": "Retrieve custom interactions associated with a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/interactors/token/:token",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "A token associated with a data submission"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieve custom interactions associated with a token"
+        },
+        {
+          "info": {
+            "name": "Registry custom PSICQUIC resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/interactors/upload/psicquic/url",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name which identifies the custom psicquic"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Registry custom PSICQUIC resource"
+        },
+        {
+          "info": {
+            "name": "Paste file content and get a summary associated with a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/interactors/upload/tuple/content",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name which identifies the sample"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Paste file content and get a summary associated with a token"
+        },
+        {
+          "info": {
+            "name": "Parse file and retrieve a summary associated with a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/interactors/upload/tuple/form",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name which identifies the sample"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Parse file and retrieve a summary associated with a token"
+        },
+        {
+          "info": {
+            "name": "Send file via URL and get a summary associated with a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/interactors/upload/tuple/url",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name which identifies the sample"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Send file via URL and get a summary associated with a token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

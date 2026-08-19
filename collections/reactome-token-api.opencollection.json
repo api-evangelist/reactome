@@ -1,0 +1,631 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database token API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "token",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns the result associated with the token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/token/:token",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              },
+              {
+                "name": "species",
+                "value": "",
+                "type": "query",
+                "description": "list of species to filter the result (accepts taxonomy ids, species names and dbId)"
+              },
+              {
+                "name": "pageSize",
+                "value": "20",
+                "type": "query",
+                "description": "pathways per page"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "page number"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pValue",
+                "value": "1",
+                "type": "query",
+                "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+              },
+              {
+                "name": "includeDisease",
+                "value": "",
+                "type": "query",
+                "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+              },
+              {
+                "name": "min",
+                "value": "",
+                "type": "query",
+                "description": "minimum number of contained entities per pathway (takes into account the resource)"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "maximum number of contained entities per pathway (takes into account the resource)"
+              },
+              {
+                "name": "importableOnly",
+                "value": "",
+                "type": "query",
+                "description": "Filters resources to only includes importable ones"
+              }
+            ]
+          },
+          "docs": "Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type)"
+        },
+        {
+          "info": {
+            "name": "Returns the result for the pathway ids sent by post (when they are present in the original result)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/token/:token/filter/pathways",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pValue",
+                "value": "1",
+                "type": "query",
+                "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+              },
+              {
+                "name": "species",
+                "value": "",
+                "type": "query",
+                "description": "list of species to filter the result (accepts taxonomy ids, species names and dbId)"
+              },
+              {
+                "name": "includeDisease",
+                "value": "",
+                "type": "query",
+                "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+              },
+              {
+                "name": "min",
+                "value": "",
+                "type": "query",
+                "description": "minimum number of contained entities per pathway (takes into account the resource)"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "maximum number of contained entities per pathway (takes into account the resource)"
+              },
+              {
+                "name": "importableOnly",
+                "value": "",
+                "type": "query",
+                "description": "Filters resources to only includes importable ones"
+              }
+            ]
+          },
+          "docs": "For a given list of pathway identifiers it will retrieve a list containing those that are present in the result (with the results for the indicated molecule type)"
+        },
+        {
+          "info": {
+            "name": "Filters the result by species",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/token/:token/filter/species/:species",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              },
+              {
+                "name": "species",
+                "value": "",
+                "type": "path",
+                "description": "The species to filter the result (accepts the taxonomy id, species names and dbId)"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "importableOnly",
+                "value": "",
+                "type": "query",
+                "description": "Filters resources to only includes importable ones"
+              }
+            ]
+          },
+          "docs": "Filters the result by species"
+        },
+        {
+          "info": {
+            "name": "Returns a summary of the contained identifiers and interactors for each requested pathway and a given token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/token/:token/found/all",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "The identifiers submitted by the user that have a match in Reactome database. It also retrieves the mapping to the main identifiers for those that have been found."
+        },
+        {
+          "info": {
+            "name": "Returns a summary of the contained identifiers and interactors for a given pathway and token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/token/:token/found/all/:pathway",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              },
+              {
+                "name": "pathway",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the pathway of interest"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "The identifiers submitted by the user that have a match in Reactome database. It also retrieves the mapping to the main identifiers for those that have been found."
+        },
+        {
+          "info": {
+            "name": "Returns a summary of the found curated identifiers for a given pathway and token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/token/:token/found/entities/:pathway",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              },
+              {
+                "name": "pathway",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the pathway of interest"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "page number"
+              },
+              {
+                "name": "pageSize",
+                "value": "20",
+                "type": "query",
+                "description": "identifiers per page"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "The identifiers submitted by the user that have a match in Reactome database. It also retrieves the mapping to the main identifiers for those that have been found."
+        },
+        {
+          "info": {
+            "name": "Returns a summary of the found interactors for a given pathway and token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/token/:token/found/interactors/:pathway",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              },
+              {
+                "name": "pathway",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the pathway of interest"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "page number"
+              },
+              {
+                "name": "pageSize",
+                "value": "20",
+                "type": "query",
+                "description": "identifiers per page"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "The identifiers submitted by the user that have a match with an interactor in Reactome database. It also retrieves the mapping to the main identifiers (the one interacting with) for those that have been found."
+        },
+        {
+          "info": {
+            "name": "Returns a list of the identifiers not found for a given token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/token/:token/notFound",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              },
+              {
+                "name": "pageSize",
+                "value": "40",
+                "type": "query",
+                "description": "identifiers per page"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "page number"
+              }
+            ]
+          },
+          "docs": "Those identifiers that have not been found in the Reactome database"
+        },
+        {
+          "info": {
+            "name": "Returns the page where the corresponding pathway is taking into account the passed parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/token/:token/page/:pathway",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              },
+              {
+                "name": "pathway",
+                "value": "",
+                "type": "path",
+                "description": "The database identifier of the pathway of interest"
+              },
+              {
+                "name": "pageSize",
+                "value": "20",
+                "type": "query",
+                "description": "pathways per page"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pValue",
+                "value": "1",
+                "type": "query",
+                "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+              },
+              {
+                "name": "includeDisease",
+                "value": "",
+                "type": "query",
+                "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+              },
+              {
+                "name": "min",
+                "value": "",
+                "type": "query",
+                "description": "minimum number of contained entities per pathway (takes into account the resource)"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "maximum number of contained entities per pathway (takes into account the resource)"
+              },
+              {
+                "name": "importableOnly",
+                "value": "",
+                "type": "query",
+                "description": "Filters resources to only includes importable ones"
+              }
+            ]
+          },
+          "docs": "Useful when implementing UI with tables showing the results in a page way and the user needs to know in which page a certain pathway is present for a given set of sorting and filtering options."
+        },
+        {
+          "info": {
+            "name": "Returns a list of binned hit pathway sizes associated with the token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/token/:token/pathways/binned",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "binSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "species",
+                "value": "",
+                "type": "query",
+                "description": "list of species to filter the result (accepts taxonomy ids, species names and dbId)"
+              },
+              {
+                "name": "pValue",
+                "value": "1",
+                "type": "query",
+                "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+              },
+              {
+                "name": "includeDisease",
+                "value": "",
+                "type": "query",
+                "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+              }
+            ]
+          },
+          "docs": "Each bin has a key that determines the range by multiplying it by the binSize: [key x binSize - key+1 x binSize). For example, for a binSize of 100 and the range for the bin with key equals 8 is [800 - 900)"
+        },
+        {
+          "info": {
+            "name": "Returns the reaction ids of the pathway ids sent by post that are present in the original result",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/token/:token/reactions/pathways",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pValue",
+                "value": "1",
+                "type": "query",
+                "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+              },
+              {
+                "name": "includeDisease",
+                "value": "",
+                "type": "query",
+                "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+              },
+              {
+                "name": "min",
+                "value": "",
+                "type": "query",
+                "description": "minimum number of contained entities per pathway (takes into account the resource)"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "maximum number of contained entities per pathway (takes into account the resource)"
+              },
+              {
+                "name": "importableOnly",
+                "value": "",
+                "type": "query",
+                "description": "Filters resources to only includes importable ones"
+              }
+            ]
+          },
+          "docs": "It filters the submitted list and retrieves back only those that at least one of the participating molecules has been hit with the user submitted data."
+        },
+        {
+          "info": {
+            "name": "Returns the reaction ids of the provided pathway id that are present in the original result",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/token/:token/reactions/:pathway",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              },
+              {
+                "name": "pathway",
+                "value": "",
+                "type": "path",
+                "description": "The database identifier of the pathway of interest"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pValue",
+                "value": "1",
+                "type": "query",
+                "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+              },
+              {
+                "name": "includeDisease",
+                "value": "",
+                "type": "query",
+                "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+              },
+              {
+                "name": "min",
+                "value": "",
+                "type": "query",
+                "description": "minimum number of contained entities per pathway (takes into account the resource)"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "maximum number of contained entities per pathway (takes into account the resource)"
+              },
+              {
+                "name": "importableOnly",
+                "value": "",
+                "type": "query",
+                "description": "Filters resources to only includes importable ones"
+              }
+            ]
+          },
+          "docs": "For a given pathway it returns the identifiers (dbId) of the reactions in the pathway that have been hit with the sample taking into account their participating molecules."
+        },
+        {
+          "info": {
+            "name": "Returns the resources summary associated with the token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/token/:token/resources",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "The token associated with the data to query"
+              }
+            ]
+          },
+          "docs": "A summary of the molecules type associated to the submitted data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

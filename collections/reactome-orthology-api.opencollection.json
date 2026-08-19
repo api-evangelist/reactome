@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database orthology API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "orthology",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "The orthologies of a given set of events or entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/data/orthologies/ids/species/:speciesId",
+            "params": [
+              {
+                "name": "speciesId",
+                "value": "49633",
+                "type": "path",
+                "description": "The species for which the orthology is requested"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Reactome uses the set of manually curated human reactions to computationally infer reactions in twenty evolutionarily divergent eukaryotic species for which high-quality whole-genome sequence data are available, and hence a comprehensive and high-quality set of protein predictions exists. Thus, this method retrieves the orthologies for any given set of events or entities in the specified species. <a href=\"/documentation/inferred-events/\" target=\"_blank\">Here</a> you can find more information abo"
+        },
+        {
+          "info": {
+            "name": "The orthology for a given event or entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/orthology/:id/species/:speciesId",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-6799198",
+                "type": "path",
+                "description": "The event for which the orthology is requested"
+              },
+              {
+                "name": "speciesId",
+                "value": "49633",
+                "type": "path",
+                "description": "The species for which the orthology is requested"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Reactome uses the set of manually curated human reactions to computationally infer reactions in twenty evolutionarily divergent eukaryotic species for which high-quality whole-genome sequence data are available, and hence a comprehensive and high-quality set of protein predictions exists. Thus, this method retrieves the orthology for any given event or entity in the specified species. <a href=\"//www.reactome.org/pages/documentation/electronically-inferred-events/\" target=\"_blank\">Here</a> you ca"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

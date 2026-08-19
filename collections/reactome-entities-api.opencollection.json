@@ -1,0 +1,195 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database entities API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "entities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "A list with the entities contained in a given complex",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/complex/:id/subunits",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-5674003",
+                "type": "path",
+                "description": "The complex for which subunits are requested"
+              },
+              {
+                "name": "excludeStructures",
+                "value": "false",
+                "type": "query",
+                "description": "Specifies whether contained complexes and entity sets are excluded in the response"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieves the list of subunits that constitute any given complex. In case the complex comprises other complexes, this method recursively traverses the content returning each contained PhysicalEntity. Contained complexes and entity sets can be excluded setting the 'excludeStructures' optional parameter to 'true'"
+        },
+        {
+          "info": {
+            "name": "A list of complexes containing the pair (identifier, resource)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/complexes/:resource/:identifier",
+            "params": [
+              {
+                "name": "resource",
+                "value": "UniProt",
+                "type": "path",
+                "description": "The resource of the identifier for complexes are requested"
+              },
+              {
+                "name": "identifier",
+                "value": "P00533",
+                "type": "path",
+                "description": "The identifier for which complexes are requested"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieves the list of complexes that contain a given (identifier, resource). The method deconstructs the complexes into all its participants to do so."
+        },
+        {
+          "info": {
+            "name": "A list of larger structures containing the entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/entity/:id/componentOf",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-199420",
+                "type": "path"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieves the list of structures (Complexes and Sets) that include the given entity as their component. It should be mentioned that the list includes only simplified entries (type, names, ids) and not full information about each item."
+        },
+        {
+          "info": {
+            "name": "getPhysicalEntityInDepth",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/entity/:id/in-depth",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-5674003",
+                "type": "path",
+                "description": "The complex for which subunits are requested"
+              },
+              {
+                "name": "maxDepth",
+                "value": "",
+                "type": "query",
+                "description": "Specify the depth needed for the given entity. If negative, fetches everything. If not, fetches the specified amount of nesting"
+              },
+              {
+                "name": "attributes",
+                "value": "species,compartment",
+                "type": "query",
+                "description": "Specify the attributes to load for each level of the entity"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "All other forms of a PhysicalEntity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/entity/:id/otherForms",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-199420",
+                "type": "path",
+                "description": "DbId or StId of a PhysicalEntity"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieves a list containing all other forms of the given PhysicalEntity. These other forms are PhysicalEntities that share the same ReferenceEntity identifier, e.g. PTEN H93R[R-HSA-2318524] and PTEN C124R[R-HSA-2317439] are two forms of PTEN."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

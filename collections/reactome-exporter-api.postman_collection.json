@@ -1,0 +1,1950 @@
+{
+  "item": [
+    {
+      "id": "cf60c99e-1601-4585-91ba-2cbdf668ff4a",
+      "name": "exporter",
+      "description": {
+        "content": "Reactome Data: Format Exporter",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "63f44fac-677b-4d23-95ad-3dd42ce5171f",
+          "name": "Exports a given pathway diagram to the specified image format (png, jpg, jpeg, svg, gif)",
+          "request": {
+            "name": "Exports a given pathway diagram to the specified image format (png, jpg, jpeg, svg, gif)",
+            "description": {
+              "content": "This method accepts identifiers for <a href=\"/content/schema/Event\" target=\"_blank\">Event class</a> instances.<br/>When a diagrammed pathway is provided, the diagram is exported to the specified format.<br/>When a subpathway is provided, the diagram for the parent is exported and the events that are part of the subpathways are selected.<br/>When a reaction is provided, the diagram containing the reaction is exported and the reaction is selected.<br/><br/>Find out more about this method <a href=\"/dev/content-service/diagram-exporter\" target=\"_blank\">here</a>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "exporter",
+                "diagram",
+                "{{identifier}}.{{ext}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "quality",
+                  "value": "5",
+                  "description": "Result image quality between [1 - 10]. It defines the quality of the final image (Default 5)"
+                },
+                {
+                  "disabled": false,
+                  "key": "flg",
+                  "value": "<string>",
+                  "description": "Gene name, protein or chemical identifier or Reactome identifier used to flag elements in the diagram"
+                },
+                {
+                  "disabled": false,
+                  "key": "flgInteractors",
+                  "value": "true",
+                  "description": "Defines whether to take into account interactors for the flagging"
+                },
+                {
+                  "disabled": false,
+                  "key": "sel",
+                  "value": "<string>",
+                  "description": "Highlight element(s) selection in the diagram. CSV line."
+                },
+                {
+                  "disabled": false,
+                  "key": "sel",
+                  "value": "<string>",
+                  "description": "Highlight element(s) selection in the diagram. CSV line."
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "true",
+                  "description": "Sets whether the name of the pathway is shown below"
+                },
+                {
+                  "disabled": false,
+                  "key": "margin",
+                  "value": "15",
+                  "description": "Defines the image margin between [0 - 20] (Default 15)"
+                },
+                {
+                  "disabled": false,
+                  "key": "ehld",
+                  "value": "true",
+                  "description": "Defines whether textbook-like illustration are taken into account"
+                },
+                {
+                  "disabled": false,
+                  "key": "diagramProfile",
+                  "value": "<string>",
+                  "description": "Diagram Color Profile"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> token with the results to be overlaid on top of the given diagram"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "TOTAL",
+                  "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> resource for which the results will be overlaid on top of the given pathways overview"
+                },
+                {
+                  "disabled": false,
+                  "key": "analysisProfile",
+                  "value": "<string>",
+                  "description": "Analysis  Color Profile"
+                },
+                {
+                  "disabled": false,
+                  "key": "expColumn",
+                  "value": "<integer>",
+                  "description": "Expression column. When the token is associated to an expression analysis, this parameter allows specifying the expression column for the overlay"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/gif"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "61b27207-5673-43c9-aa48-4d2b0b4a0119",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "diagram",
+                    "{{identifier}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "quality",
+                      "value": "5"
+                    },
+                    {
+                      "key": "flg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flgInteractors",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "true"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "15"
+                    },
+                    {
+                      "key": "ehld",
+                      "value": "true"
+                    },
+                    {
+                      "key": "diagramProfile",
+                      "value": "Modern"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "analysisProfile",
+                      "value": "Standard"
+                    },
+                    {
+                      "key": "expColumn",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "image/gif"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "image/gif"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "36a6f0c4-f9e7-4a5e-aaaa-6a058bcc45a4",
+              "name": "Stable Identifier does not match with any of the available diagrams.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "diagram",
+                    "{{identifier}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "quality",
+                      "value": "5"
+                    },
+                    {
+                      "key": "flg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flgInteractors",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "true"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "15"
+                    },
+                    {
+                      "key": "ehld",
+                      "value": "true"
+                    },
+                    {
+                      "key": "diagramProfile",
+                      "value": "Modern"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "analysisProfile",
+                      "value": "Standard"
+                    },
+                    {
+                      "key": "expColumn",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4a17d56f-e55f-42d7-b099-6538ca53d4b7",
+              "name": "Could not deserialize diagram file.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "diagram",
+                    "{{identifier}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "quality",
+                      "value": "5"
+                    },
+                    {
+                      "key": "flg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flgInteractors",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "true"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "15"
+                    },
+                    {
+                      "key": "ehld",
+                      "value": "true"
+                    },
+                    {
+                      "key": "diagramProfile",
+                      "value": "Modern"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "analysisProfile",
+                      "value": "Standard"
+                    },
+                    {
+                      "key": "expColumn",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01e334a0-33dd-48b4-9bd8-7558ca526954",
+          "name": "Exports the content of a given event (pathway or reaction) to a PDF document",
+          "request": {
+            "name": "Exports the content of a given event (pathway or reaction) to a PDF document",
+            "description": {
+              "content": "This method accepts identifiers for <a href=\"/content/schema/Event\" target=\"_blank\">Event class</a> instances.<br/>The generated document contains the details for the given event and, optionally, its children (see level parameter). These details include:<br/> - A diagram image<br/> - Summation<br/> - Literature references<br/> - Edit history<br/> - Other details: type, location, compartments, diseases<br/><br/>Documents can also be overlaid with <a href='/dev/analysis' target=\"_blank\">pathway analysis results</a>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "exporter",
+                "document",
+                "event",
+                "{{identifier}}.pdf"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "level [0 - 1]",
+                  "value": "1",
+                  "description": "Number of levels to explore down in the pathways hierarchy [0 - 1]"
+                },
+                {
+                  "disabled": false,
+                  "key": "diagramProfile",
+                  "value": "<string>",
+                  "description": "Diagram Color Profile"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> token with the results to be overlaid on top of the given diagram"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "TOTAL",
+                  "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> resource for which the results will be overlaid on top of the given pathways overview"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                },
+                {
+                  "disabled": false,
+                  "key": "expColumn",
+                  "value": "<integer>",
+                  "description": "Expression column. When the token is associated to an expression analysis, this parameter allows specifying the expression column for the overlay"
+                },
+                {
+                  "disabled": false,
+                  "key": "analysisProfile",
+                  "value": "<string>",
+                  "description": "Analysis  Color Profile"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/pdf"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d82f5eb-c2af-486a-9509-6373721bc957",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "document",
+                    "event",
+                    "{{identifier}}.pdf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "level [0 - 1]",
+                      "value": "1"
+                    },
+                    {
+                      "key": "diagramProfile",
+                      "value": "Modern"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "expColumn",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "analysisProfile",
+                      "value": "Standard"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/pdf"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/pdf"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "53008db1-09f5-4cd0-aeef-602812ade429",
+              "name": "Stable Identifier does not match with any of the available diagrams.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "document",
+                    "event",
+                    "{{identifier}}.pdf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "level [0 - 1]",
+                      "value": "1"
+                    },
+                    {
+                      "key": "diagramProfile",
+                      "value": "Modern"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "expColumn",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "analysisProfile",
+                      "value": "Standard"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cb5ff5ee-9638-45a9-a230-cfc798976ccb",
+              "name": "Could not deserialize diagram file.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "document",
+                    "event",
+                    "{{identifier}}.pdf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "level [0 - 1]",
+                      "value": "1"
+                    },
+                    {
+                      "key": "diagramProfile",
+                      "value": "Modern"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "expColumn",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "analysisProfile",
+                      "value": "Standard"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "328dabd6-8d4b-4aaa-af86-de88ed180d88",
+              "name": "Service was unable to export to Power Point.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "document",
+                    "event",
+                    "{{identifier}}.pdf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "level [0 - 1]",
+                      "value": "1"
+                    },
+                    {
+                      "key": "diagramProfile",
+                      "value": "Modern"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "expColumn",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "analysisProfile",
+                      "value": "Standard"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db579ca9-1176-4366-8a25-c5764bc16864",
+          "name": "Exports a given pathway or reaction to SBGN",
+          "request": {
+            "name": "Exports a given pathway or reaction to SBGN",
+            "description": {},
+            "url": {
+              "path": [
+                "exporter",
+                "event",
+                "{{identifier}}.sbgn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "48aad2c6-469e-41c5-80e6-66192dd3fff3",
+              "name": "Identifier not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "event",
+                    "{{identifier}}.sbgn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "576e6a61-fad2-4bd9-b3b2-3aac6773f508",
+              "name": "Identifier does not correspond to a pathway or reaction",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "event",
+                    "{{identifier}}.sbgn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e2f88c68-328a-4d12-a771-5de89a12019a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "event",
+                    "{{identifier}}.sbgn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e6ac1c8-d4ce-49ae-89b9-845d0df829f6",
+          "name": "Exports a given pathway or reaction to SBML",
+          "request": {
+            "name": "Exports a given pathway or reaction to SBML",
+            "description": {},
+            "url": {
+              "path": [
+                "exporter",
+                "event",
+                "{{identifier}}.sbml"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ca815c4-0f39-4972-a02e-1539c48b4019",
+              "name": "Identifier not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "event",
+                    "{{identifier}}.sbml"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "337a3427-77ef-4e37-bba8-f03405a44f70",
+              "name": "Identifier does not correspond to a pathway or reaction",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "event",
+                    "{{identifier}}.sbml"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4005b70-5855-4e2c-a06f-ac80357d9595",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "event",
+                    "{{identifier}}.sbml"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b91d351d-2657-4e04-9250-4c6f412bbfc8",
+          "name": "Exports a given pathway overview to the specified image format (png, jpg, jpeg, svg, gif)",
+          "request": {
+            "name": "Exports a given pathway overview to the specified image format (png, jpg, jpeg, svg, gif)",
+            "description": {},
+            "url": {
+              "path": [
+                "exporter",
+                "fireworks",
+                "{{species}}.{{ext}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "quality",
+                  "value": "5",
+                  "description": "Result image quality between [1 - 10]. It defines the quality of the final image (Default 5)"
+                },
+                {
+                  "disabled": false,
+                  "key": "flg",
+                  "value": "<string>",
+                  "description": "Gene name, protein or chemical identifier or Reactome identifier used to flag elements in the diagram"
+                },
+                {
+                  "disabled": false,
+                  "key": "flgInteractors",
+                  "value": "true",
+                  "description": "Defines whether to take into account interactors for the flagging"
+                },
+                {
+                  "disabled": false,
+                  "key": "sel",
+                  "value": "<string>",
+                  "description": "Highlight element(s) selection in the diagram. CSV line."
+                },
+                {
+                  "disabled": false,
+                  "key": "sel",
+                  "value": "<string>",
+                  "description": "Highlight element(s) selection in the diagram. CSV line."
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "true",
+                  "description": "Sets whether the name of the pathway is shown below"
+                },
+                {
+                  "disabled": false,
+                  "key": "margin",
+                  "value": "15",
+                  "description": "Defines the image margin between [0 - 20] (Default 15)"
+                },
+                {
+                  "disabled": false,
+                  "key": "diagramProfile",
+                  "value": "<string>",
+                  "description": "Diagram Color Profile"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> token with the results to be overlaid on top of the given pathways overview"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "TOTAL",
+                  "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> resource for which the results will be overlaid on top of the given pathways overview"
+                },
+                {
+                  "disabled": false,
+                  "key": "expColumn",
+                  "value": "<integer>",
+                  "description": "Expression column. When the token is associated to an expression analysis, this parameter allows specifying the expression column for the overlay"
+                },
+                {
+                  "disabled": false,
+                  "key": "coverage",
+                  "value": "false",
+                  "description": "Set to 'true' to overlay analysis coverage values"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/gif"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c0bfbc8-2d80-4c6f-9fe7-fde1a1e8ced1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "fireworks",
+                    "{{species}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "quality",
+                      "value": "5"
+                    },
+                    {
+                      "key": "flg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flgInteractors",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "true"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "15"
+                    },
+                    {
+                      "key": "diagramProfile",
+                      "value": "Copper"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "expColumn",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "coverage",
+                      "value": "false"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "image/gif"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "image/gif"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "02adb946-3686-4cfd-8d2d-31e7f33ab992",
+              "name": "Species does not match with any of the available.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "fireworks",
+                    "{{species}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "quality",
+                      "value": "5"
+                    },
+                    {
+                      "key": "flg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flgInteractors",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "true"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "15"
+                    },
+                    {
+                      "key": "diagramProfile",
+                      "value": "Copper"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "expColumn",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "coverage",
+                      "value": "false"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "934ccb0b-7345-43ec-a3ef-be8e5db88401",
+              "name": "Could not deserialize pathways overview file.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "fireworks",
+                    "{{species}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "quality",
+                      "value": "5"
+                    },
+                    {
+                      "key": "flg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flgInteractors",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "true"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "15"
+                    },
+                    {
+                      "key": "diagramProfile",
+                      "value": "Copper"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "expColumn",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "coverage",
+                      "value": "false"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d7761b6-b142-4719-9f6c-94e178180e65",
+          "name": "Exports a given reaction to the specified image format (png, jpg, jpeg, svg, gif)",
+          "request": {
+            "name": "Exports a given reaction to the specified image format (png, jpg, jpeg, svg, gif)",
+            "description": {
+              "content": "This method accepts identifiers for <a href=\"/content/schema/ReactionLikeEvent\" target=\"_blank\">ReactionLikeEvent class</a> instances.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "exporter",
+                "reaction",
+                "{{identifier}}.{{ext}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "quality",
+                  "value": "5",
+                  "description": "Result image quality between [1 - 10]. It defines the quality of the final image (Default 5)"
+                },
+                {
+                  "disabled": false,
+                  "key": "flg",
+                  "value": "<string>",
+                  "description": "Gene name, protein or chemical identifier or Reactome identifier used to flag elements in the diagram"
+                },
+                {
+                  "disabled": false,
+                  "key": "flgInteractors",
+                  "value": "true",
+                  "description": "Defines whether to take into account interactors for the flagging"
+                },
+                {
+                  "disabled": false,
+                  "key": "sel",
+                  "value": "<string>",
+                  "description": "Highlight element selection in the diagram."
+                },
+                {
+                  "disabled": false,
+                  "key": "sel",
+                  "value": "<string>",
+                  "description": "Highlight element selection in the diagram."
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "true",
+                  "description": "Sets whether the name of the reaction is shown below"
+                },
+                {
+                  "disabled": false,
+                  "key": "margin",
+                  "value": "15",
+                  "description": "Defines the image margin between [0 - 20] (Default 15)"
+                },
+                {
+                  "disabled": false,
+                  "key": "diagramProfile",
+                  "value": "<string>",
+                  "description": "Diagram Color Profile"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> token with the results to be overlaid on top of the given reaction"
+                },
+                {
+                  "disabled": false,
+                  "key": "analysisProfile",
+                  "value": "<string>",
+                  "description": "Analysis  Color Profile"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "TOTAL",
+                  "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> resource for which the results will be overlaid on top of the given pathways overview"
+                },
+                {
+                  "disabled": false,
+                  "key": "expColumn",
+                  "value": "<integer>",
+                  "description": "Expression column. When the token is associated to an expression analysis, this parameter allows specifying the expression column for the overlay"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/gif"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f6af746-e38d-438a-b592-14862d9d278d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "reaction",
+                    "{{identifier}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "quality",
+                      "value": "5"
+                    },
+                    {
+                      "key": "flg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flgInteractors",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "true"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "15"
+                    },
+                    {
+                      "key": "diagramProfile",
+                      "value": "Modern"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "analysisProfile",
+                      "value": "Standard"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "expColumn",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "image/gif"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "image/gif"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "deeff773-42d0-4f5b-a645-e15879524300",
+              "name": "Stable Identifier does not match with any of the reactions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "reaction",
+                    "{{identifier}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "quality",
+                      "value": "5"
+                    },
+                    {
+                      "key": "flg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flgInteractors",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "true"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "15"
+                    },
+                    {
+                      "key": "diagramProfile",
+                      "value": "Modern"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "analysisProfile",
+                      "value": "Standard"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "expColumn",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "df164f87-aed7-441c-8727-e215b8fa8dd3",
+              "name": "Could not deserialize diagram file.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exporter",
+                    "reaction",
+                    "{{identifier}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "quality",
+                      "value": "5"
+                    },
+                    {
+                      "key": "flg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flgInteractors",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "true"
+                    },
+                    {
+                      "key": "margin",
+                      "value": "15"
+                    },
+                    {
+                      "key": "diagramProfile",
+                      "value": "Modern"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "analysisProfile",
+                      "value": "Standard"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "expColumn",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Event identifier (it can be a pathway with diagram, a subpathway or a reaction)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "identifier"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) File extension (defines the image format)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "ext"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Species identifier (it can be the taxonomy id, species name or dbId)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "species"
+    }
+  ],
+  "info": {
+    "_postman_id": "381518c7-d5bb-48a4-bd75-cb4f3cd0aad0",
+    "name": "Pathway Analysis Service database exporter API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

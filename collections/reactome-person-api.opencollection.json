@@ -1,0 +1,210 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database person API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "person",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "A list of people with first or last name partly matching a given string",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/people/name/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "Steve Jupe",
+                "type": "path",
+                "description": "Person's first or last name"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of people in Reactome with either their first or last name partly matching the given string."
+        },
+        {
+          "info": {
+            "name": "A list of people with first AND last name exactly matching a given string",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/people/name/:name/exact",
+            "params": [
+              {
+                "name": "name",
+                "value": "Steve Jupe",
+                "type": "path",
+                "description": "Person's first and last name"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of people in Reactome with their first AND last name matching exactly the given string."
+        },
+        {
+          "info": {
+            "name": "A person by his/her identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/person/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "0000-0001-5807-0069",
+                "type": "path",
+                "description": "Person identifier: Can be OrcidId or DbId"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieves a person in Reactome by his/her OrcidId or DbId."
+        },
+        {
+          "info": {
+            "name": "A list of pathways authored by a given person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/person/:id/authoredPathways",
+            "params": [
+              {
+                "name": "id",
+                "value": "0000-0001-5807-0069",
+                "type": "path",
+                "description": "Person identifier: Can be OrcidId or DbId"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of pathways authored by a given person. OrcidId, DbId or Email can be used to specify the person."
+        },
+        {
+          "info": {
+            "name": "A list of publications authored by a given person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/person/:id/publications",
+            "params": [
+              {
+                "name": "id",
+                "value": "0000-0001-5807-0069",
+                "type": "path",
+                "description": "Person identifier: Can be OrcidId or DbId"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of publications authored by a given person. OrcidId, DbId or Email can be used to specify the person."
+        },
+        {
+          "info": {
+            "name": "A person's property by his/her identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/person/:id/:attributeName",
+            "params": [
+              {
+                "name": "id",
+                "value": "0000-0001-5807-0069",
+                "type": "path",
+                "description": "Person identifier: Can be OrcidId or DbId"
+              },
+              {
+                "name": "attributeName",
+                "value": "displayName",
+                "type": "path",
+                "description": "Attribute to be filtered"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieves a specific person's property by his/her OrcidId or DbId."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

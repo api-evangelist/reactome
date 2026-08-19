@@ -1,0 +1,266 @@
+{
+  "item": [
+    {
+      "id": "6b5bf2ea-fa46-448d-b8f8-b67b258efac0",
+      "name": "report",
+      "description": {
+        "content": "Retrieves report files in PDF format",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7d6cab7e-b706-42e3-a630-3d6b521e6af3",
+          "name": "Downloads a report for a given pathway analysis result",
+          "request": {
+            "name": "Downloads a report for a given pathway analysis result",
+            "description": {
+              "content": "This method provides a report for a given pathway analysis result in a PDF document. This document contains data about the analysis itself followed by the pathways overview and the most significant pathways overlaid with the analysis result. Users can download and store this information in a convenient format to be checked in the future when the 'token' is not longer available.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "report",
+                ":token",
+                ":species",
+                "{{filename}}.pdf"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "number",
+                  "value": "25",
+                  "description": "Number of pathways reported (max 50)"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                },
+                {
+                  "disabled": false,
+                  "key": "diagramProfile",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "analysisProfile",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fireworksProfile",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "species",
+                  "description": "(Required) The species for which results will be reported"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ca825a06-b138-4dc3-8910-cf8ddfefaad6",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report",
+                    ":token",
+                    ":species",
+                    "{{filename}}.pdf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "number",
+                      "value": "25"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "diagramProfile",
+                      "value": "Modern"
+                    },
+                    {
+                      "key": "analysisProfile",
+                      "value": "Standard"
+                    },
+                    {
+                      "key": "fireworksProfile",
+                      "value": "Barium Lithium"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "species",
+                      "description": "(Required) The species for which results will be reported"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "01eed8c2-c8db-4d36-9ae8-600f94be6961",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report",
+                    ":token",
+                    ":species",
+                    "{{filename}}.pdf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "number",
+                      "value": "25"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "diagramProfile",
+                      "value": "Modern"
+                    },
+                    {
+                      "key": "analysisProfile",
+                      "value": "Standard"
+                    },
+                    {
+                      "key": "fireworksProfile",
+                      "value": "Barium Lithium"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "species",
+                      "description": "(Required) The species for which results will be reported"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The name of the file to be downloaded",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "filename"
+    }
+  ],
+  "info": {
+    "_postman_id": "5f1eb06f-6e12-4ec0-9fcc-04bb500ef120",
+    "name": "Pathway Analysis Service database report API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

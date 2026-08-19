@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database references API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "references",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All cross references and physical entities associated with a list of given identifiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/references/mapping/xrefs",
+            "params": [
+              {
+                "name": "dbFilter",
+                "value": "",
+                "type": "query",
+                "description": "Database filter to apply to results"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to process, starting from 0"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Page size to process, an element being one of the submitted identifiers"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieves a paginated list containing cross references and physical entities associated with the matching reference entities identifiers"
+        },
+        {
+          "info": {
+            "name": "All ReferenceEntities for a given identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/references/mapping/:identifier",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "15377",
+                "type": "path",
+                "description": "Identifier for a given entity"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieves a list containing all the reference entities for a given identifier."
+        },
+        {
+          "info": {
+            "name": "All cross references and physical entities associated with a given identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/references/mapping/:identifier/xrefs",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "P36897",
+                "type": "path",
+                "description": "Identifier for a given entity"
+              },
+              {
+                "name": "dbFilter",
+                "value": "",
+                "type": "query",
+                "description": "Database filter to apply to results"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Retrieves a list containing cross references and physical entities associated with the matching reference entities identifier"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

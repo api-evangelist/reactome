@@ -1,0 +1,252 @@
+{
+  "item": [
+    {
+      "id": "1a719e85-e9b9-4bc3-a17c-443288749174",
+      "name": "discover",
+      "description": {
+        "content": "Reactome Data: Search engines discovery schema",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "721e6377-5a21-4419-b0d0-e371735ec9ae",
+          "name": "The schema.org for an Event in Reactome knowledgebase",
+          "request": {
+            "name": "The schema.org for an Event in Reactome knowledgebase",
+            "description": {
+              "content": "For each event (reaction or pathway) this method generates a json file representing the dataset object as defined by schema.org (http). This is mainly used by search engines in order to index the data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "discover",
+                ":identifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) An event identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "838b1286-0079-4342-b798-f76693574ca4",
+              "name": "Identifier does not match with any event",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "discover",
+                    ":identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) An event identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@context\": \"string\",\n  \"@type\": \"string\",\n  \"citation\": [\n    \"string\",\n    \"string\"\n  ],\n  \"description\": \"string\",\n  \"distribution\": [\n    {\n      \"@type\": \"string\",\n      \"contentUrl\": \"string\",\n      \"encodingFormat\": \"string\",\n      \"fileFormat\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"contentUrl\": \"string\",\n      \"encodingFormat\": \"string\",\n      \"fileFormat\": \"string\"\n    }\n  ],\n  \"includedInDataCatalog\": {\n    \"@type\": \"string\",\n    \"name\": \"string\",\n    \"url\": \"string\"\n  },\n  \"keywords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"license\": \"string\",\n  \"name\": \"string\",\n  \"sameAs\": [\n    \"string\",\n    \"string\"\n  ],\n  \"url\": \"string\",\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa5bf34a-6219-4ae6-be69-4b04ca135791",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "discover",
+                    ":identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) An event identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@context\": \"string\",\n  \"@type\": \"string\",\n  \"citation\": [\n    \"string\",\n    \"string\"\n  ],\n  \"description\": \"string\",\n  \"distribution\": [\n    {\n      \"@type\": \"string\",\n      \"contentUrl\": \"string\",\n      \"encodingFormat\": \"string\",\n      \"fileFormat\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"contentUrl\": \"string\",\n      \"encodingFormat\": \"string\",\n      \"fileFormat\": \"string\"\n    }\n  ],\n  \"includedInDataCatalog\": {\n    \"@type\": \"string\",\n    \"name\": \"string\",\n    \"url\": \"string\"\n  },\n  \"keywords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"license\": \"string\",\n  \"name\": \"string\",\n  \"sameAs\": [\n    \"string\",\n    \"string\"\n  ],\n  \"url\": \"string\",\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f8ec186-445d-4a99-b26f-e693d22905e7",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "discover",
+                    ":identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) An event identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@context\": \"string\",\n  \"@type\": \"string\",\n  \"citation\": [\n    \"string\",\n    \"string\"\n  ],\n  \"description\": \"string\",\n  \"distribution\": [\n    {\n      \"@type\": \"string\",\n      \"contentUrl\": \"string\",\n      \"encodingFormat\": \"string\",\n      \"fileFormat\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"contentUrl\": \"string\",\n      \"encodingFormat\": \"string\",\n      \"fileFormat\": \"string\"\n    }\n  ],\n  \"includedInDataCatalog\": {\n    \"@type\": \"string\",\n    \"name\": \"string\",\n    \"url\": \"string\"\n  },\n  \"keywords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"license\": \"string\",\n  \"name\": \"string\",\n  \"sameAs\": [\n    \"string\",\n    \"string\"\n  ],\n  \"url\": \"string\",\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "da2b22e7-e4ad-476b-a938-90ff43d3a38b",
+    "name": "Pathway Analysis Service database discover API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

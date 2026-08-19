@@ -1,0 +1,566 @@
+{
+  "item": [
+    {
+      "id": "5ac7292b-e698-4c23-abda-0a7691b0aca1",
+      "name": "import",
+      "description": {
+        "content": "Imports an external result",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a7000035-542a-47d9-8b75-27b06749d617",
+          "name": "Imports the posted json into the service",
+          "request": {
+            "name": "Imports the posted json into the service",
+            "description": {
+              "content": "The accepted format is the same as provided by the method <a href='#/download/downloadResultJSONUsingGET'>/#/download/{token}/result.json</a>.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "import",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "da0c2fd6-a9cf-4ebf-aa7a-fa1fcb980f7e",
+              "name": "Bad request. See more details in the response body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "import",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fileName\": \"string\",\n  \"gsaMethod\": \"string\",\n  \"gsaToken\": \"string\",\n  \"includeDisease\": true,\n  \"interactors\": false,\n  \"projection\": false,\n  \"sampleName\": \"string\",\n  \"species\": 5589,\n  \"text\": true,\n  \"token\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3231f4e3-3090-4a62-af02-074b55ad89e5",
+              "name": "Unsupported Media Type (only 'text/plain' or 'application/json')",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "import",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fileName\": \"string\",\n  \"gsaMethod\": \"string\",\n  \"gsaToken\": \"string\",\n  \"includeDisease\": true,\n  \"interactors\": false,\n  \"projection\": false,\n  \"sampleName\": \"string\",\n  \"species\": 5589,\n  \"text\": true,\n  \"token\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3d3a6b8-3333-4954-872e-b2983f7f4373",
+          "name": "Imports the posted json file into the service",
+          "request": {
+            "name": "Imports the posted json file into the service",
+            "description": {
+              "content": "The accepted format is the same as provided by the method <a href='#/download/downloadResultJSONUsingGET'>/#/download/{token}/result.json</a>. Note: The submitted file can be gzipped.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "import",
+                "form"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) A file with the data to be analysed"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5a3e6950-fb31-4ac9-b342-1228359e925f",
+              "name": "Bad request. See more details in the response body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "import",
+                    "form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) A file with the data to be analysed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fileName\": \"string\",\n  \"gsaMethod\": \"string\",\n  \"gsaToken\": \"string\",\n  \"includeDisease\": true,\n  \"interactors\": false,\n  \"projection\": false,\n  \"sampleName\": \"string\",\n  \"species\": 5589,\n  \"text\": true,\n  \"token\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6694b69b-ada3-44a0-9a30-6b5200c8db89",
+              "name": "The file size is larger than the maximum configured size (50MB)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "import",
+                    "form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) A file with the data to be analysed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fileName\": \"string\",\n  \"gsaMethod\": \"string\",\n  \"gsaToken\": \"string\",\n  \"includeDisease\": true,\n  \"interactors\": false,\n  \"projection\": false,\n  \"sampleName\": \"string\",\n  \"species\": 5589,\n  \"text\": true,\n  \"token\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c87a1a2e-de04-44c1-b1f5-4a1c5cc4c0cb",
+              "name": "Unsupported Media Type (only 'text/plain' or 'application/json')",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "import",
+                    "form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) A file with the data to be analysed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fileName\": \"string\",\n  \"gsaMethod\": \"string\",\n  \"gsaToken\": \"string\",\n  \"includeDisease\": true,\n  \"interactors\": false,\n  \"projection\": false,\n  \"sampleName\": \"string\",\n  \"species\": 5589,\n  \"text\": true,\n  \"token\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "31b898fa-0c28-4b87-84f1-f4a8255242ac",
+          "name": "Imports the json file provided by the posted url into the service",
+          "request": {
+            "name": "Imports the json file provided by the posted url into the service",
+            "description": {
+              "content": "The accepted format is the same as provided by the method <a href='#/download/downloadResultJSONUsingGET'>/#/download/{token}/result.json</a>. Note: The provided file can be gzipped.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "import",
+                "url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "4347577a-2bd7-47a8-b568-8c6f5d6185ec",
+              "name": "Bad request. See more details in the response body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "import",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fileName\": \"string\",\n  \"gsaMethod\": \"string\",\n  \"gsaToken\": \"string\",\n  \"includeDisease\": true,\n  \"interactors\": false,\n  \"projection\": false,\n  \"sampleName\": \"string\",\n  \"species\": 5589,\n  \"text\": true,\n  \"token\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44b0a3bf-aeff-473f-8ee1-4e3349c242a9",
+              "name": "The file size is larger than the maximum configured size (50MB)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "import",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fileName\": \"string\",\n  \"gsaMethod\": \"string\",\n  \"gsaToken\": \"string\",\n  \"includeDisease\": true,\n  \"interactors\": false,\n  \"projection\": false,\n  \"sampleName\": \"string\",\n  \"species\": 5589,\n  \"text\": true,\n  \"token\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0bf36ea-fb01-4f72-b702-8f125d0cbef8",
+              "name": "Unsupported Media Type (only 'text/plain')",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "import",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fileName\": \"string\",\n  \"gsaMethod\": \"string\",\n  \"gsaToken\": \"string\",\n  \"includeDisease\": true,\n  \"interactors\": false,\n  \"projection\": false,\n  \"sampleName\": \"string\",\n  \"species\": 5589,\n  \"text\": true,\n  \"token\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cadebc6a-3cf2-4b08-8386-47ef46c82e73",
+              "name": "The provided URL is not processable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "import",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fileName\": \"string\",\n  \"gsaMethod\": \"string\",\n  \"gsaToken\": \"string\",\n  \"includeDisease\": true,\n  \"interactors\": false,\n  \"projection\": false,\n  \"sampleName\": \"string\",\n  \"species\": 5589,\n  \"text\": true,\n  \"token\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "abc0d6d5-4edf-4c58-9e4a-0b0359de520a",
+    "name": "Pathway Analysis Service database import API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

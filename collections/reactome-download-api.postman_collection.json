@@ -1,0 +1,797 @@
+{
+  "item": [
+    {
+      "id": "06330eb7-898f-423c-b673-b5e2543e9a55",
+      "name": "download",
+      "description": {
+        "content": "Methods to download different views of a result",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2513e7cb-e08d-4643-8c5d-87ec2d531423",
+          "name": "Downloads found identifiers for a given analysis and resource",
+          "request": {
+            "name": "Downloads found identifiers for a given analysis and resource",
+            "description": {
+              "content": "The identifiers are filtered by the selected resource. The filename is the one to be suggested in the download window.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "download",
+                ":token",
+                "entities",
+                "found",
+                ":resource",
+                "{{filename}}.csv"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to download"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ff0e5b7-19ae-426e-9b4f-401039bfe507",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "download",
+                    ":token",
+                    "entities",
+                    "found",
+                    ":resource",
+                    "{{filename}}.csv"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to download"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "afb7b432-48d9-49ac-8c5a-3395577495d5",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "download",
+                    ":token",
+                    "entities",
+                    "found",
+                    ":resource",
+                    "{{filename}}.csv"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to download"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4bf73c0b-1390-4930-8860-5f7817ad805e",
+          "name": "Downloads a list of the not found identifiers",
+          "request": {
+            "name": "Downloads a list of the not found identifiers",
+            "description": {
+              "content": "Those identifiers from the user sample that are not present up to the current data version. The filename is the one to be suggested in the download window.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "download",
+                ":token",
+                "entities",
+                "notfound",
+                "{{filename}}.csv"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to download"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f39afaa3-9830-450e-b733-8f2408680435",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "download",
+                    ":token",
+                    "entities",
+                    "notfound",
+                    "{{filename}}.csv"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to download"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a1720fa0-b6fd-4a56-873d-e8f28be656d1",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "download",
+                    ":token",
+                    "entities",
+                    "notfound",
+                    "{{filename}}.csv"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to download"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e623bddf-ed8c-4635-963d-58682e40a49e",
+          "name": "Downloads all hit pathways for a given analysis",
+          "request": {
+            "name": "Downloads all hit pathways for a given analysis",
+            "description": {
+              "content": "The results are filtered by the selected resource. The filename is the one to be suggested in the download window.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "download",
+                ":token",
+                "pathways",
+                ":resource",
+                "{{filename}}.csv"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to download"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7dd85e71-d30a-4910-a82b-4b357d9de09f",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "download",
+                    ":token",
+                    "pathways",
+                    ":resource",
+                    "{{filename}}.csv"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to download"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bac724a1-bae3-4d5f-bce1-be85df714fb7",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "download",
+                    ":token",
+                    "pathways",
+                    ":resource",
+                    "{{filename}}.csv"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to download"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cdd9c145-d763-46e5-84d2-6f5d8b9fbe8c",
+          "name": "Returns the complete result in json format",
+          "request": {
+            "name": "Returns the complete result in json format",
+            "description": {
+              "content": "The results are not filtered by any means. The json file contains the whole stored result based on chosen analysis options and submitted data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "download",
+                ":token",
+                "result.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Only include resources which can be later imported"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21c09e96-fb64-4f95-89d2-cd6d6e44fa0a",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "download",
+                    ":token",
+                    "result.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expressionSummary\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 4884.178844679022,\n    \"min\": 5984.308348509647\n  },\n  \"notFound\": [\n    {\n      \"exp\": [\n        6286.2651109814,\n        8180.804376453693\n      ],\n      \"id\": \"string\",\n      \"mapsTo\": [\n        {\n          \"id\": \"string\",\n          \"resource\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"resource\": \"string\"\n        }\n      ]\n    },\n    {\n      \"exp\": [\n        5236.406768830622,\n        4683.183156215572\n      ],\n      \"id\": \"string\",\n      \"mapsTo\": [\n        {\n          \"id\": \"string\",\n          \"resource\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"resource\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"pathways\": [\n    {\n      \"data\": {\n        \"entities\": [\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"interactors\": [\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"reactions\": [\n          {\n            \"dbId\": 8,\n            \"resources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stId\": \"string\"\n          },\n          {\n            \"dbId\": 447,\n            \"resources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stId\": \"string\"\n          }\n        ],\n        \"statistics\": [\n          {\n            \"entitiesAndInteractorsCount\": 3759,\n            \"entitiesAndInteractorsFound\": 3719,\n            \"entitiesCount\": 9097,\n            \"entitiesFDR\": 5135.035745715516,\n            \"entitiesFound\": 7498,\n            \"entitiesPValue\": 1685.3391598141332,\n            \"entitiesRatio\": 3574.563035210413,\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"interactorsCount\": 2427,\n            \"interactorsFound\": 1652,\n            \"interactorsRatio\": 7312.813824771899,\n            \"reactionsCount\": 5405,\n            \"reactionsFound\": 4528,\n            \"reactionsRatio\": 2765.426960205901,\n            \"resource\": \"string\"\n          },\n          {\n            \"entitiesAndInteractorsCount\": 2024,\n            \"entitiesAndInteractorsFound\": 8841,\n            \"entitiesCount\": 5129,\n            \"entitiesFDR\": 5486.578610087038,\n            \"entitiesFound\": 9470,\n            \"entitiesPValue\": 2351.5284751540667,\n            \"entitiesRatio\": 1709.0756281922515,\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"interactorsCount\": 7905,\n            \"interactorsFound\": 7944,\n            \"interactorsRatio\": 2787.3298205532838,\n            \"reactionsCount\": 7441,\n            \"reactionsFound\": 9460,\n            \"reactionsRatio\": 410.84368733755093,\n            \"resource\": \"string\"\n          }\n        ]\n      },\n      \"dbId\": 8169,\n      \"inDisease\": true,\n      \"llp\": false,\n      \"name\": \"string\",\n      \"species\": {\n        \"name\": \"string\",\n        \"speciesID\": 530,\n        \"taxID\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"data\": {\n        \"entities\": [\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"interactors\": [\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"reactions\": [\n          {\n            \"dbId\": 7595,\n            \"resources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stId\": \"string\"\n          },\n          {\n            \"dbId\": 3719,\n            \"resources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stId\": \"string\"\n          }\n        ],\n        \"statistics\": [\n          {\n            \"entitiesAndInteractorsCount\": 6863,\n            \"entitiesAndInteractorsFound\": 8587,\n            \"entitiesCount\": 8498,\n            \"entitiesFDR\": 5638.535057839026,\n            \"entitiesFound\": 4908,\n            \"entitiesPValue\": 2936.6043095774407,\n            \"entitiesRatio\": 810.7060449650783,\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"interactorsCount\": 5655,\n            \"interactorsFound\": 9148,\n            \"interactorsRatio\": 5440.598337044681,\n            \"reactionsCount\": 6158,\n            \"reactionsFound\": 3351,\n            \"reactionsRatio\": 7849.8422345029085,\n            \"resource\": \"string\"\n          },\n          {\n            \"entitiesAndInteractorsCount\": 6120,\n            \"entitiesAndInteractorsFound\": 4244,\n            \"entitiesCount\": 4097,\n            \"entitiesFDR\": 1805.6604587818092,\n            \"entitiesFound\": 226,\n            \"entitiesPValue\": 5581.421440004983,\n            \"entitiesRatio\": 3.924496825263857,\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"interactorsCount\": 8567,\n            \"interactorsFound\": 9566,\n            \"interactorsRatio\": 5140.013650992897,\n            \"reactionsCount\": 7736,\n            \"reactionsFound\": 2465,\n            \"reactionsRatio\": 3494.767197852253,\n            \"resource\": \"string\"\n          }\n        ]\n      },\n      \"dbId\": 4015,\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"species\": {\n        \"name\": \"string\",\n        \"speciesID\": 6745,\n        \"taxID\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"server\": \"string\",\n    \"token\": \"string\",\n    \"type\": \"EXPRESSION\",\n    \"version\": 6325\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7685002-a02c-42ae-889d-9295340b1f25",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "download",
+                    ":token",
+                    "result.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expressionSummary\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5595.164108514552,\n    \"min\": 854.0365049336773\n  },\n  \"notFound\": [\n    {\n      \"exp\": [\n        4612.755116065644,\n        8431.435615676404\n      ],\n      \"id\": \"string\",\n      \"mapsTo\": [\n        {\n          \"id\": \"string\",\n          \"resource\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"resource\": \"string\"\n        }\n      ]\n    },\n    {\n      \"exp\": [\n        3023.3770962363938,\n        5015.009776576228\n      ],\n      \"id\": \"string\",\n      \"mapsTo\": [\n        {\n          \"id\": \"string\",\n          \"resource\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"resource\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"pathways\": [\n    {\n      \"data\": {\n        \"entities\": [\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"interactors\": [\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"reactions\": [\n          {\n            \"dbId\": 6089,\n            \"resources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stId\": \"string\"\n          },\n          {\n            \"dbId\": 3553,\n            \"resources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stId\": \"string\"\n          }\n        ],\n        \"statistics\": [\n          {\n            \"entitiesAndInteractorsCount\": 1971,\n            \"entitiesAndInteractorsFound\": 5270,\n            \"entitiesCount\": 7039,\n            \"entitiesFDR\": 4644.542774489229,\n            \"entitiesFound\": 6424,\n            \"entitiesPValue\": 4254.254367761181,\n            \"entitiesRatio\": 8026.322644110811,\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"interactorsCount\": 9665,\n            \"interactorsFound\": 9900,\n            \"interactorsRatio\": 5375.795988404871,\n            \"reactionsCount\": 4303,\n            \"reactionsFound\": 3087,\n            \"reactionsRatio\": 672.6530016326349,\n            \"resource\": \"string\"\n          },\n          {\n            \"entitiesAndInteractorsCount\": 9316,\n            \"entitiesAndInteractorsFound\": 2702,\n            \"entitiesCount\": 2967,\n            \"entitiesFDR\": 7654.690330022608,\n            \"entitiesFound\": 2726,\n            \"entitiesPValue\": 6446.597108119887,\n            \"entitiesRatio\": 4543.73140037554,\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"interactorsCount\": 6890,\n            \"interactorsFound\": 6168,\n            \"interactorsRatio\": 3326.6619342715185,\n            \"reactionsCount\": 6801,\n            \"reactionsFound\": 6032,\n            \"reactionsRatio\": 6422.097381301389,\n            \"resource\": \"string\"\n          }\n        ]\n      },\n      \"dbId\": 1929,\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"species\": {\n        \"name\": \"string\",\n        \"speciesID\": 7408,\n        \"taxID\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"data\": {\n        \"entities\": [\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"interactors\": [\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"string\",\n            \"mapsTo\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"reactions\": [\n          {\n            \"dbId\": 8578,\n            \"resources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stId\": \"string\"\n          },\n          {\n            \"dbId\": 1481,\n            \"resources\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stId\": \"string\"\n          }\n        ],\n        \"statistics\": [\n          {\n            \"entitiesAndInteractorsCount\": 421,\n            \"entitiesAndInteractorsFound\": 3573,\n            \"entitiesCount\": 8674,\n            \"entitiesFDR\": 6457.166215685664,\n            \"entitiesFound\": 8152,\n            \"entitiesPValue\": 2240.9254509725106,\n            \"entitiesRatio\": 1184.595489184712,\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"interactorsCount\": 2341,\n            \"interactorsFound\": 6442,\n            \"interactorsRatio\": 9523.590511362392,\n            \"reactionsCount\": 3718,\n            \"reactionsFound\": 9565,\n            \"reactionsRatio\": 9133.269946025317,\n            \"resource\": \"string\"\n          },\n          {\n            \"entitiesAndInteractorsCount\": 1667,\n            \"entitiesAndInteractorsFound\": 9701,\n            \"entitiesCount\": 177,\n            \"entitiesFDR\": 6040.6949838766395,\n            \"entitiesFound\": 5719,\n            \"entitiesPValue\": 2012.8177882229147,\n            \"entitiesRatio\": 6321.942750144205,\n            \"exp\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"interactorsCount\": 9662,\n            \"interactorsFound\": 6134,\n            \"interactorsRatio\": 8954.225095890195,\n            \"reactionsCount\": 8864,\n            \"reactionsFound\": 1122,\n            \"reactionsRatio\": 5195.124654283386,\n            \"resource\": \"string\"\n          }\n        ]\n      },\n      \"dbId\": 1547,\n      \"inDisease\": false,\n      \"llp\": false,\n      \"name\": \"string\",\n      \"species\": {\n        \"name\": \"string\",\n        \"speciesID\": 4348,\n        \"taxID\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": true,\n    \"sampleName\": \"string\",\n    \"server\": \"string\",\n    \"token\": \"string\",\n    \"type\": \"GSA_STATISTICS\",\n    \"version\": 3184\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b76aa09c-638f-4056-a1bc-55f345d8d30e",
+          "name": "Returns the complete result in json format (gzipped)",
+          "request": {
+            "name": "Returns the complete result in json format (gzipped)",
+            "description": {
+              "content": "The results are not filtered by any means. The json file contains the whole stored result based on chosen analysis options and submitted data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "download",
+                ":token",
+                "result.json.gz"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) The token associated with the data to query"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/gzip"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45c55ea2-4a92-4d12-ba5a-8c70a5b2385e",
+              "name": "No result corresponding to the token was found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "download",
+                    ":token",
+                    "result.json.gz"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/gzip"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/gzip"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "171b915b-9572-45e3-93ed-a5bc7324bfca",
+              "name": "Result deleted due to a new data release",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "download",
+                    ":token",
+                    "result.json.gz"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) The token associated with the data to query"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/gzip"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/gzip"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) the file name for the downloaded information",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "filename"
+    }
+  ],
+  "info": {
+    "_postman_id": "68d1baf3-7158-44ca-9c4e-d3b97c034b82",
+    "name": "Pathway Analysis Service database download API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

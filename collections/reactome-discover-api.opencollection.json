@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database discover API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "discover",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "The schema.org for an Event in Reactome knowledgebase",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/discover/:identifier",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "R-HSA-446203",
+                "type": "path",
+                "description": "An event identifier"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "For each event (reaction or pathway) this method generates a json file representing the dataset object as defined by schema.org (http). This is mainly used by search engines in order to index the data"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

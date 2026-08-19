@@ -1,0 +1,468 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database exporter API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "exporter",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Exports a given pathway diagram to the specified image format (png, jpg, jpeg, svg, gif)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/exporter/diagram/:identifier.:ext",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "R-HSA-177929",
+                "type": "path",
+                "description": "Event identifier (it can be a pathway with diagram, a subpathway or a reaction)"
+              },
+              {
+                "name": "ext",
+                "value": "png",
+                "type": "path",
+                "description": "File extension (defines the image format)"
+              },
+              {
+                "name": "quality",
+                "value": "5",
+                "type": "query",
+                "description": "Result image quality between [1 - 10]. It defines the quality of the final image (Default 5)"
+              },
+              {
+                "name": "flg",
+                "value": "",
+                "type": "query",
+                "description": "Gene name, protein or chemical identifier or Reactome identifier used to flag elements in the diagram"
+              },
+              {
+                "name": "flgInteractors",
+                "value": "",
+                "type": "query",
+                "description": "Defines whether to take into account interactors for the flagging"
+              },
+              {
+                "name": "sel",
+                "value": "",
+                "type": "query",
+                "description": "Highlight element(s) selection in the diagram. CSV line."
+              },
+              {
+                "name": "title",
+                "value": "true",
+                "type": "query",
+                "description": "Sets whether the name of the pathway is shown below"
+              },
+              {
+                "name": "margin",
+                "value": "15",
+                "type": "query",
+                "description": "Defines the image margin between [0 - 20] (Default 15)"
+              },
+              {
+                "name": "ehld",
+                "value": "true",
+                "type": "query",
+                "description": "Defines whether textbook-like illustration are taken into account"
+              },
+              {
+                "name": "diagramProfile",
+                "value": "Modern",
+                "type": "query",
+                "description": "Diagram Color Profile"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> token with the results to be overlaid on top of the given diagram"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query",
+                "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> resource for which the results will be overlaid on top of the given pathways overview"
+              },
+              {
+                "name": "analysisProfile",
+                "value": "Standard",
+                "type": "query",
+                "description": "Analysis  Color Profile"
+              },
+              {
+                "name": "expColumn",
+                "value": "",
+                "type": "query",
+                "description": "Expression column. When the token is associated to an expression analysis, this parameter allows specifying the expression column for the overlay"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method accepts identifiers for <a href=\"/content/schema/Event\" target=\"_blank\">Event class</a> instances.<br/>When a diagrammed pathway is provided, the diagram is exported to the specified format.<br/>When a subpathway is provided, the diagram for the parent is exported and the events that are part of the subpathways are selected.<br/>When a reaction is provided, the diagram containing the reaction is exported and the reaction is selected.<br/><br/>Find out more about this method <a href=\""
+        },
+        {
+          "info": {
+            "name": "Exports the content of a given event (pathway or reaction) to a PDF document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/exporter/document/event/:identifier.pdf",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "R-HSA-177929",
+                "type": "path",
+                "description": "Event identifier (it can be a pathway with diagram, a subpathway or a reaction)"
+              },
+              {
+                "name": "level [0 - 1]",
+                "value": "1",
+                "type": "query",
+                "description": "Number of levels to explore down in the pathways hierarchy [0 - 1]"
+              },
+              {
+                "name": "diagramProfile",
+                "value": "Modern",
+                "type": "query",
+                "description": "Diagram Color Profile"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> token with the results to be overlaid on top of the given diagram"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query",
+                "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> resource for which the results will be overlaid on top of the given pathways overview"
+              },
+              {
+                "name": "importableOnly",
+                "value": "",
+                "type": "query",
+                "description": "Filters resources to only includes importable ones"
+              },
+              {
+                "name": "expColumn",
+                "value": "",
+                "type": "query",
+                "description": "Expression column. When the token is associated to an expression analysis, this parameter allows specifying the expression column for the overlay"
+              },
+              {
+                "name": "analysisProfile",
+                "value": "Standard",
+                "type": "query",
+                "description": "Analysis  Color Profile"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method accepts identifiers for <a href=\"/content/schema/Event\" target=\"_blank\">Event class</a> instances.<br/>The generated document contains the details for the given event and, optionally, its children (see level parameter). These details include:<br/> - A diagram image<br/> - Summation<br/> - Literature references<br/> - Edit history<br/> - Other details: type, location, compartments, diseases<br/><br/>Documents can also be overlaid with <a href='/dev/analysis' target=\"_blank\">pathway an"
+        },
+        {
+          "info": {
+            "name": "Exports a given pathway or reaction to SBGN",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/exporter/event/:identifier.sbgn",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "R-HSA-5205682",
+                "type": "path",
+                "description": "DbId or StId of the requested pathway or reaction"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Exports a given pathway or reaction to SBGN"
+        },
+        {
+          "info": {
+            "name": "Exports a given pathway or reaction to SBML",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/exporter/event/:identifier.sbml",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "R-HSA-68616",
+                "type": "path",
+                "description": "DbId or StId of the requested pathway or reaction"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Exports a given pathway or reaction to SBML"
+        },
+        {
+          "info": {
+            "name": "Exports a given pathway overview to the specified image format (png, jpg, jpeg, svg, gif)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/exporter/fireworks/:species.:ext",
+            "params": [
+              {
+                "name": "species",
+                "value": "9606",
+                "type": "path",
+                "description": "Species identifier (it can be the taxonomy id, species name or dbId)"
+              },
+              {
+                "name": "ext",
+                "value": "svg",
+                "type": "path",
+                "description": "File extension (defines the image format)"
+              },
+              {
+                "name": "quality",
+                "value": "5",
+                "type": "query",
+                "description": "Result image quality between [1 - 10]. It defines the quality of the final image (Default 5)"
+              },
+              {
+                "name": "flg",
+                "value": "",
+                "type": "query",
+                "description": "Gene name, protein or chemical identifier or Reactome identifier used to flag elements in the diagram"
+              },
+              {
+                "name": "flgInteractors",
+                "value": "",
+                "type": "query",
+                "description": "Defines whether to take into account interactors for the flagging"
+              },
+              {
+                "name": "sel",
+                "value": "",
+                "type": "query",
+                "description": "Highlight element(s) selection in the diagram. CSV line."
+              },
+              {
+                "name": "title",
+                "value": "true",
+                "type": "query",
+                "description": "Sets whether the name of the pathway is shown below"
+              },
+              {
+                "name": "margin",
+                "value": "15",
+                "type": "query",
+                "description": "Defines the image margin between [0 - 20] (Default 15)"
+              },
+              {
+                "name": "diagramProfile",
+                "value": "Copper",
+                "type": "query",
+                "description": "Diagram Color Profile"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> token with the results to be overlaid on top of the given pathways overview"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query",
+                "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> resource for which the results will be overlaid on top of the given pathways overview"
+              },
+              {
+                "name": "expColumn",
+                "value": "",
+                "type": "query",
+                "description": "Expression column. When the token is associated to an expression analysis, this parameter allows specifying the expression column for the overlay"
+              },
+              {
+                "name": "coverage",
+                "value": "",
+                "type": "query",
+                "description": "Set to 'true' to overlay analysis coverage values"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Exports a given pathway overview to the specified image format (png, jpg, jpeg, svg, gif)"
+        },
+        {
+          "info": {
+            "name": "Exports a given reaction to the specified image format (png, jpg, jpeg, svg, gif)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/exporter/reaction/:identifier.:ext",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "R-HSA-6787403",
+                "type": "path",
+                "description": "Reaction identifier"
+              },
+              {
+                "name": "ext",
+                "value": "png",
+                "type": "path",
+                "description": "File extension (defines the image format)"
+              },
+              {
+                "name": "quality",
+                "value": "5",
+                "type": "query",
+                "description": "Result image quality between [1 - 10]. It defines the quality of the final image (Default 5)"
+              },
+              {
+                "name": "flg",
+                "value": "",
+                "type": "query",
+                "description": "Gene name, protein or chemical identifier or Reactome identifier used to flag elements in the diagram"
+              },
+              {
+                "name": "flgInteractors",
+                "value": "",
+                "type": "query",
+                "description": "Defines whether to take into account interactors for the flagging"
+              },
+              {
+                "name": "sel",
+                "value": "",
+                "type": "query",
+                "description": "Highlight element selection in the diagram."
+              },
+              {
+                "name": "title",
+                "value": "true",
+                "type": "query",
+                "description": "Sets whether the name of the reaction is shown below"
+              },
+              {
+                "name": "margin",
+                "value": "15",
+                "type": "query",
+                "description": "Defines the image margin between [0 - 20] (Default 15)"
+              },
+              {
+                "name": "diagramProfile",
+                "value": "Modern",
+                "type": "query",
+                "description": "Diagram Color Profile"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> token with the results to be overlaid on top of the given reaction"
+              },
+              {
+                "name": "analysisProfile",
+                "value": "Standard",
+                "type": "query",
+                "description": "Analysis  Color Profile"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query",
+                "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> resource for which the results will be overlaid on top of the given pathways overview"
+              },
+              {
+                "name": "expColumn",
+                "value": "",
+                "type": "query",
+                "description": "Expression column. When the token is associated to an expression analysis, this parameter allows specifying the expression column for the overlay"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method accepts identifiers for <a href=\"/content/schema/ReactionLikeEvent\" target=\"_blank\">ReactionLikeEvent class</a> instances."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

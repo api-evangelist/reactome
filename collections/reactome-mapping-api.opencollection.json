@@ -1,0 +1,274 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database mapping API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "mapping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getMapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/mapping/",
+            "params": [
+              {
+                "name": "interactors",
+                "value": "false",
+                "type": "query",
+                "description": "Include interactors"
+              },
+              {
+                "name": "importableOnly",
+                "value": "false",
+                "type": "query",
+                "description": "Only include resources which can be later imported"
+              }
+            ]
+          },
+          "docs": "Maps the post identifiers over the different species"
+        },
+        {
+          "info": {
+            "name": "getMappingPostFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/mapping/form",
+            "params": [
+              {
+                "name": "interactors",
+                "value": "false",
+                "type": "query",
+                "description": "Include interactors"
+              },
+              {
+                "name": "importableOnly",
+                "value": "false",
+                "type": "query",
+                "description": "Only include resources which can be later imported"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Maps the identifiers in the file over the different species"
+        },
+        {
+          "info": {
+            "name": "Maps the identifiers in the file over the different species and projects the result to Homo Sapiens",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/mapping/form/projection",
+            "params": [
+              {
+                "name": "interactors",
+                "value": "false",
+                "type": "query",
+                "description": "Include interactors"
+              },
+              {
+                "name": "importableOnly",
+                "value": "false",
+                "type": "query",
+                "description": "Only include resources which can be later imported"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "The projection is calculated by the orthologous slot in the Reactome database."
+        },
+        {
+          "info": {
+            "name": "Maps the post identifiers over the different species and projects the result to Homo Sapiens",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/mapping/projection",
+            "params": [
+              {
+                "name": "interactors",
+                "value": "false",
+                "type": "query",
+                "description": "Include interactors"
+              },
+              {
+                "name": "importableOnly",
+                "value": "false",
+                "type": "query",
+                "description": "Only include resources which can be later imported"
+              }
+            ]
+          },
+          "docs": "The projection is calculated by the orthologous slot in the Reactome database."
+        },
+        {
+          "info": {
+            "name": "Maps the identifiers contained in the provided url over the different species",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/mapping/url",
+            "params": [
+              {
+                "name": "interactors",
+                "value": "false",
+                "type": "query",
+                "description": "Include interactors"
+              },
+              {
+                "name": "importableOnly",
+                "value": "false",
+                "type": "query",
+                "description": "Only include resources which can be later imported"
+              }
+            ]
+          },
+          "docs": "Maps the identifiers contained in the provided url over the different species"
+        },
+        {
+          "info": {
+            "name": "Maps the identifiers contained in the provided url over the different species and projects the result to Homo Sapiens",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/AnalysisService/mapping/url/projection",
+            "params": [
+              {
+                "name": "interactors",
+                "value": "false",
+                "type": "query",
+                "description": "Include interactors"
+              },
+              {
+                "name": "importableOnly",
+                "value": "false",
+                "type": "query",
+                "description": "Only include resources which can be later imported"
+              }
+            ]
+          },
+          "docs": "The projection is calculated by the orthologous slot in the Reactome database."
+        },
+        {
+          "info": {
+            "name": "The lower level pathways where an identifier can be mapped to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/mapping/:resource/:identifier/pathways",
+            "params": [
+              {
+                "name": "resource",
+                "value": "UniProt",
+                "type": "path",
+                "description": "The <a href='/content/schema/objects/ReferenceDatabase'>resource</a> <b>name</b> for which the identifier is submitted"
+              },
+              {
+                "name": "identifier",
+                "value": "PTEN",
+                "type": "path",
+                "description": "The identifier to be mapped"
+              },
+              {
+                "name": "species",
+                "value": "9606",
+                "type": "query",
+                "description": "Species for which the result is filtered. Accepts <b>taxonomy id</b>, <b>species name</b> and <b>dbId</b>. Important: when identifier points to chemical, this becomes mandatory and if not provided, the default is 'Homo sapiens'"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Entities play different roles in reactions, and reactions are events that conform a pathway. This method retrieves the pathways for which an identifier plays a role within one or more of their events."
+        },
+        {
+          "info": {
+            "name": "The reactions where an identifier can be mapped to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/mapping/:resource/:identifier/reactions",
+            "params": [
+              {
+                "name": "resource",
+                "value": "UniProt",
+                "type": "path",
+                "description": "The <a href='/content/schema/objects/ReferenceDatabase'>resource</a> <b>name</b> for which the identifier is submitted"
+              },
+              {
+                "name": "identifier",
+                "value": "PTEN",
+                "type": "path",
+                "description": "The identifier to be mapped"
+              },
+              {
+                "name": "species",
+                "value": "9606",
+                "type": "query",
+                "description": "Species for which the result is filtered. Accepts <b>taxonomy id</b>, <b>species name</b> and <b>dbId</b>. Important: when identifier points to chemical, this becomes mandatory and if not provided, the default is 'Homo sapiens'"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Entities play different roles in reactions. This method retrieves the reactions for which an identifier plays a role ."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

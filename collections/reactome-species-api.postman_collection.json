@@ -1,0 +1,495 @@
+{
+  "item": [
+    {
+      "id": "690d341c-4c4b-489f-80e8-7875a8e09526",
+      "name": "species",
+      "description": {
+        "content": "Species comparison",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c498a385-e1b7-4384-9b7e-1bbc04a1b9eb",
+          "name": "Compares Homo sapiens to the specified species",
+          "request": {
+            "name": "Compares Homo sapiens to the specified species",
+            "description": {
+              "content": "Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "species",
+                "homoSapiens",
+                ":species"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "pathways per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pValue",
+                  "value": "1",
+                  "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "min",
+                  "value": "<integer>",
+                  "description": "minimum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "maximum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "species",
+                  "description": "(Required) The dbId of the species to compare to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f57619f6-4e06-486b-9554-8853c668ff23",
+              "name": "Species identifier does not match with any of the species in the current data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "species",
+                    "homoSapiens",
+                    ":species"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "species",
+                      "description": "(Required) The dbId of the species to compare to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 2619.88906544429,\n    \"min\": 5590.998593722331\n  },\n  \"identifiersNotFound\": 184,\n  \"pathways\": [\n    {\n      \"dbId\": 6041,\n      \"entities\": {\n        \"curatedFound\": 9027,\n        \"curatedTotal\": 4450,\n        \"exp\": [\n          5033.369277890337,\n          9015.710484065086\n        ],\n        \"fdr\": 2868.4965958278776,\n        \"found\": 445,\n        \"getpValue\": 3916.850015844933,\n        \"interactorsFound\": 5731,\n        \"interactorsTotal\": 4601,\n        \"ratio\": 6886.905019336718,\n        \"resource\": \"string\",\n        \"total\": 8816\n      },\n      \"inDisease\": false,\n      \"llp\": false,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 6839,\n        \"ratio\": 5998.467050230599,\n        \"resource\": \"string\",\n        \"total\": 555\n      },\n      \"species\": {\n        \"dbId\": 2964,\n        \"filtered\": 566,\n        \"name\": \"string\",\n        \"pathways\": 7724,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 7452,\n      \"entities\": {\n        \"curatedFound\": 6519,\n        \"curatedTotal\": 4866,\n        \"exp\": [\n          3501.737727533638,\n          7359.0786875919175\n        ],\n        \"fdr\": 1920.326547256207,\n        \"found\": 4430,\n        \"getpValue\": 7100.0419695699065,\n        \"interactorsFound\": 8200,\n        \"interactorsTotal\": 1057,\n        \"ratio\": 3611.770273405257,\n        \"resource\": \"string\",\n        \"total\": 9696\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7891,\n        \"ratio\": 8788.96581275963,\n        \"resource\": \"string\",\n        \"total\": 5178\n      },\n      \"species\": {\n        \"dbId\": 7015,\n        \"filtered\": 880,\n        \"name\": \"string\",\n        \"pathways\": 5311,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2120,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 6097,\n      \"pathways\": 5667,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 156,\n      \"pathways\": 3165,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 5051,\n      \"filtered\": 4615,\n      \"name\": \"string\",\n      \"pathways\": 7609,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 2716,\n      \"filtered\": 1980,\n      \"name\": \"string\",\n      \"pathways\": 1288,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 7203,\n    \"text\": true,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3966147-3985-456b-a234-a1ff1e90d2f6",
+          "name": "The list of all species in Reactome",
+          "request": {
+            "name": "The list of all species in Reactome",
+            "description": {
+              "content": "This method retrieves the list of all species in Reactome knowledgebase, sorted by name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "species",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "66578fb5-88b7-4e77-b237-a1d10900d9ec",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "species",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c114256d-7604-46f7-81de-1be5f66e397a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "species",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dbe4d58d-4b40-40b2-8c23-28880fd22643",
+          "name": "The list of main species in Reactome",
+          "request": {
+            "name": "The list of main species in Reactome",
+            "description": {
+              "content": "This method retrieves the list of main species in Reactome knowledgebase, sorted by name, but having 'Homo sapiens' as the first one. It should be mentioned that for Reactome, main species are considered those have either manually curated or computationally inferred pathways.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "species",
+                "main"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "544bc923-5381-4b30-9caa-bcc4d9e937fb",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "species",
+                    "main"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1c6e11a-e612-4d52-ae8d-833e0e953fcd",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "species",
+                    "main"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d3d47b71-ff04-4a6c-811b-9407306ef0e7",
+    "name": "Pathway Analysis Service database species API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

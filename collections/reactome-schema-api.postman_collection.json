@@ -1,0 +1,1228 @@
+{
+  "item": [
+    {
+      "id": "1bcb7321-78b7-4738-80a0-283303eccb37",
+      "name": "schema",
+      "description": {
+        "content": "Reactome Data: Schema class queries",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0cd15a5f-219b-42ec-afcd-8b8910074953",
+          "name": "A list of Reactome data model",
+          "request": {
+            "name": "A list of Reactome data model",
+            "description": {
+              "content": "This method retrieves a full specification of all Reactome classes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "schema",
+                "model"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d9368df-acc1-4ecd-b8b7-7e49563e4136",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "schema",
+                    "model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"children\": [\n    {\n      \"children\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/SchemaNode detected>\"\n        }\n      ],\n      \"className\": \"string\",\n      \"count\": 3911\n    },\n    {\n      \"children\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/SchemaNode detected>\"\n        }\n      ],\n      \"className\": \"string\",\n      \"count\": 9834\n    }\n  ],\n  \"className\": \"string\",\n  \"count\": 9864\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9685dfc-b5b2-47bf-9e94-c0d3dba51b57",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "schema",
+                    "model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"children\": [\n    {\n      \"children\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/SchemaNode detected>\"\n        }\n      ],\n      \"className\": \"string\",\n      \"count\": 6899\n    },\n    {\n      \"children\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/SchemaNode detected>\"\n        }\n      ],\n      \"className\": \"string\",\n      \"count\": 9563\n    }\n  ],\n  \"className\": \"string\",\n  \"count\": 2087\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3933e441-3176-4968-80d4-785fa0f7ef14",
+          "name": "A list of entries corresponding to a given schema class",
+          "request": {
+            "name": "A list of entries corresponding to a given schema class",
+            "description": {
+              "content": "This method retrieves the list of entries in Reactome that belong to the specified schema class. Please take into account that if species is specified to filter the results, schema class needs to be an instance of Event or PhysicalEntity. Additionally, paging is required, while a maximum of 25 entries can be returned per request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "schema",
+                ":className"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "species",
+                  "value": "<string>",
+                  "description": "Allowed species filter: SpeciesName (eg: Homo sapiens) SpeciesTaxId (eg: 9606)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "(Required) Page to be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "(Required) Number of rows returned. Maximum = 25"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "className",
+                  "description": "(Required) Schema class name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e7eea49-884a-4b63-bb3a-13b59a412a24",
+              "name": "Schema class does not match with any current data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "schema",
+                    ":className"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "25"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "className",
+                      "description": "(Required) Schema class name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"className\": \"string\",\n    \"created\": {},\n    \"dbId\": 2951,\n    \"displayName\": \"string\",\n    \"modified\": {},\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\",\n    \"stIdVersion\": \"string\"\n  },\n  {\n    \"className\": \"string\",\n    \"created\": {},\n    \"dbId\": 7369,\n    \"displayName\": \"string\",\n    \"modified\": {},\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\",\n    \"stIdVersion\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "366d3521-7dff-45a5-8a66-bb01be32a238",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "schema",
+                    ":className"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "25"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "className",
+                      "description": "(Required) Schema class name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"className\": \"string\",\n    \"created\": {},\n    \"dbId\": 2951,\n    \"displayName\": \"string\",\n    \"modified\": {},\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\",\n    \"stIdVersion\": \"string\"\n  },\n  {\n    \"className\": \"string\",\n    \"created\": {},\n    \"dbId\": 7369,\n    \"displayName\": \"string\",\n    \"modified\": {},\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\",\n    \"stIdVersion\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e134a2c9-d64b-46de-bf70-7800f6134ec5",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "schema",
+                    ":className"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "25"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "className",
+                      "description": "(Required) Schema class name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"className\": \"string\",\n    \"created\": {},\n    \"dbId\": 2951,\n    \"displayName\": \"string\",\n    \"modified\": {},\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\",\n    \"stIdVersion\": \"string\"\n  },\n  {\n    \"className\": \"string\",\n    \"created\": {},\n    \"dbId\": 7369,\n    \"displayName\": \"string\",\n    \"modified\": {},\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\",\n    \"stIdVersion\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3fccada-7232-40d3-9a24-50f976c7e850",
+          "name": "Number of entries belonging to the specified schema class",
+          "request": {
+            "name": "Number of entries belonging to the specified schema class",
+            "description": {
+              "content": "This method counts the total number of entries in Reactome that belong to the specified schema class. Please take into account that if species is specified to filter the results, schema class needs to be an instance of Event or PhysicalEntity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "schema",
+                ":className",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "species",
+                  "value": "<string>",
+                  "description": "Allowed species filter: SpeciesName (eg: Homo sapiens) SpeciesTaxId (eg: 9606)"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "className",
+                  "description": "(Required) Schema class name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c8bdee91-9b9f-40dd-b968-ad62f88beca8",
+              "name": "Schema class does not match with any current data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "schema",
+                    ":className",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "className",
+                      "description": "(Required) Schema class name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "1579",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26f8b7a5-7f09-4989-896b-66bdf58e0c4f",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "schema",
+                    ":className",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "className",
+                      "description": "(Required) Schema class name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "1579",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "035a7606-eef3-4c44-99ad-910d3cbb5a8a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "schema",
+                    ":className",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "className",
+                      "description": "(Required) Schema class name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "1579",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64a97115-dbc6-4e99-b711-523160ea864e",
+          "name": "A list of simplified entries corresponding to a given schema class",
+          "request": {
+            "name": "A list of simplified entries corresponding to a given schema class",
+            "description": {
+              "content": "This method retrieves the list of simplified entries in Reactome that belong to the specified schema class. A simplified entry may be considered as a minimised version of the full database object that includes its database id, stable id, displayName and type. Please take into account that if species is specified to filter the results, schema class needs to be an instance of Event or PhysicalEntity. Also, paging is required, while a maximum of 20000 entries can be returned per request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "schema",
+                ":className",
+                "min"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "species",
+                  "value": "<string>",
+                  "description": "Allowed species filter: SpeciesName (eg: Homo sapiens) SpeciesTaxId (eg: 9606)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "(Required) Page to be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "(Required) Number of rows returned. Maximum = 20000"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "className",
+                  "description": "(Required) Schema class name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f84fddc9-f376-48d5-8c38-110930fc7a99",
+              "name": "Schema class does not match with any current data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "schema",
+                    ":className",
+                    "min"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "20000"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "className",
+                      "description": "(Required) Schema class name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"dbId\": 2681,\n    \"displayName\": \"string\",\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\"\n  },\n  {\n    \"dbId\": 9894,\n    \"displayName\": \"string\",\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c3e7392-bfef-409e-a31c-0d135a4a692a",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "schema",
+                    ":className",
+                    "min"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "20000"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "className",
+                      "description": "(Required) Schema class name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"dbId\": 2681,\n    \"displayName\": \"string\",\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\"\n  },\n  {\n    \"dbId\": 9894,\n    \"displayName\": \"string\",\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d21add68-8d84-4a80-a5ef-0a362881e0f7",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "schema",
+                    ":className",
+                    "min"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "20000"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "className",
+                      "description": "(Required) Schema class name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"dbId\": 2681,\n    \"displayName\": \"string\",\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\"\n  },\n  {\n    \"dbId\": 9894,\n    \"displayName\": \"string\",\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d07d443-73bd-4294-a5be-a9f795ebd291",
+          "name": "A list of simplified reference objects corresponding to a given schema class",
+          "request": {
+            "name": "A list of simplified reference objects corresponding to a given schema class",
+            "description": {
+              "content": "This method retrieves the list of simplified reference objects that belong to the specified schema class. A reference object includes its database id, external identifier, and external database name. Please take into account that schema class needs to be an instance of ReferenceEntity or ExternalOntology. Also, paging is required, while a maximum of 20000 entries can be returned per request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "schema",
+                ":className",
+                "reference"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "(Required) Page to be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "(Required) Number of rows returned. Maximum = 20000"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "className",
+                  "description": "(Required) Schema class name. Class needs to an instance of ReferenceEntity or ExternalOntology"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73c0cb9c-994e-4906-ba0c-08ff8f0ef80d",
+              "name": "Schema class does not match with any current data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "schema",
+                    ":className",
+                    "reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "20000"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "className",
+                      "description": "(Required) Schema class name. Class needs to an instance of ReferenceEntity or ExternalOntology"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"databaseName\": \"string\",\n    \"dbId\": 6597,\n    \"identifier\": \"string\"\n  },\n  {\n    \"databaseName\": \"string\",\n    \"dbId\": 2592,\n    \"identifier\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80a5bcfe-ffbd-4646-9da4-a8bcd3d93349",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "schema",
+                    ":className",
+                    "reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "20000"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "className",
+                      "description": "(Required) Schema class name. Class needs to an instance of ReferenceEntity or ExternalOntology"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"databaseName\": \"string\",\n    \"dbId\": 6597,\n    \"identifier\": \"string\"\n  },\n  {\n    \"databaseName\": \"string\",\n    \"dbId\": 2592,\n    \"identifier\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69cd04fd-8564-4fb5-8591-ba3761e79768",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "schema",
+                    ":className",
+                    "reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "20000"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "className",
+                      "description": "(Required) Schema class name. Class needs to an instance of ReferenceEntity or ExternalOntology"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"databaseName\": \"string\",\n    \"dbId\": 6597,\n    \"identifier\": \"string\"\n  },\n  {\n    \"databaseName\": \"string\",\n    \"dbId\": 2592,\n    \"identifier\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5c32d434-af06-4c1d-b697-1e2555e6e119",
+    "name": "Pathway Analysis Service database schema API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

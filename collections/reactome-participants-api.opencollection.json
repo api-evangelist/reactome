@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database participants API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "participants",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "A list of participants for a given event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/participants/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "5205685",
+                "type": "path",
+                "description": "DbId or StId of an Event"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "Participants contains a PhysicalEntity (dbId, displayName) and a collection of ReferenceEntities (dbId, name, identifier, url)"
+        },
+        {
+          "info": {
+            "name": "A list of participating PhysicalEntities for a given event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/participants/:id/participatingPhysicalEntities",
+            "params": [
+              {
+                "name": "id",
+                "value": "R-HSA-5205685",
+                "type": "path",
+                "description": "The event for which the participating PhysicalEntities are requested"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method retrieves all the PhysicalEntities that take part in a given event. It is worth mentioning that because a pathway can contain smaller pathways (subpathways), the method also recursively retrieves the PhysicalEntities from every constituent pathway."
+        },
+        {
+          "info": {
+            "name": "A list of participating ReferenceEntities for a given event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/participants/:id/referenceEntities",
+            "params": [
+              {
+                "name": "id",
+                "value": "5205685",
+                "type": "path",
+                "description": "The event for which the participating ReferenceEntities are requested"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "PhysicalEntity instances that represent, e.g., the same chemical in different compartments, or different post-translationally modified forms of a single protein, share numerous invariant features such as names, molecular structure and links to external databases like UniProt or ChEBI.<br>To enable storage of this shared information in a single place, and to create an explicit link among all the variant forms of what can also be seen as a single chemical entity, Reactome creates instances of the "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

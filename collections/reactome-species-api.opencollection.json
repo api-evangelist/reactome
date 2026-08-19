@@ -1,0 +1,138 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pathway Analysis Service database species API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "species",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Compares Homo sapiens to the specified species",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/species/homoSapiens/:species",
+            "params": [
+              {
+                "name": "species",
+                "value": "",
+                "type": "path",
+                "description": "The dbId of the species to compare to"
+              },
+              {
+                "name": "pageSize",
+                "value": "20",
+                "type": "query",
+                "description": "pathways per page"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "page number"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pValue",
+                "value": "1",
+                "type": "query",
+                "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+              },
+              {
+                "name": "min",
+                "value": "",
+                "type": "query",
+                "description": "minimum number of contained entities per pathway (takes into account the resource)"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "maximum number of contained entities per pathway (takes into account the resource)"
+              },
+              {
+                "name": "importableOnly",
+                "value": "",
+                "type": "query",
+                "description": "Filters resources to only includes importable ones"
+              }
+            ]
+          },
+          "docs": "Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type)"
+        },
+        {
+          "info": {
+            "name": "The list of all species in Reactome",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/species/all",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method retrieves the list of all species in Reactome knowledgebase, sorted by name."
+        },
+        {
+          "info": {
+            "name": "The list of main species in Reactome",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/AnalysisService/data/species/main",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+              },
+              {
+                "name": "includeRef",
+                "value": "",
+                "type": "query",
+                "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+              }
+            ]
+          },
+          "docs": "This method retrieves the list of main species in Reactome knowledgebase, sorted by name, but having 'Homo sapiens' as the first one. It should be mentioned that for Reactome, main species are considered those have either manually curated or computationally inferred pathways."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

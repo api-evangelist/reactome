@@ -1,0 +1,753 @@
+{
+  "item": [
+    {
+      "id": "64c80e22-83d7-42a6-b609-7931f1f6cc9a",
+      "name": "references",
+      "description": {
+        "content": "Reactome xRefs: ReferenceEntity queries",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "466be399-d723-464d-a2ed-130f08cbf797",
+          "name": "All cross references and physical entities associated with a list of given identifiers",
+          "request": {
+            "name": "All cross references and physical entities associated with a list of given identifiers",
+            "description": {
+              "content": "Retrieves a paginated list containing cross references and physical entities associated with the matching reference entities identifiers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "references",
+                "mapping",
+                "xrefs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "dbFilter",
+                  "value": "<string>",
+                  "description": "Database filter to apply to results"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page to process, starting from 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Page size to process, an element being one of the submitted identifiers"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "f14d5648-2d0d-42c3-82e7-851194ac4167",
+              "name": "Identifier does not match with any reference entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "references",
+                    "mapping",
+                    "xrefs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dbFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "P36897, Q5S007"
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": [\n    {\n      \"key_0\": [\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        },\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        }\n      ],\n      \"key_1\": [\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        },\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        }\n      ],\n      \"key_2\": [\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        },\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        }\n      ]\n    },\n    {\n      \"key_0\": [\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        },\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        }\n      ],\n      \"key_1\": [\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        },\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"empty\": true,\n  \"first\": false,\n  \"last\": true,\n  \"number\": 8706,\n  \"numberOfElements\": 1548,\n  \"pageable\": {\n    \"offset\": 1007,\n    \"pageNumber\": 7772,\n    \"pageSize\": 7321,\n    \"paged\": true,\n    \"sort\": {\n      \"empty\": false,\n      \"sorted\": true,\n      \"unsorted\": false\n    },\n    \"unpaged\": false\n  },\n  \"size\": 9329,\n  \"sort\": {\n    \"empty\": false,\n    \"sorted\": false,\n    \"unsorted\": true\n  },\n  \"totalElements\": 8985,\n  \"totalPages\": 7600\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1bb93a21-75ad-4551-93ae-2e6aa1c77f74",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "references",
+                    "mapping",
+                    "xrefs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dbFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "P36897, Q5S007"
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": [\n    {\n      \"key_0\": [\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        },\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        }\n      ],\n      \"key_1\": [\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        },\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        }\n      ]\n    },\n    {\n      \"key_0\": [\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        },\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        }\n      ],\n      \"key_1\": [\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        },\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        }\n      ],\n      \"key_2\": [\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        },\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"empty\": false,\n  \"first\": true,\n  \"last\": true,\n  \"number\": 434,\n  \"numberOfElements\": 6244,\n  \"pageable\": {\n    \"offset\": 2222,\n    \"pageNumber\": 1771,\n    \"pageSize\": 1368,\n    \"paged\": true,\n    \"sort\": {\n      \"empty\": false,\n      \"sorted\": true,\n      \"unsorted\": true\n    },\n    \"unpaged\": true\n  },\n  \"size\": 9555,\n  \"sort\": {\n    \"empty\": false,\n    \"sorted\": true,\n    \"unsorted\": true\n  },\n  \"totalElements\": 1883,\n  \"totalPages\": 305\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb8b05ef-2123-4447-9b6d-dea13cd39d62",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "references",
+                    "mapping",
+                    "xrefs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dbFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "P36897, Q5S007"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": [\n    {\n      \"key_0\": [\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        },\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        }\n      ],\n      \"key_1\": [\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        },\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        }\n      ]\n    },\n    {\n      \"key_0\": [\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        },\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        }\n      ],\n      \"key_1\": [\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        },\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        }\n      ],\n      \"key_2\": [\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        },\n        {\n          \"crossReferences\": [\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            },\n            {\n              \"databaseName\": \"string\",\n              \"identifier\": \"string\",\n              \"url\": \"string\"\n            }\n          ],\n          \"physicalEntities\": [\n            \"string\",\n            \"string\"\n          ],\n          \"reference\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"empty\": false,\n  \"first\": true,\n  \"last\": true,\n  \"number\": 434,\n  \"numberOfElements\": 6244,\n  \"pageable\": {\n    \"offset\": 2222,\n    \"pageNumber\": 1771,\n    \"pageSize\": 1368,\n    \"paged\": true,\n    \"sort\": {\n      \"empty\": false,\n      \"sorted\": true,\n      \"unsorted\": true\n    },\n    \"unpaged\": true\n  },\n  \"size\": 9555,\n  \"sort\": {\n    \"empty\": false,\n    \"sorted\": true,\n    \"unsorted\": true\n  },\n  \"totalElements\": 1883,\n  \"totalPages\": 305\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f629288-9130-4b08-aeb1-f2392bcdbcb9",
+          "name": "All ReferenceEntities for a given identifier",
+          "request": {
+            "name": "All ReferenceEntities for a given identifier",
+            "description": {
+              "content": "Retrieves a list containing all the reference entities for a given identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "references",
+                "mapping",
+                ":identifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) Identifier for a given entity"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5f00eb7-0e37-48a6-83ec-25dce8562819",
+              "name": "Identifier does not match with any reference entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "references",
+                    "mapping",
+                    ":identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) Identifier for a given entity"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1259d03-1b6c-4620-8db2-c827d5fbced9",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "references",
+                    "mapping",
+                    ":identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) Identifier for a given entity"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d04984ac-c090-4df2-95d8-548b5192ca57",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "references",
+                    "mapping",
+                    ":identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) Identifier for a given entity"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ba5f5eb-3ea7-4d76-8899-9cdcd7195bf7",
+          "name": "All cross references and physical entities associated with a given identifier",
+          "request": {
+            "name": "All cross references and physical entities associated with a given identifier",
+            "description": {
+              "content": "Retrieves a list containing cross references and physical entities associated with the matching reference entities identifier",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "references",
+                "mapping",
+                ":identifier",
+                "xrefs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "dbFilter",
+                  "value": "<string>",
+                  "description": "Database filter to apply to results"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) Identifier for a given entity"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "666afc94-5c4c-49d4-bfc0-368cc8837e84",
+              "name": "Identifier does not match with any reference entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "references",
+                    "mapping",
+                    ":identifier",
+                    "xrefs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dbFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) Identifier for a given entity"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"crossReferences\": [\n      {\n        \"databaseName\": \"string\",\n        \"identifier\": \"string\",\n        \"url\": \"string\"\n      },\n      {\n        \"databaseName\": \"string\",\n        \"identifier\": \"string\",\n        \"url\": \"string\"\n      }\n    ],\n    \"physicalEntities\": [\n      \"string\",\n      \"string\"\n    ],\n    \"reference\": \"string\"\n  },\n  {\n    \"crossReferences\": [\n      {\n        \"databaseName\": \"string\",\n        \"identifier\": \"string\",\n        \"url\": \"string\"\n      },\n      {\n        \"databaseName\": \"string\",\n        \"identifier\": \"string\",\n        \"url\": \"string\"\n      }\n    ],\n    \"physicalEntities\": [\n      \"string\",\n      \"string\"\n    ],\n    \"reference\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "582e9309-26e2-478b-9501-9d329a0d07e9",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "references",
+                    "mapping",
+                    ":identifier",
+                    "xrefs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dbFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) Identifier for a given entity"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"crossReferences\": [\n      {\n        \"databaseName\": \"string\",\n        \"identifier\": \"string\",\n        \"url\": \"string\"\n      },\n      {\n        \"databaseName\": \"string\",\n        \"identifier\": \"string\",\n        \"url\": \"string\"\n      }\n    ],\n    \"physicalEntities\": [\n      \"string\",\n      \"string\"\n    ],\n    \"reference\": \"string\"\n  },\n  {\n    \"crossReferences\": [\n      {\n        \"databaseName\": \"string\",\n        \"identifier\": \"string\",\n        \"url\": \"string\"\n      },\n      {\n        \"databaseName\": \"string\",\n        \"identifier\": \"string\",\n        \"url\": \"string\"\n      }\n    ],\n    \"physicalEntities\": [\n      \"string\",\n      \"string\"\n    ],\n    \"reference\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c027e9f-3421-4e2e-ac3f-d18a799bc062",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "references",
+                    "mapping",
+                    ":identifier",
+                    "xrefs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dbFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) Identifier for a given entity"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"crossReferences\": [\n      {\n        \"databaseName\": \"string\",\n        \"identifier\": \"string\",\n        \"url\": \"string\"\n      },\n      {\n        \"databaseName\": \"string\",\n        \"identifier\": \"string\",\n        \"url\": \"string\"\n      }\n    ],\n    \"physicalEntities\": [\n      \"string\",\n      \"string\"\n    ],\n    \"reference\": \"string\"\n  },\n  {\n    \"crossReferences\": [\n      {\n        \"databaseName\": \"string\",\n        \"identifier\": \"string\",\n        \"url\": \"string\"\n      },\n      {\n        \"databaseName\": \"string\",\n        \"identifier\": \"string\",\n        \"url\": \"string\"\n      }\n    ],\n    \"physicalEntities\": [\n      \"string\",\n      \"string\"\n    ],\n    \"reference\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d7e86ff3-7855-4fc8-b107-10787cb02efa",
+    "name": "Pathway Analysis Service database references API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

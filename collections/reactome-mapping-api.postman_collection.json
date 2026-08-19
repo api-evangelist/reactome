@@ -1,0 +1,1631 @@
+{
+  "item": [
+    {
+      "id": "c1401019-162a-4f53-8f29-cd1b31d1ff6b",
+      "name": "mapping",
+      "description": {
+        "content": "Identifiers mapping methods",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d75a306d-1467-4ca7-a280-42f3b78048b1",
+          "name": "get Mapping",
+          "request": {
+            "name": "get Mapping",
+            "description": {
+              "content": "Maps the post identifiers over the different species",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mapping",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interactors",
+                  "value": "false",
+                  "description": "Include interactors"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Only include resources which can be later imported"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "9a6627c9-5e92-41a4-b348-42e34c186053",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c8fa5c5-e7fb-4975-9683-884ad123f9a6",
+          "name": "get Mapping Post File",
+          "request": {
+            "name": "get Mapping Post File",
+            "description": {
+              "content": "Maps the identifiers in the file over the different species",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mapping",
+                "form"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interactors",
+                  "value": "false",
+                  "description": "Include interactors"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Only include resources which can be later imported"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) A file with the data to be mapped"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9c9ae5b6-ec18-4e22-aa70-6c8c65b4f50f",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) A file with the data to be mapped",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7d564ca-04f8-4682-a44b-20fb50d0340e",
+              "name": "The file size is larger than the maximum configured size (50MB)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) A file with the data to be mapped",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2279f0f-4121-4d86-97ef-76b0dbe5cbb6",
+              "name": "Unsupported Media Type (only 'text/plain')",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) A file with the data to be mapped",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0995449e-8a1e-4d58-8b43-952faa1442bf",
+          "name": "Maps the identifiers in the file over the different species and projects the result to Homo Sapiens",
+          "request": {
+            "name": "Maps the identifiers in the file over the different species and projects the result to Homo Sapiens",
+            "description": {
+              "content": "The projection is calculated by the orthologous slot in the Reactome database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mapping",
+                "form",
+                "projection"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interactors",
+                  "value": "false",
+                  "description": "Include interactors"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Only include resources which can be later imported"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) A file with the data to be mapped"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9e5fa769-23bb-43da-b3d5-18fa7495617a",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "form",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) A file with the data to be mapped",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "330beaf7-7c55-402c-816f-8f7807d3b9da",
+              "name": "The file size is larger than the maximum configured size (50MB)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "form",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) A file with the data to be mapped",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10b368b4-e438-4090-8793-e43e4cfe842d",
+              "name": "Unsupported Media Type (only 'text/plain')",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "form",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) A file with the data to be mapped",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d2936b5-d18c-4f26-ad50-b7fc60fdc6dc",
+          "name": "Maps the post identifiers over the different species and projects the result to Homo Sapiens",
+          "request": {
+            "name": "Maps the post identifiers over the different species and projects the result to Homo Sapiens",
+            "description": {
+              "content": "The projection is calculated by the orthologous slot in the Reactome database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mapping",
+                "projection"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interactors",
+                  "value": "false",
+                  "description": "Include interactors"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Only include resources which can be later imported"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "aae1cfa0-660d-40b6-897d-850fcafb7cc9",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e37858f-1c45-4187-ac45-5a9b5bed140c",
+          "name": "Maps the identifiers contained in the provided url over the different species",
+          "request": {
+            "name": "Maps the identifiers contained in the provided url over the different species",
+            "description": {},
+            "url": {
+              "path": [
+                "mapping",
+                "url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interactors",
+                  "value": "false",
+                  "description": "Include interactors"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Only include resources which can be later imported"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "36251ac1-1bbe-4e66-a70c-4e7f3e0fa926",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d9950d1-c8ff-4e9f-aa8d-976c8cd439cc",
+              "name": "The file size is larger than the maximum configured size (50MB)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13131b8a-35d4-479a-ba17-20f3ac315db0",
+              "name": "Unsupported Media Type (only 'text/plain')",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e92100c2-f1ae-4d9c-8528-f43005f1155d",
+              "name": "The provided URL is not processable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ea3b029-251b-4b35-bce5-5bca93d18727",
+          "name": "Maps the identifiers contained in the provided url over the different species and projects the result to Homo Sapiens",
+          "request": {
+            "name": "Maps the identifiers contained in the provided url over the different species and projects the result to Homo Sapiens",
+            "description": {
+              "content": "The projection is calculated by the orthologous slot in the Reactome database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mapping",
+                "url",
+                "projection"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interactors",
+                  "value": "false",
+                  "description": "Include interactors"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Only include resources which can be later imported"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "9fe08fda-e4ca-4595-bd8e-2f9c3bae03b0",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "url",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22629fe4-8aa5-4d10-a643-ba902e45463f",
+              "name": "The file size is larger than the maximum configured size (50MB)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "url",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d46210f4-52ad-409d-b6eb-f7e921a69b6c",
+              "name": "Unsupported Media Type (only 'text/plain')",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "url",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ceb4c6b6-488c-456f-ab98-5bdf730d36a9",
+              "name": "The provided URL is not processable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "url",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  },\n  {\n    \"identifier\": \"string\",\n    \"mapsTo\": [\n      {\n        \"identifier\": \"string\",\n        \"interactsWith\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MappedIdentifier detected>\"\n          }\n        ],\n        \"resource\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4143d120-21c4-4767-80d1-73ed88b37899",
+          "name": "The lower level pathways where an identifier can be mapped to",
+          "request": {
+            "name": "The lower level pathways where an identifier can be mapped to",
+            "description": {
+              "content": "Entities play different roles in reactions, and reactions are events that conform a pathway. This method retrieves the pathways for which an identifier plays a role within one or more of their events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "mapping",
+                ":resource",
+                ":identifier",
+                "pathways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "species",
+                  "value": "<string>",
+                  "description": "Species for which the result is filtered. Accepts <b>taxonomy id</b>, <b>species name</b> and <b>dbId</b>. Important: when identifier points to chemical, this becomes mandatory and if not provided, the default is 'Homo sapiens'"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource",
+                  "description": "(Required) The <a href='/content/schema/objects/ReferenceDatabase'>resource</a> <b>name</b> for which the identifier is submitted"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) The identifier to be mapped"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae98c8e6-6a35-4edf-95c2-b3052c02e619",
+              "name": "No pathways found for the submitted identifier/resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "mapping",
+                    ":resource",
+                    ":identifier",
+                    "pathways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) The <a href='/content/schema/objects/ReferenceDatabase'>resource</a> <b>name</b> for which the identifier is submitted"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) The identifier to be mapped"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d498901b-f178-4129-9a01-6540aeaaa892",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "mapping",
+                    ":resource",
+                    ":identifier",
+                    "pathways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) The <a href='/content/schema/objects/ReferenceDatabase'>resource</a> <b>name</b> for which the identifier is submitted"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) The identifier to be mapped"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65a69cd8-e53d-4ccd-874d-74b229be00b7",
+          "name": "The reactions where an identifier can be mapped to",
+          "request": {
+            "name": "The reactions where an identifier can be mapped to",
+            "description": {
+              "content": "Entities play different roles in reactions. This method retrieves the reactions for which an identifier plays a role .",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "mapping",
+                ":resource",
+                ":identifier",
+                "reactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "species",
+                  "value": "<string>",
+                  "description": "Species for which the result is filtered. Accepts <b>taxonomy id</b>, <b>species name</b> and <b>dbId</b>. Important: when identifier points to chemical, this becomes mandatory and if not provided, the default is 'Homo sapiens'"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource",
+                  "description": "(Required) The <a href='/content/schema/objects/ReferenceDatabase'>resource</a> <b>name</b> for which the identifier is submitted"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) The identifier to be mapped"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2aedb3fa-cdfa-4159-80ab-3aa525cd9cfa",
+              "name": "No reactions found for the submitted identifier/resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "mapping",
+                    ":resource",
+                    ":identifier",
+                    "reactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) The <a href='/content/schema/objects/ReferenceDatabase'>resource</a> <b>name</b> for which the identifier is submitted"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) The identifier to be mapped"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cecd5c83-737b-4617-8893-a06be67b9e54",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "mapping",
+                    ":resource",
+                    ":identifier",
+                    "reactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource",
+                      "description": "(Required) The <a href='/content/schema/objects/ReferenceDatabase'>resource</a> <b>name</b> for which the identifier is submitted"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) The identifier to be mapped"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "58bffc14-4630-4590-aef3-5e104429fd29",
+    "name": "Pathway Analysis Service database mapping API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

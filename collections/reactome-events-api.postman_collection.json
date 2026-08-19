@@ -1,0 +1,823 @@
+{
+  "item": [
+    {
+      "id": "2d3b186d-da57-4c2b-903f-1da6e9b42c33",
+      "name": "events",
+      "description": {
+        "content": "Reactome Data: Queries related to events",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c72c2d38-1365-4e8e-9fdf-53f7ad8a529c",
+          "name": "The ancestors of a given event",
+          "request": {
+            "name": "The ancestors of a given event",
+            "description": {
+              "content": "The Reactome definition of events includes pathways and reactions. Although events are organised in a hierarchical structure, a single event can be in more than one location, i.e. a reaction can take part in different pathways while, in the same way, a sub-pathway can take part in many pathways. Therefore, this method retrieves a list of all possible paths from the requested event to the top level pathway(s).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "event",
+                ":id",
+                "ancestors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The event for which the ancestors are requested"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7f3430c8-b1ce-4244-a601-378b0a5211a3",
+              "name": "Identifier does not match with any in current data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "event",
+                    ":id",
+                    "ancestors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The event for which the ancestors are requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  [\n    {\n      \"category\": \"string\",\n      \"dbId\": 1867,\n      \"definition\": \"string\",\n      \"diagramHeight\": 9121,\n      \"diagramWidth\": 8921,\n      \"displayName\": \"string\",\n      \"doi\": \"string\",\n      \"hasDiagram\": false,\n      \"hasEHLD\": true,\n      \"inDisease\": true,\n      \"inferred\": false,\n      \"isCanonical\": \"string\",\n      \"name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"oldStId\": \"string\",\n      \"releaseDate\": \"string\",\n      \"releaseStatus\": \"string\",\n      \"schemaClass\": \"string\",\n      \"speciesName\": \"string\",\n      \"stId\": \"string\",\n      \"stIdVersion\": \"string\"\n    },\n    {\n      \"category\": \"string\",\n      \"dbId\": 6078,\n      \"definition\": \"string\",\n      \"diagramHeight\": 2629,\n      \"diagramWidth\": 4684,\n      \"displayName\": \"string\",\n      \"doi\": \"string\",\n      \"hasDiagram\": true,\n      \"hasEHLD\": false,\n      \"inDisease\": true,\n      \"inferred\": true,\n      \"isCanonical\": \"string\",\n      \"name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"oldStId\": \"string\",\n      \"releaseDate\": \"string\",\n      \"releaseStatus\": \"string\",\n      \"schemaClass\": \"string\",\n      \"speciesName\": \"string\",\n      \"stId\": \"string\",\n      \"stIdVersion\": \"string\"\n    }\n  ],\n  [\n    {\n      \"category\": \"string\",\n      \"dbId\": 4259,\n      \"definition\": \"string\",\n      \"diagramHeight\": 5343,\n      \"diagramWidth\": 7127,\n      \"displayName\": \"string\",\n      \"doi\": \"string\",\n      \"hasDiagram\": false,\n      \"hasEHLD\": true,\n      \"inDisease\": false,\n      \"inferred\": false,\n      \"isCanonical\": \"string\",\n      \"name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"oldStId\": \"string\",\n      \"releaseDate\": \"string\",\n      \"releaseStatus\": \"string\",\n      \"schemaClass\": \"string\",\n      \"speciesName\": \"string\",\n      \"stId\": \"string\",\n      \"stIdVersion\": \"string\"\n    },\n    {\n      \"category\": \"string\",\n      \"dbId\": 8646,\n      \"definition\": \"string\",\n      \"diagramHeight\": 230,\n      \"diagramWidth\": 5248,\n      \"displayName\": \"string\",\n      \"doi\": \"string\",\n      \"hasDiagram\": true,\n      \"hasEHLD\": false,\n      \"inDisease\": false,\n      \"inferred\": true,\n      \"isCanonical\": \"string\",\n      \"name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"oldStId\": \"string\",\n      \"releaseDate\": \"string\",\n      \"releaseStatus\": \"string\",\n      \"schemaClass\": \"string\",\n      \"speciesName\": \"string\",\n      \"stId\": \"string\",\n      \"stIdVersion\": \"string\"\n    }\n  ]\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2252c2db-df41-4321-b73c-531dad026066",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "event",
+                    ":id",
+                    "ancestors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The event for which the ancestors are requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  [\n    {\n      \"category\": \"string\",\n      \"dbId\": 2323,\n      \"definition\": \"string\",\n      \"diagramHeight\": 4065,\n      \"diagramWidth\": 3332,\n      \"displayName\": \"string\",\n      \"doi\": \"string\",\n      \"hasDiagram\": true,\n      \"hasEHLD\": true,\n      \"inDisease\": false,\n      \"inferred\": true,\n      \"isCanonical\": \"string\",\n      \"name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"oldStId\": \"string\",\n      \"releaseDate\": \"string\",\n      \"releaseStatus\": \"string\",\n      \"schemaClass\": \"string\",\n      \"speciesName\": \"string\",\n      \"stId\": \"string\",\n      \"stIdVersion\": \"string\"\n    },\n    {\n      \"category\": \"string\",\n      \"dbId\": 4850,\n      \"definition\": \"string\",\n      \"diagramHeight\": 5357,\n      \"diagramWidth\": 1938,\n      \"displayName\": \"string\",\n      \"doi\": \"string\",\n      \"hasDiagram\": false,\n      \"hasEHLD\": true,\n      \"inDisease\": false,\n      \"inferred\": false,\n      \"isCanonical\": \"string\",\n      \"name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"oldStId\": \"string\",\n      \"releaseDate\": \"string\",\n      \"releaseStatus\": \"string\",\n      \"schemaClass\": \"string\",\n      \"speciesName\": \"string\",\n      \"stId\": \"string\",\n      \"stIdVersion\": \"string\"\n    }\n  ],\n  [\n    {\n      \"category\": \"string\",\n      \"dbId\": 9299,\n      \"definition\": \"string\",\n      \"diagramHeight\": 4801,\n      \"diagramWidth\": 9280,\n      \"displayName\": \"string\",\n      \"doi\": \"string\",\n      \"hasDiagram\": true,\n      \"hasEHLD\": true,\n      \"inDisease\": true,\n      \"inferred\": false,\n      \"isCanonical\": \"string\",\n      \"name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"oldStId\": \"string\",\n      \"releaseDate\": \"string\",\n      \"releaseStatus\": \"string\",\n      \"schemaClass\": \"string\",\n      \"speciesName\": \"string\",\n      \"stId\": \"string\",\n      \"stIdVersion\": \"string\"\n    },\n    {\n      \"category\": \"string\",\n      \"dbId\": 802,\n      \"definition\": \"string\",\n      \"diagramHeight\": 953,\n      \"diagramWidth\": 2120,\n      \"displayName\": \"string\",\n      \"doi\": \"string\",\n      \"hasDiagram\": false,\n      \"hasEHLD\": true,\n      \"inDisease\": true,\n      \"inferred\": true,\n      \"isCanonical\": \"string\",\n      \"name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"oldStId\": \"string\",\n      \"releaseDate\": \"string\",\n      \"releaseStatus\": \"string\",\n      \"schemaClass\": \"string\",\n      \"speciesName\": \"string\",\n      \"stId\": \"string\",\n      \"stIdVersion\": \"string\"\n    }\n  ]\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0b464a9-a2ab-4683-9578-4c943e626edd",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "event",
+                    ":id",
+                    "ancestors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The event for which the ancestors are requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  [\n    {\n      \"category\": \"string\",\n      \"dbId\": 2323,\n      \"definition\": \"string\",\n      \"diagramHeight\": 4065,\n      \"diagramWidth\": 3332,\n      \"displayName\": \"string\",\n      \"doi\": \"string\",\n      \"hasDiagram\": true,\n      \"hasEHLD\": true,\n      \"inDisease\": false,\n      \"inferred\": true,\n      \"isCanonical\": \"string\",\n      \"name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"oldStId\": \"string\",\n      \"releaseDate\": \"string\",\n      \"releaseStatus\": \"string\",\n      \"schemaClass\": \"string\",\n      \"speciesName\": \"string\",\n      \"stId\": \"string\",\n      \"stIdVersion\": \"string\"\n    },\n    {\n      \"category\": \"string\",\n      \"dbId\": 4850,\n      \"definition\": \"string\",\n      \"diagramHeight\": 5357,\n      \"diagramWidth\": 1938,\n      \"displayName\": \"string\",\n      \"doi\": \"string\",\n      \"hasDiagram\": false,\n      \"hasEHLD\": true,\n      \"inDisease\": false,\n      \"inferred\": false,\n      \"isCanonical\": \"string\",\n      \"name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"oldStId\": \"string\",\n      \"releaseDate\": \"string\",\n      \"releaseStatus\": \"string\",\n      \"schemaClass\": \"string\",\n      \"speciesName\": \"string\",\n      \"stId\": \"string\",\n      \"stIdVersion\": \"string\"\n    }\n  ],\n  [\n    {\n      \"category\": \"string\",\n      \"dbId\": 9299,\n      \"definition\": \"string\",\n      \"diagramHeight\": 4801,\n      \"diagramWidth\": 9280,\n      \"displayName\": \"string\",\n      \"doi\": \"string\",\n      \"hasDiagram\": true,\n      \"hasEHLD\": true,\n      \"inDisease\": true,\n      \"inferred\": false,\n      \"isCanonical\": \"string\",\n      \"name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"oldStId\": \"string\",\n      \"releaseDate\": \"string\",\n      \"releaseStatus\": \"string\",\n      \"schemaClass\": \"string\",\n      \"speciesName\": \"string\",\n      \"stId\": \"string\",\n      \"stIdVersion\": \"string\"\n    },\n    {\n      \"category\": \"string\",\n      \"dbId\": 802,\n      \"definition\": \"string\",\n      \"diagramHeight\": 953,\n      \"diagramWidth\": 2120,\n      \"displayName\": \"string\",\n      \"doi\": \"string\",\n      \"hasDiagram\": false,\n      \"hasEHLD\": true,\n      \"inDisease\": true,\n      \"inferred\": true,\n      \"isCanonical\": \"string\",\n      \"name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"oldStId\": \"string\",\n      \"releaseDate\": \"string\",\n      \"releaseStatus\": \"string\",\n      \"schemaClass\": \"string\",\n      \"speciesName\": \"string\",\n      \"stId\": \"string\",\n      \"stIdVersion\": \"string\"\n    }\n  ]\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "246d803b-565f-4e32-bffa-409fb4168cea",
+          "name": "get Event In Depth",
+          "request": {
+            "name": "get Event In Depth",
+            "description": {},
+            "url": {
+              "path": [
+                "data",
+                "event",
+                ":id",
+                "in-depth"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "maxDepth",
+                  "value": "1",
+                  "description": "Specify the depth needed for the given entity. If negative, fetches everything. If not, fetches the specified amount of nesting"
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes",
+                  "value": "species,compartment",
+                  "description": "Specify the attributes to load for each level of the entity"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The complex for which subunits are requested"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "958edef3-b75c-4f44-bf71-57325179ef37",
+              "name": "Identifier does not match with any in current data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "event",
+                    ":id",
+                    "in-depth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxDepth",
+                      "value": "1"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "species,compartment"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The complex for which subunits are requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "33914a4c-8144-4705-870a-f2e0813d0de9",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "event",
+                    ":id",
+                    "in-depth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxDepth",
+                      "value": "1"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "species,compartment"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The complex for which subunits are requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2bd587bc-4d36-46f6-8703-e9a079c0ab82",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "event",
+                    ":id",
+                    "in-depth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxDepth",
+                      "value": "1"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "species,compartment"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The complex for which subunits are requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9c20627-d051-47b6-a697-96406c707d06",
+          "name": "The full event hierarchy for a given species",
+          "request": {
+            "name": "The full event hierarchy for a given species",
+            "description": {
+              "content": "Events (pathways and reactions) in Reactome are organised in a hierarchical structure for every species. By following all 'hasEvent' relationships, this method retrieves the full event hierarchy for any given species. The result is a list of tree structures, one for each TopLevelPathway. Every event in these trees is represented by a PathwayBrowserNode. The latter contains the stable identifier, the name, the species, the url, the type, and the diagram of the particular event.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "eventsHierarchy",
+                ":species"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pathwaysOnly",
+                  "value": "false",
+                  "description": "Only get pathways"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> token with the results to be overlaid on top of the given pathways overview"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "TOTAL",
+                  "description": "The <a href=\"/dev/analysis\" target=\"_blank\">analysis</a> resource for which the results will be overlaid on top of the given pathways overview"
+                },
+                {
+                  "disabled": false,
+                  "key": "interactors",
+                  "value": "false",
+                  "description": "Include interactors"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "species",
+                  "description": "(Required) Allowed species filter: SpeciesName (eg: Homo sapiens) SpeciesTaxId (eg: 9606)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1123fa45-5008-4b01-81b6-4fb71b7ed76d",
+              "name": "Species does not match with any in current data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "eventsHierarchy",
+                    ":species"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pathwaysOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "species",
+                      "description": "(Required) Allowed species filter: SpeciesName (eg: Homo sapiens) SpeciesTaxId (eg: 9606)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"children\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/PathwayBrowserNode detected>\"\n      }\n    ],\n    \"diagram\": false,\n    \"name\": \"string\",\n    \"species\": \"string\",\n    \"stId\": \"string\",\n    \"type\": \"string\",\n    \"url\": \"string\"\n  },\n  {\n    \"children\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/PathwayBrowserNode detected>\"\n      }\n    ],\n    \"diagram\": true,\n    \"name\": \"string\",\n    \"species\": \"string\",\n    \"stId\": \"string\",\n    \"type\": \"string\",\n    \"url\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "53fcda21-02dc-4b1c-87d8-195a02da2b17",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "eventsHierarchy",
+                    ":species"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pathwaysOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "species",
+                      "description": "(Required) Allowed species filter: SpeciesName (eg: Homo sapiens) SpeciesTaxId (eg: 9606)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"children\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/PathwayBrowserNode detected>\"\n      }\n    ],\n    \"diagram\": true,\n    \"name\": \"string\",\n    \"species\": \"string\",\n    \"stId\": \"string\",\n    \"type\": \"string\",\n    \"url\": \"string\"\n  },\n  {\n    \"children\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/PathwayBrowserNode detected>\"\n      }\n    ],\n    \"diagram\": true,\n    \"name\": \"string\",\n    \"species\": \"string\",\n    \"stId\": \"string\",\n    \"type\": \"string\",\n    \"url\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10cb2ed9-baa5-426b-a764-4b6b92034eb0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "eventsHierarchy",
+                    ":species"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pathwaysOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "species",
+                      "description": "(Required) Allowed species filter: SpeciesName (eg: Homo sapiens) SpeciesTaxId (eg: 9606)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"children\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/PathwayBrowserNode detected>\"\n      }\n    ],\n    \"diagram\": true,\n    \"name\": \"string\",\n    \"species\": \"string\",\n    \"stId\": \"string\",\n    \"type\": \"string\",\n    \"url\": \"string\"\n  },\n  {\n    \"children\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/PathwayBrowserNode detected>\"\n      }\n    ],\n    \"diagram\": true,\n    \"name\": \"string\",\n    \"species\": \"string\",\n    \"stId\": \"string\",\n    \"type\": \"string\",\n    \"url\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a57aa60d-bb89-4ba1-b1b2-4271fe7c3f79",
+    "name": "Pathway Analysis Service database events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,533 @@
+{
+  "item": [
+    {
+      "id": "2a1fb62c-05fc-44c3-b9a7-cd95dc0b6dfc",
+      "name": "orthology",
+      "description": {
+        "content": "Reactome Data: Orthology related queries",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0ecd55c9-2823-4d06-86f6-6fa0889e5b3a",
+          "name": "The orthologies of a given set of events or entities",
+          "request": {
+            "name": "The orthologies of a given set of events or entities",
+            "description": {
+              "content": "Reactome uses the set of manually curated human reactions to computationally infer reactions in twenty evolutionarily divergent eukaryotic species for which high-quality whole-genome sequence data are available, and hence a comprehensive and high-quality set of protein predictions exists. Thus, this method retrieves the orthologies for any given set of events or entities in the specified species. <a href=\"/documentation/inferred-events/\" target=\"_blank\">Here</a> you can find more information about the computationally inferred events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "orthologies",
+                "ids",
+                "species",
+                ":speciesId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "speciesId",
+                  "description": "(Required) The species for which the orthology is requested"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "5b7af059-77f3-471b-8143-6c03f18fc088",
+              "name": "Species does not match with any in current data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "orthologies",
+                    "ids",
+                    "species",
+                    ":speciesId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "speciesId",
+                      "description": "(Required) The species for which the orthology is requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": {\n    \"className\": \"string\",\n    \"created\": {},\n    \"dbId\": 5102,\n    \"displayName\": \"string\",\n    \"modified\": {},\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\",\n    \"stIdVersion\": \"string\"\n  },\n  \"key_1\": {\n    \"className\": \"string\",\n    \"created\": {},\n    \"dbId\": 2313,\n    \"displayName\": \"string\",\n    \"modified\": {},\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\",\n    \"stIdVersion\": \"string\"\n  },\n  \"key_2\": {\n    \"className\": \"string\",\n    \"created\": {},\n    \"dbId\": 2904,\n    \"displayName\": \"string\",\n    \"modified\": {},\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\",\n    \"stIdVersion\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f0edfc6-0672-4a5d-9cec-ef72e43aceef",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "orthologies",
+                    "ids",
+                    "species",
+                    ":speciesId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "speciesId",
+                      "description": "(Required) The species for which the orthology is requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": {\n    \"className\": \"string\",\n    \"created\": {},\n    \"dbId\": 5102,\n    \"displayName\": \"string\",\n    \"modified\": {},\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\",\n    \"stIdVersion\": \"string\"\n  },\n  \"key_1\": {\n    \"className\": \"string\",\n    \"created\": {},\n    \"dbId\": 2313,\n    \"displayName\": \"string\",\n    \"modified\": {},\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\",\n    \"stIdVersion\": \"string\"\n  },\n  \"key_2\": {\n    \"className\": \"string\",\n    \"created\": {},\n    \"dbId\": 2904,\n    \"displayName\": \"string\",\n    \"modified\": {},\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\",\n    \"stIdVersion\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a419cfa-4f2e-4cae-9f50-9aabad3a263a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "orthologies",
+                    "ids",
+                    "species",
+                    ":speciesId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "speciesId",
+                      "description": "(Required) The species for which the orthology is requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": {\n    \"className\": \"string\",\n    \"created\": {},\n    \"dbId\": 5102,\n    \"displayName\": \"string\",\n    \"modified\": {},\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\",\n    \"stIdVersion\": \"string\"\n  },\n  \"key_1\": {\n    \"className\": \"string\",\n    \"created\": {},\n    \"dbId\": 2313,\n    \"displayName\": \"string\",\n    \"modified\": {},\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\",\n    \"stIdVersion\": \"string\"\n  },\n  \"key_2\": {\n    \"className\": \"string\",\n    \"created\": {},\n    \"dbId\": 2904,\n    \"displayName\": \"string\",\n    \"modified\": {},\n    \"schemaClass\": \"string\",\n    \"stId\": \"string\",\n    \"stIdVersion\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b5d36c4-7e62-473e-814b-0790cf9e10ab",
+          "name": "The orthology for a given event or entity",
+          "request": {
+            "name": "The orthology for a given event or entity",
+            "description": {
+              "content": "Reactome uses the set of manually curated human reactions to computationally infer reactions in twenty evolutionarily divergent eukaryotic species for which high-quality whole-genome sequence data are available, and hence a comprehensive and high-quality set of protein predictions exists. Thus, this method retrieves the orthology for any given event or entity in the specified species. <a href=\"//www.reactome.org/pages/documentation/electronically-inferred-events/\" target=\"_blank\">Here</a> you can find more information about the computationally inferred events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "orthology",
+                ":id",
+                "species",
+                ":speciesId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "flatten",
+                  "description": "Global parameter - Customise the view to be more concise and/or aggregate relationships"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRef",
+                  "value": "false",
+                  "description": "Global parameter - If true, replace element ref to dbId by standard JSOG object {@ref}"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The event for which the orthology is requested"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "speciesId",
+                  "description": "(Required) The species for which the orthology is requested"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c9f7f76e-e7a3-4146-ab52-0f1cfa5bf2bc",
+              "name": "Species does not match with any in current data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "orthology",
+                    ":id",
+                    "species",
+                    ":speciesId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The event for which the orthology is requested"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "speciesId",
+                      "description": "(Required) The species for which the orthology is requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"className\": \"string\",\n  \"created\": {},\n  \"dbId\": 4832,\n  \"displayName\": \"string\",\n  \"modified\": {},\n  \"schemaClass\": \"string\",\n  \"stId\": \"string\",\n  \"stIdVersion\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44224bbd-6470-41de-bdec-0630edd32076",
+              "name": "Not acceptable according to the accept headers sent in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "orthology",
+                    ":id",
+                    "species",
+                    ":speciesId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The event for which the orthology is requested"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "speciesId",
+                      "description": "(Required) The species for which the orthology is requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"className\": \"string\",\n  \"created\": {},\n  \"dbId\": 4832,\n  \"displayName\": \"string\",\n  \"modified\": {},\n  \"schemaClass\": \"string\",\n  \"stId\": \"string\",\n  \"stIdVersion\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80189e6c-5dd0-494d-977b-9c794e594a74",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "orthology",
+                    ":id",
+                    "species",
+                    ":speciesId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "flatten"
+                    },
+                    {
+                      "key": "includeRef",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The event for which the orthology is requested"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "speciesId",
+                      "description": "(Required) The species for which the orthology is requested"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"className\": \"string\",\n  \"created\": {},\n  \"dbId\": 4832,\n  \"displayName\": \"string\",\n  \"modified\": {},\n  \"schemaClass\": \"string\",\n  \"stId\": \"string\",\n  \"stIdVersion\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b27b6758-1ee7-4781-9ab3-107f4c33b994",
+    "name": "Pathway Analysis Service database orthology API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

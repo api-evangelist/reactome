@@ -1,0 +1,2152 @@
+{
+  "item": [
+    {
+      "id": "3f8b9602-62cc-4669-ab48-242b95512c64",
+      "name": "identifiers",
+      "description": {
+        "content": "Queries for multiple identifiers",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9c117dc6-6194-4c5f-b8b4-b6ba1c43d0eb",
+          "name": "Analyse the post identifiers over the different species",
+          "request": {
+            "name": "Analyse the post identifiers over the different species",
+            "description": {
+              "content": "Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type). The token which includes analysis results are available for 7 days after your last execution, you have to re-generate it if you would like to keep using the token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identifiers",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interactors",
+                  "value": "false",
+                  "description": "Include interactors"
+                },
+                {
+                  "disabled": false,
+                  "key": "species",
+                  "value": "<string>",
+                  "description": "list of species to filter the result (accepts taxonomy ids, species names and dbId)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "pathways per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pValue",
+                  "value": "1",
+                  "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDisease",
+                  "value": "true",
+                  "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+                },
+                {
+                  "disabled": false,
+                  "key": "min",
+                  "value": "<integer>",
+                  "description": "minimum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "maximum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "d41813bc-1bf5-41d2-9911-209b1014e572",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 1840.952992533188,\n    \"min\": 3780.4384079332954\n  },\n  \"identifiersNotFound\": 3165,\n  \"pathways\": [\n    {\n      \"dbId\": 2121,\n      \"entities\": {\n        \"curatedFound\": 6418,\n        \"curatedTotal\": 2861,\n        \"exp\": [\n          1307.463020071662,\n          235.9916459885636\n        ],\n        \"fdr\": 5977.523008339192,\n        \"found\": 5235,\n        \"getpValue\": 5583.518851099272,\n        \"interactorsFound\": 4969,\n        \"interactorsTotal\": 9129,\n        \"ratio\": 3926.479107672127,\n        \"resource\": \"string\",\n        \"total\": 5450\n      },\n      \"inDisease\": false,\n      \"llp\": false,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5109,\n        \"ratio\": 4693.820499823288,\n        \"resource\": \"string\",\n        \"total\": 1716\n      },\n      \"species\": {\n        \"dbId\": 9953,\n        \"filtered\": 7570,\n        \"name\": \"string\",\n        \"pathways\": 1499,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 9813,\n      \"entities\": {\n        \"curatedFound\": 6013,\n        \"curatedTotal\": 9757,\n        \"exp\": [\n          9497.376278290538,\n          329.7390901032593\n        ],\n        \"fdr\": 2042.6776828865645,\n        \"found\": 298,\n        \"getpValue\": 7007.924202155999,\n        \"interactorsFound\": 5905,\n        \"interactorsTotal\": 9004,\n        \"ratio\": 186.3436718659095,\n        \"resource\": \"string\",\n        \"total\": 3430\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 1187,\n        \"ratio\": 1208.895926720538,\n        \"resource\": \"string\",\n        \"total\": 2402\n      },\n      \"species\": {\n        \"dbId\": 30,\n        \"filtered\": 3298,\n        \"name\": \"string\",\n        \"pathways\": 9455,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 3376,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 4215,\n      \"pathways\": 1960,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 7377,\n      \"pathways\": 8266,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 4742,\n      \"filtered\": 2812,\n      \"name\": \"string\",\n      \"pathways\": 8222,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 3925,\n      \"filtered\": 6343,\n      \"name\": \"string\",\n      \"pathways\": 7708,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": false,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 8229,\n    \"text\": true,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "997bd49a-9c35-4933-8425-19dba31e3bcb",
+          "name": "Analyse the identifiers in the file over the different species",
+          "request": {
+            "name": "Analyse the identifiers in the file over the different species",
+            "description": {
+              "content": "Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identifiers",
+                "form"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interactors",
+                  "value": "false",
+                  "description": "Include interactors"
+                },
+                {
+                  "disabled": false,
+                  "key": "species",
+                  "value": "<string>",
+                  "description": "list of species to filter the result (accepts taxonomy ids, species names and dbId)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "pathways per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pValue",
+                  "value": "1",
+                  "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDisease",
+                  "value": "true",
+                  "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+                },
+                {
+                  "disabled": false,
+                  "key": "min",
+                  "value": "<integer>",
+                  "description": "minimum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "maximum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) A file with the data to be analysed"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7ce14cd1-5e88-4a72-b958-3f0cd8f741e1",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    "form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) A file with the data to be analysed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5958.297451865335,\n    \"min\": 4217.58692865502\n  },\n  \"identifiersNotFound\": 8471,\n  \"pathways\": [\n    {\n      \"dbId\": 4989,\n      \"entities\": {\n        \"curatedFound\": 3437,\n        \"curatedTotal\": 6305,\n        \"exp\": [\n          2805.161263348521,\n          4935.606446478204\n        ],\n        \"fdr\": 1182.5959317788315,\n        \"found\": 1296,\n        \"getpValue\": 8223.315292227408,\n        \"interactorsFound\": 4843,\n        \"interactorsTotal\": 7110,\n        \"ratio\": 4099.864504287481,\n        \"resource\": \"string\",\n        \"total\": 5429\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7129,\n        \"ratio\": 718.3012802741118,\n        \"resource\": \"string\",\n        \"total\": 1991\n      },\n      \"species\": {\n        \"dbId\": 8862,\n        \"filtered\": 5716,\n        \"name\": \"string\",\n        \"pathways\": 5351,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 8721,\n      \"entities\": {\n        \"curatedFound\": 4257,\n        \"curatedTotal\": 1146,\n        \"exp\": [\n          411.2682733739137,\n          7946.124960234231\n        ],\n        \"fdr\": 6616.595317656852,\n        \"found\": 2465,\n        \"getpValue\": 6480.893924598154,\n        \"interactorsFound\": 2531,\n        \"interactorsTotal\": 1766,\n        \"ratio\": 3758.1907081483255,\n        \"resource\": \"string\",\n        \"total\": 6659\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5919,\n        \"ratio\": 4842.871995038896,\n        \"resource\": \"string\",\n        \"total\": 9558\n      },\n      \"species\": {\n        \"dbId\": 4668,\n        \"filtered\": 5209,\n        \"name\": \"string\",\n        \"pathways\": 5481,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2155,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8438,\n      \"pathways\": 4021,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1379,\n      \"pathways\": 9629,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 1987,\n      \"filtered\": 8164,\n      \"name\": \"string\",\n      \"pathways\": 447,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 8942,\n      \"filtered\": 5324,\n      \"name\": \"string\",\n      \"pathways\": 5343,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 5966,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45be41c1-6e9c-4d58-948b-14e3c74f9ecb",
+              "name": "The file size is larger than the maximum configured size (50MB)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    "form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) A file with the data to be analysed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5958.297451865335,\n    \"min\": 4217.58692865502\n  },\n  \"identifiersNotFound\": 8471,\n  \"pathways\": [\n    {\n      \"dbId\": 4989,\n      \"entities\": {\n        \"curatedFound\": 3437,\n        \"curatedTotal\": 6305,\n        \"exp\": [\n          2805.161263348521,\n          4935.606446478204\n        ],\n        \"fdr\": 1182.5959317788315,\n        \"found\": 1296,\n        \"getpValue\": 8223.315292227408,\n        \"interactorsFound\": 4843,\n        \"interactorsTotal\": 7110,\n        \"ratio\": 4099.864504287481,\n        \"resource\": \"string\",\n        \"total\": 5429\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7129,\n        \"ratio\": 718.3012802741118,\n        \"resource\": \"string\",\n        \"total\": 1991\n      },\n      \"species\": {\n        \"dbId\": 8862,\n        \"filtered\": 5716,\n        \"name\": \"string\",\n        \"pathways\": 5351,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 8721,\n      \"entities\": {\n        \"curatedFound\": 4257,\n        \"curatedTotal\": 1146,\n        \"exp\": [\n          411.2682733739137,\n          7946.124960234231\n        ],\n        \"fdr\": 6616.595317656852,\n        \"found\": 2465,\n        \"getpValue\": 6480.893924598154,\n        \"interactorsFound\": 2531,\n        \"interactorsTotal\": 1766,\n        \"ratio\": 3758.1907081483255,\n        \"resource\": \"string\",\n        \"total\": 6659\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5919,\n        \"ratio\": 4842.871995038896,\n        \"resource\": \"string\",\n        \"total\": 9558\n      },\n      \"species\": {\n        \"dbId\": 4668,\n        \"filtered\": 5209,\n        \"name\": \"string\",\n        \"pathways\": 5481,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2155,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8438,\n      \"pathways\": 4021,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1379,\n      \"pathways\": 9629,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 1987,\n      \"filtered\": 8164,\n      \"name\": \"string\",\n      \"pathways\": 447,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 8942,\n      \"filtered\": 5324,\n      \"name\": \"string\",\n      \"pathways\": 5343,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 5966,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62745272-7ec7-42fe-a44a-e55570e0d569",
+              "name": "Unsupported Media Type (only 'text/plain')",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    "form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) A file with the data to be analysed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5958.297451865335,\n    \"min\": 4217.58692865502\n  },\n  \"identifiersNotFound\": 8471,\n  \"pathways\": [\n    {\n      \"dbId\": 4989,\n      \"entities\": {\n        \"curatedFound\": 3437,\n        \"curatedTotal\": 6305,\n        \"exp\": [\n          2805.161263348521,\n          4935.606446478204\n        ],\n        \"fdr\": 1182.5959317788315,\n        \"found\": 1296,\n        \"getpValue\": 8223.315292227408,\n        \"interactorsFound\": 4843,\n        \"interactorsTotal\": 7110,\n        \"ratio\": 4099.864504287481,\n        \"resource\": \"string\",\n        \"total\": 5429\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7129,\n        \"ratio\": 718.3012802741118,\n        \"resource\": \"string\",\n        \"total\": 1991\n      },\n      \"species\": {\n        \"dbId\": 8862,\n        \"filtered\": 5716,\n        \"name\": \"string\",\n        \"pathways\": 5351,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 8721,\n      \"entities\": {\n        \"curatedFound\": 4257,\n        \"curatedTotal\": 1146,\n        \"exp\": [\n          411.2682733739137,\n          7946.124960234231\n        ],\n        \"fdr\": 6616.595317656852,\n        \"found\": 2465,\n        \"getpValue\": 6480.893924598154,\n        \"interactorsFound\": 2531,\n        \"interactorsTotal\": 1766,\n        \"ratio\": 3758.1907081483255,\n        \"resource\": \"string\",\n        \"total\": 6659\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5919,\n        \"ratio\": 4842.871995038896,\n        \"resource\": \"string\",\n        \"total\": 9558\n      },\n      \"species\": {\n        \"dbId\": 4668,\n        \"filtered\": 5209,\n        \"name\": \"string\",\n        \"pathways\": 5481,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2155,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8438,\n      \"pathways\": 4021,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1379,\n      \"pathways\": 9629,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 1987,\n      \"filtered\": 8164,\n      \"name\": \"string\",\n      \"pathways\": 447,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 8942,\n      \"filtered\": 5324,\n      \"name\": \"string\",\n      \"pathways\": 5343,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 5966,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f11fc4e4-5ee5-408b-9568-cc0fcb8685f0",
+          "name": "Analyse the identifiers in the file over the different species and projects the result to Homo Sapiens",
+          "request": {
+            "name": "Analyse the identifiers in the file over the different species and projects the result to Homo Sapiens",
+            "description": {
+              "content": "The projection is calculated by the orthologous slot in the Reactome database. Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identifiers",
+                "form",
+                "projection"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interactors",
+                  "value": "false",
+                  "description": "Include interactors"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "pathways per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pValue",
+                  "value": "1",
+                  "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDisease",
+                  "value": "true",
+                  "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+                },
+                {
+                  "disabled": false,
+                  "key": "min",
+                  "value": "<integer>",
+                  "description": "minimum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "maximum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) A file with the data to be analysed"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "983a1290-ba6e-4b9d-9037-19b190214e0d",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    "form",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) A file with the data to be analysed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5958.297451865335,\n    \"min\": 4217.58692865502\n  },\n  \"identifiersNotFound\": 8471,\n  \"pathways\": [\n    {\n      \"dbId\": 4989,\n      \"entities\": {\n        \"curatedFound\": 3437,\n        \"curatedTotal\": 6305,\n        \"exp\": [\n          2805.161263348521,\n          4935.606446478204\n        ],\n        \"fdr\": 1182.5959317788315,\n        \"found\": 1296,\n        \"getpValue\": 8223.315292227408,\n        \"interactorsFound\": 4843,\n        \"interactorsTotal\": 7110,\n        \"ratio\": 4099.864504287481,\n        \"resource\": \"string\",\n        \"total\": 5429\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7129,\n        \"ratio\": 718.3012802741118,\n        \"resource\": \"string\",\n        \"total\": 1991\n      },\n      \"species\": {\n        \"dbId\": 8862,\n        \"filtered\": 5716,\n        \"name\": \"string\",\n        \"pathways\": 5351,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 8721,\n      \"entities\": {\n        \"curatedFound\": 4257,\n        \"curatedTotal\": 1146,\n        \"exp\": [\n          411.2682733739137,\n          7946.124960234231\n        ],\n        \"fdr\": 6616.595317656852,\n        \"found\": 2465,\n        \"getpValue\": 6480.893924598154,\n        \"interactorsFound\": 2531,\n        \"interactorsTotal\": 1766,\n        \"ratio\": 3758.1907081483255,\n        \"resource\": \"string\",\n        \"total\": 6659\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5919,\n        \"ratio\": 4842.871995038896,\n        \"resource\": \"string\",\n        \"total\": 9558\n      },\n      \"species\": {\n        \"dbId\": 4668,\n        \"filtered\": 5209,\n        \"name\": \"string\",\n        \"pathways\": 5481,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2155,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8438,\n      \"pathways\": 4021,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1379,\n      \"pathways\": 9629,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 1987,\n      \"filtered\": 8164,\n      \"name\": \"string\",\n      \"pathways\": 447,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 8942,\n      \"filtered\": 5324,\n      \"name\": \"string\",\n      \"pathways\": 5343,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 5966,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ddb656e3-83e1-4d02-83a0-2cc745c29ae4",
+              "name": "The file size is larger than the maximum configured size (50MB)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    "form",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) A file with the data to be analysed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5958.297451865335,\n    \"min\": 4217.58692865502\n  },\n  \"identifiersNotFound\": 8471,\n  \"pathways\": [\n    {\n      \"dbId\": 4989,\n      \"entities\": {\n        \"curatedFound\": 3437,\n        \"curatedTotal\": 6305,\n        \"exp\": [\n          2805.161263348521,\n          4935.606446478204\n        ],\n        \"fdr\": 1182.5959317788315,\n        \"found\": 1296,\n        \"getpValue\": 8223.315292227408,\n        \"interactorsFound\": 4843,\n        \"interactorsTotal\": 7110,\n        \"ratio\": 4099.864504287481,\n        \"resource\": \"string\",\n        \"total\": 5429\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7129,\n        \"ratio\": 718.3012802741118,\n        \"resource\": \"string\",\n        \"total\": 1991\n      },\n      \"species\": {\n        \"dbId\": 8862,\n        \"filtered\": 5716,\n        \"name\": \"string\",\n        \"pathways\": 5351,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 8721,\n      \"entities\": {\n        \"curatedFound\": 4257,\n        \"curatedTotal\": 1146,\n        \"exp\": [\n          411.2682733739137,\n          7946.124960234231\n        ],\n        \"fdr\": 6616.595317656852,\n        \"found\": 2465,\n        \"getpValue\": 6480.893924598154,\n        \"interactorsFound\": 2531,\n        \"interactorsTotal\": 1766,\n        \"ratio\": 3758.1907081483255,\n        \"resource\": \"string\",\n        \"total\": 6659\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5919,\n        \"ratio\": 4842.871995038896,\n        \"resource\": \"string\",\n        \"total\": 9558\n      },\n      \"species\": {\n        \"dbId\": 4668,\n        \"filtered\": 5209,\n        \"name\": \"string\",\n        \"pathways\": 5481,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2155,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8438,\n      \"pathways\": 4021,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1379,\n      \"pathways\": 9629,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 1987,\n      \"filtered\": 8164,\n      \"name\": \"string\",\n      \"pathways\": 447,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 8942,\n      \"filtered\": 5324,\n      \"name\": \"string\",\n      \"pathways\": 5343,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 5966,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62f50dd7-567b-45d4-857c-54b74988837f",
+              "name": "Unsupported Media Type (only 'text/plain')",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    "form",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) A file with the data to be analysed",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5958.297451865335,\n    \"min\": 4217.58692865502\n  },\n  \"identifiersNotFound\": 8471,\n  \"pathways\": [\n    {\n      \"dbId\": 4989,\n      \"entities\": {\n        \"curatedFound\": 3437,\n        \"curatedTotal\": 6305,\n        \"exp\": [\n          2805.161263348521,\n          4935.606446478204\n        ],\n        \"fdr\": 1182.5959317788315,\n        \"found\": 1296,\n        \"getpValue\": 8223.315292227408,\n        \"interactorsFound\": 4843,\n        \"interactorsTotal\": 7110,\n        \"ratio\": 4099.864504287481,\n        \"resource\": \"string\",\n        \"total\": 5429\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7129,\n        \"ratio\": 718.3012802741118,\n        \"resource\": \"string\",\n        \"total\": 1991\n      },\n      \"species\": {\n        \"dbId\": 8862,\n        \"filtered\": 5716,\n        \"name\": \"string\",\n        \"pathways\": 5351,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 8721,\n      \"entities\": {\n        \"curatedFound\": 4257,\n        \"curatedTotal\": 1146,\n        \"exp\": [\n          411.2682733739137,\n          7946.124960234231\n        ],\n        \"fdr\": 6616.595317656852,\n        \"found\": 2465,\n        \"getpValue\": 6480.893924598154,\n        \"interactorsFound\": 2531,\n        \"interactorsTotal\": 1766,\n        \"ratio\": 3758.1907081483255,\n        \"resource\": \"string\",\n        \"total\": 6659\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5919,\n        \"ratio\": 4842.871995038896,\n        \"resource\": \"string\",\n        \"total\": 9558\n      },\n      \"species\": {\n        \"dbId\": 4668,\n        \"filtered\": 5209,\n        \"name\": \"string\",\n        \"pathways\": 5481,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2155,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8438,\n      \"pathways\": 4021,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1379,\n      \"pathways\": 9629,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 1987,\n      \"filtered\": 8164,\n      \"name\": \"string\",\n      \"pathways\": 447,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 8942,\n      \"filtered\": 5324,\n      \"name\": \"string\",\n      \"pathways\": 5343,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 5966,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04ccd6c2-6c51-43e8-a06c-8c61bf0cb695",
+          "name": "Analyse the post identifiers over the different species and projects the result to Homo Sapiens",
+          "request": {
+            "name": "Analyse the post identifiers over the different species and projects the result to Homo Sapiens",
+            "description": {
+              "content": "The projection is calculated by the orthologous slot in the Reactome database. Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identifiers",
+                "projection"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interactors",
+                  "value": "false",
+                  "description": "Include interactors"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "pathways per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pValue",
+                  "value": "1",
+                  "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDisease",
+                  "value": "true",
+                  "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+                },
+                {
+                  "disabled": false,
+                  "key": "min",
+                  "value": "<integer>",
+                  "description": "minimum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "maximum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "f34ec633-cc31-4390-9d5f-b118181e1ddf",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5958.297451865335,\n    \"min\": 4217.58692865502\n  },\n  \"identifiersNotFound\": 8471,\n  \"pathways\": [\n    {\n      \"dbId\": 4989,\n      \"entities\": {\n        \"curatedFound\": 3437,\n        \"curatedTotal\": 6305,\n        \"exp\": [\n          2805.161263348521,\n          4935.606446478204\n        ],\n        \"fdr\": 1182.5959317788315,\n        \"found\": 1296,\n        \"getpValue\": 8223.315292227408,\n        \"interactorsFound\": 4843,\n        \"interactorsTotal\": 7110,\n        \"ratio\": 4099.864504287481,\n        \"resource\": \"string\",\n        \"total\": 5429\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7129,\n        \"ratio\": 718.3012802741118,\n        \"resource\": \"string\",\n        \"total\": 1991\n      },\n      \"species\": {\n        \"dbId\": 8862,\n        \"filtered\": 5716,\n        \"name\": \"string\",\n        \"pathways\": 5351,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 8721,\n      \"entities\": {\n        \"curatedFound\": 4257,\n        \"curatedTotal\": 1146,\n        \"exp\": [\n          411.2682733739137,\n          7946.124960234231\n        ],\n        \"fdr\": 6616.595317656852,\n        \"found\": 2465,\n        \"getpValue\": 6480.893924598154,\n        \"interactorsFound\": 2531,\n        \"interactorsTotal\": 1766,\n        \"ratio\": 3758.1907081483255,\n        \"resource\": \"string\",\n        \"total\": 6659\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5919,\n        \"ratio\": 4842.871995038896,\n        \"resource\": \"string\",\n        \"total\": 9558\n      },\n      \"species\": {\n        \"dbId\": 4668,\n        \"filtered\": 5209,\n        \"name\": \"string\",\n        \"pathways\": 5481,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2155,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8438,\n      \"pathways\": 4021,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1379,\n      \"pathways\": 9629,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 1987,\n      \"filtered\": 8164,\n      \"name\": \"string\",\n      \"pathways\": 447,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 8942,\n      \"filtered\": 5324,\n      \"name\": \"string\",\n      \"pathways\": 5343,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 5966,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51114f69-799c-4830-96c5-1973e72a70db",
+          "name": "Analyse the identifiers contained in the provided url over the different species",
+          "request": {
+            "name": "Analyse the identifiers contained in the provided url over the different species",
+            "description": {
+              "content": "Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identifiers",
+                "url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interactors",
+                  "value": "false",
+                  "description": "Include interactors"
+                },
+                {
+                  "disabled": false,
+                  "key": "species",
+                  "value": "<string>",
+                  "description": "list of species to filter the result (accepts taxonomy ids, species names and dbId)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "pathways per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pValue",
+                  "value": "1",
+                  "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDisease",
+                  "value": "true",
+                  "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+                },
+                {
+                  "disabled": false,
+                  "key": "min",
+                  "value": "<integer>",
+                  "description": "minimum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "maximum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "e30c70f0-3619-4feb-b43f-824270eaaff1",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5958.297451865335,\n    \"min\": 4217.58692865502\n  },\n  \"identifiersNotFound\": 8471,\n  \"pathways\": [\n    {\n      \"dbId\": 4989,\n      \"entities\": {\n        \"curatedFound\": 3437,\n        \"curatedTotal\": 6305,\n        \"exp\": [\n          2805.161263348521,\n          4935.606446478204\n        ],\n        \"fdr\": 1182.5959317788315,\n        \"found\": 1296,\n        \"getpValue\": 8223.315292227408,\n        \"interactorsFound\": 4843,\n        \"interactorsTotal\": 7110,\n        \"ratio\": 4099.864504287481,\n        \"resource\": \"string\",\n        \"total\": 5429\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7129,\n        \"ratio\": 718.3012802741118,\n        \"resource\": \"string\",\n        \"total\": 1991\n      },\n      \"species\": {\n        \"dbId\": 8862,\n        \"filtered\": 5716,\n        \"name\": \"string\",\n        \"pathways\": 5351,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 8721,\n      \"entities\": {\n        \"curatedFound\": 4257,\n        \"curatedTotal\": 1146,\n        \"exp\": [\n          411.2682733739137,\n          7946.124960234231\n        ],\n        \"fdr\": 6616.595317656852,\n        \"found\": 2465,\n        \"getpValue\": 6480.893924598154,\n        \"interactorsFound\": 2531,\n        \"interactorsTotal\": 1766,\n        \"ratio\": 3758.1907081483255,\n        \"resource\": \"string\",\n        \"total\": 6659\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5919,\n        \"ratio\": 4842.871995038896,\n        \"resource\": \"string\",\n        \"total\": 9558\n      },\n      \"species\": {\n        \"dbId\": 4668,\n        \"filtered\": 5209,\n        \"name\": \"string\",\n        \"pathways\": 5481,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2155,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8438,\n      \"pathways\": 4021,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1379,\n      \"pathways\": 9629,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 1987,\n      \"filtered\": 8164,\n      \"name\": \"string\",\n      \"pathways\": 447,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 8942,\n      \"filtered\": 5324,\n      \"name\": \"string\",\n      \"pathways\": 5343,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 5966,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7c2324f-253e-4a09-87b6-a99c2c986b0d",
+              "name": "The file size is larger than the maximum configured size (50MB)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5958.297451865335,\n    \"min\": 4217.58692865502\n  },\n  \"identifiersNotFound\": 8471,\n  \"pathways\": [\n    {\n      \"dbId\": 4989,\n      \"entities\": {\n        \"curatedFound\": 3437,\n        \"curatedTotal\": 6305,\n        \"exp\": [\n          2805.161263348521,\n          4935.606446478204\n        ],\n        \"fdr\": 1182.5959317788315,\n        \"found\": 1296,\n        \"getpValue\": 8223.315292227408,\n        \"interactorsFound\": 4843,\n        \"interactorsTotal\": 7110,\n        \"ratio\": 4099.864504287481,\n        \"resource\": \"string\",\n        \"total\": 5429\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7129,\n        \"ratio\": 718.3012802741118,\n        \"resource\": \"string\",\n        \"total\": 1991\n      },\n      \"species\": {\n        \"dbId\": 8862,\n        \"filtered\": 5716,\n        \"name\": \"string\",\n        \"pathways\": 5351,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 8721,\n      \"entities\": {\n        \"curatedFound\": 4257,\n        \"curatedTotal\": 1146,\n        \"exp\": [\n          411.2682733739137,\n          7946.124960234231\n        ],\n        \"fdr\": 6616.595317656852,\n        \"found\": 2465,\n        \"getpValue\": 6480.893924598154,\n        \"interactorsFound\": 2531,\n        \"interactorsTotal\": 1766,\n        \"ratio\": 3758.1907081483255,\n        \"resource\": \"string\",\n        \"total\": 6659\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5919,\n        \"ratio\": 4842.871995038896,\n        \"resource\": \"string\",\n        \"total\": 9558\n      },\n      \"species\": {\n        \"dbId\": 4668,\n        \"filtered\": 5209,\n        \"name\": \"string\",\n        \"pathways\": 5481,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2155,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8438,\n      \"pathways\": 4021,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1379,\n      \"pathways\": 9629,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 1987,\n      \"filtered\": 8164,\n      \"name\": \"string\",\n      \"pathways\": 447,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 8942,\n      \"filtered\": 5324,\n      \"name\": \"string\",\n      \"pathways\": 5343,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 5966,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b9bdf11-7ed9-4c85-8ac7-94e7189f922e",
+              "name": "Unsupported Media Type (only 'text/plain')",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5958.297451865335,\n    \"min\": 4217.58692865502\n  },\n  \"identifiersNotFound\": 8471,\n  \"pathways\": [\n    {\n      \"dbId\": 4989,\n      \"entities\": {\n        \"curatedFound\": 3437,\n        \"curatedTotal\": 6305,\n        \"exp\": [\n          2805.161263348521,\n          4935.606446478204\n        ],\n        \"fdr\": 1182.5959317788315,\n        \"found\": 1296,\n        \"getpValue\": 8223.315292227408,\n        \"interactorsFound\": 4843,\n        \"interactorsTotal\": 7110,\n        \"ratio\": 4099.864504287481,\n        \"resource\": \"string\",\n        \"total\": 5429\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7129,\n        \"ratio\": 718.3012802741118,\n        \"resource\": \"string\",\n        \"total\": 1991\n      },\n      \"species\": {\n        \"dbId\": 8862,\n        \"filtered\": 5716,\n        \"name\": \"string\",\n        \"pathways\": 5351,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 8721,\n      \"entities\": {\n        \"curatedFound\": 4257,\n        \"curatedTotal\": 1146,\n        \"exp\": [\n          411.2682733739137,\n          7946.124960234231\n        ],\n        \"fdr\": 6616.595317656852,\n        \"found\": 2465,\n        \"getpValue\": 6480.893924598154,\n        \"interactorsFound\": 2531,\n        \"interactorsTotal\": 1766,\n        \"ratio\": 3758.1907081483255,\n        \"resource\": \"string\",\n        \"total\": 6659\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5919,\n        \"ratio\": 4842.871995038896,\n        \"resource\": \"string\",\n        \"total\": 9558\n      },\n      \"species\": {\n        \"dbId\": 4668,\n        \"filtered\": 5209,\n        \"name\": \"string\",\n        \"pathways\": 5481,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2155,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8438,\n      \"pathways\": 4021,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1379,\n      \"pathways\": 9629,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 1987,\n      \"filtered\": 8164,\n      \"name\": \"string\",\n      \"pathways\": 447,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 8942,\n      \"filtered\": 5324,\n      \"name\": \"string\",\n      \"pathways\": 5343,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 5966,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "74f9b23f-0227-4106-97e7-d60824a1ae67",
+              "name": "The provided URL is not processable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    "url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "species",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5958.297451865335,\n    \"min\": 4217.58692865502\n  },\n  \"identifiersNotFound\": 8471,\n  \"pathways\": [\n    {\n      \"dbId\": 4989,\n      \"entities\": {\n        \"curatedFound\": 3437,\n        \"curatedTotal\": 6305,\n        \"exp\": [\n          2805.161263348521,\n          4935.606446478204\n        ],\n        \"fdr\": 1182.5959317788315,\n        \"found\": 1296,\n        \"getpValue\": 8223.315292227408,\n        \"interactorsFound\": 4843,\n        \"interactorsTotal\": 7110,\n        \"ratio\": 4099.864504287481,\n        \"resource\": \"string\",\n        \"total\": 5429\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7129,\n        \"ratio\": 718.3012802741118,\n        \"resource\": \"string\",\n        \"total\": 1991\n      },\n      \"species\": {\n        \"dbId\": 8862,\n        \"filtered\": 5716,\n        \"name\": \"string\",\n        \"pathways\": 5351,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 8721,\n      \"entities\": {\n        \"curatedFound\": 4257,\n        \"curatedTotal\": 1146,\n        \"exp\": [\n          411.2682733739137,\n          7946.124960234231\n        ],\n        \"fdr\": 6616.595317656852,\n        \"found\": 2465,\n        \"getpValue\": 6480.893924598154,\n        \"interactorsFound\": 2531,\n        \"interactorsTotal\": 1766,\n        \"ratio\": 3758.1907081483255,\n        \"resource\": \"string\",\n        \"total\": 6659\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5919,\n        \"ratio\": 4842.871995038896,\n        \"resource\": \"string\",\n        \"total\": 9558\n      },\n      \"species\": {\n        \"dbId\": 4668,\n        \"filtered\": 5209,\n        \"name\": \"string\",\n        \"pathways\": 5481,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2155,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8438,\n      \"pathways\": 4021,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1379,\n      \"pathways\": 9629,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 1987,\n      \"filtered\": 8164,\n      \"name\": \"string\",\n      \"pathways\": 447,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 8942,\n      \"filtered\": 5324,\n      \"name\": \"string\",\n      \"pathways\": 5343,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 5966,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4aab158e-4409-43e4-a6d9-0661ed827f7f",
+          "name": "Analyse the identifiers contained in the provided url over the different species and projects the result to Homo Sapiens",
+          "request": {
+            "name": "Analyse the identifiers contained in the provided url over the different species and projects the result to Homo Sapiens",
+            "description": {
+              "content": "The projection is calculated by the orthologous slot in the Reactome database. Use page and pageSize to reduce the amount of data retrieved. Use sortBy and order to sort the result by your preferred option. The resource field will filter the results to show only those corresponding to the preferred molecule type (TOTAL includes all the different molecules type)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identifiers",
+                "url",
+                "projection"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interactors",
+                  "value": "false",
+                  "description": "Include interactors"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "pathways per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pValue",
+                  "value": "1",
+                  "description": "defines the pValue threshold. Only hit pathway with pValue equals or below the threshold will be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDisease",
+                  "value": "true",
+                  "description": "set to 'false' to exclude the disease pathways from the result (it does not alter the statistics)"
+                },
+                {
+                  "disabled": false,
+                  "key": "min",
+                  "value": "<integer>",
+                  "description": "minimum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "maximum number of contained entities per pathway (takes into account the resource)"
+                },
+                {
+                  "disabled": false,
+                  "key": "importableOnly",
+                  "value": "false",
+                  "description": "Filters resources to only includes importable ones"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "b217a769-f7b1-44a8-b95b-247e69b3130b",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    "url",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5958.297451865335,\n    \"min\": 4217.58692865502\n  },\n  \"identifiersNotFound\": 8471,\n  \"pathways\": [\n    {\n      \"dbId\": 4989,\n      \"entities\": {\n        \"curatedFound\": 3437,\n        \"curatedTotal\": 6305,\n        \"exp\": [\n          2805.161263348521,\n          4935.606446478204\n        ],\n        \"fdr\": 1182.5959317788315,\n        \"found\": 1296,\n        \"getpValue\": 8223.315292227408,\n        \"interactorsFound\": 4843,\n        \"interactorsTotal\": 7110,\n        \"ratio\": 4099.864504287481,\n        \"resource\": \"string\",\n        \"total\": 5429\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7129,\n        \"ratio\": 718.3012802741118,\n        \"resource\": \"string\",\n        \"total\": 1991\n      },\n      \"species\": {\n        \"dbId\": 8862,\n        \"filtered\": 5716,\n        \"name\": \"string\",\n        \"pathways\": 5351,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 8721,\n      \"entities\": {\n        \"curatedFound\": 4257,\n        \"curatedTotal\": 1146,\n        \"exp\": [\n          411.2682733739137,\n          7946.124960234231\n        ],\n        \"fdr\": 6616.595317656852,\n        \"found\": 2465,\n        \"getpValue\": 6480.893924598154,\n        \"interactorsFound\": 2531,\n        \"interactorsTotal\": 1766,\n        \"ratio\": 3758.1907081483255,\n        \"resource\": \"string\",\n        \"total\": 6659\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5919,\n        \"ratio\": 4842.871995038896,\n        \"resource\": \"string\",\n        \"total\": 9558\n      },\n      \"species\": {\n        \"dbId\": 4668,\n        \"filtered\": 5209,\n        \"name\": \"string\",\n        \"pathways\": 5481,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2155,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8438,\n      \"pathways\": 4021,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1379,\n      \"pathways\": 9629,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 1987,\n      \"filtered\": 8164,\n      \"name\": \"string\",\n      \"pathways\": 447,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 8942,\n      \"filtered\": 5324,\n      \"name\": \"string\",\n      \"pathways\": 5343,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 5966,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43a28c36-7290-42b5-82a4-827518a177a7",
+              "name": "The file size is larger than the maximum configured size (50MB)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    "url",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5958.297451865335,\n    \"min\": 4217.58692865502\n  },\n  \"identifiersNotFound\": 8471,\n  \"pathways\": [\n    {\n      \"dbId\": 4989,\n      \"entities\": {\n        \"curatedFound\": 3437,\n        \"curatedTotal\": 6305,\n        \"exp\": [\n          2805.161263348521,\n          4935.606446478204\n        ],\n        \"fdr\": 1182.5959317788315,\n        \"found\": 1296,\n        \"getpValue\": 8223.315292227408,\n        \"interactorsFound\": 4843,\n        \"interactorsTotal\": 7110,\n        \"ratio\": 4099.864504287481,\n        \"resource\": \"string\",\n        \"total\": 5429\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7129,\n        \"ratio\": 718.3012802741118,\n        \"resource\": \"string\",\n        \"total\": 1991\n      },\n      \"species\": {\n        \"dbId\": 8862,\n        \"filtered\": 5716,\n        \"name\": \"string\",\n        \"pathways\": 5351,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 8721,\n      \"entities\": {\n        \"curatedFound\": 4257,\n        \"curatedTotal\": 1146,\n        \"exp\": [\n          411.2682733739137,\n          7946.124960234231\n        ],\n        \"fdr\": 6616.595317656852,\n        \"found\": 2465,\n        \"getpValue\": 6480.893924598154,\n        \"interactorsFound\": 2531,\n        \"interactorsTotal\": 1766,\n        \"ratio\": 3758.1907081483255,\n        \"resource\": \"string\",\n        \"total\": 6659\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5919,\n        \"ratio\": 4842.871995038896,\n        \"resource\": \"string\",\n        \"total\": 9558\n      },\n      \"species\": {\n        \"dbId\": 4668,\n        \"filtered\": 5209,\n        \"name\": \"string\",\n        \"pathways\": 5481,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2155,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8438,\n      \"pathways\": 4021,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1379,\n      \"pathways\": 9629,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 1987,\n      \"filtered\": 8164,\n      \"name\": \"string\",\n      \"pathways\": 447,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 8942,\n      \"filtered\": 5324,\n      \"name\": \"string\",\n      \"pathways\": 5343,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 5966,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88c60369-c577-44a7-85f8-8bf65ba38783",
+              "name": "Unsupported Media Type (only 'text/plain')",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    "url",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5958.297451865335,\n    \"min\": 4217.58692865502\n  },\n  \"identifiersNotFound\": 8471,\n  \"pathways\": [\n    {\n      \"dbId\": 4989,\n      \"entities\": {\n        \"curatedFound\": 3437,\n        \"curatedTotal\": 6305,\n        \"exp\": [\n          2805.161263348521,\n          4935.606446478204\n        ],\n        \"fdr\": 1182.5959317788315,\n        \"found\": 1296,\n        \"getpValue\": 8223.315292227408,\n        \"interactorsFound\": 4843,\n        \"interactorsTotal\": 7110,\n        \"ratio\": 4099.864504287481,\n        \"resource\": \"string\",\n        \"total\": 5429\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7129,\n        \"ratio\": 718.3012802741118,\n        \"resource\": \"string\",\n        \"total\": 1991\n      },\n      \"species\": {\n        \"dbId\": 8862,\n        \"filtered\": 5716,\n        \"name\": \"string\",\n        \"pathways\": 5351,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 8721,\n      \"entities\": {\n        \"curatedFound\": 4257,\n        \"curatedTotal\": 1146,\n        \"exp\": [\n          411.2682733739137,\n          7946.124960234231\n        ],\n        \"fdr\": 6616.595317656852,\n        \"found\": 2465,\n        \"getpValue\": 6480.893924598154,\n        \"interactorsFound\": 2531,\n        \"interactorsTotal\": 1766,\n        \"ratio\": 3758.1907081483255,\n        \"resource\": \"string\",\n        \"total\": 6659\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5919,\n        \"ratio\": 4842.871995038896,\n        \"resource\": \"string\",\n        \"total\": 9558\n      },\n      \"species\": {\n        \"dbId\": 4668,\n        \"filtered\": 5209,\n        \"name\": \"string\",\n        \"pathways\": 5481,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2155,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8438,\n      \"pathways\": 4021,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1379,\n      \"pathways\": 9629,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 1987,\n      \"filtered\": 8164,\n      \"name\": \"string\",\n      \"pathways\": 447,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 8942,\n      \"filtered\": 5324,\n      \"name\": \"string\",\n      \"pathways\": 5343,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 5966,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45d79af7-75d5-41f2-9ef5-a831e32020b4",
+              "name": "The provided URL is not processable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identifiers",
+                    "url",
+                    "projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interactors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "ENTITIES_PVALUE"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "TOTAL"
+                    },
+                    {
+                      "key": "pValue",
+                      "value": "1"
+                    },
+                    {
+                      "key": "includeDisease",
+                      "value": "true"
+                    },
+                    {
+                      "key": "min",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "importableOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expression\": {\n    \"columnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"max\": 5958.297451865335,\n    \"min\": 4217.58692865502\n  },\n  \"identifiersNotFound\": 8471,\n  \"pathways\": [\n    {\n      \"dbId\": 4989,\n      \"entities\": {\n        \"curatedFound\": 3437,\n        \"curatedTotal\": 6305,\n        \"exp\": [\n          2805.161263348521,\n          4935.606446478204\n        ],\n        \"fdr\": 1182.5959317788315,\n        \"found\": 1296,\n        \"getpValue\": 8223.315292227408,\n        \"interactorsFound\": 4843,\n        \"interactorsTotal\": 7110,\n        \"ratio\": 4099.864504287481,\n        \"resource\": \"string\",\n        \"total\": 5429\n      },\n      \"inDisease\": false,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 7129,\n        \"ratio\": 718.3012802741118,\n        \"resource\": \"string\",\n        \"total\": 1991\n      },\n      \"species\": {\n        \"dbId\": 8862,\n        \"filtered\": 5716,\n        \"name\": \"string\",\n        \"pathways\": 5351,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    },\n    {\n      \"dbId\": 8721,\n      \"entities\": {\n        \"curatedFound\": 4257,\n        \"curatedTotal\": 1146,\n        \"exp\": [\n          411.2682733739137,\n          7946.124960234231\n        ],\n        \"fdr\": 6616.595317656852,\n        \"found\": 2465,\n        \"getpValue\": 6480.893924598154,\n        \"interactorsFound\": 2531,\n        \"interactorsTotal\": 1766,\n        \"ratio\": 3758.1907081483255,\n        \"resource\": \"string\",\n        \"total\": 6659\n      },\n      \"inDisease\": true,\n      \"llp\": true,\n      \"name\": \"string\",\n      \"reactions\": {\n        \"found\": 5919,\n        \"ratio\": 4842.871995038896,\n        \"resource\": \"string\",\n        \"total\": 9558\n      },\n      \"species\": {\n        \"dbId\": 4668,\n        \"filtered\": 5209,\n        \"name\": \"string\",\n        \"pathways\": 5481,\n        \"taxId\": \"string\"\n      },\n      \"stId\": \"string\"\n    }\n  ],\n  \"pathwaysFound\": 2155,\n  \"resourceSummary\": [\n    {\n      \"filtered\": 8438,\n      \"pathways\": 4021,\n      \"resource\": \"string\"\n    },\n    {\n      \"filtered\": 1379,\n      \"pathways\": 9629,\n      \"resource\": \"string\"\n    }\n  ],\n  \"speciesSummary\": [\n    {\n      \"dbId\": 1987,\n      \"filtered\": 8164,\n      \"name\": \"string\",\n      \"pathways\": 447,\n      \"taxId\": \"string\"\n    },\n    {\n      \"dbId\": 8942,\n      \"filtered\": 5324,\n      \"name\": \"string\",\n      \"pathways\": 5343,\n      \"taxId\": \"string\"\n    }\n  ],\n  \"summary\": {\n    \"fileName\": \"string\",\n    \"gsaMethod\": \"string\",\n    \"gsaToken\": \"string\",\n    \"includeDisease\": false,\n    \"interactors\": true,\n    \"projection\": false,\n    \"sampleName\": \"string\",\n    \"species\": 5966,\n    \"text\": false,\n    \"token\": \"string\",\n    \"type\": \"string\"\n  },\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/AnalysisService",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6b9b7f2d-6e0e-4561-b30b-d43f48821961",
+    "name": "Pathway Analysis Service database identifiers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provides an API for pathway over-representation and expression analysis as well as species comparison tool.\n\nContact Support:\n Name: Reactome\n Email: help@reactome.org",
+      "type": "text/plain"
+    }
+  }
+}

@@ -48,6 +48,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Database
+  tags_raw:
   - database
   properties:
   - type: OpenAPI
@@ -66,6 +68,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Discover
+  tags_raw:
   - discover
   properties:
   - type: OpenAPI
@@ -84,6 +88,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Diseases
+  tags_raw:
   - diseases
   properties:
   - type: OpenAPI
@@ -102,6 +108,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Downloads
+  tags_raw:
   - download
   properties:
   - type: OpenAPI
@@ -120,6 +128,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Entities
+  tags_raw:
   - entities
   properties:
   - type: OpenAPI
@@ -138,6 +148,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Event
+  tags_raw:
   - events
   properties:
   - type: OpenAPI
@@ -156,6 +168,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Exporter
+  tags_raw:
   - exporter
   properties:
   - type: OpenAPI
@@ -192,6 +206,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Identifiers
+  tags_raw:
   - identifiers
   properties:
   - type: OpenAPI
@@ -210,6 +226,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Import
+  tags_raw:
   - import
   properties:
   - type: OpenAPI
@@ -246,6 +264,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Mapping
+  tags_raw:
   - mapping
   properties:
   - type: OpenAPI
@@ -264,6 +284,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Orthology
+  tags_raw:
   - orthology
   properties:
   - type: OpenAPI
@@ -282,6 +304,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Participants
+  tags_raw:
   - participants
   properties:
   - type: OpenAPI
@@ -300,6 +324,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Pathways
+  tags_raw:
   - pathways
   properties:
   - type: OpenAPI
@@ -318,6 +344,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Persons
+  tags_raw:
   - person
   properties:
   - type: OpenAPI
@@ -336,6 +364,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Query
+  tags_raw:
   - query
   properties:
   - type: OpenAPI
@@ -354,6 +384,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - References
+  tags_raw:
   - references
   properties:
   - type: OpenAPI
@@ -372,6 +404,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Report
+  tags_raw:
   - report
   properties:
   - type: OpenAPI
@@ -390,6 +424,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Schema
+  tags_raw:
   - schema
   properties:
   - type: OpenAPI
@@ -408,6 +444,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Search
+  tags_raw:
   - search
   properties:
   - type: OpenAPI
@@ -426,6 +464,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Species
+  tags_raw:
   - species
   properties:
   - type: OpenAPI
@@ -444,6 +484,8 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
+  - Token
+  tags_raw:
   - token
   properties:
   - type: OpenAPI

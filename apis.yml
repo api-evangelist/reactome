@@ -99,7 +99,7 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
-  - Diseases
+  - diseases
   tags_raw:
   - diseases
   properties:
@@ -179,7 +179,7 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
-  - Exporter
+  - exporter
   tags_raw:
   - exporter
   properties:
@@ -275,7 +275,7 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
-  - Mapping
+  - mapping
   tags_raw:
   - mapping
   properties:
@@ -295,7 +295,7 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
-  - Orthology
+  - orthology
   tags_raw:
   - orthology
   properties:
@@ -315,7 +315,7 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
-  - Participants
+  - participants
   tags_raw:
   - participants
   properties:
@@ -335,7 +335,7 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
-  - Pathways
+  - pathways
   tags_raw:
   - pathways
   properties:
@@ -355,7 +355,7 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
-  - Persons
+  - person
   tags_raw:
   - person
   properties:
@@ -475,7 +475,7 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
-  - Species
+  - species
   tags_raw:
   - species
   properties:

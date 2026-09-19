@@ -495,7 +495,7 @@ apis:
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
   tags:
-  - Token
+  - Tokens
   tags_raw:
   - token
   properties:

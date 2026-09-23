@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Pathway Analysis Service database import API
+  title: Pathway Analysis Service Import API
   description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
   termsOfService: /license
   contact:
@@ -14,15 +14,15 @@ info:
 servers:
 - url: /AnalysisService
 tags:
-- name: import
+- name: Import
   description: Imports an external result
 paths:
   /import/:
     post:
       tags:
-      - import
+      - Import
       summary: Imports the posted json into the service
-      description: The accepted format is the same as provided by the method <a href='#/download/downloadResultJSONUsingGET'>/#/download/{token}/result.json</a>.
+      description: The accepted format is the same as provided by the method /#/download/{token}/result.json.
       operationId: getPostText
       requestBody:
         description: <b>input</b> Identifiers to analyse followed by their expression (when applies)
@@ -56,9 +56,9 @@ paths:
   /import/form:
     post:
       tags:
-      - import
+      - Import
       summary: Imports the posted json file into the service
-      description: 'The accepted format is the same as provided by the method <a href=''#/download/downloadResultJSONUsingGET''>/#/download/{token}/result.json</a>. Note: The submitted file can be gzipped.'
+      description: 'The accepted format is the same as provided by the method /#/download/{token}/result.json. Note: The submitted file can be gzipped.'
       operationId: getPostFile
       requestBody:
         content:
@@ -94,9 +94,9 @@ paths:
   /import/url:
     post:
       tags:
-      - import
+      - Import
       summary: Imports the json file provided by the posted url into the service
-      description: 'The accepted format is the same as provided by the method <a href=''#/download/downloadResultJSONUsingGET''>/#/download/{token}/result.json</a>. Note: The provided file can be gzipped.'
+      description: 'The accepted format is the same as provided by the method /#/download/{token}/result.json. Note: The provided file can be gzipped.'
       operationId: getPostURL
       requestBody:
         description: <b>url</b> A URL pointing to the data to be analysed

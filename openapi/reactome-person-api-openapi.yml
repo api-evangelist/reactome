@@ -1,26 +1,26 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Pathway Analysis Service database person API
-  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  title: Content Service Person API
+  description: REST API for Reactome content
   termsOfService: /license
   contact:
     name: Reactome
     url: https://reactome.org
     email: help@reactome.org
   license:
-    name: Creative Commons Attribution 3.0 Unsupported License
-    url: https://creativecommons.org/licenses/by/3.0/legalcode
-  version: '2.0'
+    name: Creative Commons Attribution 4.0 International (CC BY 4.0) License
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: '1.2'
 servers:
-- url: /AnalysisService
+- url: /ContentService
 tags:
-- name: person
+- name: Person
   description: 'Reactome Data: Person queries'
 paths:
   /data/people/name/{name}:
     get:
       tags:
-      - person
+      - Person
       summary: A list of people with first or last name partly matching a given string
       description: Retrieves a list of people in Reactome with either their first or last name partly matching the given string.
       operationId: queryPersonByName
@@ -72,7 +72,7 @@ paths:
   /data/people/name/{name}/exact:
     get:
       tags:
-      - person
+      - Person
       summary: A list of people with first AND last name exactly matching a given string
       description: Retrieves a list of people in Reactome with their first AND last name matching exactly the given string.
       operationId: findPersonByName
@@ -124,7 +124,7 @@ paths:
   /data/person/{id}:
     get:
       tags:
-      - person
+      - Person
       summary: A person by his/her identifier
       description: Retrieves a person in Reactome by his/her OrcidId or DbId.
       operationId: findPerson
@@ -172,7 +172,7 @@ paths:
   /data/person/{id}/authoredPathways:
     get:
       tags:
-      - person
+      - Person
       summary: A list of pathways authored by a given person
       description: Retrieves a list of pathways authored by a given person. OrcidId, DbId or Email can be used to specify the person.
       operationId: getAuthoredPathways
@@ -232,7 +232,7 @@ paths:
   /data/person/{id}/publications:
     get:
       tags:
-      - person
+      - Person
       summary: A list of publications authored by a given person
       description: Retrieves a list of publications authored by a given person. OrcidId, DbId or Email can be used to specify the person.
       operationId: getPublicationsOfPerson
@@ -292,7 +292,7 @@ paths:
   /data/person/{id}/{attributeName}:
     get:
       tags:
-      - person
+      - Person
       summary: A person's property by his/her identifier
       description: Retrieves a specific person's property by his/her OrcidId or DbId.
       operationId: findPerson_1

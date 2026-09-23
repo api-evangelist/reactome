@@ -1,18 +1,18 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Pathway Analysis Service database exporter API
-  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  title: Content Service Exporter API
+  description: REST API for Reactome content
   termsOfService: /license
   contact:
     name: Reactome
     url: https://reactome.org
     email: help@reactome.org
   license:
-    name: Creative Commons Attribution 3.0 Unsupported License
-    url: https://creativecommons.org/licenses/by/3.0/legalcode
-  version: '2.0'
+    name: Creative Commons Attribution 4.0 International (CC BY 4.0) License
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: '1.2'
 servers:
-- url: /AnalysisService
+- url: /ContentService
 tags:
 - name: exporter
   description: 'Reactome Data: Format Exporter'
@@ -21,8 +21,17 @@ paths:
     get:
       tags:
       - exporter
-      summary: Exports a given pathway diagram to the specified image format (png, jpg, jpeg, svg, gif)
-      description: This method accepts identifiers for <a href="/content/schema/Event" target="_blank">Event class</a> instances.<br/>When a diagrammed pathway is provided, the diagram is exported to the specified format.<br/>When a subpathway is provided, the diagram for the parent is exported and the events that are part of the subpathways are selected.<br/>When a reaction is provided, the diagram containing the reaction is exported and the reaction is selected.<br/><br/>Find out more about this method <a href="/dev/content-service/diagram-exporter" target="_blank">here</a>
+      summary: Exports a given pathway diagram to the specified image format (png, jpg, jpeg…
+      description: 'This method accepts identifiers for Event class instances.
+
+        When a diagrammed pathway is provided, the diagram is exported to the specified format.
+
+        When a subpathway is provided, the diagram for the parent is exported and the events that are part of the subpathways are selected.
+
+        When a reaction is provided, the diagram containing the reaction is exported and the reaction is selected.
+
+
+        Find out more about this method here'
       operationId: diagramImage_1
       parameters:
       - name: identifier
@@ -178,7 +187,22 @@ paths:
       tags:
       - exporter
       summary: Exports the content of a given event (pathway or reaction) to a PDF document
-      description: 'This method accepts identifiers for <a href="/content/schema/Event" target="_blank">Event class</a> instances.<br/>The generated document contains the details for the given event and, optionally, its children (see level parameter). These details include:<br/> - A diagram image<br/> - Summation<br/> - Literature references<br/> - Edit history<br/> - Other details: type, location, compartments, diseases<br/><br/>Documents can also be overlaid with <a href=''/dev/analysis'' target="_blank">pathway analysis results</a>'
+      description: 'This method accepts identifiers for Event class instances.
+
+        The generated document contains the details for the given event and, optionally, its children (see level parameter). These details include:
+
+        - A diagram image
+
+        - Summation
+
+        - Literature references
+
+        - Edit history
+
+        - Other details: type, location, compartments, diseases
+
+
+        Documents can also be overlaid with pathway analysis results'
       operationId: eventPdf
       parameters:
       - name: identifier
@@ -362,7 +386,7 @@ paths:
     get:
       tags:
       - exporter
-      summary: Exports a given pathway overview to the specified image format (png, jpg, jpeg, svg, gif)
+      summary: Exports a given pathway overview to the specified image format (png, jpg, jpeg…
       operationId: diagramImage
       parameters:
       - name: species
@@ -508,8 +532,8 @@ paths:
     get:
       tags:
       - exporter
-      summary: Exports a given reaction to the specified image format (png, jpg, jpeg, svg, gif)
-      description: This method accepts identifiers for <a href="/content/schema/ReactionLikeEvent" target="_blank">ReactionLikeEvent class</a> instances.
+      summary: Exports a given reaction to the specified image format (png, jpg, jpeg, svg…
+      description: This method accepts identifiers for ReactionLikeEvent class instances.
       operationId: reactionImage
       parameters:
       - name: identifier

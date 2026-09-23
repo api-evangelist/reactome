@@ -1,26 +1,24 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Pathway Analysis Service database API
-  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
-  termsOfService: /license
+  title: Reactome Database API
   contact:
     name: Reactome
     url: https://reactome.org
     email: help@reactome.org
-  license:
-    name: Creative Commons Attribution 3.0 Unsupported License
-    url: https://creativecommons.org/licenses/by/3.0/legalcode
-  version: '2.0'
+  termsOfService: /license
+  version: '1.0'
+  description: 'Operations tagged database across 2 of this provider''s published API definitions: analysis-service.json, content-service.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: /AnalysisService
+- url: /ContentService
 tags:
-- name: database
+- name: Database
   description: Database info queries
 paths:
   /database/name:
     get:
       tags:
-      - database
+      - Database
       summary: The name of current database
       operationId: getDBName
       responses:
@@ -36,10 +34,12 @@ paths:
             text/plain:
               schema:
                 type: string
+    servers:
+    - url: /AnalysisService
   /database/version:
     get:
       tags:
-      - database
+      - Database
       summary: The version number of current database
       operationId: getDBVersion
       responses:
@@ -55,10 +55,12 @@ paths:
             text/plain:
               schema:
                 type: string
+    servers:
+    - url: /AnalysisService
   /data/database/name:
     get:
       tags:
-      - database
+      - Database
       summary: The name of current database
       operationId: getDBName
       parameters:
@@ -95,10 +97,12 @@ paths:
             text/plain:
               schema:
                 type: string
+    servers:
+    - url: /ContentService
   /data/database/version:
     get:
       tags:
-      - database
+      - Database
       summary: The version number of current database
       operationId: getDBVersion
       parameters:
@@ -135,3 +139,8 @@ paths:
             text/plain:
               schema:
                 type: string
+    servers:
+    - url: /ContentService
+x-refined-from:
+- analysis-service.json
+- content-service.json

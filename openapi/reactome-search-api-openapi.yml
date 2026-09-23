@@ -1,26 +1,26 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Pathway Analysis Service database search API
-  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  title: Content Service Search API
+  description: REST API for Reactome content
   termsOfService: /license
   contact:
     name: Reactome
     url: https://reactome.org
     email: help@reactome.org
   license:
-    name: Creative Commons Attribution 3.0 Unsupported License
-    url: https://creativecommons.org/licenses/by/3.0/legalcode
-  version: '2.0'
+    name: Creative Commons Attribution 4.0 International (CC BY 4.0) License
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: '1.2'
 servers:
-- url: /AnalysisService
+- url: /ContentService
 tags:
-- name: search
+- name: Search
   description: Reactome Search
 paths:
   /search/diagram/{diagram}:
     get:
       tags:
-      - search
+      - Search
       summary: Performs a Solr query (diagram widget scoped) for a given QueryObject
       operationId: getDiagramResult
       parameters:
@@ -106,7 +106,7 @@ paths:
   /search/diagram/{diagram}/occurrences/{instance}:
     get:
       tags:
-      - search
+      - Search
       summary: Performs a Solr query (diagram widget scoped) for a given QueryObject
       operationId: getDiagramOccurrences
       parameters:
@@ -167,8 +167,8 @@ paths:
   /search/diagram/{pathwayId}/flag:
     get:
       tags:
-      - search
-      summary: A list of diagram entities plus pathways from the provided list containing the specified identifier
+      - Search
+      summary: A list of diagram entities plus pathways from the provided list containing the…
       description: This method traverses the content and checks not only for the main identifier but also for all the cross-references to find the flag targets
       operationId: getEntitiesInDiagramForIdentifier
       parameters:
@@ -223,7 +223,7 @@ paths:
   /search/facet:
     get:
       tags:
-      - search
+      - Search
       summary: A list of facets corresponding to the whole Reactome search data
       description: This method retrieves faceting information on the whole Reactome search data.
       operationId: facet
@@ -264,7 +264,7 @@ paths:
   /search/facet_query:
     get:
       tags:
-      - search
+      - Search
       summary: A list of facets corresponding to a specific query
       description: This method retrieves faceting information on a specific query
       operationId: facet_type
@@ -362,7 +362,7 @@ paths:
   /search/fireworks:
     get:
       tags:
-      - search
+      - Search
       summary: Performs a Solr query (fireworks widget scoped) for a given QueryObject
       operationId: getFireworksResult
       parameters:
@@ -450,7 +450,7 @@ paths:
   /search/fireworks/flag:
     get:
       tags:
-      - search
+      - Search
       summary: Performs a Solr query (fireworks widget scoped) for a given QueryObject
       operationId: fireworksFlagging
       parameters:
@@ -496,8 +496,8 @@ paths:
   /search/pathways/of/{dbId}:
     get:
       tags:
-      - search
-      summary: Find the different pathways containing a specific entity determined by its dbId. Can customise the output using fields
+      - Search
+      summary: Find the different pathways containing a specific entity determined by its dbId.
       operationId: getContainingPathwaysOf
       parameters:
       - name: dbId
@@ -630,7 +630,7 @@ paths:
   /search/query:
     get:
       tags:
-      - search
+      - Search
       summary: Queries Solr against the Reactome knowledgebase
       description: This method performs a Solr query on the Reactome knowledgebase. Results can be provided in a paginated format.
       operationId: getSearchResult
@@ -772,7 +772,7 @@ paths:
   /search/query/paginated:
     get:
       tags:
-      - search
+      - Search
       summary: Queries Solr against the Reactome knowledgebase
       description: This method performs a Solr query on the Reactome knowledgebase. Results are in a paginated format, pages count starting from 1.
       operationId: getResult
@@ -911,7 +911,7 @@ paths:
   /search/spellcheck:
     get:
       tags:
-      - search
+      - Search
       summary: Spell-check suggestions for a given query
       description: This method retrieves a list of spell-check suggestions for a given search term.
       operationId: spellcheckerSuggestions
@@ -963,7 +963,7 @@ paths:
   /search/suggest:
     get:
       tags:
-      - search
+      - Search
       summary: Auto-suggestions for a given query
       description: This method retrieves a list of suggestions for a given search term.
       operationId: suggesterSuggestions
@@ -1014,20 +1014,6 @@ paths:
                   type: string
 components:
   schemas:
-    DiagramResult:
-      type: object
-      properties:
-        entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Entry'
-        facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetContainer'
-        found:
-          type: integer
-          format: int64
     FacetList:
       type: object
       properties:
@@ -1039,84 +1025,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FacetContainer'
-    GroupedResult:
+    IconPhysicalEntity:
       type: object
       properties:
-        numberOfGroups:
-          type: integer
-          format: int32
-        numberOfMatches:
-          type: integer
-          format: int32
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Result'
-        rowCount:
-          type: integer
-          format: int32
-        targetResults:
-          uniqueItems: true
-          type: array
-          items:
-            $ref: '#/components/schemas/TargetResult'
-    TargetResult:
-      type: object
-      properties:
-        resource:
+        compartments:
           type: string
-        target:
-          type: boolean
-        term:
+        displayName:
           type: string
-    FacetContainer:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int64
         name:
           type: string
-    FireworksOccurrencesResult:
-      type: object
-      properties:
-        interactsWith:
-          type: array
-          items:
-            type: string
-        llps:
-          type: array
-          items:
-            type: string
-    DiagramOccurrencesResult:
-      type: object
-      properties:
-        diagramEntity:
+        stId:
           type: string
-        inDiagram:
-          type: boolean
-        interactsWith:
-          type: array
-          items:
-            type: string
-        occurrences:
-          type: array
-          items:
-            type: string
-    Result:
-      type: object
-      properties:
-        entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Entry'
-        entriesCount:
-          type: integer
-          format: int64
-        rowCount:
-          type: integer
-          format: int32
-        typeName:
+        type:
           type: string
     Entry:
       type: object
@@ -1238,6 +1158,51 @@ components:
           type: string
         type:
           type: string
+    DiagramResult:
+      type: object
+      properties:
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entry'
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetContainer'
+        found:
+          type: integer
+          format: int64
+    DiagramOccurrencesResult:
+      type: object
+      properties:
+        diagramEntity:
+          type: string
+        inDiagram:
+          type: boolean
+        interactsWith:
+          type: array
+          items:
+            type: string
+        occurrences:
+          type: array
+          items:
+            type: string
+    FacetMapping:
+      type: object
+      properties:
+        compartmentFacet:
+          $ref: '#/components/schemas/FacetList'
+        iconCategoriesFacet:
+          $ref: '#/components/schemas/FacetList'
+        keywordFacet:
+          $ref: '#/components/schemas/FacetList'
+        speciesFacet:
+          $ref: '#/components/schemas/FacetList'
+        totalNumFount:
+          type: integer
+          format: int64
+        typeFacet:
+          $ref: '#/components/schemas/FacetList'
     FireworksResult:
       type: object
       properties:
@@ -1257,32 +1222,67 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TargetResult'
-    IconPhysicalEntity:
+    GroupedResult:
       type: object
       properties:
-        compartments:
-          type: string
-        displayName:
-          type: string
-        name:
-          type: string
-        stId:
-          type: string
-        type:
-          type: string
-    FacetMapping:
+        numberOfGroups:
+          type: integer
+          format: int32
+        numberOfMatches:
+          type: integer
+          format: int32
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Result'
+        rowCount:
+          type: integer
+          format: int32
+        targetResults:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/TargetResult'
+    Result:
       type: object
       properties:
-        compartmentFacet:
-          $ref: '#/components/schemas/FacetList'
-        iconCategoriesFacet:
-          $ref: '#/components/schemas/FacetList'
-        keywordFacet:
-          $ref: '#/components/schemas/FacetList'
-        speciesFacet:
-          $ref: '#/components/schemas/FacetList'
-        totalNumFount:
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entry'
+        entriesCount:
           type: integer
           format: int64
-        typeFacet:
-          $ref: '#/components/schemas/FacetList'
+        rowCount:
+          type: integer
+          format: int32
+        typeName:
+          type: string
+    FireworksOccurrencesResult:
+      type: object
+      properties:
+        interactsWith:
+          type: array
+          items:
+            type: string
+        llps:
+          type: array
+          items:
+            type: string
+    TargetResult:
+      type: object
+      properties:
+        resource:
+          type: string
+        target:
+          type: boolean
+        term:
+          type: string
+    FacetContainer:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+        name:
+          type: string

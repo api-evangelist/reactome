@@ -1,26 +1,26 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Pathway Analysis Service database query API
-  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  title: Content Service Query API
+  description: REST API for Reactome content
   termsOfService: /license
   contact:
     name: Reactome
     url: https://reactome.org
     email: help@reactome.org
   license:
-    name: Creative Commons Attribution 3.0 Unsupported License
-    url: https://creativecommons.org/licenses/by/3.0/legalcode
-  version: '2.0'
+    name: Creative Commons Attribution 4.0 International (CC BY 4.0) License
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: '1.2'
 servers:
-- url: /AnalysisService
+- url: /ContentService
 tags:
-- name: query
+- name: Query
   description: 'Reactome Data: Common data retrieval'
 paths:
   /data/query/enhanced/v2/{id}:
     get:
       tags:
-      - query
+      - Query
       summary: More information on an entry in Reactome knowledgebase
       description: Based on the given identifier, i.e. stable id or database id, this method queries for an entry in Reactome knowledgebase providing more information. In particular, the retrieved database object has all its properties and direct relationships (relationships of depth 1) filled, while it also includes any second level relationships regarding regulations and catalysts.
       operationId: findEnhancedObjectById
@@ -86,7 +86,7 @@ paths:
   /data/query/enhanced/{id}:
     get:
       tags:
-      - query
+      - Query
       summary: More information on an entry in Reactome knowledgebase
       description: Based on the given identifier, i.e. stable id or database id, this method queries for an entry in Reactome knowledgebase providing more information. In particular, the retrieved database object has all its properties and direct relationships (relationships of depth 1) filled, while it also includes any second level relationships regarding regulations and catalysts.
       operationId: findOldEnhancedObjectById
@@ -128,7 +128,7 @@ paths:
   /data/query/ids:
     post:
       tags:
-      - query
+      - Query
       summary: A list of entries in Reactome knowledgebase
       description: This method queries for a set of entries in Reactome knowledgebase based on the given list of identifiers. The provided list of identifiers can include stable ids, database ids or a mixture of both. It should be underlined that any duplicated ids are eliminated while only requests containing up to 20 ids are processed.
       operationId: findByIds
@@ -181,9 +181,11 @@ paths:
   /data/query/ids/map:
     post:
       tags:
-      - query
+      - Query
       summary: A list of entries with their mapping to the provided identifiers
-      description: This method queries for a set of entries in Reactome knowledgebase based on the given list of identifiers. The provided list of identifiers can include stable ids, database ids, old stable ids or a mixture of all. It should be underlined that any duplicated ids are eliminated while only requests containing up to 20 ids are processed.<br>This method is particularly useful for users that still rely on the previous version of stable identifiers to query this API. Please note that those are no longer part of the retrieved objects.
+      description: 'This method queries for a set of entries in Reactome knowledgebase based on the given list of identifiers. The provided list of identifiers can include stable ids, database ids, old stable ids or a mixture of all. It should be underlined that any duplicated ids are eliminated while only requests containing up to 20 ids are processed.
+
+        This method is particularly useful for users that still rely on the previous version of stable identifiers to query this API. Please note that those are no longer part of the retrieved objects.'
       operationId: findByIdsMap
       parameters:
       - name: view
@@ -226,7 +228,7 @@ paths:
   /data/query/{id}:
     get:
       tags:
-      - query
+      - Query
       summary: An entry in Reactome knowledgebase
       description: This method queries for an entry in Reactome knowledgebase based on the given identifier, i.e. stable id or database id. It is worth mentioning that the retrieved database object has all its properties and direct relationships (relationships of depth 1) filled.
       operationId: findById
@@ -280,7 +282,7 @@ paths:
   /data/query/{id}/{attributeName}:
     get:
       tags:
-      - query
+      - Query
       summary: A single property of an entry in Reactome knowledgebase
       description: This method queries for a specific property of an entry in Reactome knowledgebase based on the given identifier, i.e. stable id or database id.
       operationId: findById_1

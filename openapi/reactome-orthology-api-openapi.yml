@@ -1,18 +1,18 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Pathway Analysis Service database orthology API
-  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  title: Content Service Orthology API
+  description: REST API for Reactome content
   termsOfService: /license
   contact:
     name: Reactome
     url: https://reactome.org
     email: help@reactome.org
   license:
-    name: Creative Commons Attribution 3.0 Unsupported License
-    url: https://creativecommons.org/licenses/by/3.0/legalcode
-  version: '2.0'
+    name: Creative Commons Attribution 4.0 International (CC BY 4.0) License
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: '1.2'
 servers:
-- url: /AnalysisService
+- url: /ContentService
 tags:
 - name: orthology
   description: 'Reactome Data: Orthology related queries'
@@ -22,7 +22,7 @@ paths:
       tags:
       - orthology
       summary: The orthologies of a given set of events or entities
-      description: Reactome uses the set of manually curated human reactions to computationally infer reactions in twenty evolutionarily divergent eukaryotic species for which high-quality whole-genome sequence data are available, and hence a comprehensive and high-quality set of protein predictions exists. Thus, this method retrieves the orthologies for any given set of events or entities in the specified species. <a href="/documentation/inferred-events/" target="_blank">Here</a> you can find more information about the computationally inferred events.
+      description: Reactome uses the set of manually curated human reactions to computationally infer reactions in twenty evolutionarily divergent eukaryotic species for which high-quality whole-genome sequence data are available, and hence a comprehensive and high-quality set of protein predictions exists. Thus, this method retrieves the orthologies for any given set of events or entities in the specified species. Here you can find more information about the computationally inferred events.
       operationId: getOrthologies
       parameters:
       - name: speciesId
@@ -90,7 +90,7 @@ paths:
       tags:
       - orthology
       summary: The orthology for a given event or entity
-      description: Reactome uses the set of manually curated human reactions to computationally infer reactions in twenty evolutionarily divergent eukaryotic species for which high-quality whole-genome sequence data are available, and hence a comprehensive and high-quality set of protein predictions exists. Thus, this method retrieves the orthology for any given event or entity in the specified species. <a href="//www.reactome.org/pages/documentation/electronically-inferred-events/" target="_blank">Here</a> you can find more information about the computationally inferred events.
+      description: Reactome uses the set of manually curated human reactions to computationally infer reactions in twenty evolutionarily divergent eukaryotic species for which high-quality whole-genome sequence data are available, and hence a comprehensive and high-quality set of protein predictions exists. Thus, this method retrieves the orthology for any given event or entity in the specified species. Here you can find more information about the computationally inferred events.
       operationId: getOrthology
       parameters:
       - name: id

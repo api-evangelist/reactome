@@ -1,18 +1,18 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Pathway Analysis Service database interactors API
-  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  title: Content Service Interactors API
+  description: REST API for Reactome content
   termsOfService: /license
   contact:
     name: Reactome
     url: https://reactome.org
     email: help@reactome.org
   license:
-    name: Creative Commons Attribution 3.0 Unsupported License
-    url: https://creativecommons.org/licenses/by/3.0/legalcode
-  version: '2.0'
+    name: Creative Commons Attribution 4.0 International (CC BY 4.0) License
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: '1.2'
 servers:
-- url: /AnalysisService
+- url: /ContentService
 tags:
 - name: interactors
   description: Molecule interactors
@@ -21,7 +21,7 @@ paths:
     get:
       tags:
       - interactors
-      summary: Retrieve clustered interaction, sorted by score, of a given accession by resource.
+      summary: Retrieve clustered interaction, sorted by score, of a given accession by…
       operationId: getProteinDetailsByResource
       parameters:
       - name: resource
@@ -129,7 +129,7 @@ paths:
     post:
       tags:
       - interactors
-      summary: Retrieve clustered interaction, sorted by score, of a given accession(s) by resource.
+      summary: Retrieve clustered interaction, sorted by score, of a given accession(s) by…
       operationId: getProteinsDetailsByResource
       parameters:
       - name: resource
@@ -182,7 +182,7 @@ paths:
     post:
       tags:
       - interactors
-      summary: Retrieve a summary of a given accession list by resource.
+      summary: Retrieve a summary of a given accession list by resource
       operationId: getProteinsSummaryByResource
       parameters:
       - name: resource
@@ -279,7 +279,7 @@ paths:
     get:
       tags:
       - interactors
-      summary: Retrieve a custom interaction information of a given accession in Reactome knowledgebase for UI to use, including Reactome entity number
+      summary: Retrieve a custom interaction information of a given accession in Reactome…
       operationId: getCustomInteractionsByAcc
       parameters:
       - name: acc
@@ -407,7 +407,7 @@ paths:
     get:
       tags:
       - interactors
-      summary: Retrieve a list of lower level pathways where the interacting molecules can be found
+      summary: Retrieve a list of lower level pathways where the interacting molecules can be…
       operationId: getLowerLevelPathways
       parameters:
       - name: acc
@@ -1012,39 +1012,6 @@ paths:
                 $ref: '#/components/schemas/TupleResult'
 components:
   schemas:
-    Interactor:
-      type: object
-      properties:
-        acc:
-          type: string
-          description: This is the interactor accession (or identifier).
-        accURL:
-          type: string
-          description: This represents the URL for given accession.
-        alias:
-          type: string
-          description: This is the Gene name of the given accession.
-        evidences:
-          type: integer
-          description: This is the Interactions evidences.
-          format: int32
-        evidencesURL:
-          type: string
-          description: This represents the URL for the given interactions identifiers.
-        id:
-          type: integer
-          description: This is an auto increment counter which represents an unique number for the interaction.
-          format: int64
-        score:
-          type: number
-          description: This represents the confidence value (score) of an interaction.
-          format: double
-      description: List of Interactors that interacts with the given accession.
-    CustomPsicquicResource:
-      type: object
-      properties:
-        summary:
-          $ref: '#/components/schemas/Summary'
     Summary:
       type: object
       properties:
@@ -1060,6 +1027,47 @@ components:
           type: string
         token:
           type: string
+    CustomPsicquicResource:
+      type: object
+      properties:
+        summary:
+          $ref: '#/components/schemas/Summary'
+    InteractorEntity:
+      type: object
+      properties:
+        acc:
+          type: string
+          description: This is the interactor accession (or identifier).
+        count:
+          type: integer
+          description: This is the number of interactions for the given accession.
+          format: int32
+        interactors:
+          type: array
+          description: List of Interactors that interacts with the given accession.
+          items:
+            $ref: '#/components/schemas/Interactor'
+      description: This is the list of entities which have been requested.
+    PsicquicResource:
+      type: object
+      properties:
+        active:
+          type: boolean
+        name:
+          type: string
+        restURL:
+          type: string
+        soapURL:
+          type: string
+    TupleResult:
+      type: object
+      properties:
+        summary:
+          $ref: '#/components/schemas/Summary'
+        warningMessages:
+          type: array
+          items:
+            type: string
     CustomInteraction:
       type: object
       properties:
@@ -1093,17 +1101,6 @@ components:
           type: string
         variantIdentifier:
           type: string
-    PsicquicResource:
-      type: object
-      properties:
-        active:
-          type: boolean
-        name:
-          type: string
-        restURL:
-          type: string
-        soapURL:
-          type: string
     Interactors:
       type: object
       properties:
@@ -1115,28 +1112,31 @@ components:
         resource:
           type: string
           description: This is the resource where interactors have been queried.
-    InteractorEntity:
+    Interactor:
       type: object
       properties:
         acc:
           type: string
           description: This is the interactor accession (or identifier).
-        count:
+        accURL:
+          type: string
+          description: This represents the URL for given accession.
+        alias:
+          type: string
+          description: This is the Gene name of the given accession.
+        evidences:
           type: integer
-          description: This is the number of interactions for the given accession.
+          description: This is the Interactions evidences.
           format: int32
-        interactors:
-          type: array
-          description: List of Interactors that interacts with the given accession.
-          items:
-            $ref: '#/components/schemas/Interactor'
-      description: This is the list of entities which have been requested.
-    TupleResult:
-      type: object
-      properties:
-        summary:
-          $ref: '#/components/schemas/Summary'
-        warningMessages:
-          type: array
-          items:
-            type: string
+        evidencesURL:
+          type: string
+          description: This represents the URL for the given interactions identifiers.
+        id:
+          type: integer
+          description: This is an auto increment counter which represents an unique number for the interaction.
+          format: int64
+        score:
+          type: number
+          description: This represents the confidence value (score) of an interaction.
+          format: double
+      description: List of Interactors that interacts with the given accession.

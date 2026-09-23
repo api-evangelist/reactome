@@ -1,26 +1,24 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Pathway Analysis Service database mapping API
-  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
-  termsOfService: /license
+  title: Reactome Mapping API
   contact:
     name: Reactome
     url: https://reactome.org
     email: help@reactome.org
-  license:
-    name: Creative Commons Attribution 3.0 Unsupported License
-    url: https://creativecommons.org/licenses/by/3.0/legalcode
-  version: '2.0'
+  termsOfService: /license
+  version: '1.0'
+  description: 'Operations tagged mapping across 2 of this provider''s published API definitions: analysis-service.json, content-service.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: /AnalysisService
+- url: /ContentService
 tags:
-- name: mapping
+- name: Mapping
   description: Identifiers mapping methods
 paths:
   /mapping/:
     post:
       tags:
-      - mapping
+      - Mapping
       description: Maps the post identifiers over the different species
       operationId: getMapping
       parameters:
@@ -56,10 +54,14 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/MappedEntity'
+      summary: Get mapping
+      x-summary-source: derived
+    servers:
+    - url: /AnalysisService
   /mapping/form:
     post:
       tags:
-      - mapping
+      - Mapping
       description: Maps the identifiers in the file over the different species
       operationId: getMappingPostFile
       parameters:
@@ -116,11 +118,15 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/MappedEntity'
+      summary: Get mapping post file
+      x-summary-source: derived
+    servers:
+    - url: /AnalysisService
   /mapping/form/projection:
     post:
       tags:
-      - mapping
-      summary: Maps the identifiers in the file over the different species and projects the result to Homo Sapiens
+      - Mapping
+      summary: Maps the identifiers in the file over the different species and projects the…
       description: The projection is calculated by the orthologous slot in the Reactome database.
       operationId: getMappingPostFileToHuman
       parameters:
@@ -177,11 +183,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/MappedEntity'
+    servers:
+    - url: /AnalysisService
   /mapping/projection:
     post:
       tags:
-      - mapping
-      summary: Maps the post identifiers over the different species and projects the result to Homo Sapiens
+      - Mapping
+      summary: Maps the post identifiers over the different species and projects the result to…
       description: The projection is calculated by the orthologous slot in the Reactome database.
       operationId: getMappingToHuman
       parameters:
@@ -217,10 +225,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/MappedEntity'
+    servers:
+    - url: /AnalysisService
   /mapping/url:
     post:
       tags:
-      - mapping
+      - Mapping
       summary: Maps the identifiers contained in the provided url over the different species
       operationId: getMappingPostURL
       parameters:
@@ -281,11 +291,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/MappedEntity'
+    servers:
+    - url: /AnalysisService
   /mapping/url/projection:
     post:
       tags:
-      - mapping
-      summary: Maps the identifiers contained in the provided url over the different species and projects the result to Homo Sapiens
+      - Mapping
+      summary: Maps the identifiers contained in the provided url over the different species…
       description: The projection is calculated by the orthologous slot in the Reactome database.
       operationId: getMappingPostURLToHuman
       parameters:
@@ -345,10 +357,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/MappedEntity'
+    servers:
+    - url: /AnalysisService
   /data/mapping/{resource}/{identifier}/pathways:
     get:
       tags:
-      - mapping
+      - Mapping
       summary: The lower level pathways where an identifier can be mapped to
       description: Entities play different roles in reactions, and reactions are events that conform a pathway. This method retrieves the pathways for which an identifier plays a role within one or more of their events.
       operationId: getPathways
@@ -411,10 +425,12 @@ paths:
                 type: array
                 items:
                   type: object
+    servers:
+    - url: /ContentService
   /data/mapping/{resource}/{identifier}/reactions:
     get:
       tags:
-      - mapping
+      - Mapping
       summary: The reactions where an identifier can be mapped to
       description: Entities play different roles in reactions. This method retrieves the reactions for which an identifier plays a role .
       operationId: getReactionsLikeEvent
@@ -477,6 +493,8 @@ paths:
                 type: array
                 items:
                   type: object
+    servers:
+    - url: /ContentService
 components:
   schemas:
     MappedIdentifier:
@@ -500,3 +518,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MappedIdentifier'
+x-refined-from:
+- analysis-service.json
+- content-service.json

@@ -1,26 +1,26 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Pathway Analysis Service database events API
-  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  title: Content Service Events API
+  description: REST API for Reactome content
   termsOfService: /license
   contact:
     name: Reactome
     url: https://reactome.org
     email: help@reactome.org
   license:
-    name: Creative Commons Attribution 3.0 Unsupported License
-    url: https://creativecommons.org/licenses/by/3.0/legalcode
-  version: '2.0'
+    name: Creative Commons Attribution 4.0 International (CC BY 4.0) License
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: '1.2'
 servers:
-- url: /AnalysisService
+- url: /ContentService
 tags:
-- name: events
+- name: Events
   description: 'Reactome Data: Queries related to events'
 paths:
   /data/event/{id}/ancestors:
     get:
       tags:
-      - events
+      - Events
       summary: The ancestors of a given event
       description: The Reactome definition of events includes pathways and reactions. Although events are organised in a hierarchical structure, a single event can be in more than one location, i.e. a reaction can take part in different pathways while, in the same way, a sub-pathway can take part in many pathways. Therefore, this method retrieves a list of all possible paths from the requested event to the top level pathway(s).
       operationId: getEventAncestors
@@ -86,7 +86,7 @@ paths:
   /data/event/{id}/in-depth:
     get:
       tags:
-      - events
+      - Events
       operationId: getEventInDepth
       parameters:
       - name: id
@@ -151,10 +151,12 @@ paths:
             application/json:
               schema:
                 type: object
+      summary: Get event in depth
+      x-summary-source: derived
   /data/eventsHierarchy/{species}:
     get:
       tags:
-      - events
+      - Events
       summary: The full event hierarchy for a given species
       description: Events (pathways and reactions) in Reactome are organised in a hierarchical structure for every species. By following all 'hasEvent' relationships, this method retrieves the full event hierarchy for any given species. The result is a list of tree structures, one for each TopLevelPathway. Every event in these trees is represented by a PathwayBrowserNode. The latter contains the stable identifier, the name, the species, the url, the type, and the diagram of the particular event.
       operationId: getEventHierarchy

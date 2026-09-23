@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Pathway Analysis Service database report API
+  title: Pathway Analysis Service Report API
   description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
   termsOfService: /license
   contact:
@@ -14,13 +14,13 @@ info:
 servers:
 - url: /AnalysisService
 tags:
-- name: report
+- name: Report
   description: Retrieves report files in PDF format
 paths:
   /report/{token}/{species}/{filename}.pdf:
     get:
       tags:
-      - report
+      - Report
       summary: Downloads a report for a given pathway analysis result
       description: This method provides a report for a given pathway analysis result in a PDF document. This document contains data about the analysis itself followed by the pathways overview and the most significant pathways overlaid with the analysis result. Users can download and store this information in a convenient format to be checked in the future when the 'token' is not longer available.
       operationId: generatePdfReport

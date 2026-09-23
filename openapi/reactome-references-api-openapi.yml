@@ -1,27 +1,27 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Pathway Analysis Service database references API
-  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  title: Content Service References API
+  description: REST API for Reactome content
   termsOfService: /license
   contact:
     name: Reactome
     url: https://reactome.org
     email: help@reactome.org
   license:
-    name: Creative Commons Attribution 3.0 Unsupported License
-    url: https://creativecommons.org/licenses/by/3.0/legalcode
-  version: '2.0'
+    name: Creative Commons Attribution 4.0 International (CC BY 4.0) License
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: '1.2'
 servers:
-- url: /AnalysisService
+- url: /ContentService
 tags:
-- name: references
+- name: References
   description: 'Reactome xRefs: ReferenceEntity queries'
 paths:
   /references/mapping/xrefs:
     post:
       tags:
-      - references
-      summary: All cross references and physical entities associated with a list of given identifiers
+      - References
+      summary: All cross references and physical entities associated with a list of given…
       description: Retrieves a paginated list containing cross references and physical entities associated with the matching reference entities identifiers
       operationId: getCrossReferencesForList
       parameters:
@@ -97,7 +97,7 @@ paths:
   /references/mapping/{identifier}:
     get:
       tags:
-      - references
+      - References
       summary: All ReferenceEntities for a given identifier
       description: Retrieves a list containing all the reference entities for a given identifier.
       operationId: getReferenceEntitiesFor
@@ -157,7 +157,7 @@ paths:
   /references/mapping/{identifier}/xrefs:
     get:
       tags:
-      - references
+      - References
       summary: All cross references and physical entities associated with a given identifier
       description: Retrieves a list containing cross references and physical entities associated with the matching reference entities identifier
       operationId: getCrossReferencesFor
@@ -222,6 +222,33 @@ paths:
                   $ref: '#/components/schemas/CrossReferenceResult'
 components:
   schemas:
+    PageableObject:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int64
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        paged:
+          type: boolean
+        sort:
+          $ref: '#/components/schemas/Sort'
+        unpaged:
+          type: boolean
+    Sort:
+      type: object
+      properties:
+        empty:
+          type: boolean
+        sorted:
+          type: boolean
+        unsorted:
+          type: boolean
     ShortCrossReference:
       type: object
       properties:
@@ -267,15 +294,6 @@ components:
         totalPages:
           type: integer
           format: int32
-    Sort:
-      type: object
-      properties:
-        empty:
-          type: boolean
-        sorted:
-          type: boolean
-        unsorted:
-          type: boolean
     CrossReferenceResult:
       type: object
       properties:
@@ -289,21 +307,3 @@ components:
             type: string
         reference:
           type: string
-    PageableObject:
-      type: object
-      properties:
-        offset:
-          type: integer
-          format: int64
-        pageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        paged:
-          type: boolean
-        sort:
-          $ref: '#/components/schemas/Sort'
-        unpaged:
-          type: boolean

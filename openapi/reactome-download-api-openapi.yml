@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Pathway Analysis Service database download API
+  title: Pathway Analysis Service Download API
   description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
   termsOfService: /license
   contact:
@@ -14,13 +14,13 @@ info:
 servers:
 - url: /AnalysisService
 tags:
-- name: download
+- name: Download
   description: Methods to download different views of a result
 paths:
   /download/{token}/entities/found/{resource}/{filename}.csv:
     get:
       tags:
-      - download
+      - Download
       summary: Downloads found identifiers for a given analysis and resource
       description: The identifiers are filtered by the selected resource. The filename is the one to be suggested in the download window.
       operationId: downloadMappingResult
@@ -74,7 +74,7 @@ paths:
   /download/{token}/entities/notfound/{filename}.csv:
     get:
       tags:
-      - download
+      - Download
       summary: Downloads a list of the not found identifiers
       description: Those identifiers from the user sample that are not present up to the current data version. The filename is the one to be suggested in the download window.
       operationId: downloadNotFound
@@ -110,7 +110,7 @@ paths:
   /download/{token}/pathways/{resource}/{filename}.csv:
     get:
       tags:
-      - download
+      - Download
       summary: Downloads all hit pathways for a given analysis
       description: The results are filtered by the selected resource. The filename is the one to be suggested in the download window.
       operationId: downloadResultCSV
@@ -165,7 +165,7 @@ paths:
   /download/{token}/result.json:
     get:
       tags:
-      - download
+      - Download
       summary: Returns the complete result in json format
       description: The results are not filtered by any means. The json file contains the whole stored result based on chosen analysis options and submitted data.
       operationId: downloadResultJSON
@@ -200,7 +200,7 @@ paths:
   /download/{token}/result.json.gz:
     get:
       tags:
-      - download
+      - Download
       summary: Returns the complete result in json format (gzipped)
       description: The results are not filtered by any means. The json file contains the whole stored result based on chosen analysis options and submitted data.
       operationId: downloadResultGZIP
@@ -236,6 +236,84 @@ paths:
                 format: binary
 components:
   schemas:
+    ExternalExpressionSummary:
+      type: object
+      properties:
+        columnNames:
+          type: array
+          items:
+            type: string
+        max:
+          type: number
+          format: double
+        min:
+          type: number
+          format: double
+    ExternalMainIdentifier:
+      type: object
+      properties:
+        id:
+          type: string
+        resource:
+          type: string
+    ExternalAnalysisResult:
+      type: object
+      properties:
+        expressionSummary:
+          $ref: '#/components/schemas/ExternalExpressionSummary'
+        notFound:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalIdentifier'
+        pathways:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalPathwayNodeSummary'
+        summary:
+          $ref: '#/components/schemas/ExternalAnalysisSummary'
+        warnings:
+          type: array
+          items:
+            type: string
+    ExternalPathwayNodeSummary:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ExternalPathwayNodeData'
+        dbId:
+          type: integer
+          format: int64
+        inDisease:
+          type: boolean
+        llp:
+          type: boolean
+        name:
+          type: string
+        species:
+          $ref: '#/components/schemas/ExternalSpeciesNode'
+        stId:
+          type: string
+    ExternalInteraction:
+      type: object
+      properties:
+        id:
+          type: string
+        interactsWith:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalMainIdentifier'
+    ExternalAnalysisReaction:
+      type: object
+      properties:
+        dbId:
+          type: integer
+          format: int64
+        resources:
+          type: array
+          items:
+            type: string
+        stId:
+          type: string
     ExternalStatistics:
       type: object
       properties:
@@ -285,6 +363,49 @@ components:
           format: double
         resource:
           type: string
+    ExternalSpeciesNode:
+      type: object
+      properties:
+        name:
+          type: string
+        speciesID:
+          type: integer
+          format: int64
+        taxID:
+          type: string
+    ExternalPathwayNodeData:
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalIdentifier'
+        interactors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalInteractor'
+        reactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalAnalysisReaction'
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalStatistics'
+    ExternalIdentifier:
+      type: object
+      properties:
+        exp:
+          type: array
+          items:
+            type: number
+            format: double
+        id:
+          type: string
+        mapsTo:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalMainIdentifier'
     ExternalAnalysisSummary:
       type: object
       properties:
@@ -316,117 +437,6 @@ components:
         version:
           type: integer
           format: int32
-    ExternalPathwayNodeSummary:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/ExternalPathwayNodeData'
-        dbId:
-          type: integer
-          format: int64
-        inDisease:
-          type: boolean
-        llp:
-          type: boolean
-        name:
-          type: string
-        species:
-          $ref: '#/components/schemas/ExternalSpeciesNode'
-        stId:
-          type: string
-    ExternalMainIdentifier:
-      type: object
-      properties:
-        id:
-          type: string
-        resource:
-          type: string
-    ExternalIdentifier:
-      type: object
-      properties:
-        exp:
-          type: array
-          items:
-            type: number
-            format: double
-        id:
-          type: string
-        mapsTo:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalMainIdentifier'
-    ExternalPathwayNodeData:
-      type: object
-      properties:
-        entities:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalIdentifier'
-        interactors:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalInteractor'
-        reactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalAnalysisReaction'
-        statistics:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalStatistics'
-    ExternalInteraction:
-      type: object
-      properties:
-        id:
-          type: string
-        interactsWith:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalMainIdentifier'
-    ExternalAnalysisResult:
-      type: object
-      properties:
-        expressionSummary:
-          $ref: '#/components/schemas/ExternalExpressionSummary'
-        notFound:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalIdentifier'
-        pathways:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalPathwayNodeSummary'
-        summary:
-          $ref: '#/components/schemas/ExternalAnalysisSummary'
-        warnings:
-          type: array
-          items:
-            type: string
-    ExternalExpressionSummary:
-      type: object
-      properties:
-        columnNames:
-          type: array
-          items:
-            type: string
-        max:
-          type: number
-          format: double
-        min:
-          type: number
-          format: double
-    ExternalAnalysisReaction:
-      type: object
-      properties:
-        dbId:
-          type: integer
-          format: int64
-        resources:
-          type: array
-          items:
-            type: string
-        stId:
-          type: string
     ExternalInteractor:
       type: object
       properties:
@@ -441,13 +451,3 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ExternalInteraction'
-    ExternalSpeciesNode:
-      type: object
-      properties:
-        name:
-          type: string
-        speciesID:
-          type: integer
-          format: int64
-        taxID:
-          type: string

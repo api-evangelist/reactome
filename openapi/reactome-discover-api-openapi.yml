@@ -1,26 +1,26 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Pathway Analysis Service database discover API
-  description: Provides an API for pathway over-representation and expression analysis as well as species comparison tool.
+  title: Content Service Discover API
+  description: REST API for Reactome content
   termsOfService: /license
   contact:
     name: Reactome
     url: https://reactome.org
     email: help@reactome.org
   license:
-    name: Creative Commons Attribution 3.0 Unsupported License
-    url: https://creativecommons.org/licenses/by/3.0/legalcode
-  version: '2.0'
+    name: Creative Commons Attribution 4.0 International (CC BY 4.0) License
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: '1.2'
 servers:
-- url: /AnalysisService
+- url: /ContentService
 tags:
-- name: discover
+- name: Discover
   description: 'Reactome Data: Search engines discovery schema'
 paths:
   /data/discover/{identifier}:
     get:
       tags:
-      - discover
+      - Discover
       summary: The schema.org for an Event in Reactome knowledgebase
       description: For each event (reaction or pathway) this method generates a json file representing the dataset object as defined by schema.org (http). This is mainly used by search engines in order to index the data
       operationId: eventDiscovery
@@ -73,28 +73,8 @@ paths:
                 $ref: '#/components/schemas/SchemaDataSet'
 components:
   schemas:
-    SchemaDataCatalog:
-      type: object
-      properties:
-        '@type':
-          type: string
-        name:
-          type: string
-        url:
-          type: string
     SchemaCreator:
       type: object
-    SchemaDataDownload:
-      type: object
-      properties:
-        '@type':
-          type: string
-        contentUrl:
-          type: string
-        encodingFormat:
-          type: string
-        fileFormat:
-          type: string
     SchemaDataSet:
       type: object
       properties:
@@ -133,4 +113,24 @@ components:
         url:
           type: string
         version:
+          type: string
+    SchemaDataDownload:
+      type: object
+      properties:
+        '@type':
+          type: string
+        contentUrl:
+          type: string
+        encodingFormat:
+          type: string
+        fileFormat:
+          type: string
+    SchemaDataCatalog:
+      type: object
+      properties:
+        '@type':
+          type: string
+        name:
+          type: string
+        url:
           type: string

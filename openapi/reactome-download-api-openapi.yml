@@ -236,26 +236,76 @@ paths:
                 format: binary
 components:
   schemas:
-    ExternalExpressionSummary:
+    ExternalSpeciesNode:
       type: object
       properties:
-        columnNames:
+        name:
+          type: string
+        speciesID:
+          type: integer
+          format: int64
+        taxID:
+          type: string
+    ExternalInteractor:
+      type: object
+      properties:
+        exp:
           type: array
           items:
-            type: string
-        max:
-          type: number
-          format: double
-        min:
-          type: number
-          format: double
-    ExternalMainIdentifier:
+            type: number
+            format: double
+        id:
+          type: string
+        mapsTo:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalInteraction'
+    ExternalPathwayNodeSummary:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ExternalPathwayNodeData'
+        dbId:
+          type: integer
+          format: int64
+        inDisease:
+          type: boolean
+        llp:
+          type: boolean
+        name:
+          type: string
+        species:
+          $ref: '#/components/schemas/ExternalSpeciesNode'
+        stId:
+          type: string
+    ExternalPathwayNodeData:
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalIdentifier'
+        interactors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalInteractor'
+        reactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalAnalysisReaction'
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalStatistics'
+    ExternalInteraction:
       type: object
       properties:
         id:
           type: string
-        resource:
-          type: string
+        interactsWith:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalMainIdentifier'
     ExternalAnalysisResult:
       type: object
       properties:
@@ -275,33 +325,6 @@ components:
           type: array
           items:
             type: string
-    ExternalPathwayNodeSummary:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/ExternalPathwayNodeData'
-        dbId:
-          type: integer
-          format: int64
-        inDisease:
-          type: boolean
-        llp:
-          type: boolean
-        name:
-          type: string
-        species:
-          $ref: '#/components/schemas/ExternalSpeciesNode'
-        stId:
-          type: string
-    ExternalInteraction:
-      type: object
-      properties:
-        id:
-          type: string
-        interactsWith:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalMainIdentifier'
     ExternalAnalysisReaction:
       type: object
       properties:
@@ -313,6 +336,13 @@ components:
           items:
             type: string
         stId:
+          type: string
+    ExternalMainIdentifier:
+      type: object
+      properties:
+        id:
+          type: string
+        resource:
           type: string
     ExternalStatistics:
       type: object
@@ -363,35 +393,6 @@ components:
           format: double
         resource:
           type: string
-    ExternalSpeciesNode:
-      type: object
-      properties:
-        name:
-          type: string
-        speciesID:
-          type: integer
-          format: int64
-        taxID:
-          type: string
-    ExternalPathwayNodeData:
-      type: object
-      properties:
-        entities:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalIdentifier'
-        interactors:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalInteractor'
-        reactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalAnalysisReaction'
-        statistics:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalStatistics'
     ExternalIdentifier:
       type: object
       properties:
@@ -437,17 +438,16 @@ components:
         version:
           type: integer
           format: int32
-    ExternalInteractor:
+    ExternalExpressionSummary:
       type: object
       properties:
-        exp:
+        columnNames:
           type: array
           items:
-            type: number
-            format: double
-        id:
-          type: string
-        mapsTo:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalInteraction'
+            type: string
+        max:
+          type: number
+          format: double
+        min:
+          type: number
+          format: double

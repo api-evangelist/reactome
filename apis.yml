@@ -54,7 +54,7 @@ modified: '2026-06-13'
 specificationVersion: '0.23'
 apis:
 - aid: reactome:reactome-database-api
-  name: Reactome database API
+  name: Reactome Database API
   description: Database info queries
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -74,7 +74,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-discover-api
-  name: Reactome discover API
+  name: Reactome Discover API
   description: 'Reactome Data: Search engines discovery schema'
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -94,7 +94,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-diseases-api
-  name: Reactome diseases API
+  name: Reactome Diseases API
   description: 'Reactome Data: Disease related queries'
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -114,7 +114,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-download-api
-  name: Reactome download API
+  name: Reactome Download API
   description: Methods to download different views of a result
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -134,7 +134,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-entities-api
-  name: Reactome entities API
+  name: Reactome Entities API
   description: 'Reactome Data: PhysicalEntity queries'
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -154,7 +154,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-events-api
-  name: Reactome events API
+  name: Reactome Events API
   description: 'Reactome Data: Queries related to events'
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -174,7 +174,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-exporter-api
-  name: Reactome exporter API
+  name: Reactome Exporter API
   description: 'Reactome Data: Format Exporter'
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -194,7 +194,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-identifier-api
-  name: Reactome identifier API
+  name: Reactome Identifier API
   description: Queries for only one identifier
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -212,7 +212,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-identifiers-api
-  name: Reactome identifiers API
+  name: Reactome Identifiers API
   description: Queries for multiple identifiers
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -232,7 +232,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-import-api
-  name: Reactome import API
+  name: Reactome Import API
   description: Imports an external result
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -252,7 +252,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-interactors-api
-  name: Reactome interactors API
+  name: Reactome Interactors API
   description: Molecule interactors
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -270,7 +270,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-mapping-api
-  name: Reactome mapping API
+  name: Reactome Mapping API
   description: Identifiers mapping methods
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -290,7 +290,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-orthology-api
-  name: Reactome orthology API
+  name: Reactome Orthology API
   description: 'Reactome Data: Orthology related queries'
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -310,7 +310,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-participants-api
-  name: Reactome participants API
+  name: Reactome Participants API
   description: 'Reactome Data: Queries related to participants'
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -330,7 +330,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-pathways-api
-  name: Reactome pathways API
+  name: Reactome Pathways API
   description: 'Reactome Data: Pathway related queries'
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -350,7 +350,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-person-api
-  name: Reactome person API
+  name: Reactome Person API
   description: 'Reactome Data: Person queries'
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -370,7 +370,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-query-api
-  name: Reactome query API
+  name: Reactome Query API
   description: 'Reactome Data: Common data retrieval'
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -390,7 +390,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-references-api
-  name: Reactome references API
+  name: Reactome References API
   description: 'Reactome xRefs: ReferenceEntity queries'
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -410,7 +410,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-report-api
-  name: Reactome report API
+  name: Reactome Report API
   description: Retrieves report files in PDF format
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -430,7 +430,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-schema-api
-  name: Reactome schema API
+  name: Reactome Schema API
   description: 'Reactome Data: Schema class queries'
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -450,7 +450,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-search-api
-  name: Reactome search API
+  name: Reactome Search API
   description: Reactome Search
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -470,7 +470,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-species-api
-  name: Reactome species API
+  name: Reactome Species API
   description: Species comparison
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService
@@ -490,7 +490,7 @@ apis:
   - type: SwaggerUI
     url: https://reactome.org/AnalysisService/
 - aid: reactome:reactome-token-api
-  name: Reactome token API
+  name: Reactome Token API
   description: Previous queries filter
   humanURL: https://reactome.org/dev/content-service
   baseURL: https://reactome.org/ContentService

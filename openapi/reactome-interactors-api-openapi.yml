@@ -1027,38 +1027,6 @@ components:
           type: string
         token:
           type: string
-    CustomPsicquicResource:
-      type: object
-      properties:
-        summary:
-          $ref: '#/components/schemas/Summary'
-    InteractorEntity:
-      type: object
-      properties:
-        acc:
-          type: string
-          description: This is the interactor accession (or identifier).
-        count:
-          type: integer
-          description: This is the number of interactions for the given accession.
-          format: int32
-        interactors:
-          type: array
-          description: List of Interactors that interacts with the given accession.
-          items:
-            $ref: '#/components/schemas/Interactor'
-      description: This is the list of entities which have been requested.
-    PsicquicResource:
-      type: object
-      properties:
-        active:
-          type: boolean
-        name:
-          type: string
-        restURL:
-          type: string
-        soapURL:
-          type: string
     TupleResult:
       type: object
       properties:
@@ -1101,17 +1069,33 @@ components:
           type: string
         variantIdentifier:
           type: string
-    Interactors:
+    InteractorEntity:
       type: object
       properties:
-        entities:
-          type: array
-          description: This is the list of entities which have been requested.
-          items:
-            $ref: '#/components/schemas/InteractorEntity'
-        resource:
+        acc:
           type: string
-          description: This is the resource where interactors have been queried.
+          description: This is the interactor accession (or identifier).
+        count:
+          type: integer
+          description: This is the number of interactions for the given accession.
+          format: int32
+        interactors:
+          type: array
+          description: List of Interactors that interacts with the given accession.
+          items:
+            $ref: '#/components/schemas/Interactor'
+      description: This is the list of entities which have been requested.
+    PsicquicResource:
+      type: object
+      properties:
+        active:
+          type: boolean
+        name:
+          type: string
+        restURL:
+          type: string
+        soapURL:
+          type: string
     Interactor:
       type: object
       properties:
@@ -1140,3 +1124,19 @@ components:
           description: This represents the confidence value (score) of an interaction.
           format: double
       description: List of Interactors that interacts with the given accession.
+    CustomPsicquicResource:
+      type: object
+      properties:
+        summary:
+          $ref: '#/components/schemas/Summary'
+    Interactors:
+      type: object
+      properties:
+        entities:
+          type: array
+          description: This is the list of entities which have been requested.
+          items:
+            $ref: '#/components/schemas/InteractorEntity'
+        resource:
+          type: string
+          description: This is the resource where interactors have been queried.

@@ -222,42 +222,6 @@ paths:
                   $ref: '#/components/schemas/CrossReferenceResult'
 components:
   schemas:
-    PageableObject:
-      type: object
-      properties:
-        offset:
-          type: integer
-          format: int64
-        pageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        paged:
-          type: boolean
-        sort:
-          $ref: '#/components/schemas/Sort'
-        unpaged:
-          type: boolean
-    Sort:
-      type: object
-      properties:
-        empty:
-          type: boolean
-        sorted:
-          type: boolean
-        unsorted:
-          type: boolean
-    ShortCrossReference:
-      type: object
-      properties:
-        databaseName:
-          type: string
-        identifier:
-          type: string
-        url:
-          type: string
     PageMapStringCollectionCrossReferenceResult:
       type: object
       properties:
@@ -294,6 +258,24 @@ components:
         totalPages:
           type: integer
           format: int32
+    PageableObject:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int64
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        paged:
+          type: boolean
+        sort:
+          $ref: '#/components/schemas/Sort'
+        unpaged:
+          type: boolean
     CrossReferenceResult:
       type: object
       properties:
@@ -306,4 +288,22 @@ components:
           items:
             type: string
         reference:
+          type: string
+    Sort:
+      type: object
+      properties:
+        empty:
+          type: boolean
+        sorted:
+          type: boolean
+        unsorted:
+          type: boolean
+    ShortCrossReference:
+      type: object
+      properties:
+        databaseName:
+          type: string
+        identifier:
+          type: string
+        url:
           type: string

@@ -62,7 +62,7 @@ paths:
       tags:
       - Database
       summary: The name of current database
-      operationId: getDBName
+      operationId: getDataDatabaseName
       parameters:
       - name: view
         in: query
@@ -97,6 +97,8 @@ paths:
             text/plain:
               schema:
                 type: string
+      x-operation-id-source: normalized
+      x-operation-id-original: getDBName
     servers:
     - url: /ContentService
   /data/database/version:
@@ -104,7 +106,7 @@ paths:
       tags:
       - Database
       summary: The version number of current database
-      operationId: getDBVersion
+      operationId: getDataDatabaseVersion
       parameters:
       - name: view
         in: query
@@ -139,6 +141,8 @@ paths:
             text/plain:
               schema:
                 type: string
+      x-operation-id-source: normalized
+      x-operation-id-original: getDBVersion
     servers:
     - url: /ContentService
 x-refined-from:

@@ -1048,21 +1048,7 @@ paths:
                   $ref: '#/components/schemas/ResourceSummary'
 components:
   schemas:
-    ReactionStatistics:
-      type: object
-      properties:
-        found:
-          type: integer
-          format: int32
-        ratio:
-          type: number
-          format: double
-        resource:
-          type: string
-        total:
-          type: integer
-          format: int32
-    FoundInteractor:
+    FoundEntity:
       type: object
       properties:
         exp:
@@ -1072,36 +1058,20 @@ components:
             format: double
         id:
           type: string
-        interactsWith:
-          $ref: '#/components/schemas/IdentifierMap'
         mapsTo:
           uniqueItems: true
           type: array
           items:
-            type: string
-    ExpressionSummary:
+            $ref: '#/components/schemas/IdentifierMap'
+    IdentifierSummary:
       type: object
       properties:
-        columnNames:
+        exp:
           type: array
           items:
-            type: string
-        max:
-          type: number
-          format: double
-        min:
-          type: number
-          format: double
-    SpeciesFilteredResult:
-      type: object
-      properties:
-        expressionSummary:
-          $ref: '#/components/schemas/ExpressionSummary'
-        pathways:
-          type: array
-          items:
-            $ref: '#/components/schemas/PathwayBase'
-        type:
+            type: number
+            format: double
+        id:
           type: string
     AnalysisSummary:
       type: object
@@ -1129,6 +1099,45 @@ components:
           type: string
         type:
           type: string
+    SpeciesSummary:
+      type: object
+      properties:
+        dbId:
+          type: integer
+          format: int64
+        filtered:
+          type: integer
+          format: int32
+        name:
+          type: string
+        pathways:
+          type: integer
+          format: int32
+        taxId:
+          type: string
+    ExpressionSummary:
+      type: object
+      properties:
+        columnNames:
+          type: array
+          items:
+            type: string
+        max:
+          type: number
+          format: double
+        min:
+          type: number
+          format: double
+    IdentifierMap:
+      type: object
+      properties:
+        ids:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        resource:
+          type: string
     PathwayBase:
       type: object
       properties:
@@ -1139,6 +1148,54 @@ components:
           type: boolean
         entities:
           $ref: '#/components/schemas/EntityStatistics'
+        stId:
+          type: string
+    ResourceSummary:
+      type: object
+      properties:
+        filtered:
+          type: integer
+          format: int32
+        pathways:
+          type: integer
+          format: int32
+        resource:
+          type: string
+    FoundInteractor:
+      type: object
+      properties:
+        exp:
+          type: array
+          items:
+            type: number
+            format: double
+        id:
+          type: string
+        interactsWith:
+          $ref: '#/components/schemas/IdentifierMap'
+        mapsTo:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+    PathwaySummary:
+      type: object
+      properties:
+        dbId:
+          type: integer
+          format: int64
+        entities:
+          $ref: '#/components/schemas/EntityStatistics'
+        inDisease:
+          type: boolean
+        llp:
+          type: boolean
+        name:
+          type: string
+        reactions:
+          $ref: '#/components/schemas/ReactionStatistics'
+        species:
+          $ref: '#/components/schemas/SpeciesSummary'
         stId:
           type: string
     EntityStatistics:
@@ -1178,42 +1235,6 @@ components:
         total:
           type: integer
           format: int32
-    ResourceSummary:
-      type: object
-      properties:
-        filtered:
-          type: integer
-          format: int32
-        pathways:
-          type: integer
-          format: int32
-        resource:
-          type: string
-    IdentifierMap:
-      type: object
-      properties:
-        ids:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        resource:
-          type: string
-    FoundEntity:
-      type: object
-      properties:
-        exp:
-          type: array
-          items:
-            type: number
-            format: double
-        id:
-          type: string
-        mapsTo:
-          uniqueItems: true
-          type: array
-          items:
-            $ref: '#/components/schemas/IdentifierMap'
     FoundEntities:
       type: object
       properties:
@@ -1241,6 +1262,34 @@ components:
         totalEntitiesCount:
           type: integer
           format: int32
+    FoundElements:
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/FoundEntity'
+        expNames:
+          type: array
+          items:
+            type: string
+        foundEntities:
+          type: integer
+          format: int32
+        foundInteractors:
+          type: integer
+          format: int32
+        interactors:
+          type: array
+          items:
+            $ref: '#/components/schemas/FoundInteractor'
+        pathway:
+          type: string
+        resources:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
     AnalysisResult:
       type: object
       properties:
@@ -1270,50 +1319,17 @@ components:
           type: array
           items:
             type: string
-    SpeciesSummary:
+    SpeciesFilteredResult:
       type: object
       properties:
-        dbId:
-          type: integer
-          format: int64
-        filtered:
-          type: integer
-          format: int32
-        name:
-          type: string
+        expressionSummary:
+          $ref: '#/components/schemas/ExpressionSummary'
         pathways:
-          type: integer
-          format: int32
-        taxId:
+          type: array
+          items:
+            $ref: '#/components/schemas/PathwayBase'
+        type:
           type: string
-    FoundElements:
-      type: object
-      properties:
-        entities:
-          type: array
-          items:
-            $ref: '#/components/schemas/FoundEntity'
-        expNames:
-          type: array
-          items:
-            type: string
-        foundEntities:
-          type: integer
-          format: int32
-        foundInteractors:
-          type: integer
-          format: int32
-        interactors:
-          type: array
-          items:
-            $ref: '#/components/schemas/FoundInteractor'
-        pathway:
-          type: string
-        resources:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
     FoundInteractors:
       type: object
       properties:
@@ -1342,33 +1358,17 @@ components:
         value:
           type: integer
           format: int32
-    PathwaySummary:
+    ReactionStatistics:
       type: object
       properties:
-        dbId:
+        found:
           type: integer
-          format: int64
-        entities:
-          $ref: '#/components/schemas/EntityStatistics'
-        inDisease:
-          type: boolean
-        llp:
-          type: boolean
-        name:
+          format: int32
+        ratio:
+          type: number
+          format: double
+        resource:
           type: string
-        reactions:
-          $ref: '#/components/schemas/ReactionStatistics'
-        species:
-          $ref: '#/components/schemas/SpeciesSummary'
-        stId:
-          type: string
-    IdentifierSummary:
-      type: object
-      properties:
-        exp:
-          type: array
-          items:
-            type: number
-            format: double
-        id:
-          type: string
+        total:
+          type: integer
+          format: int32

@@ -236,48 +236,6 @@ paths:
                 format: binary
 components:
   schemas:
-    ExternalSpeciesNode:
-      type: object
-      properties:
-        name:
-          type: string
-        speciesID:
-          type: integer
-          format: int64
-        taxID:
-          type: string
-    ExternalInteractor:
-      type: object
-      properties:
-        exp:
-          type: array
-          items:
-            type: number
-            format: double
-        id:
-          type: string
-        mapsTo:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalInteraction'
-    ExternalPathwayNodeSummary:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/ExternalPathwayNodeData'
-        dbId:
-          type: integer
-          format: int64
-        inDisease:
-          type: boolean
-        llp:
-          type: boolean
-        name:
-          type: string
-        species:
-          $ref: '#/components/schemas/ExternalSpeciesNode'
-        stId:
-          type: string
     ExternalPathwayNodeData:
       type: object
       properties:
@@ -297,52 +255,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ExternalStatistics'
-    ExternalInteraction:
+    ExternalSpeciesNode:
       type: object
       properties:
-        id:
+        name:
           type: string
-        interactsWith:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalMainIdentifier'
-    ExternalAnalysisResult:
-      type: object
-      properties:
-        expressionSummary:
-          $ref: '#/components/schemas/ExternalExpressionSummary'
-        notFound:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalIdentifier'
-        pathways:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalPathwayNodeSummary'
-        summary:
-          $ref: '#/components/schemas/ExternalAnalysisSummary'
-        warnings:
-          type: array
-          items:
-            type: string
-    ExternalAnalysisReaction:
-      type: object
-      properties:
-        dbId:
+        speciesID:
           type: integer
           format: int64
-        resources:
-          type: array
-          items:
-            type: string
-        stId:
-          type: string
-    ExternalMainIdentifier:
-      type: object
-      properties:
-        id:
-          type: string
-        resource:
+        taxID:
           type: string
     ExternalStatistics:
       type: object
@@ -393,20 +314,6 @@ components:
           format: double
         resource:
           type: string
-    ExternalIdentifier:
-      type: object
-      properties:
-        exp:
-          type: array
-          items:
-            type: number
-            format: double
-        id:
-          type: string
-        mapsTo:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalMainIdentifier'
     ExternalAnalysisSummary:
       type: object
       properties:
@@ -438,6 +345,64 @@ components:
         version:
           type: integer
           format: int32
+    ExternalPathwayNodeSummary:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ExternalPathwayNodeData'
+        dbId:
+          type: integer
+          format: int64
+        inDisease:
+          type: boolean
+        llp:
+          type: boolean
+        name:
+          type: string
+        species:
+          $ref: '#/components/schemas/ExternalSpeciesNode'
+        stId:
+          type: string
+    ExternalAnalysisResult:
+      type: object
+      properties:
+        expressionSummary:
+          $ref: '#/components/schemas/ExternalExpressionSummary'
+        notFound:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalIdentifier'
+        pathways:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalPathwayNodeSummary'
+        summary:
+          $ref: '#/components/schemas/ExternalAnalysisSummary'
+        warnings:
+          type: array
+          items:
+            type: string
+    ExternalMainIdentifier:
+      type: object
+      properties:
+        id:
+          type: string
+        resource:
+          type: string
+    ExternalInteractor:
+      type: object
+      properties:
+        exp:
+          type: array
+          items:
+            type: number
+            format: double
+        id:
+          type: string
+        mapsTo:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalInteraction'
     ExternalExpressionSummary:
       type: object
       properties:
@@ -451,3 +416,38 @@ components:
         min:
           type: number
           format: double
+    ExternalIdentifier:
+      type: object
+      properties:
+        exp:
+          type: array
+          items:
+            type: number
+            format: double
+        id:
+          type: string
+        mapsTo:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalMainIdentifier'
+    ExternalInteraction:
+      type: object
+      properties:
+        id:
+          type: string
+        interactsWith:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalMainIdentifier'
+    ExternalAnalysisReaction:
+      type: object
+      properties:
+        dbId:
+          type: integer
+          format: int64
+        resources:
+          type: array
+          items:
+            type: string
+        stId:
+          type: string

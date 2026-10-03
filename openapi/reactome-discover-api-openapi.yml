@@ -73,6 +73,28 @@ paths:
                 $ref: '#/components/schemas/SchemaDataSet'
 components:
   schemas:
+    SchemaDataDownload:
+      type: object
+      properties:
+        '@type':
+          type: string
+        contentUrl:
+          type: string
+        encodingFormat:
+          type: string
+        fileFormat:
+          type: string
+    SchemaCreator:
+      type: object
+    SchemaDataCatalog:
+      type: object
+      properties:
+        '@type':
+          type: string
+        name:
+          type: string
+        url:
+          type: string
     SchemaDataSet:
       type: object
       properties:
@@ -111,26 +133,4 @@ components:
         url:
           type: string
         version:
-          type: string
-    SchemaDataCatalog:
-      type: object
-      properties:
-        '@type':
-          type: string
-        name:
-          type: string
-        url:
-          type: string
-    SchemaCreator:
-      type: object
-    SchemaDataDownload:
-      type: object
-      properties:
-        '@type':
-          type: string
-        contentUrl:
-          type: string
-        encodingFormat:
-          type: string
-        fileFormat:
           type: string

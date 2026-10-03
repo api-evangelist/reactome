@@ -1048,57 +1048,6 @@ paths:
                   $ref: '#/components/schemas/ResourceSummary'
 components:
   schemas:
-    FoundEntity:
-      type: object
-      properties:
-        exp:
-          type: array
-          items:
-            type: number
-            format: double
-        id:
-          type: string
-        mapsTo:
-          uniqueItems: true
-          type: array
-          items:
-            $ref: '#/components/schemas/IdentifierMap'
-    IdentifierSummary:
-      type: object
-      properties:
-        exp:
-          type: array
-          items:
-            type: number
-            format: double
-        id:
-          type: string
-    AnalysisSummary:
-      type: object
-      properties:
-        fileName:
-          type: string
-        gsaMethod:
-          type: string
-        gsaToken:
-          type: string
-        includeDisease:
-          type: boolean
-        interactors:
-          type: boolean
-        projection:
-          type: boolean
-        sampleName:
-          type: string
-        species:
-          type: integer
-          format: int64
-        text:
-          type: boolean
-        token:
-          type: string
-        type:
-          type: string
     SpeciesSummary:
       type: object
       properties:
@@ -1114,89 +1063,6 @@ components:
           type: integer
           format: int32
         taxId:
-          type: string
-    ExpressionSummary:
-      type: object
-      properties:
-        columnNames:
-          type: array
-          items:
-            type: string
-        max:
-          type: number
-          format: double
-        min:
-          type: number
-          format: double
-    IdentifierMap:
-      type: object
-      properties:
-        ids:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        resource:
-          type: string
-    PathwayBase:
-      type: object
-      properties:
-        dbId:
-          type: integer
-          format: int64
-        disease:
-          type: boolean
-        entities:
-          $ref: '#/components/schemas/EntityStatistics'
-        stId:
-          type: string
-    ResourceSummary:
-      type: object
-      properties:
-        filtered:
-          type: integer
-          format: int32
-        pathways:
-          type: integer
-          format: int32
-        resource:
-          type: string
-    FoundInteractor:
-      type: object
-      properties:
-        exp:
-          type: array
-          items:
-            type: number
-            format: double
-        id:
-          type: string
-        interactsWith:
-          $ref: '#/components/schemas/IdentifierMap'
-        mapsTo:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-    PathwaySummary:
-      type: object
-      properties:
-        dbId:
-          type: integer
-          format: int64
-        entities:
-          $ref: '#/components/schemas/EntityStatistics'
-        inDisease:
-          type: boolean
-        llp:
-          type: boolean
-        name:
-          type: string
-        reactions:
-          $ref: '#/components/schemas/ReactionStatistics'
-        species:
-          $ref: '#/components/schemas/SpeciesSummary'
-        stId:
           type: string
     EntityStatistics:
       type: object
@@ -1235,33 +1101,43 @@ components:
         total:
           type: integer
           format: int32
-    FoundEntities:
+    AnalysisSummary:
       type: object
       properties:
-        expNames:
-          type: array
-          items:
-            type: string
-        found:
+        fileName:
+          type: string
+        gsaMethod:
+          type: string
+        gsaToken:
+          type: string
+        includeDisease:
+          type: boolean
+        interactors:
+          type: boolean
+        projection:
+          type: boolean
+        sampleName:
+          type: string
+        species:
           type: integer
-          format: int32
-        identifiers:
+          format: int64
+        text:
+          type: boolean
+        token:
+          type: string
+        type:
+          type: string
+    SpeciesFilteredResult:
+      type: object
+      properties:
+        expressionSummary:
+          $ref: '#/components/schemas/ExpressionSummary'
+        pathways:
           type: array
           items:
-            $ref: '#/components/schemas/FoundEntity'
-        resourceToMappedEntitiesCount:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int32
-        resources:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        totalEntitiesCount:
-          type: integer
-          format: int32
+            $ref: '#/components/schemas/PathwayBase'
+        type:
+          type: string
     FoundElements:
       type: object
       properties:
@@ -1319,16 +1195,15 @@ components:
           type: array
           items:
             type: string
-    SpeciesFilteredResult:
+    IdentifierMap:
       type: object
       properties:
-        expressionSummary:
-          $ref: '#/components/schemas/ExpressionSummary'
-        pathways:
+        ids:
+          uniqueItems: true
           type: array
           items:
-            $ref: '#/components/schemas/PathwayBase'
-        type:
+            type: string
+        resource:
           type: string
     FoundInteractors:
       type: object
@@ -1349,6 +1224,30 @@ components:
           type: array
           items:
             type: string
+    ResourceSummary:
+      type: object
+      properties:
+        filtered:
+          type: integer
+          format: int32
+        pathways:
+          type: integer
+          format: int32
+        resource:
+          type: string
+    ExpressionSummary:
+      type: object
+      properties:
+        columnNames:
+          type: array
+          items:
+            type: string
+        max:
+          type: number
+          format: double
+        min:
+          type: number
+          format: double
     Bin:
       type: object
       properties:
@@ -1358,6 +1257,107 @@ components:
         value:
           type: integer
           format: int32
+    FoundEntities:
+      type: object
+      properties:
+        expNames:
+          type: array
+          items:
+            type: string
+        found:
+          type: integer
+          format: int32
+        identifiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/FoundEntity'
+        resourceToMappedEntitiesCount:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+        resources:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        totalEntitiesCount:
+          type: integer
+          format: int32
+    PathwayBase:
+      type: object
+      properties:
+        dbId:
+          type: integer
+          format: int64
+        disease:
+          type: boolean
+        entities:
+          $ref: '#/components/schemas/EntityStatistics'
+        stId:
+          type: string
+    PathwaySummary:
+      type: object
+      properties:
+        dbId:
+          type: integer
+          format: int64
+        entities:
+          $ref: '#/components/schemas/EntityStatistics'
+        inDisease:
+          type: boolean
+        llp:
+          type: boolean
+        name:
+          type: string
+        reactions:
+          $ref: '#/components/schemas/ReactionStatistics'
+        species:
+          $ref: '#/components/schemas/SpeciesSummary'
+        stId:
+          type: string
+    FoundInteractor:
+      type: object
+      properties:
+        exp:
+          type: array
+          items:
+            type: number
+            format: double
+        id:
+          type: string
+        interactsWith:
+          $ref: '#/components/schemas/IdentifierMap'
+        mapsTo:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+    IdentifierSummary:
+      type: object
+      properties:
+        exp:
+          type: array
+          items:
+            type: number
+            format: double
+        id:
+          type: string
+    FoundEntity:
+      type: object
+      properties:
+        exp:
+          type: array
+          items:
+            type: number
+            format: double
+        id:
+          type: string
+        mapsTo:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentifierMap'
     ReactionStatistics:
       type: object
       properties:

@@ -228,32 +228,6 @@ paths:
     - url: /ContentService
 components:
   schemas:
-    AnalysisSummary:
-      type: object
-      properties:
-        fileName:
-          type: string
-        gsaMethod:
-          type: string
-        gsaToken:
-          type: string
-        includeDisease:
-          type: boolean
-        interactors:
-          type: boolean
-        projection:
-          type: boolean
-        sampleName:
-          type: string
-        species:
-          type: integer
-          format: int64
-        text:
-          type: boolean
-        token:
-          type: string
-        type:
-          type: string
     SpeciesSummary:
       type: object
       properties:
@@ -270,79 +244,6 @@ components:
           format: int32
         taxId:
           type: string
-    ExpressionSummary:
-      type: object
-      properties:
-        columnNames:
-          type: array
-          items:
-            type: string
-        max:
-          type: number
-          format: double
-        min:
-          type: number
-          format: double
-    ResourceSummary:
-      type: object
-      properties:
-        filtered:
-          type: integer
-          format: int32
-        pathways:
-          type: integer
-          format: int32
-        resource:
-          type: string
-    PathwaySummary:
-      type: object
-      properties:
-        dbId:
-          type: integer
-          format: int64
-        entities:
-          $ref: '#/components/schemas/EntityStatistics'
-        inDisease:
-          type: boolean
-        llp:
-          type: boolean
-        name:
-          type: string
-        reactions:
-          $ref: '#/components/schemas/ReactionStatistics'
-        species:
-          $ref: '#/components/schemas/SpeciesSummary'
-        stId:
-          type: string
-    AnalysisResult:
-      type: object
-      properties:
-        expression:
-          $ref: '#/components/schemas/ExpressionSummary'
-        identifiersNotFound:
-          type: integer
-          format: int32
-        pathways:
-          type: array
-          items:
-            $ref: '#/components/schemas/PathwaySummary'
-        pathwaysFound:
-          type: integer
-          format: int32
-        resourceSummary:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceSummary'
-        speciesSummary:
-          type: array
-          items:
-            $ref: '#/components/schemas/SpeciesSummary'
-        summary:
-          $ref: '#/components/schemas/AnalysisSummary'
-        warnings:
-          type: array
-          items:
-            type: string
     EntityStatistics:
       type: object
       properties:
@@ -380,6 +281,105 @@ components:
         total:
           type: integer
           format: int32
+    AnalysisSummary:
+      type: object
+      properties:
+        fileName:
+          type: string
+        gsaMethod:
+          type: string
+        gsaToken:
+          type: string
+        includeDisease:
+          type: boolean
+        interactors:
+          type: boolean
+        projection:
+          type: boolean
+        sampleName:
+          type: string
+        species:
+          type: integer
+          format: int64
+        text:
+          type: boolean
+        token:
+          type: string
+        type:
+          type: string
+    AnalysisResult:
+      type: object
+      properties:
+        expression:
+          $ref: '#/components/schemas/ExpressionSummary'
+        identifiersNotFound:
+          type: integer
+          format: int32
+        pathways:
+          type: array
+          items:
+            $ref: '#/components/schemas/PathwaySummary'
+        pathwaysFound:
+          type: integer
+          format: int32
+        resourceSummary:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSummary'
+        speciesSummary:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpeciesSummary'
+        summary:
+          $ref: '#/components/schemas/AnalysisSummary'
+        warnings:
+          type: array
+          items:
+            type: string
+    ResourceSummary:
+      type: object
+      properties:
+        filtered:
+          type: integer
+          format: int32
+        pathways:
+          type: integer
+          format: int32
+        resource:
+          type: string
+    ExpressionSummary:
+      type: object
+      properties:
+        columnNames:
+          type: array
+          items:
+            type: string
+        max:
+          type: number
+          format: double
+        min:
+          type: number
+          format: double
+    PathwaySummary:
+      type: object
+      properties:
+        dbId:
+          type: integer
+          format: int64
+        entities:
+          $ref: '#/components/schemas/EntityStatistics'
+        inDisease:
+          type: boolean
+        llp:
+          type: boolean
+        name:
+          type: string
+        reactions:
+          $ref: '#/components/schemas/ReactionStatistics'
+        species:
+          $ref: '#/components/schemas/SpeciesSummary'
+        stId:
+          type: string
     ReactionStatistics:
       type: object
       properties:

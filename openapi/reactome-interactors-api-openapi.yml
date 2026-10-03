@@ -1012,6 +1012,54 @@ paths:
                 $ref: '#/components/schemas/TupleResult'
 components:
   schemas:
+    Interactors:
+      type: object
+      properties:
+        entities:
+          type: array
+          description: This is the list of entities which have been requested.
+          items:
+            $ref: '#/components/schemas/InteractorEntity'
+        resource:
+          type: string
+          description: This is the resource where interactors have been queried.
+    Interactor:
+      type: object
+      properties:
+        acc:
+          type: string
+          description: This is the interactor accession (or identifier).
+        accURL:
+          type: string
+          description: This represents the URL for given accession.
+        alias:
+          type: string
+          description: This is the Gene name of the given accession.
+        evidences:
+          type: integer
+          description: This is the Interactions evidences.
+          format: int32
+        evidencesURL:
+          type: string
+          description: This represents the URL for the given interactions identifiers.
+        id:
+          type: integer
+          description: This is an auto increment counter which represents an unique number for the interaction.
+          format: int64
+        score:
+          type: number
+          description: This represents the confidence value (score) of an interaction.
+          format: double
+      description: List of Interactors that interacts with the given accession.
+    TupleResult:
+      type: object
+      properties:
+        summary:
+          $ref: '#/components/schemas/Summary'
+        warningMessages:
+          type: array
+          items:
+            type: string
     Summary:
       type: object
       properties:
@@ -1027,15 +1075,22 @@ components:
           type: string
         token:
           type: string
-    TupleResult:
+    CustomPsicquicResource:
       type: object
       properties:
         summary:
           $ref: '#/components/schemas/Summary'
-        warningMessages:
-          type: array
-          items:
-            type: string
+    PsicquicResource:
+      type: object
+      properties:
+        active:
+          type: boolean
+        name:
+          type: string
+        restURL:
+          type: string
+        soapURL:
+          type: string
     CustomInteraction:
       type: object
       properties:
@@ -1085,58 +1140,3 @@ components:
           items:
             $ref: '#/components/schemas/Interactor'
       description: This is the list of entities which have been requested.
-    PsicquicResource:
-      type: object
-      properties:
-        active:
-          type: boolean
-        name:
-          type: string
-        restURL:
-          type: string
-        soapURL:
-          type: string
-    Interactor:
-      type: object
-      properties:
-        acc:
-          type: string
-          description: This is the interactor accession (or identifier).
-        accURL:
-          type: string
-          description: This represents the URL for given accession.
-        alias:
-          type: string
-          description: This is the Gene name of the given accession.
-        evidences:
-          type: integer
-          description: This is the Interactions evidences.
-          format: int32
-        evidencesURL:
-          type: string
-          description: This represents the URL for the given interactions identifiers.
-        id:
-          type: integer
-          description: This is an auto increment counter which represents an unique number for the interaction.
-          format: int64
-        score:
-          type: number
-          description: This represents the confidence value (score) of an interaction.
-          format: double
-      description: List of Interactors that interacts with the given accession.
-    CustomPsicquicResource:
-      type: object
-      properties:
-        summary:
-          $ref: '#/components/schemas/Summary'
-    Interactors:
-      type: object
-      properties:
-        entities:
-          type: array
-          description: This is the list of entities which have been requested.
-          items:
-            $ref: '#/components/schemas/InteractorEntity'
-        resource:
-          type: string
-          description: This is the resource where interactors have been queried.

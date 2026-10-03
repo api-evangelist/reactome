@@ -203,20 +203,6 @@ paths:
                   type: object
 components:
   schemas:
-    Participant:
-      type: object
-      properties:
-        displayName:
-          type: string
-        peDbId:
-          type: integer
-          format: int64
-        refEntities:
-          type: array
-          items:
-            $ref: '#/components/schemas/ParticipantRefEntities'
-        schemaClass:
-          type: string
     ParticipantRefEntities:
       type: object
       properties:
@@ -234,4 +220,18 @@ components:
         stId:
           type: string
         url:
+          type: string
+    Participant:
+      type: object
+      properties:
+        displayName:
+          type: string
+        peDbId:
+          type: integer
+          format: int64
+        refEntities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParticipantRefEntities'
+        schemaClass:
           type: string

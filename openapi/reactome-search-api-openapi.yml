@@ -1014,37 +1014,39 @@ paths:
                   type: string
 components:
   schemas:
-    DiagramOccurrencesResult:
+    FireworksOccurrencesResult:
       type: object
       properties:
-        diagramEntity:
-          type: string
-        inDiagram:
-          type: boolean
         interactsWith:
           type: array
           items:
             type: string
-        occurrences:
+        llps:
           type: array
           items:
             type: string
-    FacetMapping:
+    FacetContainer:
       type: object
       properties:
-        compartmentFacet:
-          $ref: '#/components/schemas/FacetList'
-        iconCategoriesFacet:
-          $ref: '#/components/schemas/FacetList'
-        keywordFacet:
-          $ref: '#/components/schemas/FacetList'
-        speciesFacet:
-          $ref: '#/components/schemas/FacetList'
-        totalNumFount:
+        count:
           type: integer
           format: int64
-        typeFacet:
-          $ref: '#/components/schemas/FacetList'
+        name:
+          type: string
+    DiagramResult:
+      type: object
+      properties:
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entry'
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetContainer'
+        found:
+          type: integer
+          format: int64
     GroupedResult:
       type: object
       properties:
@@ -1066,51 +1068,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TargetResult'
-    FacetContainer:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int64
-        name:
-          type: string
-    Result:
-      type: object
-      properties:
-        entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Entry'
-        entriesCount:
-          type: integer
-          format: int64
-        rowCount:
-          type: integer
-          format: int32
-        typeName:
-          type: string
-    FireworksOccurrencesResult:
-      type: object
-      properties:
-        interactsWith:
-          type: array
-          items:
-            type: string
-        llps:
-          type: array
-          items:
-            type: string
-    FacetList:
-      type: object
-      properties:
-        available:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetContainer'
-        selected:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetContainer'
     FireworksResult:
       type: object
       properties:
@@ -1130,19 +1087,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TargetResult'
-    IconPhysicalEntity:
-      type: object
-      properties:
-        compartments:
-          type: string
-        displayName:
-          type: string
-        name:
-          type: string
-        stId:
-          type: string
-        type:
-          type: string
     Entry:
       type: object
       properties:
@@ -1272,17 +1216,73 @@ components:
           type: boolean
         term:
           type: string
-    DiagramResult:
+    IconPhysicalEntity:
+      type: object
+      properties:
+        compartments:
+          type: string
+        displayName:
+          type: string
+        name:
+          type: string
+        stId:
+          type: string
+        type:
+          type: string
+    DiagramOccurrencesResult:
+      type: object
+      properties:
+        diagramEntity:
+          type: string
+        inDiagram:
+          type: boolean
+        interactsWith:
+          type: array
+          items:
+            type: string
+        occurrences:
+          type: array
+          items:
+            type: string
+    Result:
       type: object
       properties:
         entries:
           type: array
           items:
             $ref: '#/components/schemas/Entry'
-        facets:
+        entriesCount:
+          type: integer
+          format: int64
+        rowCount:
+          type: integer
+          format: int32
+        typeName:
+          type: string
+    FacetList:
+      type: object
+      properties:
+        available:
           type: array
           items:
             $ref: '#/components/schemas/FacetContainer'
-        found:
+        selected:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetContainer'
+    FacetMapping:
+      type: object
+      properties:
+        compartmentFacet:
+          $ref: '#/components/schemas/FacetList'
+        iconCategoriesFacet:
+          $ref: '#/components/schemas/FacetList'
+        keywordFacet:
+          $ref: '#/components/schemas/FacetList'
+        speciesFacet:
+          $ref: '#/components/schemas/FacetList'
+        totalNumFount:
           type: integer
           format: int64
+        typeFacet:
+          $ref: '#/components/schemas/FacetList'

@@ -497,6 +497,16 @@ paths:
     - url: /ContentService
 components:
   schemas:
+    MappedEntity:
+      type: object
+      properties:
+        identifier:
+          type: string
+        mapsTo:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/MappedIdentifier'
     MappedIdentifier:
       type: object
       properties:
@@ -508,16 +518,6 @@ components:
             $ref: '#/components/schemas/MappedIdentifier'
         resource:
           type: string
-    MappedEntity:
-      type: object
-      properties:
-        identifier:
-          type: string
-        mapsTo:
-          uniqueItems: true
-          type: array
-          items:
-            $ref: '#/components/schemas/MappedIdentifier'
 x-refined-from:
 - analysis-service.json
 - content-service.json

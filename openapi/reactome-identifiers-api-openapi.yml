@@ -893,22 +893,6 @@ paths:
                 $ref: '#/components/schemas/AnalysisResult'
 components:
   schemas:
-    SpeciesSummary:
-      type: object
-      properties:
-        dbId:
-          type: integer
-          format: int64
-        filtered:
-          type: integer
-          format: int32
-        name:
-          type: string
-        pathways:
-          type: integer
-          format: int32
-        taxId:
-          type: string
     EntityStatistics:
       type: object
       properties:
@@ -946,31 +930,16 @@ components:
         total:
           type: integer
           format: int32
-    AnalysisSummary:
+    ResourceSummary:
       type: object
       properties:
-        fileName:
-          type: string
-        gsaMethod:
-          type: string
-        gsaToken:
-          type: string
-        includeDisease:
-          type: boolean
-        interactors:
-          type: boolean
-        projection:
-          type: boolean
-        sampleName:
-          type: string
-        species:
+        filtered:
           type: integer
-          format: int64
-        text:
-          type: boolean
-        token:
-          type: string
-        type:
+          format: int32
+        pathways:
+          type: integer
+          format: int32
+        resource:
           type: string
     AnalysisResult:
       type: object
@@ -1001,16 +970,47 @@ components:
           type: array
           items:
             type: string
-    ResourceSummary:
+    AnalysisSummary:
       type: object
       properties:
+        fileName:
+          type: string
+        gsaMethod:
+          type: string
+        gsaToken:
+          type: string
+        includeDisease:
+          type: boolean
+        interactors:
+          type: boolean
+        projection:
+          type: boolean
+        sampleName:
+          type: string
+        species:
+          type: integer
+          format: int64
+        text:
+          type: boolean
+        token:
+          type: string
+        type:
+          type: string
+    SpeciesSummary:
+      type: object
+      properties:
+        dbId:
+          type: integer
+          format: int64
         filtered:
           type: integer
           format: int32
+        name:
+          type: string
         pathways:
           type: integer
           format: int32
-        resource:
+        taxId:
           type: string
     ExpressionSummary:
       type: object
@@ -1025,6 +1025,20 @@ components:
         min:
           type: number
           format: double
+    ReactionStatistics:
+      type: object
+      properties:
+        found:
+          type: integer
+          format: int32
+        ratio:
+          type: number
+          format: double
+        resource:
+          type: string
+        total:
+          type: integer
+          format: int32
     PathwaySummary:
       type: object
       properties:
@@ -1045,17 +1059,3 @@ components:
           $ref: '#/components/schemas/SpeciesSummary'
         stId:
           type: string
-    ReactionStatistics:
-      type: object
-      properties:
-        found:
-          type: integer
-          format: int32
-        ratio:
-          type: number
-          format: double
-        resource:
-          type: string
-        total:
-          type: integer
-          format: int32

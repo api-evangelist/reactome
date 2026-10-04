@@ -236,35 +236,37 @@ paths:
                 format: binary
 components:
   schemas:
-    ExternalPathwayNodeData:
+    ExternalAnalysisSummary:
       type: object
       properties:
-        entities:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalIdentifier'
+        gsaMethod:
+          type: string
+        gsaToken:
+          type: string
+        includeDisease:
+          type: boolean
         interactors:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalInteractor'
-        reactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalAnalysisReaction'
-        statistics:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalStatistics'
-    ExternalSpeciesNode:
-      type: object
-      properties:
-        name:
+          type: boolean
+        projection:
+          type: boolean
+        sampleName:
           type: string
-        speciesID:
+        server:
+          type: string
+        token:
+          type: string
+        type:
+          type: string
+          enum:
+          - SPECIES_COMPARISON
+          - OVERREPRESENTATION
+          - EXPRESSION
+          - GSA_REGULATION
+          - GSA_STATISTICS
+          - GSVA
+        version:
           type: integer
-          format: int64
-        taxID:
-          type: string
+          format: int32
     ExternalStatistics:
       type: object
       properties:
@@ -314,55 +316,71 @@ components:
           format: double
         resource:
           type: string
-    ExternalAnalysisSummary:
+    ExternalAnalysisReaction:
       type: object
       properties:
-        gsaMethod:
-          type: string
-        gsaToken:
-          type: string
-        includeDisease:
-          type: boolean
-        interactors:
-          type: boolean
-        projection:
-          type: boolean
-        sampleName:
-          type: string
-        server:
-          type: string
-        token:
-          type: string
-        type:
-          type: string
-          enum:
-          - SPECIES_COMPARISON
-          - OVERREPRESENTATION
-          - EXPRESSION
-          - GSA_REGULATION
-          - GSA_STATISTICS
-          - GSVA
-        version:
-          type: integer
-          format: int32
-    ExternalPathwayNodeSummary:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/ExternalPathwayNodeData'
         dbId:
           type: integer
           format: int64
-        inDisease:
-          type: boolean
-        llp:
-          type: boolean
-        name:
-          type: string
-        species:
-          $ref: '#/components/schemas/ExternalSpeciesNode'
+        resources:
+          type: array
+          items:
+            type: string
         stId:
           type: string
+    ExternalInteractor:
+      type: object
+      properties:
+        exp:
+          type: array
+          items:
+            type: number
+            format: double
+        id:
+          type: string
+        mapsTo:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalInteraction'
+    ExternalInteraction:
+      type: object
+      properties:
+        id:
+          type: string
+        interactsWith:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalMainIdentifier'
+    ExternalMainIdentifier:
+      type: object
+      properties:
+        id:
+          type: string
+        resource:
+          type: string
+    ExternalSpeciesNode:
+      type: object
+      properties:
+        name:
+          type: string
+        speciesID:
+          type: integer
+          format: int64
+        taxID:
+          type: string
+    ExternalExpressionSummary:
+      type: object
+      properties:
+        columnNames:
+          type: array
+          items:
+            type: string
+        max:
+          type: number
+          format: double
+        min:
+          type: number
+          format: double
     ExternalAnalysisResult:
       type: object
       properties:
@@ -382,40 +400,25 @@ components:
           type: array
           items:
             type: string
-    ExternalMainIdentifier:
+    ExternalPathwayNodeData:
       type: object
       properties:
-        id:
-          type: string
-        resource:
-          type: string
-    ExternalInteractor:
-      type: object
-      properties:
-        exp:
+        entities:
           type: array
           items:
-            type: number
-            format: double
-        id:
-          type: string
-        mapsTo:
+            $ref: '#/components/schemas/ExternalIdentifier'
+        interactors:
           type: array
           items:
-            $ref: '#/components/schemas/ExternalInteraction'
-    ExternalExpressionSummary:
-      type: object
-      properties:
-        columnNames:
+            $ref: '#/components/schemas/ExternalInteractor'
+        reactions:
           type: array
           items:
-            type: string
-        max:
-          type: number
-          format: double
-        min:
-          type: number
-          format: double
+            $ref: '#/components/schemas/ExternalAnalysisReaction'
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalStatistics'
     ExternalIdentifier:
       type: object
       properties:
@@ -430,24 +433,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ExternalMainIdentifier'
-    ExternalInteraction:
+    ExternalPathwayNodeSummary:
       type: object
       properties:
-        id:
-          type: string
-        interactsWith:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalMainIdentifier'
-    ExternalAnalysisReaction:
-      type: object
-      properties:
+        data:
+          $ref: '#/components/schemas/ExternalPathwayNodeData'
         dbId:
           type: integer
           format: int64
-        resources:
-          type: array
-          items:
-            type: string
+        inDisease:
+          type: boolean
+        llp:
+          type: boolean
+        name:
+          type: string
+        species:
+          $ref: '#/components/schemas/ExternalSpeciesNode'
         stId:
           type: string

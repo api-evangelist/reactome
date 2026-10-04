@@ -366,23 +366,29 @@ paths:
                   $ref: '#/components/schemas/SimpleReferenceObject'
 components:
   schemas:
-    SimpleDatabaseObject:
+    SimpleReferenceObject:
       type: object
       properties:
+        databaseName:
+          type: string
         dbId:
           type: integer
           format: int64
-        displayName:
+        identifier:
           type: string
-        labels:
+    SchemaNode:
+      type: object
+      properties:
+        children:
+          uniqueItems: true
           type: array
-          writeOnly: true
           items:
-            type: string
-        schemaClass:
+            $ref: '#/components/schemas/SchemaNode'
+        className:
           type: string
-        stId:
-          type: string
+        count:
+          type: integer
+          format: int32
     DatabaseObject:
       type: object
       properties:
@@ -403,26 +409,20 @@ components:
           type: string
         stIdVersion:
           type: string
-    SchemaNode:
+    SimpleDatabaseObject:
       type: object
       properties:
-        children:
-          uniqueItems: true
-          type: array
-          items:
-            $ref: '#/components/schemas/SchemaNode'
-        className:
-          type: string
-        count:
-          type: integer
-          format: int32
-    SimpleReferenceObject:
-      type: object
-      properties:
-        databaseName:
-          type: string
         dbId:
           type: integer
           format: int64
-        identifier:
+        displayName:
+          type: string
+        labels:
+          type: array
+          writeOnly: true
+          items:
+            type: string
+        schemaClass:
+          type: string
+        stId:
           type: string

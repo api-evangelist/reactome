@@ -1,17 +1,24 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/analysis-service.json, openapi/content-service.json
+source: openapi/reactome-database-api-openapi.yml, openapi/reactome-discover-api-openapi.yml,
+  openapi/reactome-diseases-api-openapi.yml, openapi/reactome-download-api-openapi.yml, openapi/reactome-entities-api-openapi.yml,
+  openapi/reactome-events-api-openapi.yml, openapi/reactome-exporter-api-openapi.yml, openapi/reactome-identifier-api-openapi.yml,
+  openapi/reactome-identifiers-api-openapi.yml, openapi/reactome-import-api-openapi.yml, openapi/reactome-interactors-api-openapi.yml,
+  openapi/reactome-mapping-api-openapi.yml, openapi/reactome-orthology-api-openapi.yml, openapi/reactome-participants-api-openapi.yml,
+  openapi/reactome-pathways-api-openapi.yml, openapi/reactome-person-api-openapi.yml, openapi/reactome-query-api-openapi.yml,
+  openapi/reactome-references-api-openapi.yml, openapi/reactome-report-api-openapi.yml, openapi/reactome-schema-api-openapi.yml,
+  openapi/reactome-search-api-openapi.yml, openapi/reactome-species-api-openapi.yml, openapi/reactome-token-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 122
   by_action_class:
-    connected: 91
-    acting: 31
+    connected: 115
+    acting: 7
   by_consequence:
-    read: 91
-    write: 30
+    read: 115
+    write: 6
     physical: 1
   human_in_the_loop_required: 0
 operations:
@@ -28,6 +35,56 @@ operations:
 - path: /database/version
   method: get
   operationId: getDBVersion
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /data/database/name
+  method: get
+  operationId: getDBName
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /data/database/version
+  method: get
+  operationId: getDBVersion
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /data/discover/{identifier}
+  method: get
+  operationId: eventDiscovery
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /data/diseases
+  method: get
+  operationId: getDiseases
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /data/diseases/doid
+  method: get
+  operationId: getDiseasesSummary
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -85,434 +142,6 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /identifier/{id}
-  method: get
-  operationId: getIdentifier
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /identifier/{id}/projection
-  method: get
-  operationId: getIdentifierToHuman
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /identifiers/
-  method: post
-  operationId: getPostText_1
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /identifiers/form
-  method: post
-  operationId: getPostFile_1
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /identifiers/form/projection
-  method: post
-  operationId: getPostFileToHuman
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /identifiers/projection
-  method: post
-  operationId: getPostTextToHuman
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /identifiers/url
-  method: post
-  operationId: getPostURL_1
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /identifiers/url/projection
-  method: post
-  operationId: getPostURLToHuman
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /import/
-  method: post
-  operationId: getPostText
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /import/form
-  method: post
-  operationId: getPostFile
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /import/url
-  method: post
-  operationId: getPostURL
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /mapping/
-  method: post
-  operationId: getMapping
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /mapping/form
-  method: post
-  operationId: getMappingPostFile
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /mapping/form/projection
-  method: post
-  operationId: getMappingPostFileToHuman
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /mapping/projection
-  method: post
-  operationId: getMappingToHuman
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /mapping/url
-  method: post
-  operationId: getMappingPostURL
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /mapping/url/projection
-  method: post
-  operationId: getMappingPostURLToHuman
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /report/{token}/{species}/{filename}.pdf
-  method: get
-  operationId: generatePdfReport
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /species/homoSapiens/{species}
-  method: get
-  operationId: compareHomoSapiensTo
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /token/{token}
-  method: get
-  operationId: getToken
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /token/{token}/filter/pathways
-  method: post
-  operationId: getTokenFilterPathways
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /token/{token}/filter/species/{species}
-  method: get
-  operationId: filterBySpecies
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /token/{token}/found/all
-  method: post
-  operationId: getTokenHitEntitiesPathways
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /token/{token}/found/all/{pathway}
-  method: get
-  operationId: getTokenHitEntitiesPathway
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /token/{token}/found/entities/{pathway}
-  method: get
-  operationId: getTokenIdentifiersPathway
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /token/{token}/found/interactors/{pathway}
-  method: get
-  operationId: getTokenInteractorsPathway
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /token/{token}/notFound
-  method: get
-  operationId: getNotFoundIdentifiers
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /token/{token}/page/{pathway}
-  method: get
-  operationId: getPageOfPathway
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /token/{token}/pathways/binned
-  method: get
-  operationId: getPathwaysBinnedBySize
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /token/{token}/reactions/pathways
-  method: post
-  operationId: getTokenFilterPathwaysReactions
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /token/{token}/reactions/{pathway}
-  method: get
-  operationId: getTokenFilterPathwayReactions
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /token/{token}/resources
-  method: get
-  operationId: getResources
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /data/complex/{id}/subunits
   method: get
   operationId: getComplexSubunits
@@ -526,56 +155,6 @@ operations:
 - path: /data/complexes/{resource}/{identifier}
   method: get
   operationId: getComplexesFor
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /data/database/name
-  method: get
-  operationId: getDBName
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /data/database/version
-  method: get
-  operationId: getDBVersion
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /data/discover/{identifier}
-  method: get
-  operationId: eventDiscovery
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /data/diseases
-  method: get
-  operationId: getDiseases
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /data/diseases/doid
-  method: get
-  operationId: getDiseasesSummary
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -643,6 +222,422 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+- path: /exporter/diagram/{identifier}.{ext}
+  method: get
+  operationId: diagramImage_1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /exporter/document/event/{identifier}.pdf
+  method: get
+  operationId: eventPdf
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /exporter/event/{identifier}.sbgn
+  method: get
+  operationId: eventSBGN
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /exporter/event/{identifier}.sbml
+  method: get
+  operationId: eventSBML
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /exporter/fireworks/{species}.{ext}
+  method: get
+  operationId: diagramImage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /exporter/reaction/{identifier}.{ext}
+  method: get
+  operationId: reactionImage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /identifier/{id}
+  method: get
+  operationId: getIdentifier
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /identifier/{id}/projection
+  method: get
+  operationId: getIdentifierToHuman
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /identifiers/
+  method: post
+  operationId: getPostText_1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /identifiers/form
+  method: post
+  operationId: getPostFile_1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /identifiers/form/projection
+  method: post
+  operationId: getPostFileToHuman
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /identifiers/projection
+  method: post
+  operationId: getPostTextToHuman
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /identifiers/url
+  method: post
+  operationId: getPostURL_1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /identifiers/url/projection
+  method: post
+  operationId: getPostURLToHuman
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /import/
+  method: post
+  operationId: getPostText
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /import/form
+  method: post
+  operationId: getPostFile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /import/url
+  method: post
+  operationId: getPostURL
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /interactors/psicquic/molecule/{resource}/{acc}/details
+  method: get
+  operationId: getProteinDetailsByResource
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /interactors/psicquic/molecule/{resource}/{acc}/summary
+  method: get
+  operationId: getProteinSummaryByResource
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /interactors/psicquic/molecules/{resource}/details
+  method: post
+  operationId: getProteinsDetailsByResource
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /interactors/psicquic/molecules/{resource}/summary
+  method: post
+  operationId: getProteinsSummaryByResource
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /interactors/psicquic/resources
+  method: get
+  operationId: getResources
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /interactors/static/molecule/enhanced/{acc}/details
+  method: get
+  operationId: getCustomInteractionsByAcc
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /interactors/static/molecule/{acc}/details
+  method: get
+  operationId: getProteinDetailsByAcc
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /interactors/static/molecule/{acc}/pathways
+  method: get
+  operationId: getLowerLevelPathways
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /interactors/static/molecule/{acc}/summary
+  method: get
+  operationId: getProteinSummaryByAcc
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /interactors/static/molecules/details
+  method: post
+  operationId: getProteinsDetailsByAccs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /interactors/static/molecules/summary
+  method: post
+  operationId: getProteinsSummaryByAccs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /interactors/token/{token}
+  method: post
+  operationId: getInteractors
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /interactors/upload/psicquic/url
+  method: post
+  operationId: registryPsicquicURL
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /interactors/upload/tuple/content
+  method: post
+  operationId: postFileContent
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /interactors/upload/tuple/form
+  method: post
+  operationId: postFile
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /interactors/upload/tuple/url
+  method: post
+  operationId: postUrl
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /mapping/
+  method: post
+  operationId: getMapping
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mapping/form
+  method: post
+  operationId: getMappingPostFile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mapping/form/projection
+  method: post
+  operationId: getMappingPostFileToHuman
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mapping/projection
+  method: post
+  operationId: getMappingToHuman
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mapping/url
+  method: post
+  operationId: getMappingPostURL
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mapping/url/projection
+  method: post
+  operationId: getMappingPostURLToHuman
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /data/mapping/{resource}/{identifier}/pathways
   method: get
   operationId: getPathways
@@ -667,18 +662,12 @@ operations:
   method: post
   operationId: getOrthologies
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /data/orthology/{id}/species/{speciesId}
   method: get
   operationId: getOrthology
@@ -873,34 +862,22 @@ operations:
   method: post
   operationId: findByIds
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /data/query/ids/map
   method: post
   operationId: findByIdsMap
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /data/query/{id}
   method: get
   operationId: findById
@@ -914,6 +891,46 @@ operations:
 - path: /data/query/{id}/{attributeName}
   method: get
   operationId: findById_1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /references/mapping/xrefs
+  method: post
+  operationId: getCrossReferencesForList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /references/mapping/{identifier}
+  method: get
+  operationId: getReferenceEntitiesFor
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /references/mapping/{identifier}/xrefs
+  method: get
+  operationId: getCrossReferencesFor
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /report/{token}/{species}/{filename}.pdf
+  method: get
+  operationId: generatePdfReport
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -964,338 +981,6 @@ operations:
 - path: /data/schema/{className}/reference
   method: get
   operationId: getSimpleReferencesObjectsByClassName
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /data/species/all
-  method: get
-  operationId: getAllSpecies
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /data/species/main
-  method: get
-  operationId: getSpecies
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /exporter/diagram/{identifier}.{ext}
-  method: get
-  operationId: diagramImage_1
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /exporter/document/event/{identifier}.pdf
-  method: get
-  operationId: eventPdf
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /exporter/event/{identifier}.sbgn
-  method: get
-  operationId: eventSBGN
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /exporter/event/{identifier}.sbml
-  method: get
-  operationId: eventSBML
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /exporter/fireworks/{species}.{ext}
-  method: get
-  operationId: diagramImage
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /exporter/reaction/{identifier}.{ext}
-  method: get
-  operationId: reactionImage
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /interactors/psicquic/molecule/{resource}/{acc}/details
-  method: get
-  operationId: getProteinDetailsByResource
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /interactors/psicquic/molecule/{resource}/{acc}/summary
-  method: get
-  operationId: getProteinSummaryByResource
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /interactors/psicquic/molecules/{resource}/details
-  method: post
-  operationId: getProteinsDetailsByResource
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /interactors/psicquic/molecules/{resource}/summary
-  method: post
-  operationId: getProteinsSummaryByResource
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /interactors/psicquic/resources
-  method: get
-  operationId: getResources
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /interactors/static/molecule/enhanced/{acc}/details
-  method: get
-  operationId: getCustomInteractionsByAcc
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /interactors/static/molecule/{acc}/details
-  method: get
-  operationId: getProteinDetailsByAcc
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /interactors/static/molecule/{acc}/pathways
-  method: get
-  operationId: getLowerLevelPathways
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /interactors/static/molecule/{acc}/summary
-  method: get
-  operationId: getProteinSummaryByAcc
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /interactors/static/molecules/details
-  method: post
-  operationId: getProteinsDetailsByAccs
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /interactors/static/molecules/summary
-  method: post
-  operationId: getProteinsSummaryByAccs
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /interactors/token/{token}
-  method: post
-  operationId: getInteractors
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /interactors/upload/psicquic/url
-  method: post
-  operationId: registryPsicquicURL
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /interactors/upload/tuple/content
-  method: post
-  operationId: postFileContent
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /interactors/upload/tuple/form
-  method: post
-  operationId: postFile
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /interactors/upload/tuple/url
-  method: post
-  operationId: postUrl
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /references/mapping/xrefs
-  method: post
-  operationId: getCrossReferencesForList
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /references/mapping/{identifier}
-  method: get
-  operationId: getReferenceEntitiesFor
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /references/mapping/{identifier}/xrefs
-  method: get
-  operationId: getCrossReferencesFor
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1416,6 +1101,184 @@ operations:
 - path: /search/suggest
   method: get
   operationId: suggesterSuggestions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /species/homoSapiens/{species}
+  method: get
+  operationId: compareHomoSapiensTo
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /data/species/all
+  method: get
+  operationId: getAllSpecies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /data/species/main
+  method: get
+  operationId: getSpecies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /token/{token}
+  method: get
+  operationId: getToken
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /token/{token}/filter/pathways
+  method: post
+  operationId: getTokenFilterPathways
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /token/{token}/filter/species/{species}
+  method: get
+  operationId: filterBySpecies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /token/{token}/found/all
+  method: post
+  operationId: getTokenHitEntitiesPathways
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /token/{token}/found/all/{pathway}
+  method: get
+  operationId: getTokenHitEntitiesPathway
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /token/{token}/found/entities/{pathway}
+  method: get
+  operationId: getTokenIdentifiersPathway
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /token/{token}/found/interactors/{pathway}
+  method: get
+  operationId: getTokenInteractorsPathway
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /token/{token}/notFound
+  method: get
+  operationId: getNotFoundIdentifiers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /token/{token}/page/{pathway}
+  method: get
+  operationId: getPageOfPathway
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /token/{token}/pathways/binned
+  method: get
+  operationId: getPathwaysBinnedBySize
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /token/{token}/reactions/pathways
+  method: post
+  operationId: getTokenFilterPathwaysReactions
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /token/{token}/reactions/{pathway}
+  method: get
+  operationId: getTokenFilterPathwayReactions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /token/{token}/resources
+  method: get
+  operationId: getResources
   x-agentic-access:
     action-class: connected
     consequence: read
